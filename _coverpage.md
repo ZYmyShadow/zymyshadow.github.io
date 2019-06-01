@@ -1,11 +1,11 @@
 
 
-# 影猫 - 加速服务
+# GROWTH - BLOG
+# PLAN + TIME = DREAM
 
-> SSCATS.COM
+> ZYMYSHADOW.GITHUB.IO
 
 
 
 
-[官网](https://sscats.com)
-[进入用户手册](/README.md)
+[BLOG](/README.md)
