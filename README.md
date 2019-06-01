@@ -1,1 +1,3 @@
-# blog.docs
+# Headline
+
+> An awesome project.
