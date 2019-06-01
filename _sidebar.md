@@ -1,9 +1,5 @@
 * **初次配置：**
-
 * [快速开始](start.md)
-
-
-
 * [Windows - SSR-dotnet](winssr.md)
 * [Windows - SSTAP](winsstap.md)
 * [MAC - SSR](macssr.md)
