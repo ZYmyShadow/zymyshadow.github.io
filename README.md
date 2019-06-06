@@ -4,8 +4,8 @@
 
 > 移动端访问请点击`左下角菜单栏`展开菜单！
 
-BLOG主页：[GROWTH - BLOG](/#)
+BLOG主页：[GROWTH - BLOG](https://zymyshadow.github.io/#/)
 
 若有好玩的技术或科技
 联系我：
-1. 网易邮箱：[hzhazha16138@163.com](hzhazha16138@163.com)
+1. 网易邮箱：[hzhazha16138@163.com]()
