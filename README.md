@@ -4,7 +4,7 @@
 
 > 移动端访问请点击`左下角菜单栏`展开菜单！
 
-BLOG主页：[GROWTH - BLOG](zymyshadow.github.io)
+BLOG主页：[GROWTH - BLOG](/#)
 
 若有好玩的技术或科技
 联系我：
