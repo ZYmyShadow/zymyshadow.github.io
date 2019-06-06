@@ -1,12 +1,20 @@
-* 基础
-  * [快速开始](zh-cn/quickstart.md)
-  * [多页文档](zh-cn/more-pages.md)
-  * [定制导航栏](zh-cn/custom-navbar.md)
-  * [封面](zh-cn/cover.md)
+* [文档](documentation/README.md)
+  * [python技术](documentation/python/README.md)
+  * [网络技术](documentation/net/README.md)
+  * [linux配置](documentation/linux/README.md)
+  * [语言初实践](documentation/program/README.md)
+  * [创意感谢](documentation/creation/README.md)
 
-* 配置
-  * [配置项](zh-cn/configuration.md)
-  * [主题](zh-cn/themes.md)
-  * [使用插件](zh-cn/plugins.md)
-  * [Markdown 配置](zh-cn/markdown.md)
-  * [代码高亮](zh-cn/language-highlight.md)
+* [成长](experience/README.md)
+  * [创作](experience/creation/README.md)
+  * [高中](experience/high/README.md)
+  * [大学](experience/university/README.md)
+  * [毕业](experience/grow/README.md)
+  
+* [bbhome](beatboxhome/README.md)
+  * [使用说明](beatboxhome/#)
+  * [功能介绍](beatboxhome/#)
+  * [交流群](beatboxhome/#)
+  * [反馈汇总](beatboxhome/#)
+  * [版本信息](beatboxhome/#)
+
