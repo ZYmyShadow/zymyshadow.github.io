@@ -113,12 +113,10 @@ n个...
 ```
 示例：
 ```
-![blockchain](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/
-u=702257389,1274025419&fm=27&gp=0.jpg "区块链")
+![blockchain](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=702257389,1274025419&fm=27&gp=0.jpg "区块链")
 ```
-效果如下：
-![blockchain](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/
-u=702257389,1274025419&fm=27&gp=0.jpg "区块链")
+效果如下：  
+![blockchain](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=702257389,1274025419&fm=27&gp=0.jpg)
 
 **上传本地图片直接点击导航栏的图片标志，选择图片即可**
 
@@ -290,15 +288,7 @@ cond(yes)->e
 cond(no)->op
 &(```)  
 ```
-效果如下：
-```flow
-st=>start: 开始
-op=>operation: My Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-&```
 
-**原作地址：简书** ***[https://www.jianshu.com/p/191d1e21f7ed](https://www.jianshu.com/p/191d1e21f7ed)***
+
+**原作地址：简书**  
+**[https://www.jianshu.com/p/191d1e21f7ed](https://www.jianshu.com/p/191d1e21f7ed)**
