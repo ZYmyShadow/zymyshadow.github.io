@@ -10,11 +10,5 @@
   * [高中](experience/high/README.md)
   * [大学](experience/university/README.md)
   * [毕业](experience/grow/README.md)
-  
-* [bbhome](beatboxhome/README.md)
-  * [使用说明](beatboxhome/#)
-  * [功能介绍](beatboxhome/#)
-  * [交流群](beatboxhome/#)
-  * [反馈汇总](beatboxhome/#)
-  * [版本信息](beatboxhome/#)
 
+* [bbhome](beatboxhome/README.md)
