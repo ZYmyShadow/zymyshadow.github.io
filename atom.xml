@@ -4,13 +4,23 @@
   <title><![CDATA[记录美好时光]]></title>
   <link href="http://zhazha.shadow.me/atom.xml" rel="self"/>
   <link href="http://zhazha.shadow.me/"/>
-  <updated>2021-04-13T13:57:12+08:00</updated>
+  <updated>2021-04-13T14:01:41+08:00</updated>
   <id>http://zhazha.shadow.me/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[测试自动发布]]></title>
+    <link href="http://zhazha.shadow.me/16182952398605.html"/>
+    <updated>2021-04-13T14:27:19+08:00</updated>
+    <id>http://zhazha.shadow.me/16182952398605.html</id>
+    <content type="html"><![CDATA[
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Markdown基本语法]]></title>
