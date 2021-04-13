@@ -153,16 +153,19 @@
 
 <p>效果如下：</p>
 
-<ul>
-<li># 这是一级标题</li>
-<li>## 这是二级标题</li>
-<li>### 这是三级标题</li>
-<li>#### 这是四级标题</li>
-<li>##### 这是五级标题</li>
-<li>###### 这是六级标题</li>
-</ul>
+<h1 id="toc_3">这是一级标题</h1>
 
-<h2 id="toc_3"><strong>二、字体</strong></h2>
+<h2 id="toc_4">这是二级标题</h2>
+
+<h3 id="toc_5">这是三级标题</h3>
+
+<h4 id="toc_6">这是四级标题</h4>
+
+<h5 id="toc_7">这是五级标题</h5>
+
+<h6 id="toc_8">这是六级标题</h6>
+
+<h2 id="toc_9"><strong>二、字体</strong></h2>
 
 <ul>
 <li><strong>加粗</strong></li>
@@ -203,7 +206,7 @@
 <strong><em>这是斜体加粗的文字</em></strong><br/><br/>
 <del>这是加删除线的文字</del>  </p>
 
-<h2 id="toc_4"><strong>三、引用</strong></h2>
+<h2 id="toc_10"><strong>三、引用</strong></h2>
 
 <p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;<br/><br/>
 n个...<br/><br/>
@@ -244,7 +247,7 @@ n个...<br/><br/>
 </blockquote>
 </blockquote>
 
-<h2 id="toc_5"><strong>四、分割线</strong></h2>
+<h2 id="toc_11"><strong>四、分割线</strong></h2>
 
 <p>三个或者三个以上的 - 或者 * 都可以。</p>
 
@@ -267,7 +270,7 @@ n个...<br/><br/>
 
 <hr/>
 
-<h2 id="toc_6"><strong>五、图片</strong></h2>
+<h2 id="toc_12"><strong>五、图片</strong></h2>
 
 <p>语法：</p>
 
@@ -287,7 +290,7 @@ n个...<br/><br/>
 
 <p><strong>上传本地图片直接点击导航栏的图片标志，选择图片即可</strong></p>
 
-<h2 id="toc_7"><strong>六、超链接</strong></h2>
+<h2 id="toc_13"><strong>六、超链接</strong></h2>
 
 <p>语法：</p>
 
@@ -314,11 +317,9 @@ title可加可不加
 &lt;a href=&quot;https://www.jianshu.com/u/1f5ac0cf6a8b&quot; target=&quot;_blank&quot;&gt;简书&lt;/a&gt;
 </code></pre>
 
-<h2 id="toc_8"><strong>七、列表</strong></h2>
+<h2 id="toc_14"><strong>七、列表</strong></h2>
 
-<ul>
-<li>### <strong>无序列表</strong></li>
-</ul>
+<h3 id="toc_15"><strong>无序列表</strong></h3>
 
 <p>语法：<br/><br/>
 无序列表用 - + * 任何一种都可以</p>
@@ -335,9 +336,10 @@ title可加可不加
 <ul>
 <li>列表内容</li>
 <li>列表内容</li>
-<li><p>列表内容</p></li>
-<li><h3 id="toc_9"><strong>有序列表</strong></h3></li>
+<li>列表内容</li>
 </ul>
+
+<h3 id="toc_16"><strong>有序列表</strong></h3>
 
 <p>语法：<br/><br/>
 数字加点  </p>
@@ -354,13 +356,15 @@ title可加可不加
 <ol>
 <li>列表内容</li>
 <li>列表内容</li>
-<li><p>列表内容  </p></li>
+<li>列表内容<br/></li>
 </ol>
 
+<h3 id="toc_17"><strong>列表嵌套</strong></h3>
+
+<p><strong>上一级和下一级之间敲三个空格即可</strong></p>
+
 <ul>
-<li><h3 id="toc_10"><strong>列表嵌套</strong></h3>
-<p><strong>上一级和下一级之间敲三个空格即可</strong></p></li>
-<li><p>一级无序列表内容</p>
+<li>一级无序列表内容
 <ul>
 <li>二级无序列表内容</li>
 <li>二级无序列表内容</li>
@@ -391,7 +395,7 @@ title可加可不加
 
 <hr/>
 
-<h2 id="toc_11"><strong>八、表格</strong></h2>
+<h2 id="toc_18"><strong>八、表格</strong></h2>
 
 <p>语法：</p>
 
@@ -417,14 +421,37 @@ title可加可不加
 张飞|骂|三弟
 </code></pre>
 
-<p>效果如下：<br/><br/>
-姓名|技能|排行<br/><br/>
---|:--:|--:<br/><br/>
-刘备|哭|大哥<br/><br/>
-关羽|打|二哥<br/><br/>
-张飞|骂|三弟  </p>
+<p>效果如下：  </p>
 
-<h2 id="toc_12"><strong>九、代码</strong></h2>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th style="text-align: center">技能</th>
+<th style="text-align: right">排行</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>刘备</td>
+<td style="text-align: center">哭</td>
+<td style="text-align: right">大哥</td>
+</tr>
+<tr>
+<td>关羽</td>
+<td style="text-align: center">打</td>
+<td style="text-align: right">二哥</td>
+</tr>
+<tr>
+<td>张飞</td>
+<td style="text-align: center">骂</td>
+<td style="text-align: right">三弟</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_19"><strong>九、代码</strong></h2>
 
 <p>语法：<br/><br/>
 单行代码：代码之间分别用一个反引号包起来  </p>
@@ -462,9 +489,11 @@ title可加可不加
 </code></pre>
 
 <p>效果如下：<br/><br/>
-单行代码<br/><br/>
-<code>create database hero;</code><br/><br/>
-代码块</p>
+单行代码  </p>
+
+<p><code>create database hero;</code> </p>
+
+<p>代码块</p>
 
 <pre class="line-numbers"><code class="language-text">function fun(){
      echo &quot;这是一句非常牛逼的代码&quot;;
@@ -472,7 +501,7 @@ title可加可不加
 fun();
 </code></pre>
 
-<h2 id="toc_13"><strong>十、流程图</strong></h2>
+<h2 id="toc_20"><strong>十、流程图</strong></h2>
 
 <pre class="line-numbers"><code class="language-text">(```)flow
 st=&gt;start: 开始
