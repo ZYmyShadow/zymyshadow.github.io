@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[记录美好时光]]></title>
-  <link href="http://zhazha.shadow.me/atom.xml" rel="self"/>
-  <link href="http://zhazha.shadow.me/"/>
-  <updated>2021-04-13T14:01:41+08:00</updated>
-  <id>http://zhazha.shadow.me/</id>
+  <link href="https://zymyshadow.github.io/atom.xml" rel="self"/>
+  <link href="https://zymyshadow.github.io/"/>
+  <updated>2021-04-13T14:30:02+08:00</updated>
+  <id>https://zymyshadow.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
     
@@ -13,10 +13,10 @@
   <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
-    <title type="html"><![CDATA[测试自动发布]]></title>
-    <link href="http://zhazha.shadow.me/16182952398605.html"/>
+    <title type="html"><![CDATA[测试自动发布d]]></title>
+    <link href="https://zymyshadow.github.io/16182952398605.html"/>
     <updated>2021-04-13T14:27:19+08:00</updated>
-    <id>http://zhazha.shadow.me/16182952398605.html</id>
+    <id>https://zymyshadow.github.io/16182952398605.html</id>
     <content type="html"><![CDATA[
 
 ]]></content>
@@ -24,9 +24,9 @@
   
   <entry>
     <title type="html"><![CDATA[Markdown基本语法]]></title>
-    <link href="http://zhazha.shadow.me/16182930714022.html"/>
+    <link href="https://zymyshadow.github.io/16182930714022.html"/>
     <updated>2021-04-13T13:51:11+08:00</updated>
-    <id>http://zhazha.shadow.me/16182930714022.html</id>
+    <id>https://zymyshadow.github.io/16182930714022.html</id>
     <content type="html"><![CDATA[
 <p>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。  </p>
 
@@ -401,9 +401,9 @@ cond(no)-&gt;op
   
   <entry>
     <title type="html"><![CDATA[Javascript之ES7详解]]></title>
-    <link href="http://zhazha.shadow.me/16182916231163.html"/>
+    <link href="https://zymyshadow.github.io/16182916231163.html"/>
     <updated>2021-04-13T13:27:03+08:00</updated>
-    <id>http://zhazha.shadow.me/16182916231163.html</id>
+    <id>https://zymyshadow.github.io/16182916231163.html</id>
     <content type="html"><![CDATA[
 <p><img src="media/16182916231163/7190596-95eacff2847c4120.png" alt="7190596-95eacff2847c4120"/></p>
 
