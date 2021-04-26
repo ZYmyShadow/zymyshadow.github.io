@@ -1,0 +1,1495 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  记录美好时光
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="记录美好时光" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:zymyshadow.github.io ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 记录美好时光</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E9%AB%98%E4%B8%AD%E7%90%86%E7%A7%91%E7%9F%A5%E8%AF%86%E6%94%B6%E9%9B%86.html">高中理科知识收集</a></li>
+        
+            <li><a href="javascript.html">javascript</a></li>
+        
+            <li><a href="markdown.html">markdown</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="16182916231163.html">
+                
+                  <h1>Javascript之ES7详解</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><img src="media/16182916231163/7190596-95eacff2847c4120.png" alt="7190596-95eacff2847c4120"/></p>
+
+<p>本篇文章主要介绍ES7+ES8的一些新功能，并结合ES6的一些API做出了相应的比较。</p>
+
+<h2 id="toc_0">ES7</h2>
+
+<h3 id="toc_1">1.Array.prototype.includes()</h3>
+
+<blockquote>
+<p>includes()作用,是查找一个值在不在数组里,若是存在则返回true,不存在返回false.  </p>
+</blockquote>
+
+<p>1.基本用法：</p>
+
+<pre class="line-numbers"><code class="language-text">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;].includes(&#39;a&#39;)     // true
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;].includes(&#39;d&#39;)     // false
+</code></pre>
+
+<p>2.接收俩个参数： <em>要搜索的值和搜索的开始索引</em></p>
+
+<pre class="line-numbers"><code class="language-text">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;].includes(&#39;b&#39;)         // true
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;].includes(&#39;b&#39;, 1)      // true
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;].includes(&#39;b&#39;, 2)      // false
+</code></pre>
+
+<p>3.与 <code>ES6中的indexOf()</code> 比较</p>
+
+<p>有些时候是等效的</p>
+
+<pre class="line-numbers"><code class="language-text">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;].includes(&#39;a&#39;)          //true
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;].indexOf(&#39;a&#39;) &gt; -1      //true
+
+var arr = [1, 2, 3]
+var a = 1;
+arr.includes(a)   //true
+arr.indexOf(a)    //0
+</code></pre>
+
+<pre class="line-numbers"><code class="language-text">[1, +0, 3, 4].includes(-0)    //true
+[1, +0, 3, 4].indexOf(-0)     //1
+</code></pre>
+
+<ul>
+<li>只能判断简单类型的数据，对于复杂类型的数据，比如对象类型的数组，二维数组，这些，是无法判断的.</li>
+</ul>
+
+<pre class="line-numbers"><code class="language-text">var arr = [1, [2, 3], 4]
+arr.includes([2, 3])   //false
+arr.indexOf([2, 3])    //-1
+</code></pre>
+
+<p><em>优缺点比较</em></p>
+
+<p><code>includes()</code> 返回的是布尔值，能直接判断数组中存不存在这个值，而 <code>indexOf()</code> 返回的是索引，这一点上前者更加方便。</p>
+
+<ul>
+<li><p>精确性</p></li>
+<li><p>两者都是采用 <code>===</code> 的操作符来作比较的，不同之处在于：对于 <code>NaN</code> 的处理结果不同。</p></li>
+<li><p>我们知道js中 <code>NaN === NaN</code> 的结果是false,<code>indexOf()</code> 也是这样处理的，但是 <code>includes()</code> 不是这样的。</p></li>
+</ul>
+
+<pre class="line-numbers"><code class="language-text">let demo = [1, NaN, 2, 3]
+
+demo.indexOf(NaN)        //-1
+demo.includes(NaN)       //true
+</code></pre>
+
+<p><em>总结：</em></p>
+
+<blockquote>
+<p>由于它对NaN的处理方式与indexOf不同，假如你只想知道某个值是否在数组中而并不关心它的索引位置，建议使用includes()。如果你想获取一个值在数组中的位置，那么你只能使用indexOf方法。  </p>
+</blockquote>
+
+<h3 id="toc_2">2.求幂运算符</h3>
+
+<p>基本用法：</p>
+
+<pre class="line-numbers"><code class="language-text">3 ** 2  //9
+效果同
+Math.pow(3, 2) //9
+</code></pre>
+
+<p>由于是运算符，所以可以和 <code>+=</code> 一样的用法</p>
+
+<pre class="line-numbers"><code class="language-text">var b = 3;
+b **= 2;
+console.log(b); //9
+</code></pre>
+
+<h2 id="toc_3">ES8</h2>
+
+<h3 id="toc_4">1.async await</h3>
+
+<p>异步函数 <code>async function()</code></p>
+
+<h4 id="toc_5">1.1作用</h4>
+
+<p>避免有更多的请求操作，出现多重嵌套，也就是俗称的“回调地狱”</p>
+
+<pre class="line-numbers"><code class="language-text">this.$http.jsonp(&#39;/login&#39;, (res) =&gt; {
+  this.$http.jsonp(&#39;/getInfo&#39;, (info) =&gt; {
+    // do something
+  })
+})
+</code></pre>
+
+<p>因此提出了ES6的Promise,将回调函数的嵌套，改为了链式调用：</p>
+
+<pre class="line-numbers"><code class="language-text">var promise = new Promise((resolve, reject) =&gt; {
+  this.login(resolve);
+})
+.then(() =&gt; {
+  this.getInfo()
+})
+.catch(() =&gt; {
+  console.log(&#39;Error&#39;)
+})
+</code></pre>
+
+<h4 id="toc_6">1.2声明方式</h4>
+
+<p>异步函数存在以下四种使用形式：</p>
+
+<ul>
+<li>函数声明： <code>async function foo() {}</code></li>
+<li>函数表达式： <code>const foo = async function() {}</code></li>
+<li>对象的方式： <code>let obj = { async foo() {} }</code></li>
+<li>箭头函数： <code>const foo = async () =&gt; {}</code></li>
+</ul>
+
+<h4 id="toc_7">1.3支持返回Promise和同步的值</h4>
+
+<p>async用于定义一个异步函数，该函数返回一个Promise。<br/>
+如果async函数返回的是一个同步的值，这个值将被包装成一个理解resolve的Promise，等同于 <code>return Promise.resolve(value)</code> 。<br/>
+await用于一个异步操作之前，表示要“等待”这个异步操作的返回值。await也可以用于一个同步的值。</p>
+
+<pre class="line-numbers"><code class="language-text">//async await
+    //返回Promise
+    let timer = async function timer() {
+        return new Promise((reslove, reject) =&gt; {
+            setTimeout(() =&gt; {
+                reslove(&#39;a&#39;);
+            }, 1000);
+        })
+    }
+    timer().then(result =&gt; {
+        console.log(result);
+    }).catch(err =&gt; {
+        console.log(err.message);
+    })
+
+    //返回同步的值
+    let sayHello = async function sayHello() {
+        let hi = &#39;hello world&#39;//等同于return Promise.resolve(hi);
+        return hi
+    }
+    sayHello().then(res =&gt; {
+        console.log(res)
+    }).catch(err =&gt; {
+        console.log(err.message);
+    })
+</code></pre>
+
+<h4 id="toc_8">1.4对异常的处理</h4>
+
+<blockquote>
+<p>首先来看下 <code>Promise</code> 中对异常的处理  </p>
+</blockquote>
+
+<p>1.使用 <code>reject</code></p>
+
+<pre class="line-numbers"><code class="language-text">let promise = new Promise((reslove, reject) =&gt; {
+  setTimeout(() =&gt; {
+    reject(&#39;promise使用reject抛出异常&#39;)  
+  }, 1000)
+})
+promise().then(res =&gt; {
+  console.log(res)
+})
+.catch(err =&gt; {
+  console.log(err)     //&#39;promise使用reject抛出异常&#39;
+})
+</code></pre>
+
+<p>2.使用 <code>new Error()</code></p>
+
+<pre class="line-numbers"><code class="language-text">let promise = new Promise((reslove, reject) =&gt; {
+    throw new Error(&#39;promise使用Error抛出异常&#39;) //使用throw异常不支持放在定时器中
+})
+promise().then(res =&gt; {
+  console.log(res)
+})
+.catch(err =&gt; {
+  console.log(err.message)     //&#39;promise使用Error抛出异常&#39;
+})
+</code></pre>
+
+<p>3.<code>reject</code> 一个 <code>new Error()</code></p>
+
+<pre class="line-numbers"><code class="language-text">let promise = new Promise((resolve, reject) =&gt; {
+    
+        setTimeout(() =&gt; {
+            reject(new Error(&#39;promise抛出异常&#39;));
+        }, 1000);
+    })
+
+    promise.then(res =&gt; {
+        console.log(res);
+    })
+    .catch(err =&gt; {
+        console.log(err.message);  //&#39;promise抛出异常&#39;
+    })
+</code></pre>
+
+<blockquote>
+<p><code>async</code> 对异常的处理也可以直接用 <code>.catch()</code> 捕捉到  </p>
+</blockquote>
+
+<pre class="line-numbers"><code class="language-text">//async抛出异常
+    let sayHi = async sayHi =&gt; {
+            throw new Error(&#39;async抛出异常&#39;);
+    }
+    sayHi().then(res =&gt; {
+        console.log(res);
+    })
+    .catch(err =&gt; {
+        console.log(err.message);
+    })
+</code></pre>
+
+<blockquote>
+<p>和Promise链的对比：  </p>
+</blockquote>
+
+<p>我们的async函数中可以包含多个异步操作，其异常和Promise链有相同之处，如果有一个Promise被reject()那么后面的将不会再进行。</p>
+
+<pre class="line-numbers"><code class="language-text">let count = () =&gt; {
+        return new Promise((resolve, reject) =&gt; {
+            setTimeout(() =&gt; {
+                reject(&#39;promise故意抛出异常&#39;)
+            }, 1000);
+        })
+    }
+    let list = () =&gt; {
+        return new Promise((resolve, reject) =&gt; {
+            setTimeout(() =&gt; {
+                resolve([1, 2, 3])
+            }, 1000);
+        })
+    }
+
+    let getList = async () =&gt; {
+        let c = await count()
+        console.log(&#39;async&#39;)    //此段代码并没有执行
+        let l = await list()
+        return { count: c, list: l }
+    }
+    console.time(&#39;start&#39;);
+    getList().then(res =&gt; {
+        console.log(res)
+    })
+    .catch(err =&gt; {
+        console.timeEnd(&#39;start&#39;)
+        console.log(err)
+    })
+    
+    //start: 1000.81494140625ms
+    //promise故意抛出异常
+</code></pre>
+
+<p>可以看到上面的案例， <code>async</code> 捕获到了一个错误之后就会立马进入 <code>.catch()</code> 中，不执行之后的代码</p>
+
+<h4 id="toc_9">1.5并行</h4>
+
+<p>上面的案例中，async采用的是串行处理</p>
+
+<p>count()和list()是有先后顺序的</p>
+
+<pre class="line-numbers"><code class="language-text">let c = await count()
+let l = await list()
+</code></pre>
+
+<p>实际用法中，若是请求的两个异步操作没有关联和先后顺序性可以采用下面的做法</p>
+
+<pre class="line-numbers"><code class="language-text">let res = await Promise.all([count(), list()])
+return res
+
+//res的结果为
+//[ 100, [ 1, 2, 3 ] ]
+</code></pre>
+
+<p>案例详情为：</p>
+
+<pre class="line-numbers"><code class="language-text">let count = ()=&gt;{
+    return new Promise((resolve,reject) =&gt; {
+        setTimeout(()=&gt;{
+            resolve(100);
+        },500);
+    });
+}
+
+let list = ()=&gt;{
+    return new Promise((resolve,reject)=&gt;{
+        setTimeout(()=&gt;{
+            resolve([1,2,3]);
+        },500);
+    });
+}
+
+let getList = async ()=&gt;{
+    let result = await Promise.all([count(),list()]);
+    return result;
+}
+console.time(&#39;begin&#39;);
+getList().then(result =&gt; {
+    console.timeEnd(&#39;begin&#39;);  //begin: 505.557ms
+    console.log(result);       //[ 100, [ 1, 2, 3 ] ]
+}).catch(err =&gt; {
+    console.timeEnd(&#39;begin&#39;);
+    console.log(err);
+});
+</code></pre>
+
+<blockquote>
+<p>我们将count()和list()使用Promise.all()“同时”执行，这里count()和list()可以看作是“并行”执行的，所耗时间将是两个异步操作中耗时最长的耗时。<br/><br/>
+最后得到的结果是两个操作的结果组成的数组。我们只需要按照顺序取出数组中的值即可。  </p>
+</blockquote>
+
+<h4 id="toc_10">1.6与Generator的关系</h4>
+
+<p>先来回顾一下ES6中 <code>Generator</code> 函数的用法：</p>
+
+<pre class="line-numbers"><code class="language-text">function* getList() {
+        const c = yield count()
+        const l = yield list()
+        return &#39;end&#39;
+    }
+    var gl = getList()
+    console.log(gl.next()) // {value: Promise, done: false}
+    console.log(gl.next()) // {value: Promise, done: false}
+    console.log(gl.next()) // {value: &#39;end&#39;, done: true}
+</code></pre>
+
+<blockquote>
+<p>虽然Generator将异步操作表示得很简洁，但是流程管理却不方便（即何时执行第一阶段、何时执行第二阶段）。此时，我们便希望能出现一种能自动执行Generator函数的方法。我们的主角来了：async/await。  </p>
+</blockquote>
+
+<p><em>ES8引入了async函数，使得异步操作变得更加方便。简单说来，它就是Generator函数的语法糖。</em></p>
+
+<pre class="line-numbers"><code class="language-text">let getList = async () =&gt; {
+  const c = await count()
+  const l = await list()
+}
+</code></pre>
+
+<h3 id="toc_11">2.Object.entries()</h3>
+
+<h4 id="toc_12">2.1作用</h4>
+
+<blockquote>
+<p>作用：将一个对象中可枚举属性的键名和键值按照二维数组的方式返回。  </p>
+
+<p>若对象是数组，则会将数组的下标作为键值返回。  </p>
+</blockquote>
+
+<pre class="line-numbers"><code class="language-text">Object.entries({ one: 1, two: 2 })    //[[&#39;one&#39;, 1], [&#39;two&#39;, 2]]
+Object.entries([1, 2])                //[[&#39;0&#39;, 1], [&#39;1&#39;, 2]]
+</code></pre>
+
+<h4 id="toc_13">2.2要点</h4>
+
+<p>1.若是键名是 <code>Symbol</code> ，编译时会被自动忽略</p>
+
+<pre class="line-numbers"><code class="language-text">Object.entries({[Symbol()]:1, two: 2})  //[[&#39;two&#39;, 2]]
+</code></pre>
+
+<p>2.<code>entries()</code> 返回的数组顺序和 <code>for</code> 循环一样，即如果对象的key值是数字，则返回值会对key值进行排序，返回的是排序后的结果</p>
+
+<pre class="line-numbers"><code class="language-text">Object.entries({ 3: &#39;a&#39;, 4: &#39;b&#39;, 1: &#39;c&#39; })    //[[&#39;1&#39;, &#39;c&#39;], [&#39;3&#39;, &#39;a&#39;], [&#39;4&#39;, &#39;b&#39;]]
+</code></pre>
+
+<p>3.利用 <code>Object.entries()</code> 创建一个真正的 <code>Map</code></p>
+
+<pre class="line-numbers"><code class="language-text">var obj = { foo: &#39;bar&#39;, baz: 42 };
+    
+    var map1 = new Map([[&#39;foo&#39;, &#39;bar&#39;], [&#39;baz&#39;, 42]]); //原本的创建方式
+    var map2 = new Map(Object.entries(obj));    //等同于map1
+
+    console.log(map1);// Map { foo: &quot;bar&quot;, baz: 42 }
+    console.log(map2);// Map { foo: &quot;bar&quot;, baz: 42 }
+</code></pre>
+
+<h4 id="toc_14">2.3自定义 <code>Object.entries()</code></h4>
+
+<p><code>Object.entries</code> 的原理其实就是将对象中的键名和值分别取出来然后推进同一个数组中</p>
+
+<pre class="line-numbers"><code class="language-text">//自定义entries()
+    var obj = { foo: &#39;bar&#39;, baz: 42 };
+    function myEntries(obj) {
+        var arr = []
+        for (var key of Object.keys(obj)) {
+            arr.push([key, obj[key]])
+        }
+        return arr
+    }
+    console.log(myEntries(obj))
+    
+    //Generator版本
+    function* genEntryies(obj) {
+        for (let key of Object.keys(obj)) {
+            yield [key, obj[key]]
+        }
+    }
+    var entryArr = genEntryies(obj);
+    console.log(entryArr.next().value) //[&quot;foo&quot;, &quot;bar&quot;]
+    console.log(entryArr.next().value) //[&quot;baz&quot;, 42]
+</code></pre>
+
+<h3 id="toc_15">3.Object.values()</h3>
+
+<h4 id="toc_16">3.1作用</h4>
+
+<blockquote>
+<p>作用：只返回自己的键值对中属性的值。它返回的数组顺序，也跟 <code>Object.entries()</code> 保持一致  </p>
+</blockquote>
+
+<pre class="line-numbers"><code class="language-text">Object.values({ one: 1, two: 2 })            //[1, 2]
+Object.values({ 3: &#39;a&#39;, 4: &#39;b&#39;, 1: &#39;c&#39; })    //[&#39;c&#39;, &#39;a&#39;, &#39;b&#39;]
+</code></pre>
+
+<h4 id="toc_17">3.2与Object.keys()比较</h4>
+
+<blockquote>
+<p>ES6中的 <code>Object.keys()</code> 返回的是键名  </p>
+</blockquote>
+
+<pre class="line-numbers"><code class="language-text">var obj = { foo: &#39;bar&#39;, baz: 42 };
+    console.log(Object.keys(obj)) //[&quot;foo&quot;, &quot;baz&quot;]
+    console.log(Object.values(obj)) //[&quot;bar&quot;, 42]
+    
+    //Object.keys()的作用就类似于for...in
+    function myKeys() {
+        let keyArr = []
+        for (let key in obj1) {
+            keyArr.push(key)
+            console.log(key)
+        }
+        return keyArr
+    }
+    console.log(myKeys(obj1)) //[&quot;foo&quot;, &quot;baz&quot;]
+</code></pre>
+
+<h4 id="toc_18">3.3entries()、values()总结</h4>
+
+<pre class="line-numbers"><code class="language-text">var obj = { foo: &#39;bar&#39;, baz: 42 };
+    console.log(Object.keys(obj)) //[&quot;foo&quot;, &quot;baz&quot;]
+    console.log(Object.values(obj)) //[&quot;bar&quot;, 42]
+    console.log(Object.entries(obj)) //[[&quot;foo&quot;, &quot;bar&quot;], [&quot;baz&quot;, 42]]
+</code></pre>
+
+<h3 id="toc_19">4.字符串填充</h3>
+
+<h4 id="toc_20">4.1padStart()和padEnd()</h4>
+
+<blockquote>
+<p>字符串填充 <code>padStart()</code> 和 <code>padEnd()</code>  </p>
+
+<p>用法  </p>
+
+<p>String.padStart(targetLength, padding)  </p>
+
+<p>参数：字符串目标长度和填充字段  </p>
+</blockquote>
+
+<pre class="line-numbers"><code class="language-text">&#39;Vue&#39;.padStart(10)           //&#39;       Vue&#39;
+&#39;React&#39;.padStart(10)         //&#39;     React&#39;
+&#39;JavaScript&#39;.padStart(10)    //&#39;JavaScript&#39;
+</code></pre>
+
+<h4 id="toc_21">4.2要点</h4>
+
+<p>1.填充函数只有在字符长度小于目标长度时才有效,而且目标长度如果小于字符串本身长度时，字符串也不会做截断处理，只会原样输出</p>
+
+<pre class="line-numbers"><code class="language-text">&#39;Vue&#39;.padEnd(10, &#39;_*&#39;)           //&#39;Vue_*_*_*_&#39;
+&#39;React&#39;.padEnd(10, &#39;Hello&#39;)      //&#39;ReactHello&#39;
+&#39;JavaScript&#39;.padEnd(10, &#39;Hi&#39;)    //&#39;JavaScript&#39;
+&#39;JavaScript&#39;.padEnd(8, &#39;Hi&#39;)     //&#39;JavaScript&#39;
+</code></pre>
+
+<h3 id="toc_22">5.Object.getOwnPropertyDescriptors()</h3>
+
+<h4 id="toc_23">5.1作用</h4>
+
+<blockquote>
+<p>该方法会返回目标对象中所有属性的属性描述符，该属性必须是对象自己定义的，不能是从原型链继承来的。  </p>
+</blockquote>
+
+<pre class="line-numbers"><code class="language-text">var obj = {
+        id:  1,
+        name: &#39;霖呆呆&#39;,
+        get gender() {
+            console.log(&#39;gender&#39;)
+        },
+        set grad(d) {
+            console.log(d)
+        }
+    }
+    console.log(Object.getOwnPropertyDescriptors(obj))
+ //输出   
+{
+  gender: {
+    configurable: true,
+    enumerable: true,
+    get: f gender(),
+    set: undefined
+  },
+  grade: {
+    configurable: true,
+    enumerable: true,
+    get: undefined,
+    set: f grade(g)
+  },
+  id: {
+    configurable: true,
+    enumerable: true,
+    value: 1,
+    writable: true
+  },
+  name: {
+    configurable: true,
+    enumerable: true,
+    value: &#39;霖呆呆&#39;,
+    writable: true
+  }
+}
+</code></pre>
+
+<h4 id="toc_24">5.2与 <code>getOwnPropertyDescriptor()</code> 比较</h4>
+
+<blockquote>
+<p>ES6中也有一个返回目标对象可枚举属性的方法  </p>
+</blockquote>
+
+<pre class="line-numbers"><code class="language-text">var obj = {
+    id: 1,
+    name: &#39;霖呆呆&#39;,
+    get gender() {
+        console.log(&#39;gender&#39;)
+    },
+    set grad(d) {
+        console.log(d)
+    }
+}
+console.log(Object.getOwnPropertyDescriptor(obj, &#39;id&#39;))
+        
+//输出结果
+ {
+  id: {
+    configurable: true,
+    enumerable: true,
+    value: 1,
+    writable: true
+  }
+}
+</code></pre>
+
+<p><em>两者的区别：一个是只返回知道属性名的描述对象,一个返回目标对象所有自身属性的描述对象</em></p>
+
+<h4 id="toc_25">5.3自定义该方法</h4>
+
+<pre class="line-numbers"><code class="language-text">function myDescriptors(obj) {
+            let descriptors = {}
+            for (let key in obj) {
+                descriptors[key] = Object.getOwnPropertyDescriptor(obj, key)
+            }
+            return descriptors
+        }
+        console.log(myDescriptors(obj))
+        //返回的结果和该方法一样
+        
+        //其中上面自定义方法的for...in也可以换成,效果也是一样的
+        for (let key of Object.keys(obj)) {
+            descriptors[key] = Object.getOwnPropertyDescriptor(obj, key)
+        }
+</code></pre>
+
+<h3 id="toc_26">6.函数参数支持尾部逗号</h3>
+
+<p>该特性允许我们在定义或者调用函数时添加尾部逗号而不报错</p>
+
+<pre class="line-numbers"><code class="language-text">let foo = function (
+                a,
+                b,
+                c,
+            ) {
+                console.log(&#39;a:&#39;, a)
+                console.log(&#39;b:&#39;, b)
+                console.log(&#39;c:&#39;, c)
+            }
+            foo(1, 3, 4, )
+
+            //输出结果为：
+            a: 1
+            b: 3
+            c: 4
+</code></pre>
+
+<blockquote>
+<p>它适用于那种多行参数并且参数名很长的情况，开发过程中，如果忘记删除尾部逗号也没关系，ES8已经支持这种写法。  </p>
+</blockquote>
+
+<h3 id="toc_27">7.修饰器Decorator</h3>
+
+<blockquote>
+<p>ES8神器Decorator，修饰器，也称修饰器模式  </p>
+</blockquote>
+
+<h4 id="toc_28">7.1 伪Decorator</h4>
+
+<p>在介绍 <code>Decorator</code> 之前，我们先来实现这样一个功能：</p>
+
+<p>定义一个函数，在调用这个函数时，能够执行一些其他额外操作</p>
+
+<p>如下代码,定义 <code>doSometing()</code>,在调用它时再执行其他代码</p>
+
+<pre class="line-numbers"><code class="language-text">function doSometing(name) {
+            console.log(&#39;Hello &#39; + name)
+        }
+        function myDecorator(fn) {
+            return function() {
+                console.log(&#39;start&#39;)
+                const res = fn.apply(this, arguments)
+                console.log(&#39;end&#39;)
+                return res
+            }
+        }
+        const wrapped = myDecorator(doSometing)
+        doSometing(&#39;lindaidai&#39;)
+        //Hello lindaidai
+        
+        wrapped(&#39;lindaidai&#39;)
+        //start 
+        //Hello lindaidai
+        //end
+</code></pre>
+
+<p><em>可以看到上面的操作：其实就是一个函数包装成另一个函数,这样的方式我们称之为“修饰器”</em></p>
+
+<p>同理，我们是不是能用一个什么东西附着在我们的类或者类的属性上，让它们也有一些附加的属性或者功能呢，比如这样：</p>
+
+<pre class="line-numbers"><code class="language-text">@addSkill
+class Person { }
+
+function addSkill(target) {
+    target.say = &quot;hello world&quot;;
+}
+</code></pre>
+
+<p>在 <code>Person</code> 这个类中，开始定义的时候是什么属性都没有的，在其上面使用 <code>@</code> 来附着上一个函数，这个函数的功能是给目标对象添加额外的属性 <code>say</code> 。</p>
+
+<p>这样 <code>Person</code> 这个类就有了 <code>say</code> 这个属性了。</p>
+
+<p>此时控制台输出：</p>
+
+<pre class="line-numbers"><code class="language-text">console.log(Person[&#39;say&#39;]) //&#39;hello world&#39;
+</code></pre>
+
+<p>同样的，如果想使用 <code>Person</code> 这个类创建出来的对象也能附加上一些属性，可以在目标对象的原型对象中进行添加：</p>
+
+<pre class="line-numbers"><code class="language-text">@addSkill
+class Person { }
+
+function addSkill(target) {
+    target.say = &quot;hello world&quot;; //直接添加到类中
+    target.prototype.eat = &quot;apple&quot;; //添加到类的原型对象中
+}
+var personOne = new Person()
+
+console.log(Person[&#39;say&#39;]) // &#39;hello world&#39;
+console.log(personOne[&#39;eat&#39;]) // &#39;apple&#39;
+</code></pre>
+
+<blockquote>
+<p>上面案例中的 <code>@addSkill</code> 其实就是一个最简单的修饰器。  </p>
+</blockquote>
+
+<p>当然，如果你将上面案例中的代码复制到你html文件中，会发现它并不能如愿的执行:</p>
+
+<p>image.png</p>
+
+<p>那是因为decorator是es7提供的方法，在浏览器中是无法直接运行的，如果你想要使用它，我们需要提前做一些准备，对它进行编译。</p>
+
+<p>如果你不想深入其中，只是想单纯的了解并使用它可以参考下面的简易教程。</p>
+
+<h4 id="toc_29">7.2 快速使用</h4>
+
+<p>网上使用 <code>Decorator</code> 的教材有很多，大多都是要需要使用插件来让浏览器支持 <code>Decorator</code> 。这里长话短说，贴上一个最精简的使用教程：</p>
+
+<blockquote>
+<p>1.创建一个名为：Decorator的文件夹  </p>
+
+<p>2.在文件夹目录下执行命令行  </p>
+
+<pre class="line-numbers"><code class="language-text">npm i babel-plugin-transform-decorators-legacy babel-register --save-dev
+</code></pre>
+
+<p>此时文件夹下会出现俩个文件： node_modules 依赖文件夹和package.json-lock.json  </p>
+
+<p>3.创建文件 complie.js  </p>
+
+<pre class="line-numbers"><code class="language-text">require(&#39;babel-register&#39;)({
+    plugins: [&#39;transform-decorators-legacy&#39;]
+});
+require(&quot;./app.js&quot;)
+</code></pre>
+
+<p>4.创建文件 app.js  </p>
+
+<pre class="line-numbers"><code class="language-text">@addSkill
+class Person { }
+function addSkill(target) {
+    target.say = &quot;hello world&quot;;
+}
+console.log(Person.say)   //&#39;hello world&#39;
+</code></pre>
+
+<p>5.在根目录下执行指令：  </p>
+
+<pre class="line-numbers"><code class="language-text">node complie.js
+</code></pre>
+
+<p>此时可以看到命令行中打印出了 hello world  </p>
+</blockquote>
+
+<p>简单介绍下上面步骤的原理：</p>
+
+<p>第二步中使用了俩个基础插件：</p>
+
+<pre class="line-numbers"><code class="language-text">transform-decorators-legacy：
+//是第三方插件，用于支持decorators
+
+babel-register：
+//用于接入node api
+</code></pre>
+
+<p>第三步、第四步创建的俩个文件</p>
+
+<pre class="line-numbers"><code class="language-text">complie.js  //用来编译app
+app.js   //使用了装饰器的js文件
+</code></pre>
+
+<p>第五步：</p>
+
+<pre class="line-numbers"><code class="language-text">原理：
+1，node执行complie.js文件；
+2，complie文件改写了node的require方法；
+3，complie在引用app.js，使用了新的require方法；
+4，app.js在加载过程中被编译，并执行。
+</code></pre>
+
+<blockquote>
+<p>当然你也可以将app.js替换为app.ts 不过别忘了把complie.js中的app.js修改为app.ts  </p>
+</blockquote>
+
+<pre class="line-numbers"><code class="language-text">// app.ts
+@addSkill
+class Person { }
+function addSkill(target) {
+    target.say = &quot;hello world&quot;;
+}
+console.log(Person[&#39;say&#39;])   
+//这里如果直接使用Person.say会提示say属性不存在,如我使用的vscode编辑器就会报错,是因为ts的原因，只需要用[]的形式获取对象属性即可。
+</code></pre>
+
+<p><em>注：ts中有些语法是和js中不一样的，比如有些对象上提示没有属性的时候，只需要换一种获取对象属性的方式即可。</em></p>
+
+<h4 id="toc_30">7.3 类修饰器</h4>
+
+<p>直接作用在类上面的修饰器，我们可以称之为类修饰器。</p>
+
+<p>如上面案例中的 <code>@addSkill</code> 就是一个类修饰器，它修改了 <code>Person</code> 这个类的行为，为它加上了静态属性 <code>say</code> 。</p>
+
+<p><code>addSkill</code> 函数的参数target是 <code>Person</code> 这个类本身。</p>
+
+<blockquote>
+<p>1.修饰器的执行原理基本就是这样：  </p>
+</blockquote>
+
+<pre class="line-numbers"><code class="language-text">@decorator
+class A {}
+
+// 等同于
+
+class A {}
+A = decorator(A) || A;
+</code></pre>
+
+<p><em>换句话说，类修饰器是一个对类进行处理的函数。</em></p>
+
+<p>它的第一个参数target就是函数要处理的目标类。</p>
+
+<blockquote>
+<p>2.多参数  </p>
+</blockquote>
+
+<p>当然如果你想要有多个参数也是可以的，我们可以在修饰器外面再封装一层函数：</p>
+
+<pre class="line-numbers"><code class="language-text">@addSkill(&quot;hello world&quot;)
+class Person { }
+function addSkill(text) {
+    return function(target) {
+        target.say = text;
+    }
+}
+console.log(Person.say)  //&#39;hello world&#39;
+</code></pre>
+
+<p>上面代码中，修饰器 <code>addSkill</code> 可以接受参数，这就等于可以修改修饰器的行为。</p>
+
+<blockquote>
+<p>3.修饰器在什么时候执行。  </p>
+</blockquote>
+
+<p>先来看一个案例：</p>
+
+<pre class="line-numbers"><code class="language-text">@looks
+class Person { }
+function looks(target) {
+    console.log(&#39;I am handsome&#39;)
+    target.looks = &#39;handsome&#39;
+}
+
+console.log(Person[&#39;looks&#39;])
+
+//I am handsome
+//handsome
+</code></pre>
+
+<p>在修饰器 <code>@looks</code> 中添加一个 <code>console.log()</code> 语句，却发现它是最早执行的，其次才打印出 <code>handsome</code> 。</p>
+
+<p><em>这是因为装饰器对类的行为的改变，是代码编译时发生的，而不是在运行时。这意味着，装饰器能在编译阶段运行代码。也就是说，装饰器本质就是编译时执行的函数。</em></p>
+
+<blockquote>
+<p>装饰器是在编译时就执行的函数  </p>
+</blockquote>
+
+<h4 id="toc_31">7.4 方法修饰器</h4>
+
+<p>上面的案例中，修饰器作用的对象是类本身。</p>
+
+<p>当然修饰器不仅仅这么简单，它也可以作用在类里的某个方法或者属性上，这样的修饰器我们称它为方法修饰器。</p>
+
+<p>如下面的案例：</p>
+
+<pre class="line-numbers"><code class="language-text">class Person {
+    constructor() {}
+    @myname  //方法修饰器
+    name() {
+        console.log(&#39;霖呆呆&#39;) 
+    }
+}
+function myname(target, key, descriptor) {
+    console.log(target);
+    console.log(key);
+    console.log(descriptor);
+    descriptor.value = function() {
+        console.log(&#39;霖呆呆&#39;)
+    }
+}
+
+var personOne = new Person() //实例化
+personOne.name() //调用name()方法
+
+//打印结果：
+Person {}
+name
+{ value: [Function: name],
+  writable: true,
+  enumerable: false,
+  configurable: true 
+ }
+霖呆呆
+</code></pre>
+
+<p>上面案例中的修饰器 <code>@myname</code> 是放在 <code>name()</code> 方法上的， <code>myname</code> 函数有三个参数：</p>
+
+<pre class="line-numbers"><code class="language-text">target: 类的原型对象，上例是Person.prototype
+key: 所要修饰的属性名  name
+descriptor: 该属性的描述对象
+</code></pre>
+
+<p>我们改变了 <code>descriptor</code> 中的 <code>value</code> ，使之打印出霖呆呆。</p>
+
+<h4 id="toc_32">7.5 多个修饰器的执行顺序</h4>
+
+<p>若是同一个方法上有多个修饰器，会像剥洋葱一样，先从外到内进入，然后由内向外执行。</p>
+
+<pre class="line-numbers"><code class="language-text">class Person {
+    constructor() {}
+    @dec(1)
+    @dec(2)
+    name() {
+        console.log(&#39;霖呆呆&#39;)
+    }
+}
+function dec(id) {
+    console.log(&#39;out&#39;, id);
+    return function(target, key, descriptor) {
+        console.log(id);
+    }
+}
+
+var person = new Person()
+person.name()
+//结果
+out 1
+out 2
+2
+1
+霖呆呆
+</code></pre>
+
+<p>如上所属，外层修饰器 <code>dec(1)</code> 先进入，但是内层修饰器 <code>dec(2)</code> 先执行。</p>
+
+<h4 id="toc_33">7.6 不能作用于函数</h4>
+
+<p>修饰器不能作用于函数之上，这是因为函数和变量一样都会提升</p>
+
+<pre class="line-numbers"><code class="language-text">var counter = 0;
+
+var add = function () {
+  counter++;
+};
+
+@add
+function foo() {
+}
+</code></pre>
+
+<p>如上面的例子所示，给函数 <code>foo()</code> 定义了修饰器 <code>@add</code> ，作用是想将 <code>counter++</code></p>
+
+<p>预计的结果 <code>counter</code> 为1，但实际上却还是为0</p>
+
+<p>原因：</p>
+
+<p>定义的函数 <code>foo()</code> 会被提升至最上层，定义的变量 <code>counter</code> 和 <code>add</code> 也会被提升，效果如下：</p>
+
+<pre class="line-numbers"><code class="language-text">@add
+function foo() {
+}
+
+var counter;
+var add;
+
+counter = 0;
+
+add = function () {
+  counter++;
+};
+</code></pre>
+
+<p>总之，由于存在函数提升，使得修饰器不能用于函数。类是不会提升的，所以就没有这方面的问题。</p>
+
+<p>另一方面，如果一定要修饰函数，可以采用高阶函数的形式直接执行。</p>
+
+<p>如在7.1中的例子所示：</p>
+
+<pre class="line-numbers"><code class="language-text">function doSometing(name) {
+            console.log(&#39;Hello&#39; + name)
+        }
+        function myDecorator(fn) {
+            return function() {
+                console.log(&#39;start&#39;)
+                const res = fn.apply(this, arguments)
+                console.log(&#39;end&#39;)
+                return res
+            }
+        }
+        const wrapped = myDecorator(doSometing)
+        doSometing(&#39;lindaidai&#39;)
+        //Hello lindaidai
+        
+        wrapped(&#39;lindaidai&#39;)
+        //start 
+        //Hello lindaidai
+        //end
+</code></pre>
+
+<h3 id="toc_34">后语</h3>
+
+<p>知识无价，尊重原创。 参考文集：</p>
+
+<p><a href="https%3A%2F%2Fwww.cnblogs.com%2Fzhuanzhuanfe%2Fp%2F7493433.html">10分钟学会ES7+ES8</a></p>
+
+<p><a href="https%3A%2F%2Fjuejin.im%2Fpost%2F5ab26c87f265da23866fc80d">JavaScript中的装饰器--Decorator</a><br/>
+<a href="http%3A%2F%2Fwww.guofengxian.com%2F2017%2F08%2F11%2Fes7-decorator%25E4%25BF%25AE%25E9%25A5%25B0%25E5%2599%25A8%25E8%25BF%2590%25E8%25A1%258C%25E7%258E%25AF%25E5%25A2%2583%25E6%2590%25AD%25E5%25BB%25BA%25E5%258F%258A%25E5%25AE%259E%25E8%25B7%25B5%2F">es7-decorator修饰器运行环境搭建及实践</a><br/>
+<a href="http%3A%2F%2Fes6.ruanyifeng.com%2F%23docs%2Fdecorator">阮一峰Decorator详解</a></p>
+
+<p><a href="https://www.jianshu.com/p/13c5d002478b">Javascript之ES7详解</a></p>
+
+<h1 id="toc_35">前端/Javascript/ES7</h1>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2021/04/13</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='javascript.html'>javascript</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   <a href="all_5.html">&laquo; Prev Page</a>  
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>记录美好时光</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E9%AB%98%E4%B8%AD%E7%90%86%E7%A7%91%E7%9F%A5%E8%AF%86%E6%94%B6%E9%9B%86.html"><strong>高中理科知识收集</strong></a>
+        
+            <a href="javascript.html"><strong>javascript</strong></a>
+        
+            <a href="markdown.html"><strong>markdown</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="16194053676463.html">高考最重要化学方程式归纳总结</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16194051326881.html">(人教版)高考化学复习知识点总结(汇编)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16194046685758.html">高考数学公式大全</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16194020956784.html">高中物理高考所有公式大全</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16194006413653.html">人教版高中生物知识点汇总</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>
