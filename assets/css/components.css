@@ -1494,38 +1494,103 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   padding: 30px 20px 70px;
 }
 .game-panels {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 22px;
 }
 .game-panel {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 30px;
-  padding: 28px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px 26px 26px;
   overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-left: 4px solid var(--jade);
+  border-top: 3px solid var(--jade);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.game-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 .game-panel::after {
   content: attr(data-num);
   position: absolute;
-  right: 10px;
-  bottom: -34px;
+  right: 8px;
+  top: -14px;
+  bottom: auto;
   font-family: var(--font-display);
-  font-size: 140px;
+  font-size: 120px;
   line-height: 1;
-  opacity: .1;
+  opacity: .09;
   pointer-events: none;
+  transition: transform .35s ease, opacity .35s ease;
 }
-.game-panel.accent-gold { border-left-color: var(--gold); }
+.game-panel:hover::after {
+  transform: translateY(-6px) rotate(-4deg);
+  opacity: .16;
+}
+.game-panel.accent-gold { border-top-color: var(--gold); }
 .game-panel.accent-gold::after { color: var(--gold); }
-.game-panel.accent-seal { border-left-color: var(--seal); }
+.game-panel.accent-seal { border-top-color: var(--seal); }
 .game-panel.accent-seal::after { color: var(--seal); }
+
+/* 分类瓦片网格（游戏主页分类导航，参考灰机wiki） */
+.cat-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  margin-bottom: 30px;
+}
+.cat-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--jade);
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.cat-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--jade);
+}
+.cat-tile-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--jade-soft);
+  color: var(--jade-strong);
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: 1.2rem;
+  transition: transform .3s ease;
+}
+.cat-tile:hover .cat-tile-icon {
+  transform: rotate(-6deg) scale(1.08);
+}
+.cat-tile-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--ink);
+}
+.cat-tile-count {
+  color: var(--ink-3);
+  font-size: .76rem;
+}
 .gp-id {
   position: relative;
   z-index: 1;
@@ -1581,6 +1646,110 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   margin-top: 0;
   padding-top: 0;
   border-top: 0;
+}
+
+/* ================= 分类面板网格（灰机wiki风格） ================= */
+
+.guide-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.guide-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--jade);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color .3s, box-shadow .3s;
+}
+.guide-panel:hover {
+  border-color: var(--jade);
+  box-shadow: var(--shadow-md);
+}
+.guide-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+}
+.guide-panel-head h3 {
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: .05em;
+  color: var(--ink);
+}
+.guide-panel-head .chip {
+  margin-left: auto;
+}
+.guide-panel-body {
+  padding: 6px 8px;
+}
+.gp-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--ink-2);
+  font-size: .88rem;
+  text-decoration: none;
+  transition: background-color .2s, color .2s, padding-left .2s;
+}
+.gp-item:hover {
+  background: var(--jade-soft);
+  color: var(--jade-strong);
+  padding-left: 14px;
+}
+.gp-icon {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--jade-soft);
+  color: var(--jade-strong);
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: .8rem;
+  transition: transform .25s;
+}
+.gp-item:hover .gp-icon {
+  transform: scale(1.1);
+}
+.gp-link-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gp-pending {
+  flex: none;
+  font-size: .62rem;
+  color: var(--ink-3);
+}
+.gp-item .arr {
+  flex: none;
+  color: var(--jade-strong);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity .2s, transform .2s;
+}
+.gp-item:hover .arr {
+  opacity: 1;
+  transform: none;
+}
+.gp-item.is-pending {
+  color: var(--ink-3);
+}
+.gp-item.is-pending .gp-icon {
+  opacity: .45;
 }
 
 /* ================= 攻略列表 + 分类筛选 ================= */
@@ -2053,13 +2222,19 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
     gap: 8px;
   }
   .game-panel {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 22px;
+    gap: 14px;
+    padding: 22px 20px;
   }
   .game-panel::after {
-    font-size: 100px;
-    bottom: -24px;
+    font-size: 90px;
+    top: -10px;
+  }
+  .cat-tiles {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+  }
+  .cat-tile {
+    padding: 18px 12px;
   }
 }
 

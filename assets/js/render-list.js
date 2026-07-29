@@ -209,6 +209,36 @@
       if (g.category && cats.indexOf(g.category) === -1) cats.push(g.category);
     });
 
+    /* ---- 分类面板网格（灰机wiki风格） ---- */
+    var panels = '<div class="guide-panels">' + cats.map(function (c) {
+      var items = sorted.filter(function (g) { return g.category === c; });
+      var links = items.map(function (g) {
+        var pending = !g.url || g.url === '#';
+        var inner =
+          '<span class="gp-icon">' + esc((g.title || '?').charAt(0)) + '</span>' +
+          '<span class="gp-link-title">' + esc(g.title) + '</span>' +
+          (pending ? '<span class="gp-pending">待更新</span>' : '<span class="arr">→</span>');
+        return pending
+          ? '<div class="gp-item is-pending">' + inner + '</div>'
+          : '<a class="gp-item" href="' + esc(g.url) + '">' + inner + '</a>';
+      }).join('');
+      return '<section class="guide-panel">' +
+        '<header class="guide-panel-head">' +
+          '<h3>' + esc(c) + '</h3>' +
+          '<span class="chip">' + items.length + ' 篇</span>' +
+        '</header>' +
+        '<div class="guide-panel-body">' + links + '</div>' +
+      '</section>';
+    }).join('') + '</div>';
+
+    /* ---- 全部攻略列表（按时间排序 + 筛选） ---- */
+    var listHead =
+      '<div class="section-head reveal" style="margin-top:40px">' +
+        '<span class="section-index mono">LIST</span>' +
+        '<h2 class="section-title">全部攻略</h2>' +
+        '<span class="section-note mono">按时间排序</span>' +
+      '</div>';
+
     var chips = '<div class="filter-chips">' +
       '<button type="button" class="f-chip active" data-cat="全部">全部 <span>' + sorted.length + '</span></button>' +
       cats.map(function (c) {
@@ -227,7 +257,7 @@
       '</li>';
     }).join('');
 
-    host.innerHTML = chips + '<ul class="guide-list">' + rows + '</ul>';
+    host.innerHTML = panels + listHead + chips + '<ul class="guide-list">' + rows + '</ul>';
 
     host.querySelectorAll('.f-chip').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -277,8 +307,29 @@
     }).join('');
   }
 
+  /* ---------- 滚动浮现（共享） ---------- */
+
+  function initReveal() {
+    var els = document.querySelectorAll('.reveal:not(.in)');
+    if (!els.length) return;
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
   window.RL = {
     esc: esc,
+    initReveal: initReveal,
     renderNews: renderNews,
     renderSeries: renderSeries,
     renderSeriesCards: renderSeriesCards,
