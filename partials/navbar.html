@@ -1,0 +1,62 @@
+<!-- partials/navbar.html · 公共导航栏（由 components.js 注入到 #navbar） -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">
+      <span class="seal">藏</span>
+      <span class="brand-name">修仙藏书阁</span>
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-menu" id="nav-menu" aria-label="主导航">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/index.html">首页</a></li>
+
+        <li class="has-sub">
+          <a class="nav-link" href="/articles/index.html">文章系列
+            <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <!-- 菜单项由 components.js 读取 /data/articles.json 动态生成 -->
+          <ul class="submenu" id="series-menu">
+            <li class="submenu-loading">加载中…</li>
+          </ul>
+        </li>
+
+        <li class="has-sub">
+          <a class="nav-link" href="/games/index.html">游戏攻略
+            <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <ul class="submenu">
+            <li><a href="/games/game-a/index.html">游戏A · 待定</a></li>
+            <li><a href="/games/game-b/index.html">游戏B · 待定</a></li>
+            <li><a href="/games/game-c/index.html">游戏C · 待定</a></li>
+          </ul>
+        </li>
+
+        <li><a class="nav-link" href="/nav.html">导航站</a></li>
+
+        <li class="has-sub">
+          <a class="nav-link" href="javascript:void(0)">外链
+            <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <ul class="submenu">
+            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.bilibili.com" target="_blank" rel="noopener">哔哩哔哩</a></li>
+            <li><a href="https://www.douyin.com" target="_blank" rel="noopener">抖音</a></li>
+          </ul>
+        </li>
+
+        <li><a class="nav-link" href="/about.html">关于宗主</a></li>
+
+        <li class="nav-theme">
+          <button class="theme-btn" data-theme-toggle type="button" aria-label="切换深色 / 浅色模式">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

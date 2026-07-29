@@ -1,0 +1,47 @@
+[
+  {
+    "id": "series-tech-article-01",
+    "title": "示例 · 用 AI 把热搜整理成 JSON：我的半自动化更新流程",
+    "summary": "记录本站热点情报的整理流水线：人工浏览热搜 → AI 归纳摘要 → 落入 JSON → push 即上线。",
+    "series": "科技系列",
+    "tags": ["AI", "效率"],
+    "url": "/articles/series-tech/article-01.html",
+    "date": "2026-07-28"
+  },
+  {
+    "id": "series-tech-article-02",
+    "title": "示例 · GitHub Pages 静态站 SEO 实战清单",
+    "summary": "从 sitemap、robots 到 OG 标签，把纯静态站点的搜索可见性一步步做到位。",
+    "series": "科技系列",
+    "tags": ["建站", "SEO"],
+    "url": "/articles/series-tech/article-02.html",
+    "date": "2026-07-25"
+  },
+  {
+    "id": "series-tech-article-03",
+    "title": "示例 · 零基础看懂大模型：从 Token 到上下文窗口",
+    "summary": "用大白话讲清楚 LLM 的几个核心概念，配一个可以跑起来的小例子。",
+    "series": "科技系列",
+    "tags": ["AI", "科普"],
+    "url": "/articles/series-tech/article-03.html",
+    "date": "2026-07-20"
+  },
+  {
+    "id": "series-life-article-01",
+    "title": "示例 · 48 小时断网实验：放下手机之后发生了什么",
+    "summary": "一次刻意的数字排毒记录，以及三个帮我重新拿回注意力的做法。",
+    "series": "生活系列",
+    "tags": ["随笔", "效率"],
+    "url": "/articles/series-life/article-01.html",
+    "date": "2026-07-22"
+  },
+  {
+    "id": "series-life-article-02",
+    "title": "示例 · 把书房改成「藏书阁」：桌面与书架改造记",
+    "summary": "从理线、收纳到灯光，打造一个能让人静下心读两小时书的角落。",
+    "series": "生活系列",
+    "tags": ["家居", "好物"],
+    "url": "/articles/series-life/article-02.html",
+    "date": "2026-07-15"
+  }
+]
