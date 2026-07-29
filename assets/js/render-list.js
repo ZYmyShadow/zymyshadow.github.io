@@ -104,17 +104,176 @@
     }).join('');
   }
 
-  /* ---------- 游戏专区卡片 ---------- */
+  /* ---------- 置顶攻略列表（首页游戏卡片 / 攻略总入口共用） ---------- */
 
-  function renderGames(host, games) {
+  function pinnedListHTML(items, wide) {
+    if (!items || !items.length) {
+      return '<p class="pinned-empty">暂无置顶攻略，待阁主开坑…</p>';
+    }
+    return '<ul class="game-pinned' + (wide ? ' pinned-wide' : '') + '">' + items.map(function (g) {
+      var cat = '<span class="gp-cat">' + esc(g.category || '攻略') + '</span>';
+      var title = '<span class="gp-title">' + esc(g.title) + '</span>';
+      if (g.url && g.url !== '#') {
+        return '<li><a class="gp-link" href="' + esc(g.url) + '">' + cat + title + '<span class="arr">→</span></a></li>';
+      }
+      return '<li class="is-pending">' + cat + title + '<span class="gp-tag">待更新</span></li>';
+    }).join('') + '</ul>';
+  }
+
+  /* ---------- 游戏专区卡片（首页，带置顶攻略入口） ---------- */
+
+  function renderGames(host, games, pinnedByGame) {
     if (!host || !Array.isArray(games)) return;
     host.innerHTML = games.map(function (g, i) {
-      return '<a class="game-card accent-' + esc(g.accent || 'jade') + '" data-num="' + esc(g.code || String(i + 1)) + '" href="' + esc(g.url) + '">' +
-        '<span class="game-status">' + esc(g.status || '筹备中') + '</span>' +
-        '<h3 class="game-name">' + esc(g.name) + '</h3>' +
-        '<p class="game-desc">' + esc(g.desc) + '</p>' +
-        '<span class="game-enter">进入专区 <span class="arr">→</span></span>' +
+      var pinned = pinnedByGame && pinnedByGame[g.id] ? pinnedByGame[g.id] : [];
+      return '<div class="game-card accent-' + esc(g.accent || 'jade') + '" data-num="' + esc(g.code || String(i + 1)) + '">' +
+        '<a class="game-card-main" href="' + esc(g.url) + '">' +
+          '<span class="game-status">' + esc(g.status || '筹备中') + '</span>' +
+          '<h3 class="game-name">' + esc(g.name) + '</h3>' +
+          '<p class="game-desc">' + esc(g.desc) + '</p>' +
+          '<span class="game-enter">进入专区 <span class="arr">→</span></span>' +
+        '</a>' +
+        pinnedListHTML(pinned) +
+      '</div>';
+    }).join('');
+  }
+
+  /* ---------- 系列入口卡片（首页） ---------- */
+
+  function renderSeriesCards(host, articles) {
+    if (!host || !Array.isArray(articles)) return;
+    var groups = [];
+    var map = {};
+    articles.forEach(function (a) {
+      if (!map[a.series]) {
+        map[a.series] = [];
+        groups.push({ name: a.series, list: map[a.series] });
+      }
+      map[a.series].push(a);
+    });
+
+    host.innerHTML = groups.map(function (g) {
+      g.list.sort(function (x, y) { return (y.date || '').localeCompare(x.date || ''); });
+      var latest = g.list.slice(0, 2).map(function (a) {
+        return '<li><time class="mono">' + esc(a.date) + '</time><span>' + esc(a.title) + '</span></li>';
+      }).join('');
+      var tagSet = {};
+      g.list.forEach(function (a) {
+        (a.tags || []).forEach(function (t) { tagSet[t] = 1; });
+      });
+      var tagHTML = Object.keys(tagSet).slice(0, 4).map(function (t) {
+        return '<i>' + esc(t) + '</i>';
+      }).join('');
+
+      return '<a class="series-card" href="/articles/index.html?series=' + encodeURIComponent(g.name) + '">' +
+        '<header><h3 class="series-name">' + esc(g.name) + '</h3><span class="chip">' + g.list.length + ' 篇</span></header>' +
+        '<ul class="series-card-latest">' + latest + '</ul>' +
+        '<footer>' +
+          '<span class="series-card-tags">' + tagHTML + '</span>' +
+          '<span class="series-card-enter">进入系列 <span class="arr">→</span></span>' +
+        '</footer>' +
       '</a>';
+    }).join('');
+  }
+
+  /* ---------- 游戏总入口面板（games/index.html） ---------- */
+
+  function renderGamePanels(host, games, pinnedByGame) {
+    if (!host || !Array.isArray(games)) return;
+    host.innerHTML = games.map(function (g, i) {
+      var pinned = pinnedByGame && pinnedByGame[g.id] ? pinnedByGame[g.id] : [];
+      return '<section class="game-panel reveal accent-' + esc(g.accent || 'jade') + '" data-num="' + esc(g.code || String(i + 1)) + '">' +
+        '<div class="gp-id">' +
+          '<span class="game-status">' + esc(g.status || '筹备中') + '</span>' +
+          '<h2 class="game-name">' + esc(g.name) + '</h2>' +
+          '<p class="game-desc">' + esc(g.desc) + '</p>' +
+          '<a class="btn-enter" href="' + esc(g.url) + '">进入专区 <span class="arr">→</span></a>' +
+        '</div>' +
+        '<div class="gp-list">' +
+          '<p class="gp-list-title mono">置顶攻略 · PINNED</p>' +
+          pinnedListHTML(pinned, true) +
+        '</div>' +
+      '</section>';
+    }).join('');
+  }
+
+  /* ---------- 攻略列表 + 分类筛选（游戏主页） ---------- */
+
+  function renderGuideHub(host, guides) {
+    if (!host || !Array.isArray(guides)) return;
+    var sorted = guides.slice().sort(function (x, y) {
+      return (y.date || '').localeCompare(x.date || '');
+    });
+    var cats = [];
+    sorted.forEach(function (g) {
+      if (g.category && cats.indexOf(g.category) === -1) cats.push(g.category);
+    });
+
+    var chips = '<div class="filter-chips">' +
+      '<button type="button" class="f-chip active" data-cat="全部">全部 <span>' + sorted.length + '</span></button>' +
+      cats.map(function (c) {
+        var n = sorted.filter(function (g) { return g.category === c; }).length;
+        return '<button type="button" class="f-chip" data-cat="' + esc(c) + '">' + esc(c) + ' <span>' + n + '</span></button>';
+      }).join('') + '</div>';
+
+    var rows = sorted.map(function (g) {
+      var pending = !g.url || g.url === '#';
+      var inner = '<span class="gp-cat">' + esc(g.category || '攻略') + '</span>' +
+        '<span class="guide-title">' + esc(g.title) + '</span>' +
+        '<time class="mono">' + esc(g.date || '') + '</time>' +
+        (pending ? '<span class="gp-tag">待更新</span>' : '<span class="arr">→</span>');
+      return '<li class="guide-row' + (pending ? ' is-pending' : '') + '" data-cat="' + esc(g.category || '') + '">' +
+        (pending ? '<div>' + inner + '</div>' : '<a href="' + esc(g.url) + '">' + inner + '</a>') +
+      '</li>';
+    }).join('');
+
+    host.innerHTML = chips + '<ul class="guide-list">' + rows + '</ul>';
+
+    host.querySelectorAll('.f-chip').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        host.querySelectorAll('.f-chip').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var cat = btn.dataset.cat;
+        host.querySelectorAll('.guide-row').forEach(function (row) {
+          row.classList.toggle('row-hidden', cat !== '全部' && row.dataset.cat !== cat);
+        });
+      });
+    });
+  }
+
+  /* ---------- 导航站（侧栏分类 + 分区卡片网格） ---------- */
+
+  function navCardHTML(item, accent) {
+    var search = ((item.name || '') + ' ' + (item.desc || '') + ' ' + (item.tag || '')).toLowerCase();
+    return '<a class="nav-card" data-accent="' + esc(accent) + '" data-search="' + esc(search) + '" href="' + esc(item.url) + '" target="_blank" rel="noopener">' +
+      '<span class="nav-icon">' + esc((item.name || '?').charAt(0)) + '</span>' +
+      '<div class="nav-info">' +
+        '<h4>' + esc(item.name) + '<span class="nav-go">↗</span></h4>' +
+        '<p>' + esc(item.desc) + '</p>' +
+        (item.tag ? '<span class="chip">' + esc(item.tag) + '</span>' : '') +
+      '</div>' +
+    '</a>';
+  }
+
+  function renderNav(host, sideHost, data) {
+    if (!host || !data || !Array.isArray(data.categories)) return;
+    if (sideHost) {
+      sideHost.innerHTML = data.categories.map(function (c, i) {
+        return '<a class="side-cat" href="#cat-' + i + '" data-spy="cat-' + i + '">' +
+          '<span class="side-dot accent-dot-' + esc(c.accent || 'jade') + '"></span>' +
+          esc(c.name) + '<span class="side-count mono">' + (c.items || []).length + '</span></a>';
+      }).join('');
+    }
+    host.innerHTML = data.categories.map(function (c, i) {
+      return '<section class="nav-section reveal" id="cat-' + i + '" data-accent="' + esc(c.accent || 'jade') + '">' +
+        '<header class="nav-sec-head">' +
+          '<span class="nav-sec-bar"></span><h2>' + esc(c.name) + '</h2>' +
+          '<span class="chip">' + (c.items || []).length + ' 站</span>' +
+        '</header>' +
+        '<div class="nav-grid">' +
+          (c.items || []).map(function (it) { return navCardHTML(it, c.accent || 'jade'); }).join('') +
+        '</div>' +
+      '</section>';
     }).join('');
   }
 
@@ -122,6 +281,10 @@
     esc: esc,
     renderNews: renderNews,
     renderSeries: renderSeries,
-    renderGames: renderGames
+    renderSeriesCards: renderSeriesCards,
+    renderGames: renderGames,
+    renderGamePanels: renderGamePanels,
+    renderGuideHub: renderGuideHub,
+    renderNav: renderNav
   };
 })();

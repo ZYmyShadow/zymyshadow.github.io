@@ -1,0 +1,50 @@
+{
+  "updated_at": "2026-07-29",
+  "categories": [
+    {
+      "name": "常用工具",
+      "accent": "ink",
+      "items": [
+        { "name": "少数派", "url": "https://sspai.com", "desc": "高效工作，品质生活——数字消费指南与效率方法论。", "tag": "效率" },
+        { "name": "ProcessOn", "url": "https://www.processon.com", "desc": "在线流程图、思维导图、原型图，免安装即开即画。", "tag": "办公" },
+        { "name": "DeepL", "url": "https://www.deepl.com", "desc": "高质量 AI 翻译，长句与专业文本表现尤其出色。", "tag": "翻译" },
+        { "name": "草料二维码", "url": "https://cli.im", "desc": "二维码生成与美化，支持活码、批量生成。", "tag": "工具" },
+        { "name": "石墨文档", "url": "https://shimo.im", "desc": "在线协作文档与表格，多人实时编辑。", "tag": "办公" }
+      ]
+    },
+    {
+      "name": "AI 工具",
+      "accent": "jade",
+      "items": [
+        { "name": "通义千问", "url": "https://tongyi.aliyun.com", "desc": "阿里大模型 AI 助手，问答、写作、代码样样都行。", "tag": "对话" },
+        { "name": "Kimi", "url": "https://kimi.com", "desc": "超长上下文智能助手，一次读完整份文档。", "tag": "对话" },
+        { "name": "豆包", "url": "https://www.doubao.com", "desc": "字节跳动出品的 AI 助手，语音交互体验好。", "tag": "对话" },
+        { "name": "即梦AI", "url": "https://jimeng.jianying.com", "desc": "AI 图片与视频生成，中文提示词理解到位。", "tag": "绘画" },
+        { "name": "Midjourney", "url": "https://www.midjourney.com", "desc": "顶级 AI 绘画工具，出图质量天花板。", "tag": "绘画" },
+        { "name": "文心一言", "url": "https://yiyan.baidu.com", "desc": "百度大模型，中文知识问答与创作。", "tag": "对话" }
+      ]
+    },
+    {
+      "name": "设计资源",
+      "accent": "gold",
+      "items": [
+        { "name": "站酷", "url": "https://www.zcool.com.cn", "desc": "国内设计师互动社区，原创设计作品聚集地。", "tag": "社区" },
+        { "name": "Dribbble", "url": "https://dribbble.com", "desc": "全球 UI 设计师作品展示，找灵感必备。", "tag": "灵感" },
+        { "name": "Figma", "url": "https://www.figma.com", "desc": "在线协作界面设计工具，团队标配。", "tag": "工具" },
+        { "name": "花瓣", "url": "https://huaban.com", "desc": "设计灵感采集与整理，素材收集神器。", "tag": "灵感" },
+        { "name": "iconfont", "url": "https://www.iconfont.cn", "desc": "阿里矢量图标库，海量图标免费下载。", "tag": "图标" }
+      ]
+    },
+    {
+      "name": "游戏社区",
+      "accent": "seal",
+      "items": [
+        { "name": "NGA", "url": "https://bbs.nga.cn", "desc": "硬核玩家社区，深度攻略与讨论。", "tag": "论坛" },
+        { "name": "米游社", "url": "https://www.miyoushe.com", "desc": "米哈游官方社区，攻略、资讯、同人一站齐全。", "tag": "米家游戏" },
+        { "name": "TapTap", "url": "https://www.taptap.cn", "desc": "手游发现与真实评价平台，找新游必备。", "tag": "平台" },
+        { "name": "游民星空", "url": "https://www.gamersky.com", "desc": "单机游戏资讯、评测与攻略。", "tag": "资讯" },
+        { "name": "3DM", "url": "https://www.3dmgame.com", "desc": "游戏资讯、论坛与资源站。", "tag": "资讯" }
+      ]
+    }
+  ]
+}

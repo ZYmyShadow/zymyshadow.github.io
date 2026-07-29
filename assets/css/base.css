@@ -126,6 +126,18 @@ a:hover > .seal {
   color: var(--ink-2);
 }
 
+/* 导航栏子菜单篇数徽章 */
+.sub-count {
+  float: right;
+  margin-left: 10px;
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: .66rem;
+}
+.submenu a:hover .sub-count {
+  color: var(--jade-strong);
+}
+
 /* 数据加载失败提示 */
 .load-fail {
   border: 1.5px dashed var(--seal);

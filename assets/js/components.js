@@ -55,21 +55,23 @@
       });
   }
 
-  /* ---- 动态生成「文章系列」下拉菜单 ---- */
+  /* ---- 动态生成「文章系列」下拉菜单（含篇数） ---- */
   function buildSeriesMenu() {
     var menu = document.getElementById('series-menu');
     if (!menu) return Promise.resolve();
     return fetch(BASE + 'data/articles.json')
       .then(function (res) { return res.json(); })
       .then(function (list) {
-        var series = [];
+        var counts = {};
         (list || []).forEach(function (a) {
-          if (a.series && series.indexOf(a.series) === -1) series.push(a.series);
+          if (a.series) counts[a.series] = (counts[a.series] || 0) + 1;
         });
-        var html = '<li><a href="/articles/index.html">全部文章</a></li>';
-        series.forEach(function (s) {
+        var html = '<li><a href="/articles/index.html">全部文章<span class="sub-count">' +
+          (list ? list.length : 0) + '</span></a></li>';
+        Object.keys(counts).forEach(function (s) {
           html += '<li><a href="/articles/index.html?series=' +
-            encodeURIComponent(s) + '">' + s + '</a></li>';
+            encodeURIComponent(s) + '">' + s + '<span class="sub-count">' +
+            counts[s] + '</span></a></li>';
         });
         menu.innerHTML = html;
       })

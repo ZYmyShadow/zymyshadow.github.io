@@ -72,7 +72,7 @@
             <li>收录文章 <b id="stat-articles">–</b> 篇</li>
             <li>热点情报 <b id="stat-news">–</b> 条</li>
             <li>游戏专区 <b id="stat-games">3</b> 款</li>
-            <li>导航站 <b>整理中</b></li>
+            <li>导航站 <b id="stat-nav">–</b> 站</li>
           </ul>
         </div>
 
@@ -104,7 +104,7 @@
         <h2 class="section-title">文章系列</h2>
         <a class="section-more" href="articles/index.html">进入知识库 →</a>
       </div>
-      <div id="series-box" class="series-grid reveal"></div>
+      <div id="series-box" class="series-cards-grid reveal"></div>
     </section>
 
     <!-- ============ 03 游戏专区 ============ -->
@@ -177,20 +177,38 @@
       /* 文章系列 */
       loadJSON('data/articles.json')
         .then(function (list) {
-          RL.renderSeries($('#series-box'), list);
+          RL.renderSeriesCards($('#series-box'), list);
           $('#stat-articles').textContent = list.length;
           observeReveals();
         })
         .catch(function () { failTip($('#series-box'), '文章数据'); });
 
-      /* 游戏专区 */
+      /* 游戏专区：游戏基础信息 + 各游戏置顶攻略 */
       loadJSON('data/games.json')
         .then(function (games) {
-          RL.renderGames($('#games-box'), games);
           $('#stat-games').textContent = games.length;
-          observeReveals();
+          return Promise.all(games.map(function (g) {
+            return loadJSON('games/' + g.id + '/data/guides.json')
+              .then(function (guides) {
+                return guides.filter(function (x) { return x.pinned; }).slice(0, 3);
+              })
+              .catch(function () { return []; });
+          })).then(function (pinnedArr) {
+            var pinnedByGame = {};
+            games.forEach(function (g, i) { pinnedByGame[g.id] = pinnedArr[i]; });
+            RL.renderGames($('#games-box'), games, pinnedByGame);
+            observeReveals();
+          });
         })
         .catch(function () { failTip($('#games-box'), '游戏数据'); });
+
+      /* 导航站统计 */
+      loadJSON('data/nav-links.json')
+        .then(function (data) {
+          var n = data.categories.reduce(function (sum, c) { return sum + (c.items || []).length; }, 0);
+          $('#stat-nav').textContent = n;
+        })
+        .catch(function () { /* 静默失败，不影响首页 */ });
 
       /* ---- 滚动浮现动画 ---- */
       var io = null;

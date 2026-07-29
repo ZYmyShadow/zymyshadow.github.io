@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章系列 · 修仙藏书阁</title>
+  <meta name="description" content="修仙藏书阁知识库文章：按系列分类浏览，支持系列与标签筛选。">
+  <meta property="og:title" content="文章系列 · 修仙藏书阁">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">ARTICLES · 知识库文章</p>
+      <h1 class="page-hero-title">文章系列</h1>
+      <p class="page-hero-lead">按系列浏览全部文章<span class="hero-sub"> —— 支持系列与标签双重筛选，点击筛选结果会同步到地址栏，可直接分享</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">文集</span>
+  </header>
+
+  <main class="hub-page">
+    <div class="filter-block reveal">
+      <p class="filter-label mono">系列 · SERIES</p>
+      <div class="filter-chips" id="series-chips"></div>
+      <p class="filter-label mono">标签 · TAGS</p>
+      <div class="filter-chips" id="tag-chips"></div>
+    </div>
+
+    <div id="articles-box">
+      <div class="load-fail">正在加载文章数据…</div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/render-list.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var host = document.getElementById('articles-box');
+      var seriesChips = document.getElementById('series-chips');
+      var tagChips = document.getElementById('tag-chips');
+      var allArticles = [];
+      var curSeries = new URLSearchParams(location.search).get('series') || '全部';
+      var curTag = '全部';
+
+      fetch('../data/articles.json')
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (articles) {
+          allArticles = articles;
+          buildChips(articles);
+          render();
+        })
+        .catch(function () {
+          host.innerHTML =
+            '<div class="load-fail">⚠ 文章数据加载失败。<br>' +
+            '<span class="mono">若为本地双击打开（file://），请改用本地静态服务器预览，例如：python -m http.server</span></div>';
+        });
+
+      function buildChips(articles) {
+        /* 系列 chips */
+        var seriesMap = {};
+        articles.forEach(function (a) { seriesMap[a.series] = (seriesMap[a.series] || 0) + 1; });
+        var seriesNames = Object.keys(seriesMap);
+        if (seriesNames.indexOf(curSeries) === -1) curSeries = '全部';
+        seriesChips.innerHTML =
+          chipHTML('全部', articles.length, curSeries === '全部', 'series') +
+          seriesNames.map(function (s) {
+            return chipHTML(s, seriesMap[s], curSeries === s, 'series');
+          }).join('');
+
+        /* 标签 chips */
+        var tagMap = {};
+        articles.forEach(function (a) {
+          (a.tags || []).forEach(function (t) { tagMap[t] = (tagMap[t] || 0) + 1; });
+        });
+        tagChips.innerHTML =
+          chipHTML('全部', articles.length, true, 'tag') +
+          Object.keys(tagMap).map(function (t) {
+            return chipHTML(t, tagMap[t], false, 'tag');
+          }).join('');
+
+        seriesChips.addEventListener('click', function (e) {
+          var btn = e.target.closest('.f-chip');
+          if (!btn) return;
+          curSeries = btn.dataset.name;
+          syncChips(seriesChips, curSeries);
+          syncUrl();
+          render();
+        });
+        tagChips.addEventListener('click', function (e) {
+          var btn = e.target.closest('.f-chip');
+          if (!btn) return;
+          curTag = btn.dataset.name;
+          syncChips(tagChips, curTag);
+          render();
+        });
+      }
+
+      function chipHTML(name, count, active, group) {
+        return '<button type="button" class="f-chip' + (active ? ' active' : '') +
+          '" data-name="' + name + '" data-group="' + group + '">' +
+          name + ' <span>' + count + '</span></button>';
+      }
+
+      function syncChips(container, activeName) {
+        container.querySelectorAll('.f-chip').forEach(function (c) {
+          c.classList.toggle('active', c.dataset.name === activeName);
+        });
+      }
+
+      /* 系列筛选同步到地址栏，方便分享 */
+      function syncUrl() {
+        var url = curSeries === '全部'
+          ? location.pathname
+          : location.pathname + '?series=' + encodeURIComponent(curSeries);
+        history.replaceState(null, '', url);
+      }
+
+      function render() {
+        var filtered = allArticles.filter(function (a) {
+          var okSeries = curSeries === '全部' || a.series === curSeries;
+          var okTag = curTag === '全部' || (a.tags || []).indexOf(curTag) !== -1;
+          return okSeries && okTag;
+        });
+        if (!filtered.length) {
+          host.innerHTML = '<p class="nav-empty">该筛选条件下暂无文章，换个组合试试？</p>';
+          return;
+        }
+        RL.renderSeries(host, filtered);
+      }
+    })();
+  </script>
+</body>
+</html>
