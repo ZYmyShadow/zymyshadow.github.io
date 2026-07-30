@@ -34,7 +34,7 @@
       : '<div class="news-item">' + body + '</div>';
   }
 
-  function renderNews(host, data, days) {
+  function renderNews(host, data, days, maxItems) {
     if (!host || !data || !Array.isArray(data.categories)) return;
 
     var updatedEl = document.getElementById('news-updated');
@@ -58,6 +58,10 @@
           return !item.date || item.date >= cutoff;
         });
       }
+      /* 首页限制每分类最多显示条数 */
+      if (maxItems && maxItems > 0) {
+        items = items.slice(0, maxItems);
+      }
       tabs +=
         '<button class="tab' + (ci === 0 ? ' active' : '') + '" type="button" role="tab" data-tab="' + ci + '">' +
           esc(cat.name) + '<span class="tab-count">' + items.length + '</span>' +
@@ -80,9 +84,9 @@
     });
   }
 
-  /* 首页专用：只显示最近 2 天的热点 */
+  /* 首页专用：只显示最近 2 天、每分类最多 3 条 */
   function renderNewsRecent(host, data) {
-    renderNews(host, data, 2);
+    renderNews(host, data, 2, 3);
   }
 
   /* ---------- 文章系列（按 series 分组） ---------- */
