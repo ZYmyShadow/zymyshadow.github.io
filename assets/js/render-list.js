@@ -34,16 +34,30 @@
       : '<div class="news-item">' + body + '</div>';
   }
 
-  function renderNews(host, data) {
+  function renderNews(host, data, days) {
     if (!host || !data || !Array.isArray(data.categories)) return;
 
     var updatedEl = document.getElementById('news-updated');
     if (updatedEl && data.updated_at) updatedEl.textContent = data.updated_at;
 
+    /* 计算截止日期 */
+    var cutoff = '';
+    if (days && days > 0 && data.updated_at) {
+      var d = new Date(data.updated_at);
+      d.setDate(d.getDate() - days);
+      cutoff = d.toISOString().slice(0, 10);
+    }
+
     var tabs = '<div class="tabs" role="tablist">';
     var panels = '';
     data.categories.forEach(function (cat, ci) {
       var items = cat.items || [];
+      /* 按日期过滤 */
+      if (cutoff) {
+        items = items.filter(function (item) {
+          return !item.date || item.date >= cutoff;
+        });
+      }
       tabs +=
         '<button class="tab' + (ci === 0 ? ' active' : '') + '" type="button" role="tab" data-tab="' + ci + '">' +
           esc(cat.name) + '<span class="tab-count">' + items.length + '</span>' +
@@ -64,6 +78,11 @@
         host.querySelector('[data-panel="' + btn.dataset.tab + '"]').classList.add('active');
       });
     });
+  }
+
+  /* 首页专用：只显示最近 2 天的热点 */
+  function renderNewsRecent(host, data) {
+    renderNews(host, data, 2);
   }
 
   /* ---------- 文章系列（按 series 分组） ---------- */
@@ -331,6 +350,7 @@
     esc: esc,
     initReveal: initReveal,
     renderNews: renderNews,
+    renderNewsRecent: renderNewsRecent,
     renderSeries: renderSeries,
     renderSeriesCards: renderSeriesCards,
     renderGames: renderGames,

@@ -2266,3 +2266,107 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
     order: 2;
   }
 }
+
+/* ================= 分页组件 ================= */
+
+.pagination {
+  max-width: var(--container);
+  margin: 30px auto 0;
+  padding: 0 20px;
+}
+.pagination-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 0;
+}
+.page-btn {
+  padding: 9px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.page-btn:hover:not(.disabled) {
+  background: var(--jade-soft);
+  border-color: var(--jade);
+  color: var(--jade-strong);
+}
+.page-btn.disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+.page-info {
+  color: var(--ink-3);
+  font-size: .84rem;
+}
+
+/* ================= 搜索结果 ================= */
+
+.search-result {
+  display: block;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .25s, box-shadow .25s, transform .25s;
+}
+.search-result:hover {
+  border-color: var(--jade);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.sr-type {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: .7rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.chip-jade { background: var(--jade-soft); color: var(--jade-strong); }
+.chip-gold { background: rgba(169, 126, 47, .12); color: var(--gold); }
+.chip-seal { background: rgba(194, 71, 46, .10); color: var(--seal); }
+.sr-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.sr-title .news-arrow {
+  color: var(--jade-strong);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity .25s, transform .25s;
+}
+.search-result:hover .news-arrow {
+  opacity: 1;
+  transform: none;
+}
+.sr-summary {
+  margin-bottom: 10px;
+  color: var(--ink-2);
+  font-size: .9rem;
+  line-height: 1.8;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.sr-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}

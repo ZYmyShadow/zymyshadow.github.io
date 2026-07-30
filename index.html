@@ -164,10 +164,10 @@
           '<span class="mono">若为本地双击打开（file://），浏览器会拦截 JSON 请求——请改用本地静态服务器预览，例如：python -m http.server</span></div>';
       }
 
-      /* 热点情报 */
+      /* 热点情报（首页只显示最近 2 天） */
       loadJSON('news/data/hot-news.json')
         .then(function (data) {
-          RL.renderNews($('#news-box'), data);
+          RL.renderNewsRecent($('#news-box'), data);
           var total = data.categories.reduce(function (n, c) { return n + (c.items || []).length; }, 0);
           $('#stat-news').textContent = total;
           observeReveals();

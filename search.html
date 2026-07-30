@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜索 · 修仙藏书阁</title>
+  <meta name="description" content="修仙藏书阁全站搜索：文章、攻略、导航站。">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">SEARCH · 全站搜索</p>
+      <h1 class="page-hero-title">搜索</h1>
+      <p class="page-hero-lead">检索文章、攻略、导航站<span class="hero-sub"> —— 输入关键词，立即查找</span></p>
+
+      <form class="search-bar" action="search.html" method="get" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input id="search-input" type="search" name="q" placeholder="输入关键词…" autocomplete="off" required>
+        <button type="submit">搜索</button>
+      </form>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">搜索</span>
+  </header>
+
+  <main class="hub-page">
+    <div class="tabs" id="search-tabs" role="tablist">
+      <button type="button" class="tab active" data-type="all">全部 <span class="tab-count" id="count-all">0</span></button>
+      <button type="button" class="tab" data-type="article">文章 <span class="tab-count" id="count-article">0</span></button>
+      <button type="button" class="tab" data-type="guide">攻略 <span class="tab-count" id="count-guide">0</span></button>
+      <button type="button" class="tab" data-type="nav">导航 <span class="tab-count" id="count-nav">0</span></button>
+    </div>
+    <div id="search-box">
+      <p class="nav-empty">输入关键词开始搜索…</p>
+    </div>
+    <div class="pagination" id="search-pagination"></div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="assets/js/render-list.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/theme-toggle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var $ = function (s) { return document.querySelector(s); };
+      var input = $('#search-input');
+      var host = $('#search-box');
+      var tabsHost = $('#search-tabs');
+      var paginationHost = $('#search-pagination');
+
+      var allData = { articles: [], guides: [], nav: [] };
+      var results = [];
+      var currentType = 'all';
+      var currentPage = 1;
+      var pageSize = 20;
+
+      /* 从 URL 参数获取关键词 */
+      var params = new URLSearchParams(location.search);
+      var kw = params.get('q') || '';
+      if (kw) input.value = kw;
+
+      /* 并行加载所有数据 */
+      Promise.all([
+        fetch('data/articles.json').then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; }),
+        fetch('data/games.json').then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; }),
+        fetch('data/nav-links.json').then(function (r) { return r.ok ? r.json() : { categories: [] }; }).catch(function () { return { categories: [] }; })
+      ]).then(function (res) {
+        allData.articles = res[0] || [];
+        var games = res[1] || [];
+        allData.nav = (res[2].categories || []).reduce(function (acc, c) { return acc.concat(c.items || []); }, []);
+
+        /* 加载所有游戏的攻略 */
+        return Promise.all(games.map(function (g) {
+          return fetch('games/' + g.id + '/data/guides.json').then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; });
+        })).then(function (guidesArr) {
+          allData.guides = guidesArr.reduce(function (acc, g) { return acc.concat(g); }, []);
+          if (kw) doSearch();
+        });
+      });
+
+      function doSearch() {
+        kw = input.value.trim().toLowerCase();
+        if (!kw) {
+          host.innerHTML = '<p class="nav-empty">输入关键词开始搜索…</p>';
+          updateCounts(0, 0, 0, 0);
+          paginationHost.innerHTML = '';
+          return;
+        }
+        results = [];
+        var articleCount = 0, guideCount = 0, navCount = 0;
+
+        allData.articles.forEach(function (a) {
+          if ((a.title || '').toLowerCase().indexOf(kw) !== -1 || (a.summary || '').toLowerCase().indexOf(kw) !== -1 || (a.tags || []).some(function (t) { return t.toLowerCase().indexOf(kw) !== -1; })) {
+            results.push({ type: 'article', title: a.title, summary: a.summary, url: a.url, date: a.date, series: a.series });
+            articleCount++;
+          }
+        });
+
+        allData.guides.forEach(function (g) {
+          if ((g.title || '').toLowerCase().indexOf(kw) !== -1 || (g.category || '').toLowerCase().indexOf(kw) !== -1) {
+            results.push({ type: 'guide', title: g.title, summary: g.category, url: g.url, date: g.date });
+            guideCount++;
+          }
+        });
+
+        allData.nav.forEach(function (n) {
+          if ((n.name || '').toLowerCase().indexOf(kw) !== -1 || (n.desc || '').toLowerCase().indexOf(kw) !== -1 || (n.tag || '').toLowerCase().indexOf(kw) !== -1) {
+            results.push({ type: 'nav', title: n.name, summary: n.desc, url: n.url, tag: n.tag });
+            navCount++;
+          }
+        });
+
+        updateCounts(results.length, articleCount, guideCount, navCount);
+        currentPage = 1;
+        renderResults();
+        renderPagination();
+      }
+
+      function updateCounts(total, article, guide, nav) {
+        $('#count-all').textContent = total;
+        $('#count-article').textContent = article;
+        $('#count-guide').textContent = guide;
+        $('#count-nav').textContent = nav;
+      }
+
+      function renderResults() {
+        var filtered = currentType === 'all' ? results : results.filter(function (r) { return r.type === currentType; });
+        var start = (currentPage - 1) * pageSize;
+        var end = start + pageSize;
+        var page = filtered.slice(start, end);
+
+        if (!page.length) {
+          host.innerHTML = '<p class="nav-empty">没有找到相关内容，换个关键词试试？</p>';
+          return;
+        }
+
+        host.innerHTML = page.map(function (r) {
+          var typeLabel = r.type === 'article' ? '文章' : r.type === 'guide' ? '攻略' : '导航';
+          var typeClass = r.type === 'article' ? 'chip-jade' : r.type === 'guide' ? 'chip-gold' : 'chip-seal';
+          return '<a class="search-result" href="' + RL.esc(r.url) + '">' +
+            '<span class="sr-type ' + typeClass + '">' + typeLabel + '</span>' +
+            '<h3 class="sr-title">' + RL.esc(r.title) + '<span class="news-arrow">→</span></h3>' +
+            '<p class="sr-summary">' + RL.esc(r.summary || '') + '</p>' +
+            '<div class="sr-meta">' +
+              (r.date ? '<span class="chip mono">' + RL.esc(r.date) + '</span>' : '') +
+              (r.series ? '<span class="chip">' + RL.esc(r.series) + '</span>' : '') +
+              (r.tag ? '<span class="chip">' + RL.esc(r.tag) + '</span>' : '') +
+            '</div>' +
+          '</a>';
+        }).join('');
+      }
+
+      function renderPagination() {
+        var filtered = currentType === 'all' ? results : results.filter(function (r) { return r.type === currentType; });
+        var total = filtered.length;
+        var totalPages = Math.ceil(total / pageSize);
+        if (totalPages <= 1) {
+          paginationHost.innerHTML = '';
+          return;
+        }
+        var html = '<div class="pagination-inner">';
+        html += '<button type="button" class="page-btn' + (currentPage === 1 ? ' disabled' : '') + '" data-page="prev">← 上一页</button>';
+        html += '<span class="page-info">第 ' + currentPage + ' / ' + totalPages + ' 页</span>';
+        html += '<button type="button" class="page-btn' + (currentPage === totalPages ? ' disabled' : '') + '" data-page="next">下一页 →</button>';
+        html += '</div>';
+        paginationHost.innerHTML = html;
+        paginationHost.querySelectorAll('.page-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            if (btn.classList.contains('disabled')) return;
+            if (btn.dataset.page === 'prev') currentPage--;
+            else if (btn.dataset.page === 'next') currentPage++;
+            renderResults();
+            renderPagination();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        });
+      }
+
+      /* 搜索框提交 */
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          doSearch();
+        }
+      });
+
+      /* Tab 切换 */
+      tabsHost.addEventListener('click', function (e) {
+        var btn = e.target.closest('.tab');
+        if (!btn) return;
+        currentType = btn.dataset.type;
+        tabsHost.querySelectorAll('.tab').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        currentPage = 1;
+        renderResults();
+        renderPagination();
+      });
+
+      RL.initReveal();
+    })();
+  </script>
+</body>
+</html>

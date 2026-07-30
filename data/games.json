@@ -1,11 +1,11 @@
 [
   {
-    "id": "game-a",
+    "id": "mc",
     "code": "壹",
-    "name": "游戏A · 名称待定",
-    "status": "筹备中",
-    "desc": "占位专区：确定游戏后将按「新手指南 / 角色攻略 / BOSS 攻略 / 资源掉落」搭建完整攻略库。",
-    "url": "/games/game-a/index.html",
+    "name": "MC · 我的世界",
+    "status": "建设中",
+    "desc": "Minecraft 攻略专区：新手生存、红石科技、建筑教程、模组推荐，持续更新中。",
+    "url": "/games/mc/index.html",
     "accent": "jade"
   },
   {

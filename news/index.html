@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>热点情报 · 修仙藏书阁</title>
+  <meta name="description" content="修仙藏书阁热点情报：科技、抖音热点、B站热点，人工甄选、AI 归纳、持续更新。">
+  <meta property="og:title" content="热点情报 · 修仙藏书阁">
+  <meta property="og:description" content="科技 / 抖音热点 / B站热点，人工甄选、AI 归纳、持续更新。">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">HOT NEWS · 热点情报</p>
+      <h1 class="page-hero-title">热点情报</h1>
+      <p class="page-hero-lead">科技 / 抖音热点 / B站热点<span class="hero-sub"> —— 人工甄选、AI 归纳、持续更新，最后更新 <b id="news-updated">----</b></span></p>
+
+      <div class="filter-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input id="news-search" type="search" placeholder="搜索热点标题或摘要…" autocomplete="off">
+        <input id="news-date" type="date" title="按日期筛选">
+        <span class="filter-count mono" id="news-count">共 – 条</span>
+      </div>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">热点</span>
+  </header>
+
+  <main class="hub-page">
+    <div class="tabs" id="news-tabs" role="tablist"></div>
+    <div id="news-box">
+      <div class="load-fail">正在加载热点数据…</div>
+    </div>
+    <div class="pagination" id="news-pagination"></div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="assets/js/render-list.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/theme-toggle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var $ = function (s) { return document.querySelector(s); };
+      var host = $('#news-box');
+      var tabsHost = $('#news-tabs');
+      var paginationHost = $('#news-pagination');
+      var searchInput = $('#news-search');
+      var dateInput = $('#news-date');
+      var countEl = $('#news-count');
+      var updatedEl = $('#news-updated');
+
+      var allNews = [];
+      var currentTab = 0;
+      var currentPage = 1;
+      var pageSize = 20;
+      var filteredNews = [];
+
+      fetch('news/data/hot-news.json')
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (data) {
+          updatedEl.textContent = data.updated_at || '----';
+          /* 合并所有分类的新闻，添加分类名和日期 */
+          allNews = [];
+          data.categories.forEach(function (cat) {
+            (cat.items || []).forEach(function (item) {
+              allNews.push({
+                title: item.title,
+                summary: item.summary,
+                source: item.source,
+                url: item.url,
+                tag: item.tag,
+                category: cat.name,
+                date: data.updated_at || ''
+              });
+            });
+          });
+          /* 按日期倒序排序 */
+          allNews.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+          filteredNews = allNews.slice();
+          buildTabs(data.categories);
+          renderTabs();
+          RL.initReveal();
+        })
+        .catch(function () {
+          host.innerHTML =
+            '<div class="load-fail"> 热点数据加载失败。<br>' +
+            '<span class="mono">若为本地双击打开（file://），请改用本地静态服务器预览，例如：python -m http.server</span></div>';
+        });
+
+      function buildTabs(categories) {
+        tabsHost.innerHTML = categories.map(function (cat, i) {
+          return '<button type="button" class="tab' + (i === 0 ? ' active' : '') + '" data-tab="' + i + '">' +
+            cat.name + '<span class="tab-count">' + (cat.items || []).length + '</span></button>';
+        }).join('');
+        tabsHost.addEventListener('click', function (e) {
+          var btn = e.target.closest('.tab');
+          if (!btn) return;
+          currentTab = parseInt(btn.dataset.tab);
+          currentPage = 1;
+          applyFilters();
+        });
+      }
+
+      function applyFilters() {
+        var kw = searchInput.value.trim().toLowerCase();
+        var date = dateInput.value;
+        filteredNews = allNews.filter(function (item) {
+          var okTab = currentTab === 0 || item.category === tabsHost.querySelectorAll('.tab')[currentTab].textContent.replace(/\d+$/, '').trim();
+          var okKw = !kw || (item.title || '').toLowerCase().indexOf(kw) !== -1 || (item.summary || '').toLowerCase().indexOf(kw) !== -1;
+          var okDate = !date || item.date === date;
+          return okTab && okKw && okDate;
+        });
+        countEl.textContent = '共 ' + filteredNews.length + ' 条';
+        renderTabs();
+        renderPagination();
+      }
+
+      function renderTabs() {
+        tabsHost.querySelectorAll('.tab').forEach(function (btn, i) {
+          btn.classList.toggle('active', i === currentTab);
+        });
+        var start = (currentPage - 1) * pageSize;
+        var end = start + pageSize;
+        var pageNews = filteredNews.slice(start, end);
+        if (!pageNews.length) {
+          host.innerHTML = '<p class="nav-empty">没有匹配的热点，换个关键词或日期试试？</p>';
+          return;
+        }
+        host.innerHTML = '<div class="tab-panel active">' +
+          pageNews.map(function (item, i) {
+            var rank = String(start + i + 1).padStart(2, '0');
+            var body =
+              '<span class="news-rank">' + rank + '</span>' +
+              '<h3 class="news-title">' + RL.esc(item.title) + '<span class="news-arrow">→</span></h3>' +
+              '<p class="news-summary">' + RL.esc(item.summary) + '</p>' +
+              '<div class="news-meta">' +
+                (item.source ? '<span class="chip chip-source">' + RL.esc(item.source) + '</span>' : '') +
+                (item.tag ? '<span class="chip">' + RL.esc(item.tag) + '</span>' : '') +
+                (item.date ? '<span class="chip mono">' + RL.esc(item.date) + '</span>' : '') +
+              '</div>';
+            var href = item.url && item.url !== '#' ? item.url : '';
+            return href
+              ? '<a class="news-item" href="' + RL.esc(href) + '" target="_blank" rel="noopener">' + body + '</a>'
+              : '<div class="news-item">' + body + '</div>';
+          }).join('') +
+        '</div>';
+      }
+
+      function renderPagination() {
+        var total = filteredNews.length;
+        var totalPages = Math.ceil(total / pageSize);
+        if (totalPages <= 1) {
+          paginationHost.innerHTML = '';
+          return;
+        }
+        var html = '<div class="pagination-inner">';
+        html += '<button type="button" class="page-btn' + (currentPage === 1 ? ' disabled' : '') + '" data-page="prev">← 上一页</button>';
+        html += '<span class="page-info">第 ' + currentPage + ' / ' + totalPages + ' 页</span>';
+        html += '<button type="button" class="page-btn' + (currentPage === totalPages ? ' disabled' : '') + '" data-page="next">下一页 →</button>';
+        html += '</div>';
+        paginationHost.innerHTML = html;
+        paginationHost.querySelectorAll('.page-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            if (btn.classList.contains('disabled')) return;
+            if (btn.dataset.page === 'prev') currentPage--;
+            else if (btn.dataset.page === 'next') currentPage++;
+            renderTabs();
+            renderPagination();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        });
+      }
+
+      searchInput.addEventListener('input', function () {
+        currentPage = 1;
+        applyFilters();
+      });
+      dateInput.addEventListener('change', function () {
+        currentPage = 1;
+        applyFilters();
+      });
+    })();
+  </script>
+</body>
+</html>

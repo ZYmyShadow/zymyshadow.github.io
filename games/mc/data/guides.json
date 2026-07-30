@@ -1,0 +1,33 @@
+[
+  {
+    "id": "beginner-01",
+    "title": "新手生存指南：第一天该做什么",
+    "category": "新手指南",
+    "url": "/games/mc/guides/beginner-01.html",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "redstone-01",
+    "title": "红石入门：自动农场设计",
+    "category": "红石科技",
+    "url": "#",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "build-01",
+    "title": "建筑教程：现代风格别墅",
+    "category": "建筑教程",
+    "url": "#",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "mod-01",
+    "title": "模组推荐：工业时代2",
+    "category": "模组推荐",
+    "url": "#",
+    "date": "2026-07-29"
+  }
+]
