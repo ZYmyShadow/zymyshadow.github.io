@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>信息收集流程 · 网安系列 · 修仙藏书阁</title>
+  <meta name="description" content="企业级渗透测试信息收集全流程。">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">SEC · 网安系列</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">信息收集流程</h1>
+      <p class="page-hero-lead"><span class="chip">渗透测试</span> <span class="chip">信息收集</span> <span class="hero-sub mono">更新于 2022-09-23 · 宗主</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">网安</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box">企业级渗透测试信息收集全流程，从扫描器探测到第三方网站收集，覆盖DNS、备案、SSL、APP反编译等多个维度。</div>
+
+      <h2 id="1企业级操作先用扫描器扫描">1. 企业级操作-先用扫描器扫描（扫描器）</h2>
+      <ul class="plain-list">
+        <li>IBM-AppScan</li>
+        <li>HP-WebInspect</li>
+        <li>启明星辰-天镜</li>
+        <li>安恒-明鉴</li>
+        <li>绿盟-WVSS/RSAS</li>
+        <li>其他-nmap</li>
+      </ul>
+
+      <h2 id="2dns域传送漏洞域名探测过程">2. DNS域传送漏洞（域名探测过程）</h2>
+
+      <h2 id="3根据主域名可以获得二级三级域名">3. 根据主域名，可以获得二级、三级域名</h2>
+      <p>PS：www.qq.com - game.qq.com</p>
+      <p>Tools：Kail 中的 dnsenum</p>
+
+      <h2 id="4kail环境需要授权才能进行渗透">4. Kail环境（需要授权才能进行渗透）</h2>
+      <ul class="plain-list">
+        <li>root用户登录</li>
+        <li>dnsenum</li>
+      </ul>
+      <pre><code>参数:
+-f 可以指定文件（/usr/share/dnsenum/dns.txt）
+--dnsserver 114.114.114.114    返回域名、记录、A NS MX记录、Bind版本号、区域传输
+字典爆破:-f /usr/share/dnsenum/dns.txt
+正向解析:dig  /  nslookup
+反向解析:</code></pre>
+      <p>dns是最主要的服务器暴露信息的来源</p>
+      <ul class="plain-list">
+        <li>收集DNS域名信息</li>
+        <li>发现开发端口的主机</li>
+        <li>发现子域名以及开放端口</li>
+        <li>DNS域名的注册信息</li>
+        <li>DNS服务器区域传输</li>
+      </ul>
+
+      <p><strong>实战</strong></p>
+      <pre><code>dnsenum qq.com      域名的子域名信息
+whois qq.com        域名注册信息
+nslookup qq.com     显示dns信息
+nslookup 交互       server显示本地dns
+dig @DNSIP(通过指定dns解析) qq.com    收集dns记录
+dig +noall(什么也不显示) +answer(只显示返回的信息) -x(反向解析) DNSIP    反向解析
+dig +noall +answer txt(指定类型) chaos(查) VERSION.BIND(版本号) @ns2.baidu.com.
+dig +trace(追踪) www.baidu.com</code></pre>
+
+      <h2 id="5网站的备案信息查询">5. 网站的备案信息查询</h2>
+      <p>www.beianbeian.com IPC备案网</p>
+
+      <h2 id="6ssl状态查询">6. SSL状态查询</h2>
+      <p>myssl.com/ssl.html</p>
+
+      <h2 id="7app信息提取">7. APP信息提取</h2>
+      <ul class="plain-list">
+        <li>使用抓包工具</li>
+        <li>安卓APP的反编译（有价值的公司域名 和 IP地址 端口号 等信息）</li>
+      </ul>
+
+      <h2 id="8暴力破解二级域名的爆破">8. 暴力破解-二级域名的爆破-demon v1.2</h2>
+
+      <h2 id="9dns更新记录解析">9. DNS更新记录解析</h2>
+      <p>www.dnsdb.io</p>
+
+      <h2 id="10google百度收集">10. Google、百度收集</h2>
+
+      <h2 id="11第三方网站的收集操作">11. 第三方网站的收集操作</h2>
+      <ul class="plain-list">
+        <li>工具(<code>7kbScan</code>)</li>
+        <li>查询网站(<code>github</code>、<code>漏洞银行</code>、<code>360补天</code>、<code>天眼查</code>、<code>钟之眼</code>、<code>微步在线</code>、<code>Google</code>)</li>
+        <li>信息整理(<code>指纹识别</code>、<code>waf(web防火墙)</code>、<code>CDN</code>)</li>
+      </ul>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="文章目录">
+      <p class="toc-title mono">目录 · CONTENTS</p>
+      <ul id="toc-list"><li class="toc-loading">生成中…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>帮朋友的豆芽查看电脑的问题的那些事 · 生活系列 · 修仙藏书阁</title>
+  <meta name="description" content="朋友玩FF14只有20帧的排查实录。">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">LIFE · 生活系列</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">帮朋友的豆芽查看电脑的问题的那些事</h1>
+      <p class="page-hero-lead"><span class="chip">工作日志</span> <span class="chip">FF14</span> <span class="chip">电脑维修</span> <span class="hero-sub mono">更新于 2022-09-01 · 宗主</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">生活</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box">朋友玩FF14只有20帧的排查实录：通过任务管理器发现CPU占用100%但频率只有1.99GHz（基准2.5GHz），远程排查发现是没插电源导致降频。</div>
+
+      <h2 id="先说结论">先说结论</h2>
+      <p><strong>CPU占用率100%导致帧数降低</strong></p>
+      <p>具体是具体判断，本结论不适用于所有的情况</p>
+
+      <h2 id="事情起因">事情起因</h2>
+      <p>在晚上快要睡觉的时候，游戏群里有一个豆芽在吐槽他的电脑玩FF14只有20帧，我们都在想这个游戏什么配置的电脑只能20帧，接下来豆芽发出了任务管理器</p>
+
+      <h2 id="理性分析">理性分析</h2>
+
+      <h3 id="1首先豆芽的电脑配置是">1. 首先 豆芽的电脑配置是</h3>
+      <table>
+        <thead><tr><th>配置</th><th>参数</th></tr></thead>
+        <tbody>
+          <tr><td>内存</td><td>8G</td></tr>
+          <tr><td>显卡</td><td>GTX1050</td></tr>
+          <tr><td>CPU</td><td>i5-7300HQ</td></tr>
+        </tbody>
+      </table>
+
+      <h3 id="2其次ff14游戏配置要求">2. 其次 FF14游戏配置要求</h3>
+      <table>
+        <thead><tr><th>配置要求</th><th>DirectX® 11</th></tr></thead>
+        <tbody>
+          <tr><td>操作系统</td><td>Windows® 8.1 64 bit, Windows® 10 64 bit, Windows® 11 64 bit</td></tr>
+          <tr><td>CPU</td><td>I5 2.4GHz以上</td></tr>
+          <tr><td>内存</td><td>4GB以上</td></tr>
+          <tr><td>硬盘</td><td>80GB以上</td></tr>
+          <tr><td>显卡</td><td>NVIDIA® Geforce® GTX750以上 / AMD Radeon™ R7 260X以上</td></tr>
+        </tbody>
+      </table>
+
+      <h3 id="3按道理来说是不会只有20帧的">3. 按道理来说是不会只有20帧的</h3>
+      <p>然后我们看豆芽的图片有一个地方</p>
+      <p>CPU占用是80%，但是频率只有1.99GHz。总所周知，I5-7300HQ的基准频率是2.5GHz，所有只有两个原因：</p>
+      <ul class="plain-list">
+        <li>CPU过热降频</li>
+        <li>电源策略锁频</li>
+      </ul>
+
+      <h2 id="远程查找原因">远程查找原因</h2>
+      <p>通过远程上豆芽电脑，排查出是<strong>没插电源</strong>，插上电源之后频率就正常了，然后打开游戏，只有40帧左右，然后打开了任务管理器，一看CPU满了，看来找到原因了。</p>
+      <p>接下来就是通过查看游戏对CPU的使用率以及使用方法，来调整对应的策略</p>
+      <p><strong>最终解决方案</strong>是 重装游戏，或者是全屏游戏，或者换新电脑</p>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="文章目录">
+      <p class="toc-title mono">目录 · CONTENTS</p>
+      <ul id="toc-list"><li class="toc-loading">生成中…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

@@ -1,47 +1,137 @@
 [
   {
-    "id": "series-tech-article-01",
-    "title": "示例 · 用 AI 把热搜整理成 JSON：我的半自动化更新流程",
-    "summary": "记录本站热点情报的整理流水线：人工浏览热搜 → AI 归纳摘要 → 落入 JSON → push 即上线。",
-    "series": "科技系列",
-    "tags": ["AI", "效率"],
-    "url": "/articles/series-tech/article-01.html",
-    "date": "2026-07-28"
+    "id": "series-sec-article-01",
+    "title": "Linux安全加固",
+    "summary": "从身份鉴别、访问控制、安全审计、资源控制、入侵防范五个方面系统整理Linux服务器加固要点，涵盖/etc/login.defs、sshd_config、rsyslog.conf等关键配置文件。",
+    "series": "网安系列",
+    "tags": ["Linux", "加固", "备忘录"],
+    "url": "/articles/series-sec/linux-sec.html",
+    "date": "2022-09-23"
   },
   {
-    "id": "series-tech-article-02",
-    "title": "示例 · GitHub Pages 静态站 SEO 实战清单",
-    "summary": "从 sitemap、robots 到 OG 标签，把纯静态站点的搜索可见性一步步做到位。",
-    "series": "科技系列",
-    "tags": ["建站", "SEO"],
-    "url": "/articles/series-tech/article-02.html",
-    "date": "2026-07-25"
+    "id": "series-sec-article-02",
+    "title": "中华人民共和国网络安全法",
+    "summary": "全文收录《中华人民共和国网络安全法》七章七十九条，涵盖网络运行安全、关键信息基础设施保护、网络信息安全、监测预警与应急处置及法律责任。",
+    "series": "网安系列",
+    "tags": ["法律", "合规"],
+    "url": "/articles/series-sec/cybersecurity-law.html",
+    "date": "2022-09-13"
   },
   {
-    "id": "series-tech-article-03",
-    "title": "示例 · 零基础看懂大模型：从 Token 到上下文窗口",
-    "summary": "用大白话讲清楚 LLM 的几个核心概念，配一个可以跑起来的小例子。",
-    "series": "科技系列",
-    "tags": ["AI", "科普"],
-    "url": "/articles/series-tech/article-03.html",
-    "date": "2026-07-20"
+    "id": "series-sec-article-03",
+    "title": "网络安全工具",
+    "summary": "整理Nessus、Wireshark、Metasploit、Nmap、Burp Suite等数十款经典网络安全工具的功能定位与使用场景，覆盖漏洞扫描、嗅探、渗透、密码破解等领域。",
+    "series": "网安系列",
+    "tags": ["工具集", "渗透测试"],
+    "url": "/articles/series-sec/cyber-tools.html",
+    "date": "2022-09-15"
+  },
+  {
+    "id": "series-sec-article-04",
+    "title": "信息收集流程",
+    "summary": "企业级渗透测试信息收集全流程：从扫描器探测、DNS域传送漏洞、子域名爆破、备案查询、SSL状态查询到APP反编译和Google/百度搜索收集。",
+    "series": "网安系列",
+    "tags": ["渗透测试", "信息收集"],
+    "url": "/articles/series-sec/info-collection.html",
+    "date": "2022-09-23"
+  },
+  {
+    "id": "series-sec-article-05",
+    "title": "等保流程",
+    "summary": "网络安全等级保护测评全流程梳理：明确目标→信息收集→漏洞探测→漏洞验证→信息分析→获取需求→信息整理→形成报告，附每阶段操作要点。",
+    "series": "网安系列",
+    "tags": ["等保", "合规"],
+    "url": "/articles/series-sec/level-protect.html",
+    "date": "2022-09-23"
+  },
+  {
+    "id": "series-sec-article-06",
+    "title": "NMAP帮助文档",
+    "summary": "Nmap官方帮助文档中文说明及常用选项解析，覆盖主机发现、端口扫描技术（SYN/ACK/UDP/FIN/Xmas等）、服务版本探测、操作系统探测、防火墙躲避与输出格式。",
+    "series": "网安系列",
+    "tags": ["Nmap", "工具集", "端口扫描"],
+    "url": "/articles/series-sec/nmap-help.html",
+    "date": "2022-09-06"
+  },
+  {
+    "id": "series-sec-article-07",
+    "title": "逆向工具",
+    "summary": "整理IDA、OllyDbg、x64dbg、JAD、dotPeek、dnSpy、radare2等主流逆向工程与反编译工具，覆盖Java/.NET/Android/二进制多平台。",
+    "series": "网安系列",
+    "tags": ["逆向工程", "工具集"],
+    "url": "/articles/series-sec/reverse-tools.html",
+    "date": "2022-09-16"
+  },
+  {
+    "id": "series-dev-article-01",
+    "title": "Springboot初始化框架整合（一）",
+    "summary": "Springboot + spring-data-jpa + MySQL 初始化框架整合教程，涵盖项目创建、pom.xml配置、application.properties数据库配置、Bean/Controller/Repository/Service四层代码样例。",
+    "series": "开发系列",
+    "tags": ["Springboot", "Java", "框架整合"],
+    "url": "/articles/series-dev/springboot-01.html",
+    "date": "2022-11-18"
+  },
+  {
+    "id": "series-dev-article-02",
+    "title": "Springboot初始化框架整合（二）",
+    "summary": "在上一份框架基础上新增logback-spring日志处理框架配置，讲解SpringBoot默认日志行为、logback-spring.xml自定义配置（控制台/文件/Error日志分离）、debug/release环境切换。",
+    "series": "开发系列",
+    "tags": ["Springboot", "Logback", "日志"],
+    "url": "/articles/series-dev/springboot-logback.html",
+    "date": "2022-11-19"
+  },
+  {
+    "id": "series-dev-article-03",
+    "title": "IDE和编辑器整理",
+    "summary": "按语言分类整理主流IDE和编辑器：JetBrains全家桶、VS Code、Eclipse、IntelliJ IDEA、PyCharm、CLion、WebStorm等，另附逆向工具（IDA/ILSpy/dotPeek）专项整理。",
+    "series": "开发系列",
+    "tags": ["工具集", "IDE"],
+    "url": "/articles/series-dev/ide-editors.html",
+    "date": "2022-09-17"
+  },
+  {
+    "id": "series-dev-article-04",
+    "title": "Tag Plugins Plus & Kmark语法",
+    "summary": "基于Butterfly主题的外挂标签插件完整使用文档，涵盖tip/note/folding/timeline/checkbox/radio/link/ghcard/btns/sites/gallery/progress等20余种标签的语法、参数与样式预览。",
+    "series": "开发系列",
+    "tags": ["Hexo", "Butterfly", "博客"],
+    "url": "/articles/series-dev/tag-plugins.html",
+    "date": "2022-08-30"
   },
   {
     "id": "series-life-article-01",
-    "title": "示例 · 48 小时断网实验：放下手机之后发生了什么",
-    "summary": "一次刻意的数字排毒记录，以及三个帮我重新拿回注意力的做法。",
+    "title": "用干电池的无线键鼠-购买指南",
+    "summary": "从罗技G304/G603、雷蛇小巴蛇/炼狱蝰蛇V2X、赛睿rival3无线版等热门干电池无线鼠标，到IKBC/GANSS/洛斐/HHKB等键盘，逐一列出型号、连接方式、电池规格与使用体验。",
     "series": "生活系列",
-    "tags": ["随笔", "效率"],
-    "url": "/articles/series-life/article-01.html",
-    "date": "2026-07-22"
+    "tags": ["购买指南", "外设"],
+    "url": "/articles/series-life/wireless-peripherals.html",
+    "date": "2022-09-23"
   },
   {
     "id": "series-life-article-02",
-    "title": "示例 · 把书房改成「藏书阁」：桌面与书架改造记",
-    "summary": "从理线、收纳到灯光，打造一个能让人静下心读两小时书的角落。",
+    "title": "显示器推荐-购买指南",
+    "summary": "从程序员实际体验出发详解显示器十大参数：尺寸与观看距离的关系、分辨率配比、刷新率选择、响应时间、色域/色深/色准、接口（HDMI/DP/Type-C）、面板（IPS/VA/TN）、同步技术。",
     "series": "生活系列",
-    "tags": ["家居", "好物"],
-    "url": "/articles/series-life/article-02.html",
-    "date": "2026-07-15"
+    "tags": ["购买指南", "显示器"],
+    "url": "/articles/series-life/display-guide.html",
+    "date": "2022-10-23"
+  },
+  {
+    "id": "series-life-article-03",
+    "title": "食品国家执行标准",
+    "summary": "整理食用油、食用盐、食用醋、大米、酱油、茶叶（红/乌龙/绿/黑/白/黄）、冷冻饮品、酒类等常见食品的国家执行标准编号（GB/GB/T），方便查询比对。",
+    "series": "生活系列",
+    "tags": ["科普", "食品安全"],
+    "url": "/articles/series-life/food-standards.html",
+    "date": "2022-10-07"
+  },
+  {
+    "id": "series-life-article-04",
+    "title": "帮朋友的豆芽查看电脑的问题的那些事",
+    "summary": "朋友玩FF14只有20帧的排查实录：通过任务管理器发现CPU占用100%但频率只有1.99GHz（基准2.5GHz），远程排查发现是没插电源导致降频，最终给出重装游戏/全屏游戏/换新电脑三个方案。",
+    "series": "生活系列",
+    "tags": ["工作日志", "FF14", "电脑维修"],
+    "url": "/articles/series-life/ff14-troubleshoot.html",
+    "date": "2022-09-01"
   }
 ]

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tag Plugins Plus & Kmark语法 · 开发系列 · 修仙藏书阁</title>
+  <meta name="description" content="基于Butterfly的外挂标签引入完整使用文档。">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">DEV · 开发系列</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">Tag Plugins Plus & Kmark语法</h1>
+      <p class="page-hero-lead"><span class="chip">Hexo</span> <span class="chip">Butterfly</span> <span class="chip">博客</span> <span class="hero-sub mono">更新于 2022-08-30 · 宗主</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">开发</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box">本文档为基于Butterfly的外挂标签引入完整使用文档，涵盖20余种标签的语法、参数与样式预览。</div>
+
+      <h2 id="行内文本样式text">行内文本样式 text</h2>
+      <pre><code>{% u 文本内容 %}        带下划线的文本
+{% emp 文本内容 %}       带着重号的文本
+{% wavy 文本内容 %}      带波浪线的文本
+{% del 文本内容 %}       带删除线的文本
+{% kbd 文本内容 %}       键盘样式的文本
+{% psw 文本内容 %}       密码样式的文本</code></pre>
+
+      <h2 id="行内文本span">行内文本 span</h2>
+      <pre><code>{% span 样式参数(参数以空格划分), 文本内容 %}
+
+样式参数:
+- 字体: logo, code
+- 颜色: red, yellow, green, cyan, blue, gray
+- 大小: small, h4, h3, h2, h1, large, huge, ultra
+- 对齐方向: left, center, right</code></pre>
+
+      <h2 id="引用note">引用 note</h2>
+      <pre><code>{% note [class] [no-icon] [style] %}
+Any content (support inline tags too).
+{% endnote %}
+
+class: default / primary / success / info / warning / danger
+style: simple / modern / flat / disabled</code></pre>
+
+      <h2 id="上标标签tip">上标标签 tip</h2>
+      <pre><code>{% tip [参数，可选] %}文本内容{% endtip %}
+
+样式: success, error, warning, bolt, ban, home, sync, cogs, key, bell
+自定义图标: 支持fontawesome</code></pre>
+
+      <h2 id="折叠框folding">折叠框 folding</h2>
+      <pre><code>{% folding 参数（可选）, 标题 %}
+内容
+{% endfolding %}
+
+颜色: blue, cyan, green, yellow, red
+状态: open 代表默认打开</code></pre>
+
+      <h2 id="复选列表checkbox">复选列表 checkbox</h2>
+      <pre><code>{% checkbox 样式参数（可选）, 文本（支持简单md） %}
+
+样式: plus, minus, times
+颜色: red, yellow, green, cyan, blue, gray
+选中状态: checked</code></pre>
+
+      <h2 id="单选列表radio">单选列表 radio</h2>
+      <pre><code>{% radio 样式参数（可选）, 文本（支持简单md） %}
+
+颜色: red, yellow, green, cyan, blue, gray
+选中状态: checked</code></pre>
+
+      <h2 id="时间轴timeline">时间轴 timeline</h2>
+      <pre><code>{% timeline 时间线标题（可选）[,color] %}
+<!-- timeline 时间节点（标题） -->
+正文内容
+<!-- endtimeline -->
+{% endtimeline %}
+
+color: default / blue / pink / red / purple / orange / green</code></pre>
+
+      <h2 id="链接卡片link">链接卡片 link</h2>
+      <pre><code>{% link 标题, 链接, 图片链接（可选） %}</code></pre>
+
+      <h2 id="按钮btns">按钮 btns</h2>
+      <pre><code>{% btns 样式参数 %}
+{% cell 标题, 链接, 图片或者图标 %}
+{% endbtns %}
+
+圆角样式: rounded, circle
+布局方式: wide, fill, center, around, grid2, grid3, grid4, grid5</code></pre>
+
+      <h2 id="github卡片ghcard">github卡片 ghcard</h2>
+      <pre><code>{% ghcard 用户名, 其它参数（可选） %}
+{% ghcard 用户名/仓库, 其它参数（可选） %}
+
+常用参数:
+- hide: stars,commits,prs,issues,contribs
+- count_private: true
+- show_icons: true
+- theme: 请查阅Available Themes</code></pre>
+
+      <h2 id="进度条progress">进度条 progress</h2>
+      <pre><code>{% progress [width] [color] [text] %}
+
+width: 0到100的阿拉伯数字
+color: red, yellow, green, cyan, blue, gray
+text: 进度条上的文字内容</code></pre>
+
+      <h2 id="分栏tab">分栏 tab</h2>
+      <pre><code>{% tabs Unique name, [index] %}
+<!-- tab [Tab caption] [@icon] -->
+Any content (support inline tags too).
+<!-- endtab -->
+{% endtabs %}
+
+Unique name: 选项卡块标签的唯一名称
+[index]: 活动选项卡的索引号
+[Tab caption]: 当前选项卡的标题
+[@icon]: FontAwesome图标名称</code></pre>
+
+      <h2 id="诗词标签poem">诗词标签 poem</h2>
+      <pre><code>{% poem [title],[author] %}
+诗词内容
+{% endpoem %}</code></pre>
+
+      <h2 id="特效标签wow">特效标签 wow</h2>
+      <pre><code>{% wow [animete],[duration],[delay],[offset],[iteration] %}
+内容
+{% endwow %}
+
+animate: 动画样式，效果详见animate.css参考文档
+duration: 动画持续时间，单位可以是ms也可以是s
+delay: 动画开始的延迟时间
+offset: 开始动画的距离（相对浏览器底部）
+iteration: 动画重复的次数</code></pre>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="文章目录">
+      <p class="toc-title mono">目录 · CONTENTS</p>
+      <ul id="toc-list"><li class="toc-loading">生成中…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>
