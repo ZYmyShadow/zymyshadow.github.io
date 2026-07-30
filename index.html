@@ -153,7 +153,9 @@
 
       /* ---- 数据加载 ---- */
       function loadJSON(url) {
-        return fetch(url).then(function (r) {
+        var v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+        var sep = url.indexOf('?') === -1 ? '?' : '&';
+        return fetch(url + sep + 'v=' + v, { cache: 'no-cache' }).then(function (r) {
           if (!r.ok) throw new Error('HTTP ' + r.status);
           return r.json();
         });
