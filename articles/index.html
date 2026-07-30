@@ -72,7 +72,8 @@
       var curSeries = new URLSearchParams(location.search).get('series') || '全部';
       var curTag = '全部';
 
-      fetch('../data/articles.json')
+      var v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      fetch('../data/articles.json?v=' + v, { cache: 'no-cache' })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
         .then(function (articles) {
           allArticles = articles;
@@ -156,7 +157,48 @@
           host.innerHTML = '<p class="nav-empty">该筛选条件下暂无文章，换个组合试试？</p>';
           return;
         }
-        RL.renderSeries(host, filtered);
+
+        /* 按系列分组 */
+        var groups = [];
+        var map = {};
+        filtered.forEach(function (a) {
+          if (!map[a.series]) {
+            map[a.series] = [];
+            groups.push({ name: a.series, list: map[a.series] });
+          }
+          map[a.series].push(a);
+        });
+
+        /* 每组按日期倒序，渲染宽行卡片 */
+        host.innerHTML = groups.map(function (g) {
+          g.list.sort(function (x, y) { return (y.date || '').localeCompare(x.date || ''); });
+          var cards = g.list.map(function (a) {
+            var tags = (a.tags || []).map(function (t) {
+              return '<i>' + RL.esc(t) + '</i>';
+            }).join('');
+            return '<a class="article-card reveal" href="' + RL.esc(a.url) + '">' +
+              '<div class="article-card-body">' +
+                '<h2 class="article-card-title">' + RL.esc(a.title) + '</h2>' +
+                '<p class="article-card-summary">' + RL.esc(a.summary || '') + '</p>' +
+                '<div class="article-card-meta">' +
+                  (a.date ? '<span class="article-card-date">' + RL.esc(a.date) + '</span>' : '') +
+                  '<span class="article-card-tags">' + tags + '</span>' +
+                '</div>' +
+              '</div>' +
+              '<span class="article-card-arrow">→</span>' +
+            '</a>';
+          }).join('');
+          return '<section class="article-group reveal">' +
+            '<header class="article-group-head">' +
+              '<h3 class="article-group-name">' + RL.esc(g.name) + '</h3>' +
+              '<span class="chip">' + g.list.length + ' 篇</span>' +
+              '<a class="article-group-more" href="/articles/series.html?name=' + encodeURIComponent(g.name) + '">查看系列 →</a>' +
+            '</header>' +
+            cards +
+          '</section>';
+        }).join('');
+
+        RL.initReveal();
       }
     })();
   </script>

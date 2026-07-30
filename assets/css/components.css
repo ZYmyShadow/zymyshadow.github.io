@@ -1582,6 +1582,34 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   color: var(--jade-strong);
 }
 
+.article-group {
+  margin-bottom: 40px;
+}
+.article-group-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.article-group-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+.article-group-more {
+  margin-left: auto;
+  font-size: .82rem;
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color .25s ease;
+}
+.article-group-more:hover {
+  color: var(--jade-strong);
+}
+
 @media (max-width: 768px) {
   .article-card {
     padding: 18px 20px;
