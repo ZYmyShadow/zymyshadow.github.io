@@ -596,6 +596,7 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
 
 .series-panel {
   padding: 24px;
+  margin: 22px 0px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
