@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>系列文章 · 修仙藏书阁</title>
+  <meta name="description" content="修仙藏书阁知识库文章系列：按系列浏览专属文章。">
+  <meta property="og:title" content="系列文章 · 修仙藏书阁">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal" id="series-hero">
+    <div>
+      <a class="back-link" href="/articles/index.html">← 返回全部文章</a>
+      <p class="page-hero-kicker mono" id="series-kicker">SERIES · 系列</p>
+      <h1 class="page-hero-title" id="series-title">系列文章</h1>
+      <p class="page-hero-lead" id="series-lead">加载中…</p>
+      <div class="series-hero-meta">
+        <span class="chip" id="series-count">– 篇</span>
+        <span class="chip mono" id="series-tags"></span>
+      </div>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">文集</span>
+  </header>
+
+  <main class="hub-page">
+    <div id="articles-box">
+      <div class="load-fail">正在加载文章数据…</div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/render-list.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var host = document.getElementById('articles-box');
+      var titleEl = document.getElementById('series-title');
+      var leadEl = document.getElementById('series-lead');
+      var kickerEl = document.getElementById('series-kicker');
+      var countEl = document.getElementById('series-count');
+      var tagsEl = document.getElementById('series-tags');
+
+      var SERIES_META = {
+        '网安系列': { desc: '网络安全加固、渗透测试、工具集与合规备忘录，涵盖 Linux 安全、等保流程与逆向工具。' },
+        '开发系列': { desc: 'Springboot 框架整合、日志配置、IDE 工具整理与博客标签插件语法。' },
+        '生活系列': { desc: '外设购买指南、食品安全科普、显示器选购与电脑维修日志。' }
+      };
+
+      var name = new URLSearchParams(location.search).get('name') || '';
+
+      var v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      fetch('../data/articles.json?v=' + v, { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (articles) {
+          var list = name
+            ? articles.filter(function (a) { return a.series === name; })
+            : articles;
+
+          if (!list.length) {
+            host.innerHTML = '<p class="nav-empty">未找到该系列的文章。</p>';
+            return;
+          }
+
+          /* 填充 Hero */
+          var meta = SERIES_META[name];
+          if (name) {
+            titleEl.textContent = name;
+            kickerEl.textContent = 'SERIES · ' + name;
+            leadEl.textContent = meta ? meta.desc : '该系列的全部文章。';
+          } else {
+            titleEl.textContent = '全部文章';
+            leadEl.textContent = '浏览全部系列的文章。';
+          }
+          document.title = (name || '全部文章') + ' · 修仙藏书阁';
+
+          countEl.textContent = list.length + ' 篇';
+
+          /* 汇总标签 */
+          var tagSet = {};
+          list.forEach(function (a) {
+            (a.tags || []).forEach(function (t) { tagSet[t] = 1; });
+          });
+          var tagList = Object.keys(tagSet);
+          tagsEl.textContent = tagList.slice(0, 8).join(' · ');
+
+          /* 按日期倒序 */
+          list.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+
+          /* 渲染宽行卡片 */
+          host.innerHTML = list.map(function (a) {
+            var tags = (a.tags || []).map(function (t) {
+              return '<i>' + RL.esc(t) + '</i>';
+            }).join('');
+            return '<a class="article-card reveal" href="' + RL.esc(a.url) + '">' +
+              '<div class="article-card-body">' +
+                '<h2 class="article-card-title">' + RL.esc(a.title) + '</h2>' +
+                '<p class="article-card-summary">' + RL.esc(a.summary || '') + '</p>' +
+                '<div class="article-card-meta">' +
+                  (a.date ? '<span class="chip mono">' + RL.esc(a.date) + '</span>' : '') +
+                  '<span class="article-card-tags">' + tags + '</span>' +
+                '</div>' +
+              '</div>' +
+              '<span class="article-card-arrow">→</span>' +
+            '</a>';
+          }).join('');
+
+          RL.initReveal();
+        })
+        .catch(function () {
+          host.innerHTML =
+            '<div class="load-fail">⚠ 文章数据加载失败。<br>' +
+            '<span class="mono">若为本地双击打开（file://），请改用本地静态服务器预览，例如：python -m http.server</span></div>';
+        });
+    })();
+  </script>
+</body>
+</html>

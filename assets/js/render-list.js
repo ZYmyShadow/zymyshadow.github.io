@@ -197,7 +197,7 @@
       }).join('');
 
       return '<div class="game-card accent-' + esc(meta.accent) + '" data-num="' + esc(meta.code) + '">' +
-        '<a class="game-card-main" href="/articles/index.html?series=' + encodeURIComponent(g.name) + '">' +
+        '<a class="game-card-main" href="/articles/series.html?name=' + encodeURIComponent(g.name) + '">' +
           '<span class="game-status">' + g.list.length + ' 篇</span>' +
           '<h3 class="game-name">' + esc(g.name) + '</h3>' +
           '<p class="game-desc">' + esc(meta.desc) + '</p>' +
