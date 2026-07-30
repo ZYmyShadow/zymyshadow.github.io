@@ -15,9 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/variables.css">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
 
   <script>
     (function () {
@@ -62,9 +62,9 @@
 
   <div id="footer"></div>
 
-  <script src="assets/js/render-list.js"></script>
-  <script src="assets/js/components.js"></script>
-  <script src="assets/js/theme-toggle.js"></script>
+  <script src="../assets/js/render-list.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
   <script>
     (function () {
       'use strict';
@@ -83,7 +83,7 @@
       var pageSize = 20;
       var filteredNews = [];
 
-      fetch('news/data/hot-news.json')
+      fetch('data/hot-news.json')
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
         .then(function (data) {
           updatedEl.textContent = data.updated_at || '----';
