@@ -1511,7 +1511,7 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-bottom: 22px;
+  margin: 22px 0px;
   padding: 24px 28px;
   background: var(--surface);
   border: 1px solid var(--line);
