@@ -57,6 +57,7 @@
       <p>日志记录器(<code>Logger</code>)的行为是分等级的，日志级别从低到高分为<code>TRACE</code>&lt;<code>DEBUG</code>&lt;<code>INFO</code>&lt;<code>WARN</code>&lt;<code>ERROR</code>&lt;<code>FATAL</code>，如果设置为<code>WARN</code>，则低于<code>WARN</code>级别的日志都不会输出</p>
 
       <div class="tip-box">默认情况下，<code>SpringBoot</code>内部使用<code>logback</code>作为系统日志实现的框架，将日志输出到控制台，不会写到日志文件。<code>SpringBoot</code>从控制台打印出来的日志级别默认只有<code>INFO</code>及以上级别，可以在<code>application.properties</code>中修改日志级别<code>logging.level.root=WARN</code>。</div>
+      <img src="../../assets/images/create_springboot_logback/logback1.png" alt="SpringBoot 默认日志输出" loading="lazy">
 
       <p>从上图可以看到，日志输出的内容如下</p>
       <ul class="plain-list">
@@ -147,6 +148,7 @@
 
       <p>然后通过在<code>application.properties</code>文件里面添加<code>spring.profiles.active=debug/release</code>来使用对应的配置</p>
       <p>由此来区分debug环境和开发环境，我这只做了简单的配置，如要详细配置，可以去官网看文档。</p>
+      
 
       <h2 id="logbackspringxml文件说明">logback-spring.xml文件说明</h2>
       <p>首先要一个根节点<code>configuration</code>，节点上如果加上<code>scan="true"</code>则会在修改配置文件后自动重新加载配置文件</p>
@@ -165,6 +167,8 @@
           <tr><td>SizeAndTimeBasedRollingPolicy</td><td>基于大小和时间的滚动（建议使用）</td></tr>
         </tbody>
       </table>
+        </tbody>
+      </table>
 
       <h3 id="将appender全部配置完成之后写logbackspringxml中的配置调用">将Appender全部配置完成之后写logback-spring.xml中的配置调用</h3>
       <p>使用<code>springProfile</code>节点来链接配置文件里面的<code>spring.profiles.active=debug/release</code>，以至于使用该配置文件里面具体的配置</p>
@@ -178,7 +182,11 @@
   &lt;/root&gt;
 &lt;/springProfile&gt;</code></pre>
       <p>以上配置完成之后就可以启动项目了。</p>
-
+      <p>启动项目之后控制台的样子：</p>
+      <img src="../../assets/images/create_springboot_logback/logback2.png" alt="启动后控制台日志输出" loading="lazy">
+      <p>我配置了输出到文件，目录里面会有logs：</p>
+      <img src="../../assets/images/create_springboot_logback/logback3.png" alt="日志文件目录结构" loading="lazy">
+      <p>这样配置完成之后，整个日志框架就算是配置完成了，感谢大家的阅读，下一期我将会整合`Redis`，然后写一些简单的调用，具体还需要各位去官网看文档，或者留言告诉我，我去解决然后更新文档</p>
     </article>
 
     <aside class="toc" id="toc" aria-label="文章目录">
