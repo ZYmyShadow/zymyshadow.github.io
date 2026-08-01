@@ -97,29 +97,6 @@
 
     <!-- 广告位 #1（首屏下方横幅） -->
     <div class="ad-slot reveal" data-slot="home-top">广告位 AD-01 · GOOGLE ADSENSE 预留</div>
-
-    <!-- ============ 02 文章系列 ============ -->
-    <section class="section" id="articles">
-      <div class="section-head reveal">
-        <span class="section-index mono">02</span>
-        <h2 class="section-title">文章系列</h2>
-        <a class="section-more" href="articles/index.html">进入知识库 →</a>
-      </div>
-      <div id="series-box" class="games-grid reveal"></div>
-    </section>
-
-    <!-- ============ 03 游戏专区 ============ -->
-    <section class="section" id="games">
-      <div class="section-head reveal">
-        <span class="section-index mono">03</span>
-        <h2 class="section-title">游戏专区</h2>
-        <a class="section-more" href="games/index.html">攻略总入口 →</a>
-      </div>
-      <div id="games-box" class="games-grid reveal"></div>
-    </section>
-
-    <!-- 广告位 #2（页面中部） -->
-    <div class="ad-slot reveal" data-slot="home-mid">广告位 AD-02 · GOOGLE ADSENSE 预留</div>
   </main>
 
   <!-- 公共页脚（components.js 注入） -->
@@ -176,34 +153,6 @@
           observeReveals();
         })
         .catch(function () { failTip($('#news-box'), '热点数据'); });
-
-      /* 文章系列 */
-      loadJSON('data/articles.json')
-        .then(function (list) {
-          RL.renderSeriesCards($('#series-box'), list);
-          $('#stat-articles').textContent = list.length;
-          observeReveals();
-        })
-        .catch(function () { failTip($('#series-box'), '文章数据'); });
-
-      /* 游戏专区：游戏基础信息 + 各游戏置顶攻略 */
-      loadJSON('data/games.json')
-        .then(function (games) {
-          $('#stat-games').textContent = games.length;
-          return Promise.all(games.map(function (g) {
-            return loadJSON('games/' + g.id + '/data/guides.json')
-              .then(function (guides) {
-                return guides.filter(function (x) { return x.pinned; }).slice(0, 3);
-              })
-              .catch(function () { return []; });
-          })).then(function (pinnedArr) {
-            var pinnedByGame = {};
-            games.forEach(function (g, i) { pinnedByGame[g.id] = pinnedArr[i]; });
-            RL.renderGames($('#games-box'), games, pinnedByGame);
-            observeReveals();
-          });
-        })
-        .catch(function () { failTip($('#games-box'), '游戏数据'); });
 
       /* 导航站统计 */
       loadJSON('data/nav-links.json')

@@ -169,7 +169,8 @@
     var META = {
       '网安系列': { code: '壹', accent: 'jade', desc: '网络安全加固、渗透测试、工具集与合规备忘录，涵盖 Linux 安全、等保流程与逆向工具。' },
       '开发系列': { code: '贰', accent: 'gold', desc: 'Springboot 框架整合、日志配置、IDE 工具整理与博客标签插件语法。' },
-      '生活系列': { code: '叁', accent: 'seal', desc: '外设购买指南、食品安全科普、显示器选购与电脑维修日志。' }
+      '生活系列': { code: '叁', accent: 'seal', desc: '外设购买指南、食品安全科普、显示器选购与电脑维修日志。' },
+      'AI系列': { code: '肆', accent: 'gold', desc: '大语言模型入门、Prompt Engineering、AI 绘图工具对比与本地部署实战。' }
     };
     var CODES = ['壹', '贰', '叁', '肆', '伍'];
     var ACCENTS = ['jade', 'gold', 'seal', 'jade', 'gold'];
@@ -205,6 +206,57 @@
         '</a>' +
         '<ul class="game-pinned">' + latest + '</ul>' +
       '</div>';
+    }).join('');
+  }
+
+  /* ---------- 系列大卡片面板（articles/index.html 系列视图） ---------- */
+
+  function renderSeriesPanels(host, articles) {
+    if (!host || !Array.isArray(articles)) return;
+
+    var META = {
+      '网安系列': { code: '壹', accent: 'jade', desc: '网络安全加固、渗透测试、工具集与合规备忘录，涵盖 Linux 安全、等保流程与逆向工具。' },
+      '开发系列': { code: '贰', accent: 'gold', desc: 'Springboot 框架整合、日志配置、IDE 工具整理与博客标签插件语法。' },
+      '生活系列': { code: '叁', accent: 'seal', desc: '外设购买指南、食品安全科普、显示器选购与电脑维修日志。' },
+      'AI系列': { code: '肆', accent: 'gold', desc: '大语言模型入门、Prompt Engineering、AI 绘图工具对比与本地部署实战。' }
+    };
+    var CODES = ['壹', '贰', '叁', '肆', '伍'];
+    var ACCENTS = ['jade', 'gold', 'seal', 'jade', 'gold'];
+
+    var groups = [];
+    var map = {};
+    articles.forEach(function (a) {
+      if (!map[a.series]) {
+        map[a.series] = [];
+        groups.push({ name: a.series, list: map[a.series] });
+      }
+      map[a.series].push(a);
+    });
+
+    host.innerHTML = groups.map(function (g, gi) {
+      g.list.sort(function (x, y) { return (y.date || '').localeCompare(x.date || ''); });
+      var meta = META[g.name] || { code: CODES[gi] || String(gi + 1), accent: ACCENTS[gi] || 'jade', desc: '' };
+      var latest = g.list.slice(0, 3).map(function (a) {
+        var cat = (a.tags || ['文章'])[0];
+        return '<li><a class="gp-link" href="' + esc(a.url) + '">' +
+          '<span class="gp-cat">' + esc(cat) + '</span>' +
+          '<span class="gp-title">' + esc(a.title) + '</span>' +
+          '<span class="arr">→</span>' +
+        '</a></li>';
+      }).join('');
+
+      return '<section class="game-panel reveal accent-' + esc(meta.accent) + '" data-num="' + esc(meta.code) + '">' +
+        '<div class="gp-id">' +
+          '<span class="game-status">' + g.list.length + ' 篇</span>' +
+          '<h2 class="game-name">' + esc(g.name) + '</h2>' +
+          '<p class="game-desc">' + esc(meta.desc) + '</p>' +
+          '<a class="btn-enter" href="/articles/index.html?series=' + encodeURIComponent(g.name) + '">进入系列 <span class="arr">→</span></a>' +
+        '</div>' +
+        '<div class="gp-list">' +
+          '<p class="gp-list-title mono">最新文章 · LATEST</p>' +
+          (latest || '<p class="pinned-empty">暂无文章，等待阁主更新…</p>') +
+        '</div>' +
+      '</section>';
     }).join('');
   }
 
@@ -366,6 +418,7 @@
     renderNewsRecent: renderNewsRecent,
     renderSeries: renderSeries,
     renderSeriesCards: renderSeriesCards,
+    renderSeriesPanels: renderSeriesPanels,
     renderGames: renderGames,
     renderGamePanels: renderGamePanels,
     renderGuideHub: renderGuideHub,

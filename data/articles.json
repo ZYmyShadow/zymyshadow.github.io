@@ -133,5 +133,41 @@
     "tags": ["工作日志", "FF14", "电脑维修"],
     "url": "/articles/series-life/ff14-troubleshoot.html",
     "date": "2022-09-01"
+  },
+  {
+    "id": "series-ai-article-01",
+    "title": "大语言模型入门指南",
+    "summary": "从GPT、LLaMA到千问，系统梳理大语言模型的核心概念、技术架构与主流开源模型对比，帮助初学者建立完整的LLM知识框架。",
+    "series": "AI系列",
+    "tags": ["LLM", "科普", "入门"],
+    "url": "/articles/series-ai/llm-intro.html",
+    "date": "2026-07-15"
+  },
+  {
+    "id": "series-ai-article-02",
+    "title": "Prompt Engineering 实用技巧整理",
+    "summary": "整理提示词工程的核心技巧：角色设定、Few-shot示例、思维链(CoT)、输出格式控制等，附带大量实际案例与效果对比。",
+    "series": "AI系列",
+    "tags": ["Prompt", "技巧", "实战"],
+    "url": "/articles/series-ai/prompt-tips.html",
+    "date": "2026-07-20"
+  },
+  {
+    "id": "series-ai-article-03",
+    "title": "AI绘图工具横向对比",
+    "summary": "对比Stable Diffusion、Midjourney、DALL-E 3、ComfyUI等主流AI绘图工具，从画质、可控性、部署方式、价格等维度给出选型建议。",
+    "series": "AI系列",
+    "tags": ["AI绘图", "工具集", "对比"],
+    "url": "/articles/series-ai/ai-drawing-tools.html",
+    "date": "2026-07-25"
+  },
+  {
+    "id": "series-ai-article-04",
+    "title": "本地部署开源大模型实战",
+    "summary": "使用Ollama + Open WebUI在本地部署LLaMA、Qwen等开源大模型的完整教程，涵盖硬件需求、模型下载、API调用与常见问题排查。",
+    "series": "AI系列",
+    "tags": ["部署", "Ollama", "实战"],
+    "url": "/articles/series-ai/local-llm-deploy.html",
+    "date": "2026-07-28"
   }
 ]

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "json-formatter",
+    "name": "JSON 格式化",
+    "icon": "{ }",
+    "desc": "在线格式化、校验、压缩 JSON 数据",
+    "url": "/tools/json-formatter.html"
+  },
+  {
+    "id": "base64",
+    "name": "Base64 编解码",
+    "icon": "B64",
+    "desc": "文本与 Base64 互相转换",
+    "url": "/tools/base64.html"
+  },
+  {
+    "id": "timestamp",
+    "name": "时间戳转换",
+    "icon": "TS",
+    "desc": "Unix 时间戳与可读日期互转",
+    "url": "/tools/timestamp.html"
+  },
+  {
+    "id": "color-picker",
+    "name": "取色器",
+    "icon": "色",
+    "desc": "HEX / RGB / HSL 颜色转换与取色",
+    "url": "/tools/color-picker.html"
+  },
+  {
+    "id": "regex-tester",
+    "name": "正则测试",
+    "icon": ".*",
+    "desc": "在线编写和测试正则表达式",
+    "url": "/tools/regex-tester.html"
+  },
+  {
+    "id": "markdown-preview",
+    "name": "Markdown 预览",
+    "icon": "MD",
+    "desc": "实时预览 Markdown 渲染效果",
+    "url": "/tools/markdown-preview.html"
+  },
+  {
+    "id": "url-codec",
+    "name": "URL 编解码",
+    "icon": "%",
+    "desc": "URL 编码与解码转换工具",
+    "url": "/tools/url-codec.html"
+  },
+  {
+    "id": "hash-gen",
+    "name": "哈希生成",
+    "icon": "#",
+    "desc": "生成文本的 MD5 / SHA-1 / SHA-256 哈希值",
+    "url": "/tools/hash-gen.html"
+  }
+]

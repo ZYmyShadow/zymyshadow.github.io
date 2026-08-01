@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工具合集 · 修仙藏书阁</title>
+  <meta name="description" content="修仙藏书阁工具合集：JSON 格式化、Base64 编解码、时间戳转换、取色器等实用在线小工具。">
+  <meta property="og:title" content="工具合集 · 修仙藏书阁">
+  <meta property="og:description" content="实用在线小工具合集，开发、设计、日常效率工具一站式获取。">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">TOOLS · 实用工具</p>
+      <h1 class="page-hero-title">工具合集</h1>
+      <p class="page-hero-lead">开发、设计、日常效率小工具<span class="hero-sub"> —— 直接改 data/tools.json 即可增删，无需动页面</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">工具</span>
+  </header>
+
+  <main class="hub-page">
+    <div class="tools-grid reveal" id="tools-box">
+      <div class="load-fail">正在加载工具数据…</div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/render-list.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var host = document.getElementById('tools-box');
+
+      var v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      fetch('../data/tools.json?v=' + v, { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (tools) {
+          if (!tools.length) {
+            host.innerHTML = '<p class="nav-empty">暂无工具，等待阁主添加…</p>';
+            return;
+          }
+          host.innerHTML = tools.map(function (t) {
+            var href = t.url || '#';
+            var icon = RL.esc(t.icon || t.name.charAt(0));
+            var name = RL.esc(t.name);
+            var title = t.desc ? ' title="' + RL.esc(t.desc) + '"' : '';
+            return '<a class="tool-card" href="' + RL.esc(href) + '"' + title + '>' +
+              '<span class="tool-icon">' + icon + '</span>' +
+              '<span class="tool-name">' + name + '</span>' +
+            '</a>';
+          }).join('');
+          RL.initReveal();
+        })
+        .catch(function () {
+          host.innerHTML =
+            '<div class="load-fail">⚠ 工具数据加载失败。<br>' +
+            '<span class="mono">若为本地双击打开（file://），请改用本地静态服务器预览，例如：python -m http.server</span></div>';
+        });
+    })();
+  </script>
+</body>
+</html>

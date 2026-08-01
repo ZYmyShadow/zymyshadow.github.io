@@ -27,6 +27,7 @@
     '<li><a class="nav-link" href="index.html">首页</a></li>' +
     '<li><a class="nav-link" href="articles/index.html">文章系列</a></li>' +
     '<li><a class="nav-link" href="games/index.html">游戏攻略</a></li>' +
+    '<li><a class="nav-link" href="tools/index.html">工具合集</a></li>' +
     '<li><a class="nav-link" href="nav.html">导航站</a></li>' +
     '<li><a class="nav-link" href="about.html">关于宗主</a></li>' +
     '<li class="nav-theme"><button class="lang-btn" data-lang-toggle type="button"><span>EN</span></button></li>' +

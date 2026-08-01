@@ -41,19 +41,31 @@
       <h1 class="page-hero-title">文章系列</h1>
       <p class="page-hero-lead">按系列浏览全部文章<span class="hero-sub"> —— 支持系列与标签双重筛选，点击筛选结果会同步到地址栏，可直接分享</span></p>
     </div>
-    <span class="seal seal-hero" aria-hidden="true">文集</span>
+    <button class="view-toggle" id="view-toggle" type="button" aria-label="切换视图模式" title="点击切换：列表 / 系列卡片">
+      <span class="vt-icon" id="vt-icon">文</span>
+      <span class="vt-label" id="vt-label">文集</span>
+    </button>
   </header>
 
   <main class="hub-page">
-    <div class="filter-block reveal">
-      <p class="filter-label mono">系列 · SERIES</p>
-      <div class="filter-chips" id="series-chips"></div>
-      <p class="filter-label mono">标签 · TAGS</p>
-      <div class="filter-chips" id="tag-chips"></div>
+    <!-- 列表视图：系列/标签筛选 + 文章列表 -->
+    <div id="list-view">
+      <div class="filter-block reveal">
+        <p class="filter-label mono">系列 · SERIES</p>
+        <div class="filter-chips" id="series-chips"></div>
+        <p class="filter-label mono">标签 · TAGS</p>
+        <div class="filter-chips" id="tag-chips"></div>
+      </div>
+      <div id="articles-box">
+        <div class="load-fail">正在加载文章数据…</div>
+      </div>
     </div>
 
-    <div id="articles-box">
-      <div class="load-fail">正在加载文章数据…</div>
+    <!-- 系列卡片视图：大型卡片（仿游戏攻略首页） -->
+    <div id="series-view" style="display:none">
+      <div id="series-panels" class="game-panels">
+        <div class="load-fail">正在加载系列数据…</div>
+      </div>
     </div>
   </main>
 
@@ -68,9 +80,33 @@
       var host = document.getElementById('articles-box');
       var seriesChips = document.getElementById('series-chips');
       var tagChips = document.getElementById('tag-chips');
+      var listView = document.getElementById('list-view');
+      var seriesView = document.getElementById('series-view');
+      var seriesPanels = document.getElementById('series-panels');
+      var toggleBtn = document.getElementById('view-toggle');
+      var vtIcon = document.getElementById('vt-icon');
+      var vtLabel = document.getElementById('vt-label');
       var allArticles = [];
       var curSeries = new URLSearchParams(location.search).get('series') || '全部';
       var curTag = '全部';
+      var isSeriesView = false;
+
+      /* ---- 视图切换 ---- */
+      toggleBtn.addEventListener('click', function () {
+        isSeriesView = !isSeriesView;
+        if (isSeriesView) {
+          listView.style.display = 'none';
+          seriesView.style.display = '';
+          vtIcon.textContent = '列';
+          vtLabel.textContent = '列表';
+          renderSeriesView();
+        } else {
+          listView.style.display = '';
+          seriesView.style.display = 'none';
+          vtIcon.textContent = '文';
+          vtLabel.textContent = '文集';
+        }
+      });
 
       var v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
       fetch('../data/articles.json?v=' + v, { cache: 'no-cache' })
@@ -117,6 +153,7 @@
           syncChips(seriesChips, curSeries);
           syncUrl();
           render();
+          if (isSeriesView) renderSeriesView();
         });
         tagChips.addEventListener('click', function (e) {
           var btn = e.target.closest('.f-chip');
@@ -147,12 +184,16 @@
         history.replaceState(null, '', url);
       }
 
-      function render() {
-        var filtered = allArticles.filter(function (a) {
+      function getFiltered() {
+        return allArticles.filter(function (a) {
           var okSeries = curSeries === '全部' || a.series === curSeries;
           var okTag = curTag === '全部' || (a.tags || []).indexOf(curTag) !== -1;
           return okSeries && okTag;
         });
+      }
+
+      function render() {
+        var filtered = getFiltered();
         if (!filtered.length) {
           host.innerHTML = '<p class="nav-empty">该筛选条件下暂无文章，换个组合试试？</p>';
           return;
@@ -198,6 +239,17 @@
           '</section>';
         }).join('');
 
+        RL.initReveal();
+      }
+
+      /* 系列卡片视图渲染 */
+      function renderSeriesView() {
+        var filtered = getFiltered();
+        if (!filtered.length) {
+          seriesPanels.innerHTML = '<p class="nav-empty">该筛选条件下暂无文章，换个组合试试？</p>';
+          return;
+        }
+        RL.renderSeriesPanels(seriesPanels, filtered);
         RL.initReveal();
       }
     })();
