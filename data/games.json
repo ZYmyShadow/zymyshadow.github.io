@@ -7,23 +7,5 @@
     "desc": "Minecraft 攻略专区：新手生存、红石科技、建筑教程、模组推荐，持续更新中。",
     "url": "/games/mc/index.html",
     "accent": "jade"
-  },
-  {
-    "id": "game-b",
-    "code": "贰",
-    "name": "游戏B · 名称待定",
-    "status": "筹备中",
-    "desc": "占位专区：结构与游戏A一致，确定后套用同一模板快速填充攻略内容。",
-    "url": "/games/game-b/index.html",
-    "accent": "gold"
-  },
-  {
-    "id": "game-c",
-    "code": "叁",
-    "name": "游戏C · 名称待定",
-    "status": "筹备中",
-    "desc": "占位专区：预留第三款游戏，攻略分类将按游戏类型单独设计。",
-    "url": "/games/game-c/index.html",
-    "accent": "seal"
   }
 ]

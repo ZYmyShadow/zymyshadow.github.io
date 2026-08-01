@@ -54,6 +54,7 @@
 
   <main class="hub-page">
     <div class="tabs" id="news-tabs" role="tablist"></div>
+    <div class="filter-chips" id="tag-chips"></div>
     <div id="news-box">
       <div class="load-fail">正在加载热点数据…</div>
     </div>
@@ -71,43 +72,83 @@
       var $ = function (s) { return document.querySelector(s); };
       var host = $('#news-box');
       var tabsHost = $('#news-tabs');
+      var tagChipsHost = $('#tag-chips');
       var paginationHost = $('#news-pagination');
       var searchInput = $('#news-search');
       var dateInput = $('#news-date');
       var countEl = $('#news-count');
       var updatedEl = $('#news-updated');
 
-      var allNews = [];
-      var currentTab = 0;
+      var allNews = [];         /* 所有新闻（合并当前 + 历史，已去重） */
+      var categoryNames = [];   /* 分类名列表（用于 Tab） */
+      var availableDates = [];  /* 可用日期列表（含当前 + 历史） */
+      var currentTab = 0;       /* 0 = 全部 */
+      var currentTag = '';      /* 空 = 全部 tag */
       var currentPage = 1;
       var pageSize = 20;
       var filteredNews = [];
 
+      /* ---- 从分类数组中提取新闻条目，附加 category 字段 ---- */
+      function extractItems(categories, date) {
+        var items = [];
+        categories.forEach(function (cat) {
+          (cat.items || []).forEach(function (item) {
+            items.push({
+              title: item.title,
+              summary: item.summary,
+              source: item.source,
+              url: item.url,
+              tag: item.tag,
+              category: cat.name,
+              date: item.date || date || ''
+            });
+          });
+        });
+        return items;
+      }
+
+      /* ---- 按标题去重，保留先出现的（即日期更新的） ---- */
+      function deduplicate(items) {
+        var seen = {};
+        return items.filter(function (item) {
+          if (seen[item.title]) return false;
+          seen[item.title] = true;
+          return true;
+        });
+      }
+
+      /* ---- 加载数据 ---- */
       var _v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
       fetch('data/hot-news.json?v=' + _v, { cache: 'no-cache' })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
         .then(function (data) {
           updatedEl.textContent = data.updated_at || '----';
-          /* 合并所有分类的新闻，添加分类名和日期 */
-          allNews = [];
-          data.categories.forEach(function (cat) {
-            (cat.items || []).forEach(function (item) {
-              allNews.push({
-                title: item.title,
-                summary: item.summary,
-                source: item.source,
-                url: item.url,
-                tag: item.tag,
-                category: cat.name,
-                date: data.updated_at || ''
-              });
-            });
+
+          /* 收集分类名（以当前快照为准） */
+          categoryNames = (data.categories || []).map(function (c) { return c.name; });
+
+          /* 收集可用日期 */
+          availableDates = [data.updated_at];
+          (data.history || []).forEach(function (h) {
+            if (h.date && availableDates.indexOf(h.date) === -1) {
+              availableDates.push(h.date);
+            }
           });
+
+          /* 合并当前 + 历史，去重 */
+          allNews = extractItems(data.categories, data.updated_at);
+          (data.history || []).forEach(function (h) {
+            allNews = allNews.concat(extractItems(h.categories, h.date));
+          });
+          allNews = deduplicate(allNews);
+
           /* 按日期倒序排序 */
           allNews.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+
           filteredNews = allNews.slice();
-          buildTabs(data.categories);
-          renderTabs();
+          buildTabs();
+          buildTagChips();
+          applyFilters();
           RL.initReveal();
         })
         .catch(function () {
@@ -116,38 +157,105 @@
             '<span class="mono">若为本地双击打开（file://），请改用本地静态服务器预览，例如：python -m http.server</span></div>';
         });
 
-      function buildTabs(categories) {
-        tabsHost.innerHTML = categories.map(function (cat, i) {
-          return '<button type="button" class="tab' + (i === 0 ? ' active' : '') + '" data-tab="' + i + '">' +
-            cat.name + '<span class="tab-count">' + (cat.items || []).length + '</span></button>';
+      /* ---- 构建分类 Tab（第一个为「全部」） ---- */
+      function buildTabs() {
+        var tabs = ['全部'].concat(categoryNames);
+        tabsHost.innerHTML = tabs.map(function (name, i) {
+          return '<button type="button" class="tab' + (i === 0 ? ' active' : '') +
+            '" data-tab="' + i + '" data-cat="' + (i === 0 ? '' : name) + '">' +
+            name + '<span class="tab-count" id="tab-count-' + i + '">0</span></button>';
         }).join('');
+
+        /* 更新各 Tab 的计数 */
+        updateTabCounts();
+
+        /* 事件委托 */
         tabsHost.addEventListener('click', function (e) {
           var btn = e.target.closest('.tab');
           if (!btn) return;
           currentTab = parseInt(btn.dataset.tab);
+          currentTag = '';
           currentPage = 1;
+          buildTagChips();
           applyFilters();
         });
       }
 
+      /* ---- 更新 Tab 上显示的计数 ---- */
+      function updateTabCounts() {
+        /* 全部 */
+        var allCountEl = document.getElementById('tab-count-0');
+        if (allCountEl) allCountEl.textContent = allNews.length;
+        /* 各分类 */
+        categoryNames.forEach(function (cat, i) {
+          var el = document.getElementById('tab-count-' + (i + 1));
+          var count = allNews.filter(function (item) { return item.category === cat; }).length;
+          if (el) el.textContent = count;
+        });
+      }
+
+      /* ---- 构建 Tag 子筛选 chips ---- */
+      function buildTagChips() {
+        /* 先确定当前分类下的所有 tag */
+        var catName = tabsHost.querySelector('.tab[data-tab="' + currentTab + '"]');
+        var cat = catName ? catName.dataset.cat : '';
+        var items = cat ? allNews.filter(function (item) { return item.category === cat; }) : allNews;
+        var tags = [];
+        items.forEach(function (item) {
+          if (item.tag && tags.indexOf(item.tag) === -1) tags.push(item.tag);
+        });
+
+        if (!tags.length) {
+          tagChipsHost.innerHTML = '';
+          return;
+        }
+
+        tagChipsHost.innerHTML =
+          '<button type="button" class="f-chip active" data-tag="">全部 <span>' + items.length + '</span></button>' +
+          tags.map(function (t) {
+            var n = items.filter(function (item) { return item.tag === t; }).length;
+            return '<button type="button" class="f-chip" data-tag="' + RL.esc(t) + '">' + RL.esc(t) + ' <span>' + n + '</span></button>';
+          }).join('');
+
+        tagChipsHost.querySelectorAll('.f-chip').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            tagChipsHost.querySelectorAll('.f-chip').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            currentTag = btn.dataset.tag;
+            currentPage = 1;
+            applyFilters();
+          });
+        });
+      }
+
+      /* ---- 综合过滤 ---- */
       function applyFilters() {
         var kw = searchInput.value.trim().toLowerCase();
         var date = dateInput.value;
+        var catBtn = tabsHost.querySelector('.tab[data-tab="' + currentTab + '"]');
+        var cat = catBtn ? catBtn.dataset.cat : '';
+
         filteredNews = allNews.filter(function (item) {
-          var okTab = currentTab === 0 || item.category === tabsHost.querySelectorAll('.tab')[currentTab].textContent.replace(/\d+$/, '').trim();
+          var okCat = !cat || item.category === cat;
+          var okTag = !currentTag || item.tag === currentTag;
           var okKw = !kw || (item.title || '').toLowerCase().indexOf(kw) !== -1 || (item.summary || '').toLowerCase().indexOf(kw) !== -1;
           var okDate = !date || item.date === date;
-          return okTab && okKw && okDate;
+          return okCat && okTag && okKw && okDate;
         });
-        countEl.textContent = '共 ' + filteredNews.length + ' 条';
-        renderTabs();
-        renderPagination();
-      }
 
-      function renderTabs() {
+        countEl.textContent = '共 ' + filteredNews.length + ' 条';
+
+        /* 高亮当前 Tab */
         tabsHost.querySelectorAll('.tab').forEach(function (btn, i) {
           btn.classList.toggle('active', i === currentTab);
         });
+
+        renderList();
+        renderPagination();
+      }
+
+      /* ---- 渲染新闻列表 ---- */
+      function renderList() {
         var start = (currentPage - 1) * pageSize;
         var end = start + pageSize;
         var pageNews = filteredNews.slice(start, end);
@@ -164,6 +272,7 @@
               '<p class="news-summary">' + RL.esc(item.summary) + '</p>' +
               '<div class="news-meta">' +
                 (item.source ? '<span class="chip chip-source">' + RL.esc(item.source) + '</span>' : '') +
+                (item.category ? '<span class="chip">' + RL.esc(item.category) + '</span>' : '') +
                 (item.tag ? '<span class="chip">' + RL.esc(item.tag) + '</span>' : '') +
                 (item.date ? '<span class="chip mono">' + RL.esc(item.date) + '</span>' : '') +
               '</div>';
@@ -175,6 +284,7 @@
         '</div>';
       }
 
+      /* ---- 分页 ---- */
       function renderPagination() {
         var total = filteredNews.length;
         var totalPages = Math.ceil(total / pageSize);
@@ -193,13 +303,14 @@
             if (btn.classList.contains('disabled')) return;
             if (btn.dataset.page === 'prev') currentPage--;
             else if (btn.dataset.page === 'next') currentPage++;
-            renderTabs();
+            renderList();
             renderPagination();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           });
         });
       }
 
+      /* ---- 搜索 & 日期筛选事件 ---- */
       searchInput.addEventListener('input', function () {
         currentPage = 1;
         applyFilters();

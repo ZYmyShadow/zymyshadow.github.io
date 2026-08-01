@@ -28,10 +28,9 @@
           <a class="nav-link" href="/games/index.html">游戏攻略
             <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </a>
-          <ul class="submenu">
-            <li><a href="/games/game-a/index.html">游戏A · 待定</a></li>
-            <li><a href="/games/game-b/index.html">游戏B · 待定</a></li>
-            <li><a href="/games/game-c/index.html">游戏C · 待定</a></li>
+          <!-- 菜单项由 components.js 读取 /data/games.json 动态生成 -->
+          <ul class="submenu" id="games-menu">
+            <li class="submenu-loading">加载中…</li>
           </ul>
         </li>
 

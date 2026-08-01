@@ -80,6 +80,26 @@
       });
   }
 
+  /* ---- 动态生成「游戏攻略」下拉菜单（从 games.json 读取） ---- */
+  function buildGamesMenu() {
+    var menu = document.getElementById('games-menu');
+    if (!menu) return Promise.resolve();
+    return fetch(BASE + 'data/games.json')
+      .then(function (res) { return res.json(); })
+      .then(function (list) {
+        var html = '<li><a href="/games/index.html">全部攻略<span class="sub-count">' +
+          (list ? list.length : 0) + '</span></a></li>';
+        (list || []).forEach(function (g) {
+          html += '<li><a href="' + (g.url || '/games/' + g.id + '/index.html') + '">' +
+            g.name + '<span class="sub-count">' + (g.status || '') + '</span></a></li>';
+        });
+        menu.innerHTML = html;
+      })
+      .catch(function () {
+        menu.innerHTML = '<li><a href="/games/index.html">全部攻略</a></li>';
+      });
+  }
+
   /* ---- 高亮当前页面对应的导航项 ---- */
   function markActive() {
     var norm = function (p) {
@@ -130,7 +150,9 @@
     inject('#navbar', BASE + 'partials/navbar.html', NAV_FALLBACK),
     inject('#footer', BASE + 'partials/footer.html', FOOTER_FALLBACK)
   ])
-    .then(buildSeriesMenu)
+    .then(function () {
+      return Promise.all([buildSeriesMenu(), buildGamesMenu()]);
+    })
     .then(function () {
       markActive();
       initNav();
