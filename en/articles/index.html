@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles · The Cultivation Library</title>
+  <meta name="description" content="The Cultivation Library knowledge base articles: browse by series with series and tag filtering.">
+  <meta property="og:title" content="Articles · The Cultivation Library">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">ARTICLES · Knowledge Base</p>
+      <h1 class="page-hero-title">Articles</h1>
+      <p class="page-hero-lead">Browse all articles by series<span class="hero-sub"> — Supports filtering by both series and tags. Filter results sync to the URL bar for easy sharing.</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <main class="hub-page">
+    <div class="filter-block reveal">
+      <p class="filter-label mono">SERIES</p>
+      <div class="filter-chips" id="series-chips"></div>
+      <p class="filter-label mono">TAGS</p>
+      <div class="filter-chips" id="tag-chips"></div>
+    </div>
+
+    <div id="articles-box">
+      <div class="load-fail">Loading article data…</div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/render-list.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var host = document.getElementById('articles-box');
+      var seriesChips = document.getElementById('series-chips');
+      var tagChips = document.getElementById('tag-chips');
+      var allArticles = [];
+      var curSeries = new URLSearchParams(location.search).get('series') || 'All';
+      var curTag = 'All';
+
+      var v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      fetch('../data/articles.json?v=' + v, { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (articles) {
+          allArticles = articles;
+          buildChips(articles);
+          render();
+          RL.initReveal();
+        })
+        .catch(function () {
+          host.innerHTML =
+            '<div class="load-fail">⚠ Failed to load article data.<br>' +
+            '<span class="mono">If you opened this via file://, please use a local static server instead, e.g.: python -m http.server</span></div>';
+        });
+
+      function buildChips(articles) {
+        /* Series chips */
+        var seriesMap = {};
+        articles.forEach(function (a) { seriesMap[a.series] = (seriesMap[a.series] || 0) + 1; });
+        var seriesNames = Object.keys(seriesMap);
+        if (seriesNames.indexOf(curSeries) === -1) curSeries = 'All';
+        seriesChips.innerHTML =
+          chipHTML('All', articles.length, curSeries === 'All', 'series') +
+          seriesNames.map(function (s) {
+            return chipHTML(s, seriesMap[s], curSeries === s, 'series');
+          }).join('');
+
+        /* Tag chips */
+        var tagMap = {};
+        articles.forEach(function (a) {
+          (a.tags || []).forEach(function (t) { tagMap[t] = (tagMap[t] || 0) + 1; });
+        });
+        tagChips.innerHTML =
+          chipHTML('All', articles.length, true, 'tag') +
+          Object.keys(tagMap).map(function (t) {
+            return chipHTML(t, tagMap[t], false, 'tag');
+          }).join('');
+
+        seriesChips.addEventListener('click', function (e) {
+          var btn = e.target.closest('.f-chip');
+          if (!btn) return;
+          curSeries = btn.dataset.name;
+          syncChips(seriesChips, curSeries);
+          syncUrl();
+          render();
+        });
+        tagChips.addEventListener('click', function (e) {
+          var btn = e.target.closest('.f-chip');
+          if (!btn) return;
+          curTag = btn.dataset.name;
+          syncChips(tagChips, curTag);
+          render();
+        });
+      }
+
+      function chipHTML(name, count, active, group) {
+        return '<button type="button" class="f-chip' + (active ? ' active' : '') +
+          '" data-name="' + name + '" data-group="' + group + '">' +
+          name + ' <span>' + count + '</span></button>';
+      }
+
+      function syncChips(container, activeName) {
+        container.querySelectorAll('.f-chip').forEach(function (c) {
+          c.classList.toggle('active', c.dataset.name === activeName);
+        });
+      }
+
+      /* Sync series filter to URL bar for easy sharing */
+      function syncUrl() {
+        var url = curSeries === 'All'
+          ? location.pathname
+          : location.pathname + '?series=' + encodeURIComponent(curSeries);
+        history.replaceState(null, '', url);
+      }
+
+      function render() {
+        var filtered = allArticles.filter(function (a) {
+          var okSeries = curSeries === 'All' || a.series === curSeries;
+          var okTag = curTag === 'All' || (a.tags || []).indexOf(curTag) !== -1;
+          return okSeries && okTag;
+        });
+        if (!filtered.length) {
+          host.innerHTML = '<p class="nav-empty">No articles found with the current filters. Try a different combination?</p>';
+          return;
+        }
+
+        /* Group by series */
+        var groups = [];
+        var map = {};
+        filtered.forEach(function (a) {
+          if (!map[a.series]) {
+            map[a.series] = [];
+            groups.push({ name: a.series, list: map[a.series] });
+          }
+          map[a.series].push(a);
+        });
+
+        /* Sort each group by date descending, render wide cards */
+        host.innerHTML = groups.map(function (g) {
+          g.list.sort(function (x, y) { return (y.date || '').localeCompare(x.date || ''); });
+          var cards = g.list.map(function (a) {
+            var tags = (a.tags || []).map(function (t) {
+              return '<i>' + RL.esc(t) + '</i>';
+            }).join('');
+            return '<a class="article-card reveal" href="' + RL.esc(a.url) + '">' +
+              '<div class="article-card-body">' +
+                '<h2 class="article-card-title">' + RL.esc(a.title) + '</h2>' +
+                '<p class="article-card-summary">' + RL.esc(a.summary || '') + '</p>' +
+                '<div class="article-card-meta">' +
+                  (a.date ? '<span class="article-card-date">' + RL.esc(a.date) + '</span>' : '') +
+                  '<span class="article-card-tags">' + tags + '</span>' +
+                '</div>' +
+              '</div>' +
+              '<span class="article-card-arrow">→</span>' +
+            '</a>';
+          }).join('');
+          return '<section class="article-group reveal">' +
+            '<header class="article-group-head">' +
+              '<h3 class="article-group-name">' + RL.esc(g.name) + '</h3>' +
+              '<span class="chip">' + g.list.length + ' posts</span>' +
+              '<a class="article-group-more" href="/articles/series.html?name=' + encodeURIComponent(g.name) + '">View series →</a>' +
+            '</header>' +
+            cards +
+          '</section>';
+        }).join('');
+
+        RL.initReveal();
+      }
+    })();
+  </script>
+</body>
+</html>

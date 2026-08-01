@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Security Tools · Security Series · The Cultivation Library</title>
+  <meta name="description" content="An organized overview of dozens of classic network security tools, their capabilities, and use cases.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">SEC · Security Series</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">Network Security Tools</h1>
+      <p class="page-hero-lead"><span class="chip">Toolkit</span> <span class="chip">Penetration Testing</span> <span class="hero-sub mono">Updated 2022-09-15 · Sect Master</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box">This article organizes dozens of classic network security tools by their functional roles and use cases, covering vulnerability scanning, sniffing, penetration testing, password cracking, and more.</div>
+
+      <h2 id="vulnerability-scanners">Vulnerability Scanners</h2>
+      <ul class="plain-list">
+        <li><strong>Nessus</strong> — The best free network vulnerability scanner, runs on nearly all UNIX platforms, with over 11,000 free plugins</li>
+        <li><strong>OpenVAS</strong> — Open-source fork of Nessus, a powerful vulnerability scanner</li>
+        <li><strong>GFI LANguard</strong> — Commercial network security scanner for Windows, discovers running computers and collects OS version and application information</li>
+        <li><strong>Retina</strong> — Commercial vulnerability assessment scanner by eEye</li>
+        <li><strong>SAINT</strong> — Commercial vulnerability assessment tool, similar to Nessus, ISS Internet Scanner, and Retina</li>
+        <li><strong>QualysGuard</strong> — Web-based vulnerability scanner with over 5,000 individual vulnerability checks</li>
+        <li><strong>Acunetix WVS</strong> — Commercial web vulnerability scanner that automatically checks for SQL injection, cross-site scripting, and other vulnerabilities</li>
+        <li><strong>Nikto</strong> — Very comprehensive web scanner with over 3,200 potentially dangerous files/CGIs</li>
+        <li><strong>WebInspect</strong> — Powerful web application scanner that helps identify known and unknown web-layer vulnerabilities</li>
+      </ul>
+
+      <h2 id="network-sniffing-and-analysis">Network Sniffing and Analysis</h2>
+      <ul class="plain-list">
+        <li><strong>Wireshark</strong> — Excellent open-source network protocol analyzer for Unix and Windows, capable of real-time network traffic inspection</li>
+        <li><strong>Tcpdump</strong> — The most classic network monitoring and data capture sniffer, very few vulnerabilities, minimal system resource consumption</li>
+        <li><strong>Kismet</strong> — A powerful wireless sniffer, command-line-based 802.11 Layer 2 wireless network detector</li>
+        <li><strong>NetStumbler</strong> — Free Windows 802.11 sniffer, widely known tool for finding open wireless access points</li>
+        <li><strong>Ntop</strong> — Network traffic monitor that displays network usage in a manner similar to a process manager</li>
+      </ul>
+
+      <h2 id="penetration-testing-frameworks">Penetration Testing Frameworks</h2>
+      <ul class="plain-list">
+        <li><strong>Metasploit Framework</strong> — Powerful open-source platform for developing, testing, and using exploit code, includes hundreds of built-in exploits</li>
+        <li><strong>Core Impact</strong> — Fully automated comprehensive intrusion detection tool with a powerful, regularly updated professional vulnerability database</li>
+        <li><strong>Canvas</strong> — Vulnerability detection tool by Aitel's ImmunitySec, includes over 150 exploits</li>
+      </ul>
+
+      <h2 id="password-cracking-tools">Password Cracking Tools</h2>
+      <ul class="plain-list">
+        <li><strong>John the Ripper</strong> — The fastest password cracker, currently supports many major Unix, DOS, Win32, BeOS, and OpenVMS platforms</li>
+        <li><strong>Cain and Abel</strong> — The best password recovery tool on Windows, can find passwords by sniffing the network</li>
+        <li><strong>THC Hydra</strong> — The fastest network authentication cracker supporting multiple services, can perform fast dictionary-based cracking on over 30 ports simultaneously</li>
+        <li><strong>RainbowCrack</strong> — Highly innovative password hash cracker using large-scale time-memory tradeoff techniques</li>
+        <li><strong>Aircrack</strong> — The fastest WEP/WPA cracking tool, a suite of tools for cracking 802.11a/b/g WEP and WPA</li>
+      </ul>
+
+      <h2 id="port-scanning-and-host-discovery">Port Scanning and Host Discovery</h2>
+      <ul class="plain-list">
+        <li><strong>Nmap</strong> — Open-source tool for network exploration and security auditing, supports host discovery, port scanning, service/version detection, and OS detection</li>
+        <li><strong>Masscan</strong> — The fastest internet port scanner, can scan the entire internet in 6 minutes</li>
+        <li><strong>Angry IP Scanner</strong> — A very fast Windows IP scanner and port scanner</li>
+        <li><strong>Superscan</strong> — Port scanner, ping tool, and resolver that runs only on Windows</li>
+      </ul>
+
+      <h2 id="firewalls-and-idsips">Firewalls and IDS/IPS</h2>
+      <ul class="plain-list">
+        <li><strong>Netfilter</strong> — The latest Linux kernel packet filter/firewall, integrated with userspace IP table tools</li>
+        <li><strong>OpenBSD PF</strong> — OpenBSD packet filter, the most popular firewall tool among OpenBSD users</li>
+        <li><strong>Snort</strong> — A widely popular open-source IDS (Intrusion Detection System) tool, excels at traffic analysis and IP packet logging</li>
+        <li><strong>OSSEC HIDS</strong> — An open-source host-based intrusion detection system with key features including log analysis, integrity checking, and rootkit detection</li>
+      </ul>
+
+      <h2 id="reverse-engineering-and-debugging">Reverse Engineering and Debugging</h2>
+      <ul class="plain-list">
+        <li><strong>IDA Pro</strong> — Windows/Linux disassembler and debugger, the de facto standard tool for malware and vulnerability research analysis of binary packages</li>
+        <li><strong>OllyDbg</strong> — Assembly-level Windows debugger, very useful for analyzing binary code directly when source code is unavailable</li>
+        <li><strong>radare2</strong> — Portable reverse engineering framework</li>
+      </ul>
+
+      <h2 id="encryption-and-anonymity">Encryption and Anonymity</h2>
+      <ul class="plain-list">
+        <li><strong>GnuPG / PGP</strong> — Advanced encryption for files and communications; GnuPG is a well-regarded open-source application compliant with the PGP standard</li>
+        <li><strong>Tor</strong> — Anonymous network communication system with features for anonymous web browsing and publishing, instant messaging, IRC, SSH, and more</li>
+        <li><strong>OpenSSL</strong> — The best SSL/TLS encryption library; a robust, full-featured open-source cryptographic toolkit comparable to commercial alternatives</li>
+        <li><strong>TrueCrypt</strong> — Open-source disk encryption software for Windows and Linux; users can encrypt entire file systems</li>
+      </ul>
+
+      <h2 id="other-useful-tools">Other Useful Tools</h2>
+      <ul class="plain-list">
+        <li><strong>Netcat</strong> — The "Swiss Army knife" of networking, can read and write data over TCP or UDP network connections</li>
+        <li><strong>Hping2</strong> — A network probing tool, a supercharged variant of ping that can send custom ICMP, UDP, and TCP packets</li>
+        <li><strong>Sysinternals</strong> — A powerful and comprehensive Windows tool suite, including ProcessExplorer, PsTools, Autoruns, and more</li>
+        <li><strong>VMware</strong> — Multi-platform virtualization software that allows running one system inside another; very useful for security professionals testing code and exploits across multiple platforms</li>
+        <li><strong>BackTrack</strong> — An innovative Live CD Linux distribution platform, known for its vast collection of security and defense tools and rich development environment</li>
+        <li><strong>Perl / Python / Ruby</strong> — Simple, versatile scripting languages; common security problems can be solved with tools found online, but with scripting languages you can write your own</li>
+      </ul>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="Table of Contents">
+      <p class="toc-title mono">Table of Contents</p>
+      <ul id="toc-list"><li class="toc-loading">Generating…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

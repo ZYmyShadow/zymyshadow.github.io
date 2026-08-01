@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cultivation Library · Knowledge Base / Trending News / Game Guides / Directory</title>
+  <meta name="description" content="The Cultivation Library: a personal site collecting knowledge base articles, trending news, game guides, and curated web directory. Hand-picked, AI-distilled, continuously updated, powered by a pure static pipeline.">
+  <meta property="og:title" content="The Cultivation Library · Knowledge Base / Trending News / Game Guides / Directory">
+  <meta property="og:description" content="A hand-picked, AI-distilled, continuously updated digital library.">
+  <meta property="og:type" content="website">
+  <!-- og:image: add once a site cover image is ready -->
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5809221017203863"
+     crossorigin="anonymous"></script>
+  <!-- Google AdSense: once the account is approved, uncomment the official script and replace the client ID (unified across every page <head>)
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  -->
+
+  <!-- Fonts: calligraphy (masthead/seal) + serif (headings) + sans (body) + monospace (data/dates) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <!-- Pre-paint anti-flash: restore the last theme choice after CSS loads but before the page paints -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Shared navbar (injected by components.js) -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- ============ Masthead ============ -->
+    <header class="masthead reveal">
+      <div class="masthead-top mono">
+        <span id="mast-date">---------- · --</span>
+        <span class="mast-open">Day <b id="open-day">1</b></span>
+        <span class="mast-sync"><i class="pulse"></i>Trending news synced</span>
+      </div>
+
+      <div class="masthead-grid">
+        <div class="masthead-main">
+          <p class="mast-kicker mono">KNOWLEDGE · INTEL · GUIDES · NAV — EST. 2026</p>
+          <h1 class="mast-title">The Cultivation Library</h1>
+          <p class="mast-sub">
+            A digital library collecting <b>knowledge base articles</b>, <b>trending news</b>, <b>game guides</b>, and a <b>curated web directory</b>—hand-picked, AI-distilled, and shipped live with every push.
+          </p>
+
+          <form class="search-bar" action="search.html" method="get" role="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input id="site-search-input" type="search" name="q" placeholder="Search articles, guides, directory…" autocomplete="off" required>
+            <kbd>/</kbd>
+            <button type="submit">Search</button>
+          </form>
+
+          <ul class="mast-stats mono">
+            <li>Articles <b id="stat-articles">–</b> posts</li>
+            <li>Trending News <b id="stat-news">–</b> items</li>
+            <li>Games <b id="stat-games">3</b> games</li>
+            <li>Directory <b id="stat-nav">–</b> sites</li>
+          </ul>
+        </div>
+
+        <aside class="masthead-side" aria-hidden="true">
+          <p class="vertical-quote">Learn broadly, question carefully, think deeply, discern clearly, act earnestly</p>
+          <span class="seal seal-lg">藏书</span>
+        </aside>
+      </div>
+    </header>
+
+    <!-- ============ 01 Trending News ============ -->
+    <section class="section" id="news">
+      <div class="section-head reveal">
+        <span class="section-index mono">01</span>
+        <h2 class="section-title">Trending News</h2>
+        <span class="section-note mono">Last updated <b id="news-updated">----------</b></span>
+        <a class="section-more" href="news/index.html">All Trends →</a>
+      </div>
+      <div id="news-box" class="reveal"></div>
+    </section>
+
+    <!-- Ad slot #1 (banner below the fold) -->
+    <div class="ad-slot reveal" data-slot="home-top">Ad Slot AD-01 · GOOGLE ADSENSE RESERVED</div>
+
+    <!-- ============ 02 Articles ============ -->
+    <section class="section" id="articles">
+      <div class="section-head reveal">
+        <span class="section-index mono">02</span>
+        <h2 class="section-title">Articles</h2>
+        <a class="section-more" href="articles/index.html">Enter Library →</a>
+      </div>
+      <div id="series-box" class="games-grid reveal"></div>
+    </section>
+
+    <!-- ============ 03 Games ============ -->
+    <section class="section" id="games">
+      <div class="section-head reveal">
+        <span class="section-index mono">03</span>
+        <h2 class="section-title">Games</h2>
+        <a class="section-more" href="games/index.html">All Guides →</a>
+      </div>
+      <div id="games-box" class="games-grid reveal"></div>
+    </section>
+
+    <!-- Ad slot #2 (mid-page) -->
+    <div class="ad-slot reveal" data-slot="home-mid">Ad Slot AD-02 · GOOGLE ADSENSE RESERVED</div>
+  </main>
+
+  <!-- Shared footer (injected by components.js) -->
+  <div id="footer"></div>
+
+  <script src="assets/js/render-list.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/theme-toggle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var $ = function (s) { return document.querySelector(s); };
+
+      /* ---- Masthead: today's date & day count ---- */
+      var now = new Date();
+      var pad = function (n) { return String(n).padStart(2, '0'); };
+      var weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      $('#mast-date').textContent =
+        now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate()) +
+        ' · ' + weekdays[now.getDay()];
+      var founded = new Date(2026, 6, 29); /* Opening day: 2026-07-29 */
+      $('#open-day').textContent = Math.max(1, Math.floor((now - founded) / 864e5) + 1);
+
+      /* ---- Search box: press / to focus ---- */
+      var searchInput = $('#site-search-input');
+      document.addEventListener('keydown', function (e) {
+        var tag = (document.activeElement && document.activeElement.tagName) || '';
+        if (e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') {
+          e.preventDefault();
+          if (searchInput) searchInput.focus();
+        }
+      });
+
+      /* ---- Data loading ---- */
+      function loadJSON(url) {
+        var v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+        var sep = url.indexOf('?') === -1 ? '?' : '&';
+        return fetch(url + sep + 'v=' + v, { cache: 'no-cache' }).then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        });
+      }
+      function failTip(host, name) {
+        host.innerHTML =
+          '<div class="load-fail">⚠ ' + name + ' failed to load.<br>' +
+          '<span class="mono">If opening locally via file://, the browser will block JSON requests—please preview via a local static server instead, e.g.: python -m http.server</span></div>';
+      }
+
+      /* Trending news (homepage shows only the last 2 days) */
+      loadJSON('news/data/hot-news.json')
+        .then(function (data) {
+          RL.renderNewsRecent($('#news-box'), data);
+          var total = data.categories.reduce(function (n, c) { return n + (c.items || []).length; }, 0);
+          $('#stat-news').textContent = total;
+          observeReveals();
+        })
+        .catch(function () { failTip($('#news-box'), 'News data'); });
+
+      /* Articles */
+      loadJSON('data/articles.json')
+        .then(function (list) {
+          RL.renderSeriesCards($('#series-box'), list);
+          $('#stat-articles').textContent = list.length;
+          observeReveals();
+        })
+        .catch(function () { failTip($('#series-box'), 'Article data'); });
+
+      /* Games: game info + each game's pinned guides */
+      loadJSON('data/games.json')
+        .then(function (games) {
+          $('#stat-games').textContent = games.length;
+          return Promise.all(games.map(function (g) {
+            return loadJSON('games/' + g.id + '/data/guides.json')
+              .then(function (guides) {
+                return guides.filter(function (x) { return x.pinned; }).slice(0, 3);
+              })
+              .catch(function () { return []; });
+          })).then(function (pinnedArr) {
+            var pinnedByGame = {};
+            games.forEach(function (g, i) { pinnedByGame[g.id] = pinnedArr[i]; });
+            RL.renderGames($('#games-box'), games, pinnedByGame);
+            observeReveals();
+          });
+        })
+        .catch(function () { failTip($('#games-box'), 'Game data'); });
+
+      /* Directory stats */
+      loadJSON('data/nav-links.json')
+        .then(function (data) {
+          var n = data.categories.reduce(function (sum, c) { return sum + (c.items || []).length; }, 0);
+          $('#stat-nav').textContent = n;
+        })
+        .catch(function () { /* fail silently, doesn't affect the homepage */ });
+
+      /* ---- Scroll reveal animation ---- */
+      var io = null;
+      function observeReveals() {
+        if (!('IntersectionObserver' in window)) {
+          document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+          return;
+        }
+        if (!io) {
+          io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) {
+                en.target.classList.add('in');
+                io.unobserve(en.target);
+              }
+            });
+          }, { threshold: 0.1 });
+        }
+        document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { io.observe(el); });
+      }
+      observeReveals();
+    })();
+  </script>
+</body>
+</html>

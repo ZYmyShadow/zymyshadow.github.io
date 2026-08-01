@@ -1,0 +1,25 @@
+[
+  {
+    "id": "beginner-01",
+    "title": "Beginner's Guide (to be written once the game is finalized)",
+    "category": "Beginner Guides",
+    "url": "#",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "character-01",
+    "title": "Character Build Guide (to be written once the game is finalized)",
+    "category": "Character Guides",
+    "url": "#",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "resource-01",
+    "title": "Resource Drop Overview (to be written once the game is finalized)",
+    "category": "Resource Drops",
+    "url": "#",
+    "date": "2026-07-29"
+  }
+]

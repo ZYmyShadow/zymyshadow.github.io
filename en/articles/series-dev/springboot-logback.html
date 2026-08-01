@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring Boot Initial Framework Integration (Part 2) · Development Series · The Cultivation Library</title>
+  <meta name="description" content="Adding logback-spring logging framework configuration.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">DEV · Development Series</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">Spring Boot Initial Framework Integration (Part 2)</h1>
+      <p class="page-hero-lead"><span class="chip">Spring Boot</span> <span class="chip">Logback</span> <span class="chip">Logging</span> <span class="hero-sub mono">Updated 2022-11-19 · Sect Master</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box"><b>Integration contents:</b> Previous framework + logback-spring<br><b>Goal:</b> Add custom logging to the project</div>
+
+      <h2 id="introduction">Introduction</h2>
+      <p><code>Logback</code> is the built-in logging framework of <code>Spring Boot</code>. In day-to-day <code>Spring Boot</code> usage, this is the framework being used — it outputs logs directly to the console but does not write them to log files. When deploying to a server, developers or operations staff can't possibly watch the project on the server all day, so logs need to be written to files for later review. <code>Logback</code> has this capability.</p>
+      <p>You might ask, why not use <code>log4j</code>? As a developer, the leaner the project, the faster and more stable it runs. Since <code>Spring Boot</code> comes with a built-in logging framework, it makes sense to use it.</p>
+
+      <h2 id="spring-boot-default-logging-configuration">Spring Boot Default Logging Configuration</h2>
+      <p>The behavior of loggers (<code>Logger</code>) is hierarchical. Log levels from low to high are: <code>TRACE</code> &lt; <code>DEBUG</code> &lt; <code>INFO</code> &lt; <code>WARN</code> &lt; <code>ERROR</code> &lt; <code>FATAL</code>. If set to <code>WARN</code>, logs below the <code>WARN</code> level will not be output.</p>
+
+      <div class="tip-box">By default, <code>Spring Boot</code> uses <code>logback</code> as its system logging implementation framework, outputting logs to the console without writing to log files. The log level printed to the console by <code>Spring Boot</code> defaults to <code>INFO</code> and above. The log level can be modified in <code>application.properties</code> with <code>logging.level.root=WARN</code>.</div>
+      <img src="/assets/images/create_springboot_logback/logback1.png" alt="Spring Boot default log output" loading="lazy">
+
+      <p>As shown in the image above, the log output contains the following elements:</p>
+      <ul class="plain-list">
+        <li>Timestamp: precise to milliseconds</li>
+        <li>Log level: <code>ERROR</code>, <code>WARN</code>, <code>INFO</code>, <code>DEBUG</code>, <code>TRACE</code></li>
+        <li>Process ID: <code>PID</code></li>
+        <li>Separator: <code>---</code> marks the start of the actual log message</li>
+        <li>Thread name: enclosed in brackets (may be truncated in console output)</li>
+        <li>Logger name: typically the source code class name</li>
+        <li>Log message:</li>
+      </ul>
+
+      <h2 id="spring-boot-startup-order">Spring Boot Startup Order</h2>
+      <p><code>logback-spring.xml</code> -&gt; <code>application.properties</code> or <code>application.yml</code> -&gt; <code>logback.xml</code></p>
+      <p>Therefore, it is recommended to create a custom <code>logback-spring.xml</code> file.</p>
+
+      <h2 id="spring-boot-custom-logback-spring-xml-configuration">Spring Boot Custom logback-spring.xml Configuration</h2>
+      <p>Create a <code>logback-spring.xml</code> file under <code>src/main/resources</code> to separately record system output logs and <code>Error</code> logs:</p>
+      <pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;configuration&gt;
+    &lt;!-- Fix %clr not being recognized --&gt;
+    &lt;include resource="org/springframework/boot/logging/logback/defaults.xml"/&gt;
+    &lt;!-- Color log output format --&gt;
+    &lt;property name="CONSOLE_LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%level){blue} %clr(${PID}){magenta} %clr([%thread]){orange} %clr(%logger){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" /&gt;
+    &lt;!-- Non-color log output format --&gt;
+    &lt;property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/&gt;
+
+    &lt;!-- Debug file path: logs directory at the same level as src; parent directories are auto-created if they don't exist --&gt;
+    &lt;property name="DEBUG_FILE_PATH" value="./logs/debug" /&gt;
+    &lt;!-- Release file path --&gt;
+    &lt;property name="RELEASE_FILE_PATH" value="./logs/release" /&gt;
+
+    &lt;!-- Console output --&gt;
+    &lt;appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender"&gt;
+        &lt;encoder&gt;
+            &lt;pattern&gt;${CONSOLE_LOG_PATTERN}&lt;/pattern&gt;
+        &lt;/encoder&gt;
+    &lt;/appender&gt;
+
+    &lt;!-- Generate output log files daily --&gt;
+    &lt;appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender"&gt;
+        &lt;encoder&gt;
+            &lt;pattern&gt;%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n&lt;/pattern&gt;
+        &lt;/encoder&gt;
+        &lt;rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy"&gt;
+            &lt;fileNamePattern&gt;${DEBUG_FILE_PATH}/output-%d{yyyy-MM-dd}.%i.log&lt;/fileNamePattern&gt;
+            &lt;maxFileSize&gt;5MB&lt;/maxFileSize&gt;
+            &lt;maxHistory&gt;30&lt;/maxHistory&gt;
+            &lt;totalSizeCap&gt;1GB&lt;/totalSizeCap&gt;
+        &lt;/rollingPolicy&gt;
+    &lt;/appender&gt;
+
+    &lt;!-- Generate error log files daily --&gt;
+    &lt;appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender"&gt;
+        &lt;filter class="ch.qos.logback.classic.filter.ThresholdFilter"&gt;
+            &lt;level&gt;ERROR&lt;/level&gt;
+        &lt;/filter&gt;
+        &lt;encoder&gt;
+            &lt;pattern&gt;%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n&lt;/pattern&gt;
+        &lt;/encoder&gt;
+        &lt;rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy"&gt;
+            &lt;fileNamePattern&gt;${DEBUG_FILE_PATH}/error-%d{yyyy-MM-dd}.%i.log&lt;/fileNamePattern&gt;
+            &lt;maxFileSize&gt;5MB&lt;/maxFileSize&gt;
+            &lt;maxHistory&gt;30&lt;/maxHistory&gt;
+            &lt;totalSizeCap&gt;1GB&lt;/totalSizeCap&gt;
+        &lt;/rollingPolicy&gt;
+    &lt;/appender&gt;
+
+    &lt;!-- Development environment: print to console --&gt;
+    &lt;springProfile name="debug"&gt;
+        &lt;logger name="com.hzhazha" level="debug" /&gt;
+        &lt;root level="INFO"&gt;
+            &lt;appender-ref ref="consoleAppender" /&gt;
+            &lt;appender-ref ref="fileAppender" /&gt;
+            &lt;appender-ref ref="errorAppender" /&gt;
+        &lt;/root&gt;
+    &lt;/springProfile&gt;
+
+    &lt;!-- Production environment: output to file --&gt;
+    &lt;springProfile name="release"&gt;
+        &lt;root level="INFO"&gt;
+            &lt;appender-ref ref="releaseConsoleAppender" /&gt;
+            &lt;appender-ref ref="releaseFileAppender" /&gt;
+            &lt;appender-ref ref="releaseErrorAppender" /&gt;
+        &lt;/root&gt;
+    &lt;/springProfile&gt;
+&lt;/configuration&gt;</code></pre>
+
+      <p>Then add <code>spring.profiles.active=debug/release</code> in the <code>application.properties</code> file to use the corresponding configuration.</p>
+      <p>This separates the debug environment from the development environment. I've only done a simple configuration here; for detailed configuration, please refer to the official documentation.</p>
+
+
+      <h2 id="logback-spring-xml-file-explanation">logback-spring.xml File Explanation</h2>
+      <p>First, you need a root element <code>configuration</code>. If you add <code>scan="true"</code> to the element, the configuration file will be automatically reloaded after modifications.</p>
+      <p>Writing the XML file is like writing Java files — the <code>include</code> tag imports packages, and <code>property</code> sets variables.</p>
+
+      <h3 id="the-most-important-part-is-appender">The Most Important Part: Appender</h3>
+      <p>This is for configuring console output, file output, or log output at a specified level, etc.</p>
+
+      <table>
+        <thead><tr><th>Configuration Parameter</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>ConsoleAppender</td><td>Output to console</td></tr>
+          <tr><td>FileAppender</td><td>Output to file</td></tr>
+          <tr><td>RollingFileAppender</td><td>Extends FileAppender, supports rolling log files</td></tr>
+          <tr><td>ThresholdFilter</td><td>Log level filter</td></tr>
+          <tr><td>SizeAndTimeBasedRollingPolicy</td><td>Rolling based on size and time (recommended)</td></tr>
+        </tbody>
+      </table>
+
+      <h3 id="after-configuring-all-appenders-write-the-configuration-calls-in-logback-spring-xml">After Configuring All Appenders, Write the Configuration Calls in logback-spring.xml</h3>
+      <p>Use the <code>springProfile</code> element to link with <code>spring.profiles.active=debug/release</code> in the configuration file, so that the specific configuration from that profile is used.</p>
+      <pre><code>spring.profiles.active=debug
+
+&lt;springProfile name="debug"&gt;
+  &lt;root level="INFO"&gt;
+    &lt;appender-ref ref="consoleAppender" /&gt;
+    &lt;appender-ref ref="fileAppender" /&gt;
+    &lt;appender-ref ref="errorAppender" /&gt;
+  &lt;/root&gt;
+&lt;/springProfile&gt;</code></pre>
+      <p>Once the above configuration is complete, you can start the project.</p>
+      <p>After starting the project, the console looks like this:</p>
+      <img src="/assets/images/create_springboot_logback/logback2.png" alt="Console log output after startup" loading="lazy">
+      <p>I configured output to file, so the directory will have a logs folder:</p>
+      <img src="/assets/images/create_springboot_logback/logback3.png" alt="Log file directory structure" loading="lazy">
+      <p>With this configuration complete, the entire logging framework is set up. Thanks for reading! In the next installment, I'll integrate `Redis` and write some simple calls. For more details, please refer to the official documentation, or leave a comment and I'll address it and update the docs.</p>
+    </article>
+
+    <aside class="toc" id="toc" aria-label="Table of Contents">
+      <p class="toc-title mono">Table of Contents</p>
+      <ul id="toc-list"><li class="toc-loading">Generating…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

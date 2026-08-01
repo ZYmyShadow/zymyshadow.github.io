@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux Security Hardening · Security Series · The Cultivation Library</title>
+  <meta name="description" content="A systematic overview of Linux server hardening across five areas: identity authentication, access control, security auditing, resource control, and intrusion prevention.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">SEC · Security Series</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">Linux Security Hardening</h1>
+      <p class="page-hero-lead"><span class="chip">Linux</span> <span class="chip">Hardening</span> <span class="chip">Cheat Sheet</span> <span class="hero-sub mono">Updated 2022-09-23 · Sect Master</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <h2 id="ps-from-which-aspects-to-harden">PS: From Which Aspects to Harden?</h2>
+      <ul class="plain-list">
+        <li>Identity Authentication</li>
+        <li>Access Control</li>
+        <li>Security Auditing</li>
+        <li>Resource Control</li>
+        <li>Intrusion Prevention</li>
+      </ul>
+
+      <h2 id="one-identity-authentication">I. Identity Authentication</h2>
+      <p><strong>1. /etc/login.defs</strong><br>
+      The /etc/login.defs file defines user restriction settings that work in conjunction with /etc/passwd and /etc/shadow. This file must exist; its absence will not prevent the system from running, but may cause unexpected errors.<br>
+      If the same option exists in /etc/shadow, the /etc/shadow setting takes precedence — that is, /etc/shadow has a higher priority than /etc/login.defs.</p>
+
+      <p><strong>2. /etc/passwd</strong><br>
+      username:pwd:UID(userID):GID(GroupID):comment:homepath:command namespace path<br>
+      Using nologin disallows login.</p>
+
+      <p><strong>3. /etc/shadow (root-only)</strong><br>
+      username:encrypted password:last change date:minimum change interval:password validity period:warning days before password change required:grace period after password expiry:account expiration date:reserved</p>
+
+      <h2 id="two-access-control">II. Access Control</h2>
+      <p><strong>1. /etc/ssh/sshd_config (SSH service configuration)</strong></p>
+      <table>
+        <thead><tr><th>Configuration Option</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Port 22</td><td>Port number</td></tr>
+          <tr><td>ListenAddress 0.0.0.0</td><td>Listening address — only this address can access; configure with an internal network address</td></tr>
+          <tr><td>LoginGraceTime 2m</td><td>Time limit for entering password when connecting; disconnects after timeout</td></tr>
+          <tr><td>PermitRootLogin yes</td><td>Whether root login is allowed</td></tr>
+          <tr><td>MaxAuthTries 6</td><td>Number of password authentication attempts allowed</td></tr>
+          <tr><td>MaxSessions 3</td><td>Number of simultaneous login requests</td></tr>
+          <tr><td>ClientAliveCountMax 3</td><td>Number of client timeout occurrences</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>2. /etc/bashrc</strong> — Modify permissions, typically 022, 027, or 077</p>
+      <p><strong>3. /etc/profile</strong></p>
+      <p><strong>4. /etc/hosts.deny</strong> — Host blacklist - sshd:ALL</p>
+      <p><strong>5. /etc/hosts.allow</strong> — Host whitelist - sshd:10.0.0.248</p>
+
+      <h2 id="three-security-auditing">III. Security Auditing</h2>
+      <p><strong>1. /etc/rsyslog.conf</strong><br>
+      Syntax:<br>
+      <code>*.err;kern.debug;deamon.notice /var/log/adm.log</code><br>
+      <code>*.* @192.168.0.1:514</code></p>
+
+      <h2 id="four-resource-control-prevent-ctrl-alt-del-reboot">IV. Resource Control (Prevent Ctrl+Alt+Del Reboot)</h2>
+      <p><strong>1. CentOS 7</strong></p>
+      <pre><code>cat /etc/inittab
+vim /usr/lib/systemd/system/ctrl-alt-del.target
+Comment out all lines
+init q</code></pre>
+
+      <p><strong>2. CentOS 6</strong></p>
+      <pre><code>vim /etc/init/control-alt-delete.conf</code></pre>
+
+      <h2 id="five-intrusion-prevention-disable-unnecessary-services">V. Intrusion Prevention (Disable Unnecessary Services)</h2>
+      <p><strong>1. CentOS 7</strong></p>
+      <pre><code>systemctl list-unit-files | grep enable # List enabled services
+systemctl disable nginx # Disable service</code></pre>
+
+      <p><strong>2. CentOS 6</strong></p>
+      <pre><code>chkconfig --list # List enabled services
+chkconfig --level service 35 off # Disable service</code></pre>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="Table of Contents">
+      <p class="toc-title mono">Table of Contents</p>
+      <ul id="toc-list"><li class="toc-loading">Generating…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

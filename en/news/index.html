@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trending News · The Cultivation Library</title>
+  <meta name="description" content="The Cultivation Library Trending News: tech, Douyin trending, Bilibili trending, Xiaohongshu trending, hand-curated, AI-summarized, continuously updated.">
+  <meta property="og:title" content="Trending News · The Cultivation Library">
+  <meta property="og:description" content="Tech / Douyin trending / Bilibili trending / Xiaohongshu trending, hand-curated, AI-summarized, continuously updated.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">HOT NEWS · Trending News</p>
+      <h1 class="page-hero-title">Trending News</h1>
+      <p class="page-hero-lead">Tech / Douyin trending / Bilibili trending / Xiaohongshu trending<span class="hero-sub"> — hand-curated, AI-summarized, continuously updated. Last updated <b id="news-updated">----</b></span></p>
+
+      <div class="filter-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input id="news-search" type="search" placeholder="Search titles or summaries…" autocomplete="off">
+        <input id="news-date" type="date" title="Filter by date">
+        <span class="filter-count mono" id="news-count">– items total</span>
+      </div>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">Trending</span>
+  </header>
+
+  <main class="hub-page">
+    <div class="tabs" id="news-tabs" role="tablist"></div>
+    <div class="filter-chips" id="tag-chips"></div>
+    <div id="news-box">
+      <div class="load-fail">Loading trending news data…</div>
+    </div>
+    <div class="pagination" id="news-pagination"></div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/render-list.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var $ = function (s) { return document.querySelector(s); };
+      var host = $('#news-box');
+      var tabsHost = $('#news-tabs');
+      var tagChipsHost = $('#tag-chips');
+      var paginationHost = $('#news-pagination');
+      var searchInput = $('#news-search');
+      var dateInput = $('#news-date');
+      var countEl = $('#news-count');
+      var updatedEl = $('#news-updated');
+
+      var allNews = [];         /* All news (merged current + history, deduplicated) */
+      var categoryNames = [];   /* Category name list (for tabs) */
+      var availableDates = [];  /* Available date list (current + history) */
+      var currentTab = 0;       /* 0 = All */
+      var currentTag = '';     /* empty = all tags */
+      var currentPage = 1;
+      var pageSize = 20;
+      var filteredNews = [];
+
+      /* ---- Extract news items from categories array, attach category field ---- */
+      function extractItems(categories, date) {
+        var items = [];
+        categories.forEach(function (cat) {
+          (cat.items || []).forEach(function (item) {
+            items.push({
+              title: item.title,
+              summary: item.summary,
+              source: item.source,
+              url: item.url,
+              tag: item.tag,
+              category: cat.name,
+              date: item.date || date || ''
+            });
+          });
+        });
+        return items;
+      }
+
+      /* ---- Deduplicate by title, keeping the first occurrence (i.e., the more recent date) ---- */
+      function deduplicate(items) {
+        var seen = {};
+        return items.filter(function (item) {
+          if (seen[item.title]) return false;
+          seen[item.title] = true;
+          return true;
+        });
+      }
+
+      /* ---- Load data ---- */
+      var _v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      fetch('data/hot-news.json?v=' + _v, { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (data) {
+          updatedEl.textContent = data.updated_at || '----';
+
+          /* Collect category names (based on current snapshot) */
+          categoryNames = (data.categories || []).map(function (c) { return c.name; });
+
+          /* Collect available dates */
+          availableDates = [data.updated_at];
+          (data.history || []).forEach(function (h) {
+            if (h.date && availableDates.indexOf(h.date) === -1) {
+              availableDates.push(h.date);
+            }
+          });
+
+          /* Merge current + history, deduplicate */
+          allNews = extractItems(data.categories, data.updated_at);
+          (data.history || []).forEach(function (h) {
+            allNews = allNews.concat(extractItems(h.categories, h.date));
+          });
+          allNews = deduplicate(allNews);
+
+          /* Sort by date descending */
+          allNews.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+
+          filteredNews = allNews.slice();
+          buildTabs();
+          buildTagChips();
+          applyFilters();
+          RL.initReveal();
+        })
+        .catch(function () {
+          host.innerHTML =
+            '<div class="load-fail"> Failed to load trending news data.<br>' +
+            '<span class="mono">If you opened the file directly (file://), please use a local static server to preview instead, e.g., python -m http.server</span></div>';
+        });
+
+      /* ---- Build category tabs (first is "All") ---- */
+      function buildTabs() {
+        var tabs = ['All'].concat(categoryNames);
+        tabsHost.innerHTML = tabs.map(function (name, i) {
+          return '<button type="button" class="tab' + (i === 0 ? ' active' : '') +
+            '" data-tab="' + i + '" data-cat="' + (i === 0 ? '' : name) + '">' +
+            name + '<span class="tab-count" id="tab-count-' + i + '">0</span></button>';
+        }).join('');
+
+        /* Update each tab's count */
+        updateTabCounts();
+
+        /* Event delegation */
+        tabsHost.addEventListener('click', function (e) {
+          var btn = e.target.closest('.tab');
+          if (!btn) return;
+          currentTab = parseInt(btn.dataset.tab);
+          currentTag = '';
+          currentPage = 1;
+          buildTagChips();
+          applyFilters();
+        });
+      }
+
+      /* ---- Update counts displayed on tabs ---- */
+      function updateTabCounts() {
+        /* All */
+        var allCountEl = document.getElementById('tab-count-0');
+        if (allCountEl) allCountEl.textContent = allNews.length;
+        /* Each category */
+        categoryNames.forEach(function (cat, i) {
+          var el = document.getElementById('tab-count-' + (i + 1));
+          var count = allNews.filter(function (item) { return item.category === cat; }).length;
+          if (el) el.textContent = count;
+        });
+      }
+
+      /* ---- Build tag sub-filter chips ---- */
+      function buildTagChips() {
+        /* First determine all tags under the current category */
+        var catName = tabsHost.querySelector('.tab[data-tab="' + currentTab + '"]');
+        var cat = catName ? catName.dataset.cat : '';
+        var items = cat ? allNews.filter(function (item) { return item.category === cat; }) : allNews;
+        var tags = [];
+        items.forEach(function (item) {
+          if (item.tag && tags.indexOf(item.tag) === -1) tags.push(item.tag);
+        });
+
+        if (!tags.length) {
+          tagChipsHost.innerHTML = '';
+          return;
+        }
+
+        tagChipsHost.innerHTML =
+          '<button type="button" class="f-chip active" data-tag="">All <span>' + items.length + '</span></button>' +
+          tags.map(function (t) {
+            var n = items.filter(function (item) { return item.tag === t; }).length;
+            return '<button type="button" class="f-chip" data-tag="' + RL.esc(t) + '">' + RL.esc(t) + ' <span>' + n + '</span></button>';
+          }).join('');
+
+        tagChipsHost.querySelectorAll('.f-chip').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            tagChipsHost.querySelectorAll('.f-chip').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            currentTag = btn.dataset.tag;
+            currentPage = 1;
+            applyFilters();
+          });
+        });
+      }
+
+      /* ---- Comprehensive filtering ---- */
+      function applyFilters() {
+        var kw = searchInput.value.trim().toLowerCase();
+        var date = dateInput.value;
+        var catBtn = tabsHost.querySelector('.tab[data-tab="' + currentTab + '"]');
+        var cat = catBtn ? catBtn.dataset.cat : '';
+
+        filteredNews = allNews.filter(function (item) {
+          var okCat = !cat || item.category === cat;
+          var okTag = !currentTag || item.tag === currentTag;
+          var okKw = !kw || (item.title || '').toLowerCase().indexOf(kw) !== -1 || (item.summary || '').toLowerCase().indexOf(kw) !== -1;
+          var okDate = !date || item.date === date;
+          return okCat && okTag && okKw && okDate;
+        });
+
+        countEl.textContent = filteredNews.length + ' items total';
+
+        /* Highlight current tab */
+        tabsHost.querySelectorAll('.tab').forEach(function (btn, i) {
+          btn.classList.toggle('active', i === currentTab);
+        });
+
+        renderList();
+        renderPagination();
+      }
+
+      /* ---- Render news list ---- */
+      function renderList() {
+        var start = (currentPage - 1) * pageSize;
+        var end = start + pageSize;
+        var pageNews = filteredNews.slice(start, end);
+        if (!pageNews.length) {
+          host.innerHTML = '<p class="nav-empty">No matching results. Try a different keyword or date?</p>';
+          return;
+        }
+        host.innerHTML = '<div class="tab-panel active">' +
+          pageNews.map(function (item, i) {
+            var rank = String(start + i + 1).padStart(2, '0');
+            var body =
+              '<span class="news-rank">' + rank + '</span>' +
+              '<h3 class="news-title">' + RL.esc(item.title) + '<span class="news-arrow">→</span></h3>' +
+              '<p class="news-summary">' + RL.esc(item.summary) + '</p>' +
+              '<div class="news-meta">' +
+                (item.source ? '<span class="chip chip-source">' + RL.esc(item.source) + '</span>' : '') +
+                (item.category ? '<span class="chip">' + RL.esc(item.category) + '</span>' : '') +
+                (item.tag ? '<span class="chip">' + RL.esc(item.tag) + '</span>' : '') +
+                (item.date ? '<span class="chip mono">' + RL.esc(item.date) + '</span>' : '') +
+              '</div>';
+            var href = item.url && item.url !== '#' ? item.url : '';
+            return href
+              ? '<a class="news-item" href="' + RL.esc(href) + '" target="_blank" rel="noopener">' + body + '</a>'
+              : '<div class="news-item">' + body + '</div>';
+          }).join('') +
+        '</div>';
+      }
+
+      /* ---- Pagination ---- */
+      function renderPagination() {
+        var total = filteredNews.length;
+        var totalPages = Math.ceil(total / pageSize);
+        if (totalPages <= 1) {
+          paginationHost.innerHTML = '';
+          return;
+        }
+        var html = '<div class="pagination-inner">';
+        html += '<button type="button" class="page-btn' + (currentPage === 1 ? ' disabled' : '') + '" data-page="prev">← Previous</button>';
+        html += '<span class="page-info">Page ' + currentPage + ' / ' + totalPages + '</span>';
+        html += '<button type="button" class="page-btn' + (currentPage === totalPages ? ' disabled' : '') + '" data-page="next">Next →</button>';
+        html += '</div>';
+        paginationHost.innerHTML = html;
+        paginationHost.querySelectorAll('.page-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            if (btn.classList.contains('disabled')) return;
+            if (btn.dataset.page === 'prev') currentPage--;
+            else if (btn.dataset.page === 'next') currentPage++;
+            renderList();
+            renderPagination();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        });
+      }
+
+      /* ---- Search & date filter events ---- */
+      searchInput.addEventListener('input', function () {
+        currentPage = 1;
+        applyFilters();
+      });
+      dateInput.addEventListener('change', function () {
+        currentPage = 1;
+        applyFilters();
+      });
+    })();
+  </script>
+</body>
+</html>

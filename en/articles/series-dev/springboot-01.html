@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring Boot Initial Framework Integration (Part 1) · Development Series · The Cultivation Library</title>
+  <meta name="description" content="Spring Boot + spring-data-jpa + MySQL initial framework integration tutorial.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">DEV · Development Series</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">Spring Boot Initial Framework Integration (Part 1)</h1>
+      <p class="page-hero-lead"><span class="chip">Spring Boot</span> <span class="chip">Java</span> <span class="chip">Framework Integration</span> <span class="hero-sub mono">Updated 2022-11-18 · Sect Master</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box"><b>Integration contents:</b> Spring Boot + spring-data-jpa + MySQL<br><b>Goal:</b> Ready to use — just run a Maven build and it's ready to go. Includes database call examples, code templates for each layer, and annotations.</div>
+
+      <h2 id="create-the-project">Create the Project</h2>
+      <p>In your project, click <code>File</code> - <code>New</code> - <code>Project</code> in sequence.</p>
+      <p>If you just downloaded IDEA, click <code>New Project</code>.</p>
+      <p>After making all your selections, click <code>Next</code>, then choose your <code>Spring Boot</code> version.</p>
+      <img src="/assets/images/create_springboot/create1.png" alt="New Project interface" loading="lazy">
+      <img src="/assets/images/create_springboot/create2.png" alt="Select Spring Boot version" loading="lazy">
+      <img src="/assets/images/create_springboot/create3.png" alt="Project structure" loading="lazy">
+      <p>Then click <code>Create</code> to create the project. Wait a moment and it will be ready.</p>
+
+      <h2 id="modify-configuration-files">Modify Configuration Files</h2>
+      <p>There are two configuration files: <code>pom.xml</code> and <code>application.properties</code></p>
+      <p><code>pom.xml</code>: Maven package configuration file</p>
+      <p><code>application.properties</code>: Project configuration file</p>
+      <p>Open the project configuration file and add the basic configuration:</p>
+      <pre><code># Project port configuration
+server.port=8088
+
+# Database driver
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+# URL
+spring.datasource.url=jdbc:mysql://localhost:3306/springbootdemo
+# Username
+spring.datasource.username=root
+# Password
+spring.datasource.password=12345678
+# Show query SQL
+spring.jpa.show-sql=true
+# Add hibernate.dialect
+spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+# JPA working mode
+# create: Recreates tables every time the program runs, causing data loss
+# create-drop: Creates table structure when the program starts, drops tables when the program ends
+# update: Creates tables if they don't exist; updates table structure if the entity changes; existing data is preserved (recommended)
+# validate: Validates that data fields match the database; throws an error if fields differ
+# none: Disables DDL processing
+spring.jpa.hibernate.ddl-auto=update</code></pre>
+
+      <h2 id="then-add-some-simple-code">Then Add Some Simple Code</h2>
+      <ul class="plain-list">
+        <li><strong>Bean</strong> — Entity classes corresponding to database tables</li>
+        <li><strong>Controller</strong> — API interfaces for frontend interaction</li>
+        <li><strong>Repository</strong> — Single-table query operations, e.g., querying by a specific field, pagination, etc.</li>
+        <li><strong>Service</strong> — All business logic; transforms data from the frontend into results through a series of operations</li>
+      </ul>
+
+      <h3 id="bean-entity-class">Bean Entity Class</h3>
+      <pre><code>@Entity(name = "test")
+public class TestBean {
+    @Id // Set primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // MySQL auto-increment primary key mode
+    private Long id; // Primary key, auto-increment
+    @Column // Field annotation
+    private String name; // Name
+    @Column
+    private Integer age; // Age
+    @Column
+    private String idCard; // ID card number
+  // Getters and setters can be auto-generated by IDEA (required)
+  // Override methods such as equals, toString, etc. can be auto-generated by IDEA (optional)
+}</code></pre>
+
+      <h3 id="controller-interface-layer">Controller Interface Layer</h3>
+      <pre><code>@RestController // Interface layer annotation
+@RequestMapping(value = "/test")
+public class TestController {
+
+    private TestService testService;
+
+    public TestController(TestService testService){
+        this.testService = testService;
+    }
+
+    @GetMapping(value = "/hello") // GET interface annotation
+    public String hello(@RequestParam(value = "name", defaultValue = "World") String name){
+        return String.format("Hello %s", name);
+    }
+
+    @PostMapping(value = "/insertorupdate")
+    public String insertOrUpdate(@RequestBody TestBean testBean){
+        testService.insertOrUpdate(testBean);
+        return String.format(testBean.toString());
+    }
+
+    @PostMapping(value = "/delete")
+    public String delete(@RequestBody TestBean testBean){
+        testService.delete(testBean);
+        return String.format(testBean.toString());
+    }
+
+    @PostMapping(value = "/findbyid")
+    public TestBean findByIdIs(@RequestParam Integer id){
+        return testService.findByIdIs(id.longValue());
+    }
+
+    @PostMapping(value = "/findbyage")
+    public List&lt;TestBean&gt; findByAge(@RequestParam Integer age){
+        return testService.findByAge(age);
+    }
+
+    @PostMapping(value = "/findbyname")
+    public List&lt;TestBean&gt; findByName(@RequestParam String name){
+        return testService.findByName(name);
+    }
+}</code></pre>
+
+      <h2 id="acknowledgments">Acknowledgments</h2>
+      <p>That's the simplest framework. Next, I'll integrate various useful plugins and write sample code to deepen understanding. The code will be published on <a href="https://github.com/ZYmyShadow">GitHub</a> once I'm done. If you find it interesting, please give it a Star. Thank you!</p>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="Table of Contents">
+      <p class="toc-title mono">Table of Contents</p>
+      <ul id="toc-list"><li class="toc-loading">Generating…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

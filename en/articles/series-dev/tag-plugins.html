@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tag Plugins Plus & Kmark Syntax · Development Series · The Cultivation Library</title>
+  <meta name="description" content="Complete usage documentation for tag plugins based on the Butterfly theme.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">DEV · Development Series</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">Tag Plugins Plus & Kmark Syntax</h1>
+      <p class="page-hero-lead"><span class="chip">Hexo</span> <span class="chip">Butterfly</span> <span class="chip">Blog</span> <span class="hero-sub mono">Updated 2022-08-30 · Sect Master</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box">This document provides complete usage documentation for tag plugins based on the Butterfly theme, covering syntax, parameters, and style previews for over 20 tags.</div>
+
+      <h2 id="inline-text-styles-text">Inline Text Styles — text</h2>
+      <pre><code>{% u text content %}        Underlined text
+{% emp text content %}       Text with emphasis dots
+{% wavy text content %}      Wavy underlined text
+{% del text content %}       Strikethrough text
+{% kbd text content %}       Keyboard-style text
+{% psw text content %}       Password-style text</code></pre>
+
+      <h2 id="inline-text-span">Inline Text — span</h2>
+      <pre><code>{% span style parameters (space-separated), text content %}
+
+Style parameters:
+- Font: logo, code
+- Color: red, yellow, green, cyan, blue, gray
+- Size: small, h4, h3, h2, h1, large, huge, ultra
+- Alignment: left, center, right</code></pre>
+
+      <h2 id="blockquote-note">Blockquote — note</h2>
+      <pre><code>{% note [class] [no-icon] [style] %}
+Any content (support inline tags too).
+{% endnote %}
+
+class: default / primary / success / info / warning / danger
+style: simple / modern / flat / disabled</code></pre>
+
+      <h2 id="superscript-tag-tip">Superscript Tag — tip</h2>
+      <pre><code>{% tip [optional parameter] %}text content{% endtip %}
+
+Styles: success, error, warning, bolt, ban, home, sync, cogs, key, bell
+Custom icons: supports FontAwesome</code></pre>
+
+      <h2 id="collapsible-box-folding">Collapsible Box — folding</h2>
+      <pre><code>{% folding optional parameter, title %}
+Content
+{% endfolding %}
+
+Color: blue, cyan, green, yellow, red
+State: open means expanded by default</code></pre>
+
+      <h2 id="checkbox-list-checkbox">Checkbox List — checkbox</h2>
+      <pre><code>{% checkbox optional style parameter, text (supports simple markdown) %}
+
+Style: plus, minus, times
+Color: red, yellow, green, cyan, blue, gray
+Checked state: checked</code></pre>
+
+      <h2 id="radio-list-radio">Radio List — radio</h2>
+      <pre><code>{% radio optional style parameter, text (supports simple markdown) %}
+
+Color: red, yellow, green, cyan, blue, gray
+Checked state: checked</code></pre>
+
+      <h2 id="timeline-timeline">Timeline — timeline</h2>
+      <pre><code>{% timeline optional title [,color] %}
+<!-- timeline event title -->
+Body content
+<!-- endtimeline -->
+{% endtimeline %}
+
+color: default / blue / pink / red / purple / orange / green</code></pre>
+
+      <h2 id="link-card-link">Link Card — link</h2>
+      <pre><code>{% link title, link, optional image link %}</code></pre>
+
+      <h2 id="buttons-btns">Buttons — btns</h2>
+      <pre><code>{% btns style parameters %}
+{% cell title, link, image or icon %}
+{% endbtns %}
+
+Corner style: rounded, circle
+Layout: wide, fill, center, around, grid2, grid3, grid4, grid5</code></pre>
+
+      <h2 id="github-card-ghcard">GitHub Card — ghcard</h2>
+      <pre><code>{% ghcard username, optional parameters %}
+{% ghcard username/repository, optional parameters %}
+
+Common parameters:
+- hide: stars,commits,prs,issues,contribs
+- count_private: true
+- show_icons: true
+- theme: see Available Themes</code></pre>
+
+      <h2 id="progress-bar-progress">Progress Bar — progress</h2>
+      <pre><code>{% progress [width] [color] [text] %}
+
+width: number from 0 to 100
+color: red, yellow, green, cyan, blue, gray
+text: text displayed on the progress bar</code></pre>
+
+      <h2 id="tabs-tab">Tabs — tab</h2>
+      <pre><code>{% tabs Unique name, [index] %}
+<!-- tab [Tab caption] [@icon] -->
+Any content (support inline tags too).
+<!-- endtab -->
+{% endtabs %}
+
+Unique name: unique name for the tab block
+[index]: index of the active tab
+[Tab caption]: current tab title
+[@icon]: FontAwesome icon name</code></pre>
+
+      <h2 id="poem-tag-poem">Poem Tag — poem</h2>
+      <pre><code>{% poem [title],[author] %}
+Poem content
+{% endpoem %}</code></pre>
+
+      <h2 id="effect-tag-wow">Effect Tag — wow</h2>
+      <pre><code>{% wow [animate],[duration],[delay],[offset],[iteration] %}
+Content
+{% endwow %}
+
+animate: animation style, see animate.css documentation for effects
+duration: animation duration, can be in ms or s
+delay: animation start delay time
+offset: distance from bottom of browser viewport to trigger animation
+iteration: number of animation repetitions</code></pre>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="Table of Contents">
+      <p class="toc-title mono">Table of Contents</p>
+      <ul id="toc-list"><li class="toc-loading">Generating…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

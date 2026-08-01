@@ -1,0 +1,33 @@
+[
+  {
+    "id": "beginner-01",
+    "title": "Beginner Survival Guide: What to Do on Day One",
+    "category": "Beginner Guides",
+    "url": "/en/games/mc/guides/beginner-01.html",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "redstone-01",
+    "title": "Redstone Basics: Automatic Farm Design",
+    "category": "Redstone Tech",
+    "url": "#",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "build-01",
+    "title": "Building Tutorial: Modern-Style Villa",
+    "category": "Building Tutorials",
+    "url": "#",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "mod-01",
+    "title": "Mod Recommendation: IndustrialCraft 2",
+    "category": "Mod Recommendations",
+    "url": "#",
+    "date": "2026-07-29"
+  }
+]

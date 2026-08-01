@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Series Articles · The Cultivation Library</title>
+  <meta name="description" content="The Cultivation Library knowledge base article series: browse articles by series.">
+  <meta property="og:title" content="Series Articles · The Cultivation Library">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal" id="series-hero">
+    <div>
+      <a class="back-link" href="/articles/index.html">← Back to All Articles</a>
+      <p class="page-hero-kicker mono" id="series-kicker">SERIES</p>
+      <h1 class="page-hero-title" id="series-title">Series Articles</h1>
+      <p class="page-hero-lead" id="series-lead">Loading…</p>
+      <div class="series-hero-meta">
+        <span class="chip" id="series-count">– posts</span>
+        <span class="chip mono" id="series-tags"></span>
+      </div>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <main class="hub-page">
+    <div id="articles-box">
+      <div class="load-fail">Loading article data…</div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/render-list.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var host = document.getElementById('articles-box');
+      var titleEl = document.getElementById('series-title');
+      var leadEl = document.getElementById('series-lead');
+      var kickerEl = document.getElementById('series-kicker');
+      var countEl = document.getElementById('series-count');
+      var tagsEl = document.getElementById('series-tags');
+
+      var SERIES_META = {
+        'Security Series': { desc: 'Network security hardening, penetration testing, toolkits, and compliance notes — covering Linux security, classified protection procedures, and reverse engineering tools.' },
+        'Development Series': { desc: 'Spring Boot framework integration, logging configuration, IDE tool collections, and blog tag plugin syntax.' },
+        'Lifestyle Series': { desc: 'Peripheral buying guides, food safety references, monitor selection, and computer repair logs.' }
+      };
+
+      var name = new URLSearchParams(location.search).get('name') || '';
+
+      var v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      fetch('../data/articles.json?v=' + v, { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (articles) {
+          var list = name
+            ? articles.filter(function (a) { return a.series === name; })
+            : articles;
+
+          if (!list.length) {
+            host.innerHTML = '<p class="nav-empty">No articles found for this series.</p>';
+            return;
+          }
+
+          /* Populate Hero */
+          var meta = SERIES_META[name];
+          if (name) {
+            titleEl.textContent = name;
+            kickerEl.textContent = 'SERIES · ' + name;
+            leadEl.textContent = meta ? meta.desc : 'All articles in this series.';
+          } else {
+            titleEl.textContent = 'All Articles';
+            leadEl.textContent = 'Browse articles across all series.';
+          }
+          document.title = (name || 'All Articles') + ' · The Cultivation Library';
+
+          countEl.textContent = list.length + ' posts';
+
+          /* Aggregate tags */
+          var tagSet = {};
+          list.forEach(function (a) {
+            (a.tags || []).forEach(function (t) { tagSet[t] = 1; });
+          });
+          var tagList = Object.keys(tagSet);
+          tagsEl.textContent = tagList.slice(0, 8).join(' · ');
+
+          /* Sort by date descending */
+          list.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+
+          /* Render wide cards */
+          host.innerHTML = list.map(function (a) {
+            var tags = (a.tags || []).map(function (t) {
+              return '<i>' + RL.esc(t) + '</i>';
+            }).join('');
+            return '<a class="article-card reveal" href="' + RL.esc(a.url) + '">' +
+              '<div class="article-card-body">' +
+                '<h2 class="article-card-title">' + RL.esc(a.title) + '</h2>' +
+                '<p class="article-card-summary">' + RL.esc(a.summary || '') + '</p>' +
+                '<div class="article-card-meta">' +
+                  (a.date ? '<span class="article-card-date">' + RL.esc(a.date) + '</span>' : '') +
+                  '<span class="article-card-tags">' + tags + '</span>' +
+                '</div>' +
+              '</div>' +
+              '<span class="article-card-arrow">→</span>' +
+            '</a>';
+          }).join('');
+
+          RL.initReveal();
+        })
+        .catch(function () {
+          host.innerHTML =
+            '<div class="load-fail">⚠ Failed to load article data.<br>' +
+            '<span class="mono">If you opened this via file://, please use a local static server instead, e.g.: python -m http.server</span></div>';
+        });
+    })();
+  </script>
+</body>
+</html>

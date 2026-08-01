@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information Gathering Workflow · Security Series · The Cultivation Library</title>
+  <meta name="description" content="Enterprise-grade penetration testing information gathering workflow.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">SEC · Security Series</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">Information Gathering Workflow</h1>
+      <p class="page-hero-lead"><span class="chip">Penetration Testing</span> <span class="chip">Information Gathering</span> <span class="hero-sub mono">Updated 2022-09-23 · Sect Master</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box">Enterprise-grade penetration testing information gathering workflow — from scanner probing to third-party website collection, covering DNS, ICP filing, SSL, APP decompilation, and multiple other dimensions.</div>
+
+      <h2 id="1-enterprise-level-operations-start-with-scanner-scanning">1. Enterprise-Level Operations — Start with Scanner Probing (Scanners)</h2>
+      <ul class="plain-list">
+        <li>IBM-AppScan</li>
+        <li>HP-WebInspect</li>
+        <li>Venus Tech — Tianjing</li>
+        <li>DBAPPSecurity — Mingjian</li>
+        <li>NSFOCUS — WVSS/RSAS</li>
+        <li>Other — nmap</li>
+      </ul>
+
+      <h2 id="2-dns-zone-transfer-vulnerability-domain-enumeration-process">2. DNS Zone Transfer Vulnerability (Domain Enumeration Process)</h2>
+
+      <h2 id="3-derive-second-and-third-level-domains-from-the-primary-domain">3. Derive Second- and Third-Level Domains from the Primary Domain</h2>
+      <p>PS: www.qq.com — game.qq.com</p>
+      <p>Tools: dnsenum in Kali</p>
+
+      <h2 id="4-kali-environment-authorization-required-for-penetration">4. Kali Environment (Authorization Required for Penetration Testing)</h2>
+      <ul class="plain-list">
+        <li>Log in as root user</li>
+        <li>dnsenum</li>
+      </ul>
+      <pre><code>Parameters:
+-f can specify a file (/usr/share/dnsenum/dns.txt)
+--dnsserver 114.114.114.114    Returns domain, records, A/NS/MX records, Bind version, zone transfer
+Dictionary brute force: -f /usr/share/dnsenum/dns.txt
+Forward lookup: dig / nslookup
+Reverse lookup:</code></pre>
+      <p>DNS is the primary source of server information exposure</p>
+      <ul class="plain-list">
+        <li>Collect DNS domain information</li>
+        <li>Discover hosts with open ports</li>
+        <li>Discover subdomains and open ports</li>
+        <li>DNS domain registration information</li>
+        <li>DNS server zone transfer</li>
+      </ul>
+
+      <p><strong>Practical Example</strong></p>
+      <pre><code>dnsenum qq.com      Subdomain information for the domain
+whois qq.com        Domain registration information
+nslookup qq.com     Display DNS information
+nslookup interactive    server shows local DNS
+dig @DNSIP (resolve via specified DNS) qq.com    Collect DNS records
+dig +noall (show nothing) +answer (show only returned info) -x (reverse lookup) DNSIP    Reverse lookup
+dig +noall +answer txt (specify type) chaos (query) VERSION.BIND (version number) @ns2.baidu.com.
+dig +trace (trace) www.baidu.com</code></pre>
+
+      <h2 id="5-website-icp-filing-lookup">5. Website ICP Filing Lookup</h2>
+      <p>www.beianbeian.com — ICP filing portal</p>
+
+      <h2 id="6-ssl-status-check">6. SSL Status Check</h2>
+      <p>myssl.com/ssl.html</p>
+
+      <h2 id="7-app-information-extraction">7. APP Information Extraction</h2>
+      <ul class="plain-list">
+        <li>Use packet capture tools</li>
+        <li>Android APP decompilation (valuable company domains, IP addresses, port numbers, and other information)</li>
+      </ul>
+
+      <h2 id="8-brute-force-second-level-domain-enumeration">8. Brute Force — Second-Level Domain Enumeration — demon v1.2</h2>
+
+      <h2 id="9-dns-update-record-lookup">9. DNS Update Record Lookup</h2>
+      <p>www.dnsdb.io</p>
+
+      <h2 id="10-google-and-baidu-collection">10. Google and Baidu Collection</h2>
+
+      <h2 id="11-third-party-website-collection">11. Third-Party Website Collection</h2>
+      <ul class="plain-list">
+        <li>Tools (<code>7kbScan</code>)</li>
+        <li>Query sites (<code>GitHub</code>, <code>Vulbox</code>, <code>360 Butian</code>, <code>Tianyancha</code>, <code>Zhongzhiyan</code>, <code>Weibu Online</code>, <code>Google</code>)</li>
+        <li>Information organization (<code>fingerprinting</code>, <code>WAF (Web Application Firewall)</code>, <code>CDN</code>)</li>
+      </ul>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="Table of Contents">
+      <p class="toc-title mono">Table of Contents</p>
+      <ul id="toc-list"><li class="toc-loading">Generating…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+/* ============================================================
+   base.css · 全局基础样式（reset / 排版 / 背景 / 通用工具类）
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink);
+  background-color: var(--bg);
+  /* 分层背景：顶部青玉微光 + 细网格线，营造"藏经阁图纸"质感 */
+  background-image:
+    radial-gradient(1100px 520px at 88% -12%, var(--jade-soft), transparent 62%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: auto, 34px 34px, 34px 34px;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .3s ease, color .3s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--jade);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 细滚动条（WebKit） */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 8px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-3);
+}
+
+/* ---- 通用工具类 ---- */
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* 滚动浮现 */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* 印章方块（导航 Logo / 门楣大印共用） */
+.seal {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: var(--seal);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1;
+  border-radius: 7px;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .8);
+  transform: rotate(-6deg);
+  flex: none;
+  user-select: none;
+  transition: transform .3s ease;
+}
+a:hover > .seal {
+  transform: rotate(0deg) scale(1.06);
+}
+
+/* 小型徽章 */
+.chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  line-height: 1;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-3);
+  background: var(--surface);
+  white-space: nowrap;
+}
+.chip-source {
+  border-color: transparent;
+  background: var(--surface-2);
+  color: var(--ink-2);
+}
+
+/* 导航栏子菜单篇数徽章 */
+.sub-count {
+  float: right;
+  margin-left: 10px;
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: .66rem;
+}
+.submenu a:hover .sub-count {
+  color: var(--jade-strong);
+}
+
+/* 数据加载失败提示 */
+.load-fail {
+  border: 1.5px dashed var(--seal);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  color: var(--ink-2);
+  font-size: .92rem;
+  line-height: 2;
+}
+.load-fail .mono {
+  font-size: .75rem;
+  color: var(--ink-3);
+}
+
+/* 键盘按键提示 */
+kbd {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: var(--ink-3);
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 2px 7px;
+  background: var(--surface-2);
+}
+
+/* 减弱动效偏好 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

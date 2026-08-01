@@ -1,0 +1,50 @@
+{
+  "updated_at": "2026-07-29",
+  "categories": [
+    {
+      "name": "Essential Tools",
+      "accent": "ink",
+      "items": [
+        { "name": "少数派", "url": "https://sspai.com", "desc": "Work efficiently, live well — a digital lifestyle guide and productivity methodology hub.", "tag": "Productivity" },
+        { "name": "ProcessOn", "url": "https://www.processon.com", "desc": "Online flowcharts, mind maps, and wireframes — no install required, just open and draw.", "tag": "Office" },
+        { "name": "DeepL", "url": "https://www.deepl.com", "desc": "High-quality AI translation, especially strong with long sentences and professional texts.", "tag": "Translation" },
+        { "name": "草料二维码", "url": "https://cli.im", "desc": "QR code generation and beautification, supporting dynamic codes and batch creation.", "tag": "Tool" },
+        { "name": "石墨文档", "url": "https://shimo.im", "desc": "Online collaborative documents and spreadsheets with real-time multi-user editing.", "tag": "Office" }
+      ]
+    },
+    {
+      "name": "AI Tools",
+      "accent": "jade",
+      "items": [
+        { "name": "通义千问", "url": "https://tongyi.aliyun.com", "desc": "Alibaba's flagship AI assistant — Q&A, writing, and coding all in one.", "tag": "Chat" },
+        { "name": "Kimi", "url": "https://kimi.com", "desc": "Ultra-long-context AI assistant that can read an entire document in one go.", "tag": "Chat" },
+        { "name": "豆包", "url": "https://www.doubao.com", "desc": "ByteDance's AI assistant with a smooth voice interaction experience.", "tag": "Chat" },
+        { "name": "即梦AI", "url": "https://jimeng.jianying.com", "desc": "AI image and video generation with strong Chinese prompt understanding.", "tag": "Art" },
+        { "name": "Midjourney", "url": "https://www.midjourney.com", "desc": "Top-tier AI art generation — the gold standard for image quality.", "tag": "Art" },
+        { "name": "文心一言", "url": "https://yiyan.baidu.com", "desc": "Baidu's flagship large model for Chinese-language knowledge Q&A and creative writing.", "tag": "Chat" }
+      ]
+    },
+    {
+      "name": "Design Resources",
+      "accent": "gold",
+      "items": [
+        { "name": "站酷", "url": "https://www.zcool.com.cn", "desc": "Leading Chinese designer community and original design work showcase.", "tag": "Community" },
+        { "name": "Dribbble", "url": "https://dribbble.com", "desc": "Global UI designer portfolio platform — essential for finding inspiration.", "tag": "Inspiration" },
+        { "name": "Figma", "url": "https://www.figma.com", "desc": "Online collaborative interface design tool — a team staple.", "tag": "Tool" },
+        { "name": "花瓣", "url": "https://huaban.com", "desc": "Design inspiration collection and organization — a moodboard powerhouse.", "tag": "Inspiration" },
+        { "name": "iconfont", "url": "https://www.iconfont.cn", "desc": "Alibaba's vector icon library with massive free icon downloads.", "tag": "Icons" }
+      ]
+    },
+    {
+      "name": "Gaming Communities",
+      "accent": "seal",
+      "items": [
+        { "name": "NGA", "url": "https://bbs.nga.cn", "desc": "Hardcore gamer community with in-depth guides and discussions.", "tag": "Forum" },
+        { "name": "米游社", "url": "https://www.miyoushe.com", "desc": "HoYoverse official community — guides, news, and fan art all in one place.", "tag": "HoYo Games" },
+        { "name": "TapTap", "url": "https://www.taptap.cn", "desc": "Mobile game discovery and authentic review platform — essential for finding new games.", "tag": "Platform" },
+        { "name": "游民星空", "url": "https://www.gamersky.com", "desc": "Single-player game news, reviews, and guides.", "tag": "News" },
+        { "name": "3DM", "url": "https://www.3dmgame.com", "desc": "Game news, forums, and resource hub.", "tag": "News" }
+      ]
+    }
+  ]
+}

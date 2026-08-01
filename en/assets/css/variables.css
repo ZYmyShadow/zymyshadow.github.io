@@ -1,0 +1,66 @@
+/* ============================================================
+   variables.css · 修仙藏书阁 主题变量
+   风格：极简科技风 × 东方藏书阁
+   配色：墨色文字 / 青玉主色 / 朱砂印章红点缀
+   ============================================================ */
+
+:root {
+  /* ---- 色彩 · 浅色（默认） ---- */
+  --bg: #f5f7f5;                 /* 纸白底，微偏冷绿 */
+  --surface: #ffffff;            /* 卡片表面 */
+  --surface-2: #edf1ed;          /* 次级表面 */
+  --ink: #16211c;                /* 主文字 · 墨绿黑 */
+  --ink-2: #48564f;              /* 次级文字 */
+  --ink-3: #7d8b83;              /* 弱化文字 */
+  --line: #dde5df;               /* 常规分隔线 */
+  --line-strong: #16211c;        /* 强调分隔线（章节标题下划线） */
+  --jade: #0e8f6f;               /* 青玉 · 主色 */
+  --jade-strong: #0a6b54;        /* 青玉 · 深 */
+  --jade-soft: rgba(14, 143, 111, .08);
+  --seal: #c2472e;               /* 朱砂 · 印章红 */
+  --gold: #a97e2f;               /* 鎏金 · 第三点缀色 */
+  --grid-line: rgba(22, 33, 28, .05);   /* 背景网格线 */
+  --nav-bg: rgba(245, 247, 245, .86);   /* 导航栏半透明底 */
+  --shadow-sm: 0 1px 2px rgba(22, 33, 28, .06);
+  --shadow-md: 0 12px 32px -14px rgba(22, 33, 28, .22);
+  --footer-bg: #131c18;
+  --footer-ink: #b9c7bf;
+  --footer-title: #eaf1ec;
+
+  /* ---- 字体 ---- */
+  --font-display: 'Ma Shan Zheng', 'Noto Serif SC', serif;   /* 书法体 · Logo/门楣/大数字 */
+  --font-serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif; /* 宋体 · 标题/卡片题目 */
+  --font-sans: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif; /* 正文 */
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace; /* 等宽 · 日期/标签/编号 */
+
+  /* ---- 尺寸 ---- */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --nav-h: 64px;
+  --container: 1180px;
+}
+
+/* ---- 色彩 · 深色 ---- */
+[data-theme='dark'] {
+  --bg: #0d1310;
+  --surface: #141b17;
+  --surface-2: #1a231e;
+  --ink: #e6ede8;
+  --ink-2: #a9b8af;
+  --ink-3: #6e7f75;
+  --line: #243029;
+  --line-strong: #e6ede8;
+  --jade: #3ecf9a;
+  --jade-strong: #66e0b6;
+  --jade-soft: rgba(62, 207, 154, .10);
+  --seal: #ff7a59;
+  --gold: #d8a94e;
+  --grid-line: rgba(230, 237, 232, .045);
+  --nav-bg: rgba(13, 19, 16, .82);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+  --shadow-md: 0 16px 36px -14px rgba(0, 0, 0, .6);
+  --footer-bg: #0a0f0c;
+  --footer-ink: #8fa096;
+  --footer-title: #dfe8e2;
+}

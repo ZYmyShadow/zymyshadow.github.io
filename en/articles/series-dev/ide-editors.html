@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDEs and Editors · Development Series · The Cultivation Library</title>
+  <meta name="description" content="An organized list of mainstream IDEs and editors, categorized by language.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">DEV · Development Series</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">IDEs and Editors</h1>
+      <p class="page-hero-lead"><span class="chip">Toolkit</span> <span class="chip">IDE</span> <span class="hero-sub mono">Updated 2022-09-17 · Sect Master</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box">An organized list of mainstream IDEs and editors categorized by language, plus a dedicated section for reverse engineering tools.</div>
+
+      <h2 id="all-languages">All Languages</h2>
+      <ul class="plain-list">
+        <li><strong>JetBrains</strong> — Developer Tools for Professionals and Teams</li>
+        <li><strong>Visual Studio Code</strong> — Code Editing. Redefined</li>
+        <li><strong>Visual Studio</strong> — IDE, Code Editor, Team Services, and Mobile Center</li>
+        <li><strong>NetBeans</strong> — Welcome to NetBeans</li>
+        <li><strong>Eclipse</strong> — Eclipse Downloads</li>
+        <li><strong>Geany</strong> — A powerful, stable, and lightweight programmer's text editor</li>
+        <li><strong>Sublime Text</strong> — A sophisticated text editor for code, markup and prose</li>
+        <li><strong>Atom</strong> — A hackable text editor</li>
+        <li><strong>GNU Emacs</strong> — GNU Project</li>
+        <li><strong>UltraEdit</strong> — The Original Text Editor</li>
+        <li><strong>EditPlus</strong> — Windows text editor with FTP and sftp</li>
+        <li><strong>TextMate</strong> — The Missing Editor for Mac OS X</li>
+        <li><strong>Brackets</strong> — A modern, open source code editor that understands web design</li>
+      </ul>
+
+      <h2 id="java">Java</h2>
+      <ul class="plain-list">
+        <li><strong>IntelliJ IDEA</strong> — The Java IDE for Professional Developers by JetBrains</li>
+        <li><strong>Eclipse</strong> — Eclipse Downloads</li>
+        <li><strong>NetBeans</strong> — Welcome to NetBeans</li>
+        <li><strong>Aptana</strong></li>
+        <li><strong>jEdit</strong> — Programmer's Text Editor</li>
+      </ul>
+
+      <h2 id="python">Python</h2>
+      <ul class="plain-list">
+        <li><strong>PyCharm</strong> — Python IDE for Professional Developers by JetBrains</li>
+        <li><strong>Anaconda</strong></li>
+        <li><strong>IPython</strong></li>
+      </ul>
+
+      <h2 id="cc">C/C++</h2>
+      <ul class="plain-list">
+        <li><strong>CLion</strong> — A Cross-Platform IDE for C and C++ by JetBrains</li>
+        <li><strong>Qt</strong> — Cross-platform software development for embedded & desktop</li>
+        <li><strong>Code::Blocks</strong></li>
+        <li><strong>Dev-C++</strong></li>
+        <li><strong>Eclipse CDT</strong></li>
+        <li><strong>KDevelop</strong> — A cross-platform IDE for C, C++, Python, QML/JavaScript and PHP</li>
+        <li><strong>C-Free</strong> — An Excellent C/C++ IDE</li>
+        <li><strong>CodeLite</strong> — A free, Open Source, Cross Platform C,C++,PHP and Node.js IDE</li>
+      </ul>
+
+      <h2 id="c">C#</h2>
+      <ul class="plain-list">
+        <li><strong>Rider</strong> — Cross-platform .NET IDE by JetBrains</li>
+        <li><strong>Visual Studio</strong></li>
+        <li><strong>MonoDevelop</strong></li>
+        <li><strong>ILSpy</strong> — Open-source .NET assembly browser and decompiler</li>
+        <li><strong>dotPeek</strong> — Free .NET Decompiler & Assembly Browser by JetBrains</li>
+        <li><strong>Refactoring Essentials</strong> — for Visual Studio</li>
+        <li><strong>SlickEdit</strong> — The most powerful code editor</li>
+      </ul>
+
+      <h2 id="go">Go</h2>
+      <ul class="plain-list">
+        <li><strong>LiteIDE X</strong></li>
+        <li><strong>Gin_API_Framework</strong> — Gin+Beego+API+Doc</li>
+      </ul>
+
+      <h2 id="html">HTML</h2>
+      <ul class="plain-list">
+        <li><strong>WebStorm</strong> — The Smartest JavaScript IDE by JetBrains</li>
+        <li><strong>Dreamweaver</strong> — Buy Adobe Dreamweaver CC</li>
+        <li><strong>Komodo IDE</strong> — One IDE for All Your Languages</li>
+        <li><strong>Bluefish Editor</strong></li>
+        <li><strong>Remarkable</strong> — The Best Markdown Editor for Linux and Windows</li>
+      </ul>
+
+      <h2 id="php">PHP</h2>
+      <ul class="plain-list">
+        <li><strong>PhpStorm</strong> — Efficient and intelligent PHP IDE</li>
+        <li><strong>Zend Studio</strong> — The PHP IDE for Smarter Development</li>
+      </ul>
+
+      <h2 id="android">Android</h2>
+      <ul class="plain-list">
+        <li><strong>Android Studio</strong> — Download Android Studio and SDK tools</li>
+      </ul>
+
+      <h2 id="reverse-engineering">Reverse Engineering</h2>
+      <ul class="plain-list">
+        <li><strong>JustDecompile</strong> — .NET Assembly Decompiler & Browser - Telerik</li>
+        <li><strong>ILSpy</strong></li>
+        <li><strong>dotPeek</strong> — Free .NET Decompiler & Assembly Browser by JetBrains</li>
+      </ul>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="Table of Contents">
+      <p class="toc-title mono">Table of Contents</p>
+      <ul id="toc-list"><li class="toc-loading">Generating…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nmap Help Documentation · Security Series · The Cultivation Library</title>
+  <meta name="description" content="Nmap official help documentation with explanations of commonly used options.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">SEC · Security Series</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">Nmap Help Documentation</h1>
+      <p class="page-hero-lead"><span class="chip">Nmap</span> <span class="chip">Toolkit</span> <span class="chip">Port Scanning</span> <span class="hero-sub mono">Updated 2022-09-06 · Sect Master</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <h2 id="nmap-official-help">Nmap Official Help</h2>
+      <pre><code>Usage: nmap [Scan Type(s)] [Options] {target specification}
+TARGET SPECIFICATION:
+  Can pass hostnames, IP addresses, networks, etc.
+  Ex: scanme.nmap.org, microsoft.com/24, 192.168.0.1; 10.0-255.0-255.1-254
+  -iL &lt;inputfilename&gt;: Input from list of hosts/networks
+  -iR &lt;num hosts&gt;: Choose random targets
+  --exclude &lt;host1[,host2][,host3],...&gt;: Exclude hosts/networks
+HOST DISCOVERY:
+  -sL: List Scan - simply list targets to scan
+  -sP: Ping Scan - go no further than determining if host is online
+  -P0: Treat all hosts as online -- skip host discovery
+  -PS/PA/PU [portlist]: TCP SYN/ACK or UDP discovery probes
+SCAN TECHNIQUES:
+  -sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans
+  -sN/sF/sX: TCP Null, FIN, and Xmas scans
+PORT SPECIFICATION AND SCAN ORDER:
+  -p &lt;port ranges&gt;: Only scan specified ports
+  -F: Fast - Scan only the ports listed in the nmap-services file
+SERVICE/VERSION DETECTION:
+  -sV: Probe open ports to determine service/version info
+OS DETECTION:
+  -O: Enable OS detection
+TIMING AND PERFORMANCE:
+  -T[0-6]: Set timing template (higher is faster)
+OUTPUT:
+  -oN/-oX/-oS/-oG &lt;file&gt;: Output scan results in normal, XML, s|Grepable format
+MISC:
+  -6: Enable IPv6 scanning
+  -A: Enables OS detection and Version detection
+  -V: Print version number
+  -h: Print this help summary page.</code></pre>
+
+      <h2 id="nmap-commonly-used-options">Nmap Commonly Used Options</h2>
+      <ul class="plain-list">
+        <li><code>-sL</code> (List Scan — lists the IPs of specified targets without performing host discovery)</li>
+        <li><code>-sn</code> (Ping Scan — performs host discovery only, without port scanning)</li>
+        <li><code>-Pn</code> (Treats all specified hosts as online, skipping host discovery)</li>
+        <li><code>-PS/PA/PU/PY</code> (TCP SYN/ACK/UDP/SCTP discovery probes)</li>
+        <li><code>-PE/PP/PM</code> (ICMP echo, timestamp, and netmask request discovery probes)</li>
+        <li><code>-n/-R</code> (Never do DNS resolution / Always do DNS resolution)</li>
+        <li><code>--dns-servers</code> (Specify custom DNS servers)</li>
+        <li><code>--traceroute</code> (Perform a traceroute to each target)</li>
+      </ul>
+
+      <h2 id="scanning-live-hosts">Scanning Live Hosts</h2>
+      <pre><code>nmap -sn 10.1.1.1-100</code></pre>
+
+      <h2 id="port-scanning-techniques">Port Scanning Techniques</h2>
+      <p>Nmap supports about a dozen different scanning techniques. Generally only one method is used at a time, except that UDP scanning (<code>-sU</code>) can be combined with any of the TCP scan types.</p>
+
+      <h3 id="ss-tcp-syn-scan">-sS (TCP SYN Scan)</h3>
+      <p>SYN scan is the default and most popular scanning option. It is fast — on a fast network without intrusive firewalls, it can scan thousands of ports per second. SYN scan is relatively stealthy and hard to detect because it never completes a TCP connection.</p>
+
+      <h3 id="st-tcp-connect-scan">-sT (TCP connect() Scan)</h3>
+      <p>When SYN scan is not available, TCP connect() scan is the default TCP scan. This is the case when the user lacks privileges to send raw packets or is scanning IPv6 networks.</p>
+
+      <h3 id="su-udp-scan">-sU (UDP Scan)</h3>
+      <p>UDP scan is activated with the <code>-sU</code> option. It can be combined with a TCP scan such as SYN scan (<code>-sS</code>) to check both protocols simultaneously.</p>
+
+      <h3 id="sn-sf-sx-tcp-null-fin-and-xmas-scan">-sN; -sF; -sX (TCP Null, FIN, and Xmas Scans)</h3>
+      <p>These three scan types exploit a subtle method in the TCP RFC to distinguish between open and closed ports.</p>
+
+      <h2 id="service-and-version-detection">Service and Version Detection</h2>
+      <p><strong>-sV (Version Detection)</strong> — Enables version detection. You can also use <code>-A</code> to enable both OS detection and version detection simultaneously.</p>
+
+      <h2 id="os-detection">OS Detection</h2>
+      <p><strong>-O (Enable OS Detection)</strong> — You can also use <code>-A</code> to enable both OS detection and version detection simultaneously.</p>
+
+      <h2 id="timing-and-performance">Timing and Performance</h2>
+      <p><strong>-T[0-6]</strong> — Set timing template (higher is faster)</p>
+      <ul class="plain-list">
+        <li>T0 (Paranoid) — For IDS evasion, extremely slow</li>
+        <li>T1 (Sneaky) — For IDS evasion, slow</li>
+        <li>T2 (Polite) — Slows down to use less bandwidth and target host resources</li>
+        <li>T3 (Normal) — Default mode</li>
+        <li>T4 (Aggressive) — Assumes the user has a suitable and reliable network, speeds up scanning</li>
+        <li>T5 (Insane) — Assumes the user has an exceptionally fast network or is willing to sacrifice accuracy for speed</li>
+      </ul>
+
+      <h2 id="examples">Examples</h2>
+      <pre><code>nmap -v scanme.nmap.org
+# Scans all reserved TCP ports on the host scanme.nmap.org. The -v option enables verbose mode.
+
+nmap -sS -O scanme.nmap.org/24
+# Performs a stealth SYN scan on the 255 hosts in the "Class C" subnet where scanme is located.
+# Also attempts to determine the OS type of each live host.
+
+nmap -sV -p 22,53,110,143,4564 198.116.0-255.1-127
+# Performs host enumeration and TCP scan on 255 8-bit subnets in the Class B 188.116 network.
+
+nmap -v -iR 100000 -P0 -p 80
+# Randomly selects 100,000 hosts and scans whether they are running a web server (port 80).</code></pre>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="Table of Contents">
+      <p class="toc-title mono">Table of Contents</p>
+      <ul id="toc-list"><li class="toc-loading">Generating…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

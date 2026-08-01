@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troubleshooting a Friend's Sprout's Computer · Lifestyle Series · The Cultivation Library</title>
+  <meta name="description" content="A troubleshooting log for a friend getting only 20 FPS in FF14.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">LIFE · Lifestyle Series</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">Troubleshooting a Friend's Sprout's Computer Issues</h1>
+      <p class="page-hero-lead"><span class="chip">Work Log</span> <span class="chip">FF14</span> <span class="chip">Computer Repair</span> <span class="hero-sub mono">Updated 2022-09-01 · Sect Master</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">藏</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box">A troubleshooting log for a friend getting only 20 FPS in FF14: Task Manager showed 100% CPU usage but the frequency was only 1.99GHz (base 2.5GHz). Remote diagnosis revealed the laptop wasn't plugged in, causing CPU throttling.</div>
+
+      <h2 id="conclusion-first">Conclusion First</h2>
+      <p><strong>100% CPU usage caused the FPS drop</strong></p>
+      <p>This is a case-specific diagnosis and does not apply to all situations.</p>
+
+      <h2 id="how-it-started">How It Started</h2>
+      <p>Late at night when I was about to go to sleep, someone in the gaming group — a sprout (newbie) — was complaining that their computer only got 20 FPS in FF14. We were all wondering what kind of specs would produce only 20 FPS in this game. Then the sprout posted screenshots from Task Manager:</p>
+      <img src="/assets/images/one_time_clean_win/1.jpg" alt="Task Manager screenshot 1" loading="lazy">
+      <img src="/assets/images/one_time_clean_win/2.jpg" alt="Task Manager screenshot 2" loading="lazy">
+      <img src="/assets/images/one_time_clean_win/3.jpg" alt="Task Manager screenshot 3" loading="lazy">
+
+      <h2 id="rational-analysis">Rational Analysis</h2>
+
+      <h3 id="1-first-the-sprouts-computer-specs-are">1. First, the Sprout's Computer Specs Are</h3>
+      <table>
+        <thead><tr><th>Component</th><th>Specs</th></tr></thead>
+        <tbody>
+          <tr><td>RAM</td><td>8GB</td></tr>
+          <tr><td>GPU</td><td>GTX 1050</td></tr>
+          <tr><td>CPU</td><td>i5-7300HQ</td></tr>
+        </tbody>
+      </table>
+
+      <h3 id="2-second-ff14-system-requirements">2. Second, FF14 System Requirements</h3>
+      <table>
+        <thead><tr><th>Requirement</th><th>DirectX® 11</th></tr></thead>
+        <tbody>
+          <tr><td>OS</td><td>Windows® 8.1 64-bit, Windows® 10 64-bit, Windows® 11 64-bit</td></tr>
+          <tr><td>CPU</td><td>Intel Core i5 2.4GHz or above</td></tr>
+          <tr><td>RAM</td><td>4GB or above</td></tr>
+          <tr><td>Storage</td><td>80GB or above</td></tr>
+          <tr><td>GPU</td><td>NVIDIA® GeForce® GTX 750 or above / AMD Radeon™ R7 260X or above</td></tr>
+        </tbody>
+      </table>
+
+      <h3 id="3-by-all-rights-it-shouldnt-only-get-20-fps">3. By All Rights, It Shouldn't Only Get 20 FPS</h3>
+      <p>Looking at the sprout's screenshots, there's one thing to notice:</p>
+      <p>CPU usage is 80%, but the frequency is only 1.99GHz. As is well known, the i5-7300HQ has a base frequency of 2.5GHz, so there are only two possible causes:</p>
+      <ul class="plain-list">
+        <li>CPU thermal throttling</li>
+        <li>Power plan locking the frequency</li>
+      </ul>
+
+      <h2 id="remote-diagnosis">Remote Diagnosis</h2>
+      <p>By remotely accessing the sprout's computer, I found out it was <strong>not plugged into power</strong>. After plugging in the power adapter, the frequency returned to normal. Then I launched the game — only about 40 FPS. I opened Task Manager and saw the CPU was maxed out — found the cause.</p>
+      <p>The next step was to check the game's CPU usage and how it's being used, then adjust the corresponding strategy accordingly.</p>
+      <p><strong>Final solution:</strong> Reinstall the game, play in fullscreen mode, or get a new computer.</p>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="Table of Contents">
+      <p class="toc-title mono">Table of Contents</p>
+      <ul id="toc-list"><li class="toc-loading">Generating…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

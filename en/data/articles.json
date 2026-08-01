@@ -1,0 +1,137 @@
+[
+  {
+    "id": "series-sec-article-01",
+    "title": "Linux Security Hardening",
+    "summary": "A systematic overview of Linux server hardening across five areas: authentication, access control, security auditing, resource control, and intrusion prevention. Covers key configuration files including /etc/login.defs, sshd_config, and rsyslog.conf.",
+    "series": "Security Series",
+    "tags": ["Linux", "Hardening", "Cheatsheet"],
+    "url": "/en/articles/series-sec/linux-sec.html",
+    "date": "2022-09-23"
+  },
+  {
+    "id": "series-sec-article-02",
+    "title": "Cybersecurity Law of the People's Republic of China",
+    "summary": "Full text of the Cybersecurity Law of the PRC across seven chapters and seventy-nine articles, covering network operation security, critical information infrastructure protection, network information security, monitoring and early warning, emergency response, and legal liability.",
+    "series": "Security Series",
+    "tags": ["Law", "Compliance"],
+    "url": "/en/articles/series-sec/cybersecurity-law.html",
+    "date": "2022-09-13"
+  },
+  {
+    "id": "series-sec-article-03",
+    "title": "Cybersecurity Tools",
+    "summary": "A curated list of dozens of classic security tools — Nessus, Wireshark, Metasploit, Nmap, Burp Suite, and more — with their functional positioning and use cases, covering vulnerability scanning, sniffing, penetration testing, and password cracking.",
+    "series": "Security Series",
+    "tags": ["Tools", "Penetration Testing"],
+    "url": "/en/articles/series-sec/cyber-tools.html",
+    "date": "2022-09-15"
+  },
+  {
+    "id": "series-sec-article-04",
+    "title": "Information Gathering Workflow",
+    "summary": "Enterprise-grade penetration testing information gathering workflow: from scanner probing, DNS zone transfer vulnerabilities, subdomain brute-force, ICP record lookup, and SSL status checks to app decompilation and Google/Baidu dorking.",
+    "series": "Security Series",
+    "tags": ["Penetration Testing", "Reconnaissance"],
+    "url": "/en/articles/series-sec/info-collection.html",
+    "date": "2022-09-23"
+  },
+  {
+    "id": "series-sec-article-05",
+    "title": "Level Protection Workflow",
+    "summary": "End-to-end workflow for cybersecurity level protection assessment: define objectives, gather information, detect vulnerabilities, verify findings, analyze information, determine requirements, organize data, and produce the report — with key points for each phase.",
+    "series": "Security Series",
+    "tags": ["Level Protection", "Compliance"],
+    "url": "/en/articles/series-sec/level-protect.html",
+    "date": "2022-09-23"
+  },
+  {
+    "id": "series-sec-article-06",
+    "title": "Nmap Reference Guide",
+    "summary": "An annotated Chinese-language reference for the official Nmap documentation, covering host discovery, port scanning techniques (SYN/ACK/UDP/FIN/Xmas, etc.), service version detection, OS fingerprinting, firewall evasion, and output formats.",
+    "series": "Security Series",
+    "tags": ["Nmap", "Tools", "Port Scanning"],
+    "url": "/en/articles/series-sec/nmap-help.html",
+    "date": "2022-09-06"
+  },
+  {
+    "id": "series-sec-article-07",
+    "title": "Reverse Engineering Tools",
+    "summary": "A roundup of mainstream reverse engineering and decompilation tools — IDA, OllyDbg, x64dbg, JAD, dotPeek, dnSpy, radare2, and more — covering Java, .NET, Android, and native binary platforms.",
+    "series": "Security Series",
+    "tags": ["Reverse Engineering", "Tools"],
+    "url": "/en/articles/series-sec/reverse-tools.html",
+    "date": "2022-09-16"
+  },
+  {
+    "id": "series-dev-article-01",
+    "title": "Spring Boot Framework Integration (Part 1)",
+    "summary": "A Spring Boot + spring-data-jpa + MySQL framework integration tutorial covering project creation, pom.xml configuration, application.properties database setup, and Bean/Controller/Repository/Service layer code samples.",
+    "series": "Development Series",
+    "tags": ["Spring Boot", "Java", "Framework Integration"],
+    "url": "/en/articles/series-dev/springboot-01.html",
+    "date": "2022-11-18"
+  },
+  {
+    "id": "series-dev-article-02",
+    "title": "Spring Boot Framework Integration (Part 2)",
+    "summary": "Building on the previous framework, this adds logback-spring logging configuration. Covers Spring Boot default logging behavior, custom logback-spring.xml (console/file/error log separation), and debug/release environment switching.",
+    "series": "Development Series",
+    "tags": ["Spring Boot", "Logback", "Logging"],
+    "url": "/en/articles/series-dev/springboot-logback.html",
+    "date": "2022-11-19"
+  },
+  {
+    "id": "series-dev-article-03",
+    "title": "IDE and Editor Roundup",
+    "summary": "A categorized roundup of mainstream IDEs and editors by language: JetBrains suite, VS Code, Eclipse, IntelliJ IDEA, PyCharm, CLion, WebStorm, and more, plus a dedicated section on reverse engineering tools (IDA/ILSpy/dotPeek).",
+    "series": "Development Series",
+    "tags": ["Tools", "IDE"],
+    "url": "/en/articles/series-dev/ide-editors.html",
+    "date": "2022-09-17"
+  },
+  {
+    "id": "series-dev-article-04",
+    "title": "Tag Plugins Plus & Kmark Syntax",
+    "summary": "Comprehensive usage documentation for the Butterfly theme tag plugin, covering syntax, parameters, and style previews for 20+ tags including tip, note, folding, timeline, checkbox, radio, link, ghcard, btns, sites, gallery, and progress.",
+    "series": "Development Series",
+    "tags": ["Hexo", "Butterfly", "Blog"],
+    "url": "/en/articles/series-dev/tag-plugins.html",
+    "date": "2022-08-30"
+  },
+  {
+    "id": "series-life-article-01",
+    "title": "Battery-Powered Wireless Keyboard & Mouse Buying Guide",
+    "summary": "From popular battery-powered wireless mice (Logitech G304/G603, Razer Basilisk X/DeathAdder V2 X, SteelSeries Rival 3 Wireless) to keyboards (IKBC, GANSS, Lofree, HHKB), with model, connection type, battery specs, and hands-on impressions for each.",
+    "series": "Lifestyle Series",
+    "tags": ["Buying Guide", "Peripherals"],
+    "url": "/en/articles/series-life/wireless-peripherals.html",
+    "date": "2022-09-23"
+  },
+  {
+    "id": "series-life-article-02",
+    "title": "Monitor Buying Guide",
+    "summary": "A programmer's perspective on the ten key monitor parameters: size vs. viewing distance, resolution ratios, refresh rate, response time, color gamut/depth/accuracy, ports (HDMI/DP/Type-C), panel types (IPS/VA/TN), and sync technologies.",
+    "series": "Lifestyle Series",
+    "tags": ["Buying Guide", "Monitors"],
+    "url": "/en/articles/series-life/display-guide.html",
+    "date": "2022-10-23"
+  },
+  {
+    "id": "series-life-article-03",
+    "title": "National Food Standards Reference",
+    "summary": "A reference of national execution standard numbers (GB/GB/T) for common food categories — cooking oil, salt, vinegar, rice, soy sauce, tea (black/oolong/green/dark/white/yellow), frozen desserts, alcoholic beverages, and more — for easy lookup and comparison.",
+    "series": "Lifestyle Series",
+    "tags": ["Science", "Food Safety"],
+    "url": "/en/articles/series-life/food-standards.html",
+    "date": "2022-10-07"
+  },
+  {
+    "id": "series-life-article-04",
+    "title": "Troubleshooting a Friend's Potato PC for FFXIV",
+    "summary": "A real troubleshooting log: a friend's FFXIV ran at only 20 FPS. Task Manager showed 100% CPU usage but the clock was stuck at 1.99 GHz (base 2.5 GHz). Remote diagnosis revealed the laptop wasn't plugged in, causing thermal throttling. Three solutions were offered: reinstall the game, play in fullscreen mode, or get a new PC.",
+    "series": "Lifestyle Series",
+    "tags": ["Work Log", "FF14", "PC Repair"],
+    "url": "/en/articles/series-life/ff14-troubleshoot.html",
+    "date": "2022-09-01"
+  }
+]

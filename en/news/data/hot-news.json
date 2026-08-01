@@ -1,0 +1,532 @@
+{
+  "updated_at": "2026-08-01",
+  "categories": [
+    {
+      "name": "Tech",
+      "items": [
+        {
+          "title": "Amazon Completes $50 Billion Investment in OpenAI, Holds ~5% Stake",
+          "summary": "Amazon has fully invested $50 billion in OpenAI, holding approximately 5% and becoming one of its most important external shareholders. This signals a deep alignment between a cloud giant and a top AI lab, set to reshape the compute supply landscape.",
+          "source": "ReadAI",
+          "url": "#",
+          "tag": "AI",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "MiniMax H3 and ByteDance Seedance 2.5 Launch on the Same Day — Each Has Its Strengths",
+          "summary": "On July 31, MiniMax H3 and ByteDance Seedance 2.5 were released on the same day. H3 excels in cinematic quality and detail continuity, while Seedance 2.5 wins on camera movement and instruction execution — the video generation race is heating up.",
+          "source": "ReadAI",
+          "url": "#",
+          "tag": "AI",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Jensen Huang: $30 Billion Investment in OpenAI 'May Be the Last'",
+          "summary": "NVIDIA CEO Jensen Huang stated that given OpenAI's upcoming IPO, the recent $30 billion investment may be the last. After going public, OpenAI's funding channels will shift to the public markets.",
+          "source": "AI Daily",
+          "url": "#",
+          "tag": "Investment",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Leapmotor July Deliveries Break 100K, Setting a New Monthly Record for EV Startups",
+          "summary": "Leapmotor delivered 101,267 vehicles in July, up 102% year-over-year, becoming the first Chinese EV startup to surpass 100K monthly deliveries — a bellwether for autonomous driving commercialization.",
+          "source": "ReadAI",
+          "url": "#",
+          "tag": "New Energy",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Kioxia Launches ¥800 Billion Buyback as Memory Profits Convert to Shareholder Returns",
+          "summary": "Japanese NAND flash giant Kioxia announced a stock buyback of up to ¥800 billion. Q1 operating profit surged over 28x year-over-year, signaling the memory industry's shift from profitability to shareholder returns.",
+          "source": "ReadAI",
+          "url": "#",
+          "tag": "Semiconductors",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "CXMT's LPDDR6 R&D Validation Nears Completion, Closer to Mass Production",
+          "summary": "Sources close to CXMT (ChangXin Memory Technologies) report that LPDDR6 R&D validation is nearing completion, with commercialization progress past the halfway mark — poised to break overseas giants' monopoly on cutting-edge memory technology.",
+          "source": "ReadAI",
+          "url": "#",
+          "tag": "Semiconductors",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "TSMC Quietly Borrows Intel's Advanced Packaging Playbook",
+          "summary": "A secret TSMC internal project was reportedly found using a competitor Intel product's name, involving the advanced packaging domain — showing TSMC is accelerating its catch-up, as advanced packaging becomes the new frontier in chip manufacturing competition.",
+          "source": "ReadAI",
+          "url": "#",
+          "tag": "Semiconductors",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Alibaba Qwen LLM Lead Lin Junyang Steps Down",
+          "summary": "Lin Junyang, Alibaba's youngest-ever P10-level tech expert, announced his departure from the Qwen team — reflecting the extremely high talent mobility in the AI space.",
+          "source": "AI Daily",
+          "url": "#",
+          "tag": "AI",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Ant Group and Tsinghua University Release AReaL v1.0 Reinforcement Learning Framework",
+          "summary": "Ant Group and Tsinghua University jointly released AReaL v1.0, a pioneering fully-asynchronous train-inference-decoupled large model RL training system that makes agent reinforcement learning ready to use out of the box.",
+          "source": "AI Daily",
+          "url": "#",
+          "tag": "AI",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Microsoft Is Rebuilding the Windows 11 Right-Click Menu: Faster, More Stable, Cleaner",
+          "summary": "Reports say Microsoft is rebuilding the Windows 11 context menu, with the new version focusing on faster response, more stable performance, a cleaner interface, and support for custom options.",
+          "source": "ITHome",
+          "url": "#",
+          "tag": "System",
+          "date": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "name": "Douyin Trending",
+      "items": [
+        {
+          "title": "Witnessing the Flag-Raising Ceremony at August First Square Together",
+          "summary": "Trending score 11.82M. On Army Day, people gathered at Nanchang's August First Square to witness the flag-raising ceremony, commemorating the 99th anniversary of the founding of the PLA.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Current Affairs",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Giving Summer to the Torch Festival",
+          "summary": "Trending score 11.59M. The Yi people's Torch Festival was celebrated grandly, with tourists joining the festivities — summer ethnic festival culture went viral on Douyin.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Lifestyle",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Celebrating the 99th Anniversary of the PLA",
+          "summary": "Trending score 11.47M. On August 1, Army Day, the whole internet celebrated the 99th anniversary of the founding of the PLA, paying tribute to the most admirable people.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Current Affairs",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Don't Be Sad, Here's a Big Balloon for You",
+          "summary": "Trending score 11.46M. A wholesome short video went viral — 'here's a big balloon for you' became a warm meme to kick off August.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Trending Meme",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Wu Yize Misses Out on Shanghai Masters Final",
+          "summary": "Trending score 10.63M. Snooker player Wu Yize fell short of the final at the Shanghai Masters, drawing attention to the Chinese player's tournament run.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Sports",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Paying Tribute to Chinese Soldiers on Army Day",
+          "summary": "Trending score 10.44M. On Army Day, the whole internet paid tribute to Chinese soldiers — military stories and military life content dominated the trending list.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Current Affairs",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Catching Good Luck on the First Day of August",
+          "summary": "Trending score 9.26M. A 'catch good luck on the first day of August' topic went viral, with users sharing and reposting for good fortune — a pun-based meme flooded the feed.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Lifestyle",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Former State Grid Chairman Xin Bao'an Under Investigation",
+          "summary": "Trending score 9.24M. Former State Grid chairman Xin Bao'an is under investigation — anti-corruption efforts at central SOEs continue to advance.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Current Affairs",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Is AI-Generated Work Considered Art?",
+          "summary": "Trending score 9.23M. The debate over whether AI-generated works qualify as art hit the trending list, sparking heated discussions about creative boundaries and copyright disputes.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Tech",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Exit and Entry Restrictions to Be Tightened",
+          "summary": "Trending score 9.19M. New policies tightening exit and entry restriction measures were released, drawing attention to the updated immigration management regulations.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Current Affairs",
+          "date": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "name": "Bilibili Trending",
+      "items": [
+        {
+          "title": "We Filmed an Underwater Storm",
+          "summary": "1.59M views. A creator successfully captured rare footage of an underwater storm — the stunning natural spectacle drew awe from the danmaku comments.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Science",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Genshin Impact 7.0 Trailer: The Snow Nation Without Divine Pity",
+          "summary": "2.04M views. The Genshin Impact 7.0 version trailer dropped, unveiling the new region 'Snow Nation' — player excitement is at its peak.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Gaming",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Didn't Understand It as a Kid, Now I'm Already a Character in the Story",
+          "summary": "4.36M views. An emotional resonance video continues to trend — coming-of-age reflections triggered collective nostalgia in the comments, with viewers saying 'I'm devastated.'",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Emotional",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Mortal Cultivation: Battle of Mulan — Episode 9",
+          "summary": "454K views. Bilibili original animation 'Mortal Cultivation: Battle of Mulan' Episode 9 updated, continuing the cultivation storyline.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Animation",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "What Kind of Ending Could Match All This Wandering?",
+          "summary": "506K views. A new 'watch it all in one sitting' installment — the touching story moved viewers to tears, with danmaku collectively breaking down.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Emotional",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Shining Pediatricians 4 Episode 10: Passing the Torch — Life Goes On",
+          "summary": "931K views. Human documentary 'Shining Pediatricians 4' Episode 10 updated — the story of life passing the baton moved viewers.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Documentary",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Army Day Micro-Video 'Toward the Century' Celebrating the 99th Anniversary",
+          "summary": "280K views. For Army Day, Bilibili micro-video 'Toward the Century' pays tribute to Chinese soldiers — patriotic sentiment resonated with viewers.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Current Affairs",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "The Second Son Is Just the Second Son",
+          "summary": "1.88M views. A creative family-themed short video went viral — 'the second son is just the second son' struck a chord with two-child families and sparked discussion.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Lifestyle",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Can I Find Even More Mysterious Minecraft Trivia?",
+          "summary": "633K views. A Minecraft trivia explainer video using a quiz format to engage viewers in interactive participation.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Gaming",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Earth: Reborn After Catastrophe — Dubbed Edition Ep. 8: American Floods",
+          "summary": "740K views. A nature documentary dubbed edition updated, recounting ancient flood events in the Americas — science content continues to be popular.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Documentary",
+          "date": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "name": "Xiaohongshu Trending",
+      "items": [
+        {
+          "title": "Universal Travel Photo Poses for Picture-Perfect Shots",
+          "summary": "Trending score 9.21M. A universal travel photo pose tutorial continues to go viral on Xiaohongshu, with practical tips helping travelers capture magazine-worthy shots.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Travel",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Spending Three Years Photographing the China in Classical Poetry",
+          "summary": "Trending score 9.11M. A photographer spent three years pursuing the Chinese landscapes described in classical poetry, freezing poetic imagery through the lens and sparking cultural resonance.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Photography",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "I Captured a Rain of Seagulls",
+          "summary": "Trending score 8.87M. A photographer captured the stunning sight of a flock of seagulls swirling and dancing — the nature photography work went viral.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Photography",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Easy Everyday Cooking Tutorials — Come Get Them",
+          "summary": "Trending score 8.69M. A collection of simple, easy-to-follow everyday cooking tutorials covering quick dishes and baking — a hit with home cooking enthusiasts.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Food",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Freezing This Moment of Golden Mountain Sunrise",
+          "summary": "Trending score 8.58M. A traveler captured and shared the magnificent view of golden mountain sunrise — the high-altitude dawn scenery sparked wanderlust and discussion.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Travel",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "You Can Always Trust the Beauty of Sayram Lake",
+          "summary": "Trending score 8.49M. Stunning photos of Sayram Lake went viral — the crystal-clear water set against snow-capped mountains was hailed as a must-visit Xinjiang destination.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Travel",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "You Can Paint on Perler Beads Too",
+          "summary": "Trending score 8.36M. A Perler bead artisan created exquisite paintings using tiny beads — the handmade creative work drew attention and imitation from the crafting community.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Handcraft",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "My Family Trip Is More Like Running a Dungeon",
+          "summary": "Trending score 8.16M. A humorous post about family travel mishaps resonated widely — the metaphor of comparing a trip to running a dungeon raid went viral.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Lifestyle",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Turns Out the Henan in Classical Poetry Really Exists",
+          "summary": "Trending score 8.05M. A traveler verified the real landscapes described in Henan's classical poetry by visiting them in person — the fusion of cultural heritage and natural scenery went viral.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Culture",
+          "date": "2026-08-01"
+        },
+        {
+          "title": "Steamed Milk-Popcorn Flavored Mantou",
+          "summary": "Trending score 7.91M. A creative steamed mantou recipe went viral — the milk-popcorn flavor was a novel twist, and food creators rushed to try replicating it.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Food",
+          "date": "2026-08-01"
+        }
+      ]
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-07-31",
+      "categories": [
+        {
+          "name": "Tech",
+          "items": [
+            {
+              "title": "OpenAI Officially Releases GPT-5 with Major Leap in Multimodal Reasoning",
+              "summary": "OpenAI released the next-generation large language model GPT-5, with significant improvements in multimodal reasoning, code generation, and long-context understanding, drawing widespread industry attention.",
+              "source": "ReadAI",
+              "url": "#",
+              "tag": "AI",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Huawei Releases Pangu Large Model 5.0, Focused on Industry Applications",
+              "summary": "Huawei Cloud released Pangu Large Model 5.0, targeting AI deployment scenarios in manufacturing, mining, and pharmaceuticals, emphasizing practicality and private deployment.",
+              "source": "ITHome",
+              "url": "#",
+              "tag": "AI",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "SMIC's N+3 Process Yield Breaks 80%, Domestic Chips Advance Further",
+              "summary": "Reports indicate SMIC's N+3 process yield has surpassed 80%, approaching mass-production readiness — laying the groundwork for scaled supply of domestic advanced-process chips.",
+              "source": "ReadAI",
+              "url": "#",
+              "tag": "Semiconductors",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Tesla Optimus Robot Begins Simple Tasks in Factories",
+              "summary": "Tesla CEO Elon Musk confirmed that the Optimus humanoid robot has started performing simple transport and sorting tasks in some factories, though still requiring remote supervision.",
+              "source": "AI Daily",
+              "url": "#",
+              "tag": "Robotics",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Global PC Shipments Recover in Q2, AI PCs Exceed 15% Share for the First Time",
+              "summary": "IDC data shows Q2 global PC shipments grew 5% year-over-year, with AI PCs (with built-in NPUs) exceeding 15% of the market for the first time — a new growth driver.",
+              "source": "ReadAI",
+              "url": "#",
+              "tag": "Hardware",
+              "date": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "name": "Douyin Trending",
+          "items": [
+            {
+              "title": "Henan Rainstorm — People Help Each Other Evacuate",
+              "summary": "Trending score 12M. Multiple areas in Henan were hit by rainstorms, and citizens spontaneously organized to help each other evacuate — heartwarming scenes went viral on Douyin.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Current Affairs",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Summer DIY Iced Drink Challenge Goes Viral",
+              "summary": "Trending score 9.8M. Netizens shared creative homemade iced drinks — the summer DIY iced drink challenge became a trending topic on Douyin.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Lifestyle",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Chinese Men's Basketball Wins Asia Cup Opener",
+              "summary": "Trending score 8.7M. The Chinese men's basketball team won their Asia Cup group stage opener — fan enthusiasm was running high.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Sports",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Graduation Season Apartment-Hunting Survival Guide Goes Viral",
+              "summary": "Trending score 7.6M. As graduation season arrives, apartment-hunting tips went viral on Douyin — practical advice helping new professionals avoid rental pitfalls.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Lifestyle",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Suno AI Songwriting Sparks Copyright Controversy",
+              "summary": "Trending score 6.5M. AI music generation tool Suno was accused of plagiarism by multiple musicians — AI copyright issues once again sparked heated debate.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Tech",
+              "date": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "name": "Bilibili Trending",
+          "items": [
+            {
+              "title": "Black Myth: Wukong DLC Officially Announced",
+              "summary": "3.2M views. Black Myth: Wukong officially announced its first DLC content — new bosses and maps sparked a player celebration.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Gaming",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Why Young People Are Starting to Visit Wet Markets",
+              "summary": "2.1M views. Young people visiting wet markets has become a new trend — the video explores the balance between urban life rhythm and the charm of everyday vitality.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Lifestyle",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "The Complete Three-Body Problem Explained in One Sitting",
+              "summary": "5.8M views. A creator spent 3 hours comprehensively walking through the Three-Body Problem trilogy's plot and science concepts — sci-fi fans called it a thrill ride.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Science",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Anime Master Makoto Shinkai Visits China for Promotion",
+              "summary": "1.5M views. Director Makoto Shinkai brought his new work to China for promotion — the fan interaction scene was electric.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Animation",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "100-Hour Wilderness Survival Challenge",
+              "summary": "2.9M views. A creator launched a 100-hour wilderness survival challenge, authentically documenting the entire wilderness survival process.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Outdoors",
+              "date": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "name": "Xiaohongshu Trending",
+          "items": [
+            {
+              "title": "Small Apartment Storage Hacks Shared",
+              "summary": "Trending score 8.8M. Xiaohongshu users shared small apartment storage makeover solutions — clever space utilization sparked a saving frenzy among home enthusiasts.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Home",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Summer Sunscreen Review Roundup",
+              "summary": "Trending score 9.2M. A blogger conducted a side-by-side review of 20 popular sunscreens, comparing everything from skin feel to longevity to value for money.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Beauty",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "The Joy of Solo Travel",
+              "summary": "Trending score 7.5M. Solo travel sharing posts went viral — netizens shared wonderful moments and inner journeys from traveling alone.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Travel",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Diet Meals Can Actually Be Delicious",
+              "summary": "Trending score 8.3M. A health food blogger shared high-aesthetic diet meal recipes, breaking the stereotype that diet food has to taste bad.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Food",
+              "date": "2026-07-31"
+            },
+            {
+              "title": "Retro Film Camera Recommendations",
+              "summary": "Trending score 6.9M. Film photography continues to trend on Xiaohongshu — a blogger recommended several budget-friendly retro film cameras.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Photography",
+              "date": "2026-07-31"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

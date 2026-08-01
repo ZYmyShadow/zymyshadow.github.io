@@ -1,0 +1,33 @@
+[
+  {
+    "id": "beginner-01",
+    "title": "Beginner's Guide: Ten Things You Must Know Before Starting Out",
+    "category": "Beginner Guides",
+    "url": "/en/games/game-a/guides/beginner-01.html",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "boss-01",
+    "title": "Boss Fight · Phase 1 Strategy",
+    "category": "Boss Guides",
+    "url": "#",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "resource-01",
+    "title": "Resource Drop Rates and Farming Routes",
+    "category": "Resource Drops",
+    "url": "#",
+    "date": "2026-07-29",
+    "pinned": true
+  },
+  {
+    "id": "character-01",
+    "title": "Starter Character Selection and Build Priority",
+    "category": "Character Guides",
+    "url": "#",
+    "date": "2026-07-29"
+  }
+]

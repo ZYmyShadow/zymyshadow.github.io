@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory · The Cultivation Library</title>
+  <meta name="description" content="The Cultivation Library web directory: everyday tools, AI tools, design resources, gaming communities—a hand-picked collection of quality sites.">
+  <meta property="og:title" content="Directory · The Cultivation Library">
+  <meta property="og:description" content="Everyday tools / AI tools / design resources / gaming communities—a hand-picked collection of quality sites.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <!-- ============ Page header ============ -->
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">NAVIGATION · Web Directory</p>
+      <h1 class="page-hero-title">Directory</h1>
+      <p class="page-hero-lead">Quality sites hand-picked by the Sect Master<span class="hero-sub"> — just edit data/nav-links.json to add or remove entries, no need to touch the page</span></p>
+
+      <div class="filter-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input id="nav-filter" type="search" placeholder="Filter sites by name, description, or tag…" autocomplete="off">
+        <span class="filter-count mono" id="nav-count">– sites total</span>
+      </div>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">导航</span>
+  </header>
+
+  <!-- ============ Sidebar + card grid (layout inspired by ai-bot.cn) ============ -->
+  <div class="nav-layout">
+    <aside class="nav-side" id="nav-side" aria-label="Site categories">
+      <p class="side-title mono">Categories</p>
+      <div id="nav-side-list"><span class="side-loading">Loading…</span></div>
+    </aside>
+
+    <main id="nav-box">
+      <div class="load-fail">Loading directory data…</div>
+    </main>
+  </div>
+
+  <button class="back-top" id="back-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <div id="footer"></div>
+
+  <script src="assets/js/render-list.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/theme-toggle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var $ = function (s) { return document.querySelector(s); };
+
+      fetch('data/nav-links.json')
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (data) {
+          RL.renderNav($('#nav-box'), $('#nav-side-list'), data);
+          initFilter(data);
+          initSpy();
+          initReveal();
+        })
+        .catch(function () {
+          $('#nav-box').innerHTML =
+            '<div class="load-fail">⚠ Directory data failed to load.<br>' +
+            '<span class="mono">If opening locally via file://, please preview via a local static server instead, e.g.: python -m http.server</span></div>';
+        });
+
+      /* ---- Keyword filter ---- */
+      function initFilter(data) {
+        var total = data.categories.reduce(function (n, c) { return n + c.items.length; }, 0);
+        var countEl = $('#nav-count');
+        var input = $('#nav-filter');
+        countEl.textContent = total + ' sites total';
+
+        input.addEventListener('input', function () {
+          var kw = input.value.trim().toLowerCase();
+          var visible = 0;
+          document.querySelectorAll('.nav-section').forEach(function (sec) {
+            var secVisible = 0;
+            sec.querySelectorAll('.nav-card').forEach(function (card) {
+              var hit = !kw || card.dataset.search.indexOf(kw) !== -1;
+              card.classList.toggle('hidden', !hit);
+              if (hit) secVisible++;
+            });
+            sec.classList.toggle('hidden', secVisible === 0);
+            visible += secVisible;
+          });
+          countEl.textContent = kw ? visible + ' / ' + total + ' matched' : total + ' sites total';
+          var empty = document.getElementById('nav-empty');
+          if (visible === 0 && !empty) {
+            var tip = document.createElement('p');
+            tip.id = 'nav-empty';
+            tip.className = 'nav-empty';
+            tip.textContent = 'No matching sites—try a different keyword?';
+            $('#nav-box').appendChild(tip);
+          } else if (visible > 0 && empty) {
+            empty.remove();
+          }
+        });
+      }
+
+      /* ---- Sidebar scroll spy ---- */
+      function initSpy() {
+        var links = document.querySelectorAll('.side-cat');
+        if (!('IntersectionObserver' in window) || !links.length) return;
+        var map = {};
+        links.forEach(function (a) { map[a.dataset.spy] = a; });
+        var spy = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) {
+              links.forEach(function (a) { a.classList.remove('active'); });
+              var hit = map[en.target.id];
+              if (hit) hit.classList.add('active');
+            }
+          });
+        }, { rootMargin: '-20% 0px -65% 0px' });
+        document.querySelectorAll('.nav-section').forEach(function (s) { spy.observe(s); });
+      }
+
+      /* ---- Back to top ---- */
+      var backTop = $('#back-top');
+      window.addEventListener('scroll', function () {
+        backTop.classList.toggle('show', document.documentElement.scrollTop > 400);
+      }, { passive: true });
+      backTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      /* ---- Scroll reveal ---- */
+      function initReveal() {
+        if (!('IntersectionObserver' in window)) {
+          document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { io.observe(el); });
+      }
+    })();
+  </script>
+</body>
+</html>
