@@ -250,7 +250,7 @@
           '<span class="game-status">' + g.list.length + ' 篇</span>' +
           '<h2 class="game-name">' + esc(g.name) + '</h2>' +
           '<p class="game-desc">' + esc(meta.desc) + '</p>' +
-          '<a class="btn-enter" href="/articles/index.html?series=' + encodeURIComponent(g.name) + '">进入系列 <span class="arr">→</span></a>' +
+          '<a class="btn-enter" href="/articles/index.html?name=' + encodeURIComponent(g.name) + '">进入系列 <span class="arr">→</span></a>' +
         '</div>' +
         '<div class="gp-list">' +
           '<p class="gp-list-title mono">最新文章 · LATEST</p>' +
