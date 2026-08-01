@@ -45,6 +45,14 @@
         { "name": "游民星空", "url": "https://www.gamersky.com", "desc": "单机游戏资讯、评测与攻略。", "tag": "资讯" },
         { "name": "3DM", "url": "https://www.3dmgame.com", "desc": "游戏资讯、论坛与资源站。", "tag": "资讯" }
       ]
+    },
+    {
+      "name": "友链位 · 招租中",
+      "accent": "ink",
+      "items": [
+        { "name": "沐白酱-", "url": "https://www.mihuashi.com/profiles/256560?role=painter", "desc": "米画师优质二次元画师", "tag": "米画师" },
+        { "name": "小白_QUEEN", "url": "https://space.bilibili.com/17217999", "desc": "B站优质UP", "tag": "B站" }
+      ]
     }
   ]
 }
