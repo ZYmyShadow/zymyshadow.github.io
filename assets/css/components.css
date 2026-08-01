@@ -1677,6 +1677,7 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   transition: transform .3s ease, box-shadow .3s ease;
+  list-style: none;
 }
 .game-panel:hover {
   transform: translateY(-4px);
@@ -2436,8 +2437,8 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
 /* ================= 视图切换按钮（文章系列页） ================= */
 
 .view-toggle {
-  width: 60px;
-  height: 60px;
+  width: 74px;
+  height: 74px;
   border-radius: 12px;
   border: 0;
   background: var(--seal);
@@ -2465,7 +2466,7 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
 /* 翻转动画容器 */
 .vt-text {
   writing-mode: vertical-rl;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   letter-spacing: .12em;
   line-height: 1;
   display: inline-block;
