@@ -154,6 +154,13 @@
         })
         .catch(function () { failTip($('#news-box'), '热点数据'); });
 
+      /* 收录文章统计 */
+      loadJSON('data/articles.json')
+        .then(function (list) {
+          $('#stat-articles').textContent = list.length;
+        })
+        .catch(function () { /* 静默失败，不影响首页 */ });
+
       /* 导航站统计 */
       loadJSON('data/nav-links.json')
         .then(function (data) {
