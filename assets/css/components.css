@@ -1986,7 +1986,7 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   border-radius: var(--radius-lg);
 }
 .filter-label {
-  margin: 0 0 10px;
+  margin: 10px 0 10px;
   color: var(--ink-3);
   font-size: .7rem;
   letter-spacing: .22em;
@@ -2436,10 +2436,6 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
 /* ================= 视图切换按钮（文章系列页） ================= */
 
 .view-toggle {
-  position: absolute;
-  right: var(--section-px, 40px);
-  top: 50%;
-  transform: translateY(-50%) rotate(-6deg);
   width: 74px;
   height: 74px;
   border-radius: 12px;
@@ -2452,14 +2448,18 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   font-family: 'Ma Shan Zheng', cursive;
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .8), 0 4px 16px rgba(0,0,0,.15);
   padding: 0;
+  flex: none;
+  margin-bottom: 8px;
+  transform: rotate(-6deg);
   perspective: 400px;
+  transition: transform .2s, box-shadow .2s;
 }
 .view-toggle:hover {
-  transform: translateY(-50%) rotate(0deg) scale(1.06);
+  transform: rotate(0deg) scale(1.06);
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .8), 0 6px 24px rgba(0,0,0,.25);
 }
 .view-toggle:active {
-  transform: translateY(-50%) rotate(0deg) scale(.97);
+  transform: rotate(0deg) scale(.97);
 }
 
 /* 翻转动画容器 */
@@ -2482,7 +2482,6 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   .view-toggle {
     width: 60px;
     height: 60px;
-    right: 16px;
     border-radius: 10px;
   }
   .vt-text { font-size: 1.2rem; }
