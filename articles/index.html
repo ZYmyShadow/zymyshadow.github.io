@@ -42,8 +42,7 @@
       <p class="page-hero-lead">按系列浏览全部文章<span class="hero-sub"> —— 支持系列与标签双重筛选，点击筛选结果会同步到地址栏，可直接分享</span></p>
     </div>
     <button class="view-toggle" id="view-toggle" type="button" aria-label="切换视图模式" title="点击切换：列表 / 系列卡片">
-      <span class="vt-icon" id="vt-icon">文</span>
-      <span class="vt-label" id="vt-label">文集</span>
+      <span class="vt-text" id="vt-text">文集</span>
     </button>
   </header>
 
@@ -84,28 +83,38 @@
       var seriesView = document.getElementById('series-view');
       var seriesPanels = document.getElementById('series-panels');
       var toggleBtn = document.getElementById('view-toggle');
-      var vtIcon = document.getElementById('vt-icon');
-      var vtLabel = document.getElementById('vt-label');
+      var vtText = document.getElementById('vt-text');
       var allArticles = [];
       var curSeries = new URLSearchParams(location.search).get('series') || '全部';
       var curTag = '全部';
       var isSeriesView = false;
+      var isFlipping = false;
 
-      /* ---- 视图切换 ---- */
+      /* ---- 视图切换（带翻转动画） ---- */
       toggleBtn.addEventListener('click', function () {
-        isSeriesView = !isSeriesView;
-        if (isSeriesView) {
-          listView.style.display = 'none';
-          seriesView.style.display = '';
-          vtIcon.textContent = '列';
-          vtLabel.textContent = '列表';
-          renderSeriesView();
-        } else {
-          listView.style.display = '';
-          seriesView.style.display = 'none';
-          vtIcon.textContent = '文';
-          vtLabel.textContent = '文集';
-        }
+        if (isFlipping) return;
+        isFlipping = true;
+
+        /* 第一阶段：文字翻出 */
+        vtText.classList.add('flipping');
+
+        setTimeout(function () {
+          isSeriesView = !isSeriesView;
+          if (isSeriesView) {
+            listView.style.display = 'none';
+            seriesView.style.display = '';
+            vtText.textContent = '系列';
+            renderSeriesView();
+          } else {
+            listView.style.display = '';
+            seriesView.style.display = 'none';
+            vtText.textContent = '文集';
+          }
+
+          /* 第二阶段：文字翻入 */
+          vtText.classList.remove('flipping');
+          setTimeout(function () { isFlipping = false; }, 300);
+        }, 300);
       });
 
       var v = new Date().toISOString().slice(0, 10).replace(/-/g, '');
