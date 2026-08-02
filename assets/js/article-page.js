@@ -61,11 +61,12 @@
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) {
+          console.log(en.target)
           en.target.classList.add('in');
           io.unobserve(en.target);
         }
       });
-    }, { threshold: 0.01 });
+    }, { threshold: 0.08 });
     document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { io.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
