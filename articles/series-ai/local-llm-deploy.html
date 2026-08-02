@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本地部署开源大模型实战 · AI系列 · 修仙藏书阁</title>
+  <meta name="description" content="使用Ollama + Open WebUI在本地部署LLaMA、Qwen等开源大模型的完整教程，涵盖硬件需求、模型下载、API调用与常见问题排查。">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">AI · AI系列</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">本地部署开源大模型实战</h1>
+      <p class="page-hero-lead"><span class="chip">部署</span> <span class="chip">Ollama</span> <span class="chip">实战</span> <span class="hero-sub mono">更新于 2026-07-28 · 宗主</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">部署</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box"><b>概要：</b>本文是使用 Ollama + Open WebUI 在本地部署 LLaMA 3、Qwen 2.5、Mistral 等开源大模型的完整实战教程。涵盖硬件需求评估、Ollama 安装配置、模型选择与下载、Open WebUI 部署、API 调用方式以及常见问题排查。所有操作步骤均经过实际验证，数据来源于 Ollama 官方文档、Open WebUI 文档及社区经验总结。</div>
+
+      <h2 id="为什么选择本地部署">为什么选择本地部署</h2>
+      <p>在云端 API（如 OpenAI GPT-4o、Claude 3.5）盛行的当下，本地部署开源大模型仍然具有不可替代的优势：</p>
+
+      <ul class="plain-list">
+        <li><strong>数据隐私</strong>——所有推理完全在本地完成，数据不离开你的设备。对于处理敏感文档、企业内部数据、个人健康信息等场景，这是刚需</li>
+        <li><strong>零边际成本</strong>——一次性硬件投入后，推理无次数限制、无按量计费。对于高频调用场景（如批量文档处理、自动化工作流），长期成本远低于 API</li>
+        <li><strong>离线可用</strong>——不依赖网络连接，在无网环境（飞机、偏远地区、内网隔离环境）下仍可正常使用</li>
+        <li><strong>完全可控</strong>——可自由选择模型、调整参数（温度、top_p、上下文长度等）、加载自定义 LoRA 微调权重，不受云端服务商的限制</li>
+        <li><strong>低延迟</strong>——本地推理省去了网络往返时间，对于交互式应用（如实时对话、代码补全）体验更流畅</li>
+      </ul>
+
+      <p>当然，本地部署也有明显的局限：<span class="hl-seal">硬件门槛较高</span>，尤其是运行 70B 以上参数模型需要消费级难以企及的显存；模型能力与 GPT-4o 等闭源旗舰仍有差距；部署和维护需要一定的技术基础。但对于学习研究、隐私敏感场景和中低强度使用，本地部署是极具性价比的选择。</p>
+
+      <h2 id="硬件需求评估">硬件需求评估</h2>
+      <p>本地部署大模型的核心瓶颈是 <span class="hl-jade">GPU 显存（VRAM）</span>。模型参数需要全部加载到显存中才能高效推理，显存不足会导致速度骤降甚至无法运行。</p>
+
+      <h3 id="显存与模型规模对照">显存与模型规模对照</h3>
+      <p>以下是主流模型在不同精度下的显存需求（数据来源于 Ollama 官方及社区实测，实际占用可能因上下文长度和量化方式略有浮动）：</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>模型规模</th>
+            <th>Q4 量化显存</th>
+            <th>Q8 量化显存</th>
+            <th>FP16 显存</th>
+            <th>推荐 GPU</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1-3B（Qwen2.5-3B、Phi-3-mini）</td>
+            <td>~1.5-2.5 GB</td>
+            <td>~2-3 GB</td>
+            <td>~3-6 GB</td>
+            <td>GTX 1650（4GB）即可</td>
+          </tr>
+          <tr>
+            <td>7-8B（LLaMA 3-8B、Qwen2.5-7B）</td>
+            <td>~4.5-5.5 GB</td>
+            <td>~8-9 GB</td>
+            <td>~14-16 GB</td>
+            <td>RTX 3060 12GB / RTX 4060 Ti 16GB</td>
+          </tr>
+          <tr>
+            <td>14B（Qwen2.5-14B、Mistral-14B）</td>
+            <td>~9-10 GB</td>
+            <td>~15-16 GB</td>
+            <td>~28-30 GB</td>
+            <td>RTX 4070 Ti Super 16GB / RTX 3090 24GB</td>
+          </tr>
+          <tr>
+            <td>32B（Qwen2.5-32B、LLaMA 3.1-32B）</td>
+            <td>~18-20 GB</td>
+            <td>~32-34 GB</td>
+            <td>~64 GB</td>
+            <td>RTX 3090/4090 24GB（Q4）</td>
+          </tr>
+          <tr>
+            <td>70-72B（LLaMA 3.1-70B、Qwen2.5-72B）</td>
+            <td>~40-42 GB</td>
+            <td>~72-74 GB</td>
+            <td>~140 GB</td>
+            <td>双 RTX 3090/4090 或 Mac Studio M2 Ultra</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box"><b>关键知识点：</b><span class="hl-jade">量化（Quantization）</span>是将模型权重从高精度（FP16/BF16）转换为低精度（INT4/INT8）的技术，可以大幅降低显存需求，代价是轻微的精度损失。Q4_K_M 是 Ollama 默认的量化方式，在精度和显存之间取得了较好的平衡。对于大多数场景，Q4 量化的质量损失肉眼难以察觉。</div>
+
+      <h3 id="不同硬件平台方案">不同硬件平台方案</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>平台</th>
+            <th>推荐配置</th>
+            <th>可运行最大模型（Q4）</th>
+            <th>推理速度参考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>NVIDIA 独显（Windows/Linux）</td>
+            <td>RTX 3060 12GB</td>
+            <td>8B（流畅）/ 14B（勉强）</td>
+            <td>8B Q4: ~30-40 tok/s</td>
+          </tr>
+          <tr>
+            <td>NVIDIA 高端独显</td>
+            <td>RTX 4090 24GB</td>
+            <td>32B（流畅）/ 70B（Q4 勉强）</td>
+            <td>8B Q4: ~80-100 tok/s；32B Q4: ~25-35 tok/s</td>
+          </tr>
+          <tr>
+            <td>Apple Silicon（Mac）</td>
+            <td>M3 Pro 36GB 统一内存</td>
+            <td>32B（流畅）/ 70B（Q4 可运行）</td>
+            <td>8B Q4: ~30-40 tok/s；70B Q4: ~5-8 tok/s</td>
+          </tr>
+          <tr>
+            <td>Apple Silicon 高端</td>
+            <td>M2 Ultra 192GB 统一内存</td>
+            <td>70B（流畅）</td>
+            <td>70B Q4: ~15-20 tok/s</td>
+          </tr>
+          <tr>
+            <td>纯 CPU（无独显）</td>
+            <td>32GB RAM</td>
+            <td>8B（极慢）</td>
+            <td>8B Q4: ~2-5 tok/s（不推荐）</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><span class="hl-seal">结论：RTX 3060 12GB 是本地部署的最低推荐配置</span>，可以流畅运行 7-8B 模型。如果预算允许，RTX 4090 24GB 或 Mac M3 Pro 36GB 是更实用的选择，可以运行 32B 级别的模型，质量有质的飞跃。纯 CPU 推理虽然可行但速度极慢，仅适合体验，不建议作为日常使用方案。</p>
+
+      <p>关于内存（RAM）的建议：系统内存应至少为显存的 1.5 倍。运行 8B 模型建议 16GB RAM，32B 模型建议 32GB RAM，70B 模型建议 64GB RAM 以上。这是因为模型加载和部分计算（如 KV Cache）需要占用系统内存。</p>
+
+      <h2 id="安装-ollama">安装 Ollama</h2>
+      <p><span class="hl-jade">Ollama</span> 是目前最流行的本地大模型运行工具，它封装了 llama.cpp 底层引擎，提供了简洁的命令行接口和 REST API，支持一键下载和运行模型。</p>
+
+      <h3 id="windows-安装">Windows 安装</h3>
+      <pre><code># 1. 访问官网下载安装包
+# 下载地址：https://ollama.com/download/windows
+# 下载 OllamaSetup.exe，双击安装
+
+# 2. 安装完成后，打开 PowerShell 验证
+ollama --version
+
+# 3. Ollama 会自动注册为系统服务，开机自启
+# 如需手动启动服务：
+ollama serve</code></pre>
+
+      <h3 id="macos-安装">macOS 安装</h3>
+      <pre><code># 方式一：官网下载（推荐）
+# 下载地址：https://ollama.com/download/mac
+# 下载 .dmg 文件，拖入 Applications
+
+# 方式二：Homebrew 安装
+brew install ollama
+
+# 验证安装
+ollama --version</code></pre>
+
+      <h3 id="linux-安装">Linux 安装</h3>
+      <pre><code># 官方一键安装脚本
+curl -fsSL https://ollama.com/install.sh | sh
+
+# 验证安装
+ollama --version
+
+# 如果服务器没有 GPU，Ollama 会自动使用 CPU 推理
+# 如果有 NVIDIA GPU，确保已安装 CUDA 驱动（推荐 CUDA 12.x）
+nvidia-smi  # 检查 GPU 和 CUDA 驱动</code></pre>
+
+      <div class="tip-box"><b>注意事项：</b>Linux 服务器上安装 Ollama 后，默认只监听 <code>127.0.0.1:11434</code>。如果需要从其他机器访问，需要设置环境变量：<code>OLLAMA_HOST=0.0.0.0 ollama serve</code>。在生产环境中建议配合反向代理（如 Nginx）和认证机制使用。</div>
+
+      <h3 id="验证-gpu-加速">验证 GPU 加速</h3>
+      <p>安装完成后，运行任意模型并观察日志，确认 GPU 加速已启用：</p>
+
+      <pre><code># 运行一个小模型测试
+ollama run qwen2.5:3b "你好"
+
+# 在另一个终端查看 Ollama 日志
+# Windows: 查看任务管理器 → 性能 → GPU
+# Linux: nvidia-smi 观察 GPU 利用率和显存占用
+# macOS: 活动监视器 → GPU 历史
+
+# 如果看到 GPU 利用率上升且显存被占用，说明 GPU 加速已生效
+# 如果只有 CPU 占用而 GPU 空闲，需要排查驱动问题</code></pre>
+
+      <h2 id="模型选择与下载">模型选择与下载</h2>
+
+      <h3 id="主流模型推荐">主流模型推荐</h3>
+      <p>以下是 2026 年 7 月在 Ollama 上表现优秀的开源模型，按用途分类推荐：</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>模型</th>
+            <th>参数规模</th>
+            <th>擅长领域</th>
+            <th>中文能力</th>
+            <th>推荐场景</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Qwen2.5</td>
+            <td>0.5B / 1.5B / 3B / 7B / 14B / 32B / 72B</td>
+            <td>通用对话、代码、数学</td>
+            <td>极强（阿里出品）</td>
+            <td>中文场景首选，综合能力强</td>
+          </tr>
+          <tr>
+            <td>LLaMA 3.1</td>
+            <td>8B / 70B / 405B</td>
+            <td>通用对话、推理、多语言</td>
+            <td>中等（英文为主）</td>
+            <td>英文场景、学术研究</td>
+          </tr>
+          <tr>
+            <td>Mistral v0.3 / Nemo</td>
+            <td>7B / 12B</td>
+            <td>代码、推理、多语言</td>
+            <td>中等</td>
+            <td>代码辅助、多语言任务</td>
+          </tr>
+          <tr>
+            <td>Gemma 2</td>
+            <td>2B / 9B / 27B</td>
+            <td>通用对话、轻量部署</td>
+            <td>一般</td>
+            <td>低显存设备、快速响应</td>
+          </tr>
+          <tr>
+            <td>Phi-3 / Phi-4</td>
+            <td>3.8B / 14B</td>
+            <td>推理、代码、教育</td>
+            <td>一般</td>
+            <td>教育场景、轻量推理</td>
+          </tr>
+          <tr>
+            <td>DeepSeek-V2.5 / R1</td>
+            <td>16B / 671B（MoE）</td>
+            <td>代码、数学、推理</td>
+            <td>强（国产）</td>
+            <td>代码生成、数学推理</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box"><b>选择建议：</b>对于中文用户，<span class="hl-jade">Qwen2.5 系列是首选</span>。它在中文理解、生成、代码、数学等方面均表现出色，且提供从 0.5B 到 72B 的完整尺寸梯度，可以根据硬件灵活选择。如果主要使用英文，LLaMA 3.1 8B 是综合表现最好的 8B 级模型。</div>
+
+      <h3 id="下载与运行模型">下载与运行模型</h3>
+      <pre><code># 下载并运行模型（首次运行会自动下载）
+ollama run qwen2.5:7b
+
+# 指定量化版本
+ollama run qwen2.5:7b-instruct-q8_0    # Q8 量化（更高精度）
+ollama run qwen2.5:7b-instruct-q4_K_M  # Q4 量化（默认，省显存）
+
+# 下载模型但不运行（预下载）
+ollama pull qwen2.5:14b
+ollama pull llama3.1:8b
+
+# 查看已下载的模型列表
+ollama list
+
+# 查看模型详细信息（参数量、大小、量化方式）
+ollama show qwen2.5:7b --modelfile
+
+# 删除模型释放空间
+ollama rm qwen2.5:3b</code></pre>
+
+      <p>Ollama 的模型命名规则为 <code>模型名:标签</code>，标签通常包含参数量和量化方式。例如 <code>qwen2.5:7b</code> 默认使用 Q4_K_M 量化，<code>qwen2.5:7b-instruct-q8_0</code> 使用 Q8 量化。标签可以在 <a href="https://ollama.com/library" target="_blank">Ollama 模型库</a> 中查看完整列表。</p>
+
+      <h2 id="部署-open-webui">部署 Open WebUI</h2>
+      <p><span class="hl-jade">Open WebUI</span>（原 Ollama WebUI）是一个功能丰富的 Web 界面，为 Ollama 提供了类似 ChatGPT 的对话体验，支持多模型切换、对话历史、文件上传、RAG 检索增强等功能。</p>
+
+      <h3 id="docker-部署推荐">Docker 部署（推荐）</h3>
+      <pre><code># 确保已安装 Docker Desktop（Windows/Mac）或 Docker Engine（Linux）
+# Docker 安装：https://docs.docker.com/get-docker/
+
+# 一键启动 Open WebUI
+docker run -d -p 3000:8080 \
+  --add-host=host.docker.internal:host-gateway \
+  -v open-webui:/app/backend/data \
+  --name open-webui \
+  --restart always \
+  ghcr.io/open-webui/open-webui:main
+
+# 访问地址：http://localhost:3000
+# 首次访问需要注册管理员账号</code></pre>
+
+      <div class="tip-box"><b>参数说明：</b><code>-p 3000:8080</code> 将容器的 8080 端口映射到宿主机的 3000 端口；<code>--add-host=host.docker.internal:host-gateway</code> 允许容器访问宿主机上的 Ollama 服务（默认地址 <code>http://host.docker.internal:11434</code>）；<code>-v open-webui:/app/backend/data</code> 持久化数据卷，确保对话历史和设置不丢失；<code>--restart always</code> 容器异常退出后自动重启。</div>
+
+      <h3 id="pip-直接安装">pip 直接安装（无 Docker）</h3>
+      <pre><code># 需要 Python 3.11+ 和 pip
+pip install open-webui
+
+# 启动服务
+open-webui serve
+
+# 默认访问地址：http://localhost:8080
+# 如需指定端口：
+open-webui serve --port 3000</code></pre>
+
+      <h3 id="open-webui-核心功能">Open WebUI 核心功能</h3>
+      <ul class="plain-list">
+        <li><strong>多模型切换</strong>——在对话界面顶部下拉选择已下载的模型，支持同一对话中切换模型</li>
+        <li><strong>对话历史管理</strong>——自动保存所有对话，支持搜索、归档、导出（JSON/Markdown）</li>
+        <li><strong>文件上传与 RAG</strong>——上传 PDF、TXT、Markdown 等文档，Open WebUI 会自动建立向量索引，对话时可以基于文档内容回答（检索增强生成）</li>
+        <li><strong>参数调节面板</strong>——在设置中调整温度（Temperature）、Top-P、上下文长度（Context Length）、系统提示词（System Prompt）等推理参数</li>
+        <li><strong>Web 搜索</strong>——集成搜索引擎（需配置 API Key），让模型可以获取实时信息</li>
+        <li><strong>多人协作</strong>——支持多用户注册，可分享对话、创建公共知识库</li>
+        <li><strong>工具调用（Function Calling）</strong>——支持模型调用外部工具（如计算器、代码执行器、API 查询），扩展模型能力边界</li>
+      </ul>
+
+      <h2 id="api-调用方式">API 调用方式</h2>
+      <p>Ollama 提供与 OpenAI API 兼容的 REST 接口，可以方便地集成到各种应用中。</p>
+
+      <h3 id="命令行交互">命令行交互</h3>
+      <pre><code># 基础对话
+ollama run qwen2.5:7b "解释什么是 Transformer 架构"
+
+# 带系统提示词的对话
+ollama run qwen2.5:7b --system "你是一个Python专家，用简洁的语言回答问题"
+
+# 多轮对话（进入交互模式后直接输入）
+ollama run qwen2.5:7b
+>>> 你好
+>>> 请用 Python 写一个快速排序</code></pre>
+
+      <h3 id="curl-调用">curl 调用</h3>
+      <pre><code># 基础生成
+curl http://localhost:11434/api/generate -d '{
+  "model": "qwen2.5:7b",
+  "prompt": "什么是机器学习？",
+  "stream": false
+}'
+
+# 对话模式（支持多轮）
+curl http://localhost:11434/api/chat -d '{
+  "model": "qwen2.5:7b",
+  "messages": [
+    {"role": "system", "content": "你是一个技术助手"},
+    {"role": "user", "content": "解释 Docker 和虚拟机的区别"}
+  ],
+  "stream": false
+}'
+
+# 调整推理参数
+curl http://localhost:11434/api/generate -d '{
+  "model": "qwen2.5:7b",
+  "prompt": "写一首关于秋天的诗",
+  "options": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "num_predict": 512
+  },
+  "stream": false
+}'</code></pre>
+
+      <h3 id="python-调用">Python 调用</h3>
+      <pre><code># 方式一：使用 ollama Python 库（推荐）
+# pip install ollama
+import ollama
+
+response = ollama.chat(
+    model='qwen2.5:7b',
+    messages=[
+        {'role': 'system', 'content': '你是一个技术助手'},
+        {'role': 'user', 'content': '解释 RESTful API 的设计原则'}
+    ],
+    options={
+        'temperature': 0.7,
+        'num_predict': 1024
+    }
+)
+print(response['message']['content'])
+
+# 流式输出
+stream = ollama.chat(
+    model='qwen2.5:7b',
+    messages=[{'role': 'user', 'content': '讲一个程序员的笑话'}],
+    stream=True
+)
+for chunk in stream:
+    print(chunk['message']['content'], end='', flush=True)
+
+# 方式二：使用 OpenAI 兼容接口
+# pip install openai
+from openai import OpenAI
+
+client = OpenAI(
+    base_url='http://localhost:11434/v1',
+    api_key='ollama'  # Ollama 不需要真正的 API Key
+)
+
+response = client.chat.completions.create(
+    model='qwen2.5:7b',
+    messages=[
+        {'role': 'user', 'content': '用 Python 实现二分查找'}
+    ],
+    temperature=0.7
+)
+print(response.choices[0].message.content)</code></pre>
+
+      <h3 id="关键-api-参数说明">关键 API 参数说明</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>参数</th>
+            <th>默认值</th>
+            <th>范围</th>
+            <th>作用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>temperature</td>
+            <td>0.8</td>
+            <td>0.0 - 2.0</td>
+            <td>控制输出随机性。越低越确定性（适合代码/事实），越高越创造性（适合创意写作）</td>
+          </tr>
+          <tr>
+            <td>top_p</td>
+            <td>0.9</td>
+            <td>0.0 - 1.0</td>
+            <td>核采样参数。从概率累积达到 top_p 的 token 中采样，与 temperature 配合使用</td>
+          </tr>
+          <tr>
+            <td>num_predict</td>
+            <td>128</td>
+            <td>1 - 32768</td>
+            <td>最大生成 token 数。设 -1 表示不限制（受上下文窗口约束）</td>
+          </tr>
+          <tr>
+            <td>num_ctx</td>
+            <td>2048</td>
+            <td>512 - 131072</td>
+            <td>上下文窗口大小（token 数）。越大可处理更长文本，但占用更多显存</td>
+          </tr>
+          <tr>
+            <td>repeat_penalty</td>
+            <td>1.1</td>
+            <td>0.0 - 2.0</td>
+            <td>重复惩罚。越高越不容易重复已生成的内容</td>
+          </tr>
+          <tr>
+            <td>seed</td>
+            <td>随机</td>
+            <td>任意整数</td>
+            <td>随机种子。设固定值可使输出可复现</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box"><b>调参建议：</b>对于代码生成和事实问答，建议 <code>temperature=0.1-0.3</code>，追求确定性输出。对于创意写作和头脑风暴，建议 <code>temperature=0.7-1.0</code>，增加多样性。<code>num_ctx</code> 建议根据实际需求设置，不要盲目设大——每增加 4096 token 上下文约需额外 1-2GB 显存。</div>
+
+      <h2 id="自定义-modelfile">自定义 Modelfile</h2>
+      <p>Ollama 支持通过 Modelfile 自定义模型行为，类似于 Dockerfile 的概念。可以设置系统提示词、调整默认参数、合并多个模型等。</p>
+
+      <pre><code># 创建 Modelfile（文件名：Modelfile）
+FROM qwen2.5:7b
+
+# 设置系统提示词
+SYSTEM """你是一个资深Python开发工程师，擅长代码审查和性能优化。
+回答时请：
+1. 先给出结论
+2. 再提供代码示例
+3. 最后说明注意事项"""
+
+# 设置默认参数
+PARAMETER temperature 0.3
+PARAMETER num_ctx 4096
+PARAMETER top_p 0.85
+
+# 创建自定义模型
+ollama create my-python-expert -f Modelfile
+
+# 使用自定义模型
+ollama run my-python-expert "如何优化 Python 的列表推导式？"</code></pre>
+
+      <p>Modelfile 的常用指令包括：<code>FROM</code>（指定基础模型）、<code>SYSTEM</code>（系统提示词）、<code>PARAMETER</code>（推理参数）、<code>TEMPLATE</code>（对话模板，适配不同模型的聊天格式）、<code>ADAPTER</code>（加载 LoRA 微调权重）。</p>
+
+      <h2 id="常见问题排查">常见问题排查</h2>
+
+      <h3 id="问题一-显存不足-oom">问题一：显存不足（OOM）</h3>
+      <pre><code># 症状：运行模型时报错 "out of memory" 或 "CUDA out of memory"
+
+# 解决方案：
+# 1. 使用更小的量化版本
+ollama run qwen2.5:7b-instruct-q4_K_M  # 从 Q8 换到 Q4
+
+# 2. 减小上下文窗口
+ollama run qwen2.5:7b --num-ctx 2048   # 默认 2048，可尝试 1024
+
+# 3. 换用更小的模型
+ollama run qwen2.5:3b                   # 从 7B 降到 3B
+
+# 4. 关闭其他占用显存的程序
+# Windows: 任务管理器 → 性能 → GPU → 查看显存占用
+# Linux: nvidia-smi</code></pre>
+
+      <h3 id="问题二-推理速度过慢">问题二：推理速度过慢</h3>
+      <p>如果推理速度低于 10 tok/s，可能的原因和解决方案：</p>
+
+      <ul class="plain-list">
+        <li><strong>GPU 未启用</strong>——运行 <code>nvidia-smi</code> 确认 GPU 驱动正常，检查 Ollama 日志中是否有 "CUDA" 或 "ROCm" 字样。如果显示 "CPU" 则说明 GPU 加速未生效</li>
+        <li><strong>模型过大</strong>——当前模型超出显存容量，部分层被卸载到 CPU，导致混合推理速度极慢。换用更小模型或更高压缩比的量化版本</li>
+        <li><strong>上下文过长</strong>——对话历史累积导致上下文接近上限，推理速度随上下文长度线性下降。开启新对话或减小 <code>num_ctx</code></li>
+        <li><strong>后台程序占用</strong>——关闭浏览器硬件加速、游戏、视频渲染等占用 GPU 的程序</li>
+      </ul>
+
+      <h3 id="问题三-模型下载失败">问题三：模型下载失败</h3>
+      <pre><code># 症状：ollama pull 时报网络错误或超时
+
+# 解决方案：
+# 1. 检查网络连接
+ping ollama.com
+
+# 2. 设置代理（如果在国内无法直连）
+# Windows PowerShell:
+$env:HTTPS_PROXY="http://127.0.0.1:7890"
+$env:HTTP_PROXY="http://127.0.0.1:7890"
+ollama pull qwen2.5:7b
+
+# Linux/macOS:
+export HTTPS_PROXY=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+ollama pull qwen2.5:7b
+
+# 3. 如果代理后仍然失败，尝试手动下载 GGUF 文件
+# 从 HuggingFace 下载对应模型的 .gguf 文件
+# 然后创建 Modelfile:
+# FROM ./path/to/model.gguf
+# ollama create mymodel -f Modelfile</code></pre>
+
+      <h3 id="问题四-open-webui-无法连接-ollama">问题四：Open WebUI 无法连接 Ollama</h3>
+      <pre><code># 症状：Open WebUI 显示 "Ollama is not running" 或模型列表为空
+
+# 排查步骤：
+# 1. 确认 Ollama 服务正在运行
+ollama list  # 能正常输出说明服务正常
+
+# 2. 检查 Ollama 监听地址
+# 默认只监听 localhost，Docker 容器内无法访问
+# 解决：设置环境变量后重启 Ollama
+# Windows: 系统环境变量 OLLAMA_HOST = 0.0.0.0
+# Linux: OLLAMA_HOST=0.0.0.0 ollama serve
+
+# 3. Docker 部署时检查 --add-host 参数
+# 确保容器能访问宿主机：
+docker exec open-webui curl http://host.docker.internal:11434/api/tags
+# 应返回模型列表 JSON
+
+# 4. 检查防火墙规则
+# Windows: 允许 Ollama 通过防火墙
+# Linux: sudo ufw allow 11434/tcp</code></pre>
+
+      <h3 id="问题五-中文输出质量差">问题五：中文输出质量差</h3>
+      <p>如果模型中文回答质量不理想，可能的原因：</p>
+
+      <ul class="plain-list">
+        <li><strong>模型选择不当</strong>——LLaMA 3 系列以英文训练为主，中文能力有限。建议换用 Qwen2.5 或 DeepSeek 系列</li>
+        <li><strong>量化精度过低</strong>——Q2/Q3 量化会显著损害中文能力（中文字符的 token 效率低于英文，对精度更敏感）。建议至少使用 Q4_K_M</li>
+        <li><strong>系统提示词未设置</strong>——在 Modelfile 或 API 调用中设置中文系统提示词，引导模型使用中文回答</li>
+        <li><strong>上下文窗口过小</strong>——中文文本的 token 数通常是英文的 1.5-2 倍，<code>num_ctx=2048</code> 可能只够处理约 1000 个汉字。建议设为 4096 或更高</li>
+      </ul>
+
+      <h2 id="进阶-多-gpu-与分布式推理">进阶：多 GPU 与分布式推理</h2>
+      <p>对于需要运行超大模型（如 70B+）的用户，Ollama 支持多 GPU 并行推理：</p>
+
+      <ul class="plain-list">
+        <li><strong>多 GPU 自动分配</strong>——Ollama 会自动检测系统中的所有 GPU，并将模型层均匀分配到各卡上。例如双 RTX 3090（共 48GB VRAM）可以运行 70B Q4 模型（约需 42GB）</li>
+        <li><strong>CPU 卸载</strong>——当显存不足以容纳全部模型时，Ollama 会自动将部分层卸载到 CPU 内存中运行。这会显著降低速度（CPU 推理速度约为 GPU 的 1/10），但至少可以运行起来</li>
+        <li><strong>Mac 统一内存优势</strong>——Apple Silicon 的 GPU 和 CPU 共享统一内存，M2 Ultra 192GB 版本可以运行 70B 甚至更大模型，且速度优于纯 CPU 方案</li>
+      </ul>
+
+      <div class="tip-box"><b>性能预期管理：</b>需要明确的是，本地部署的开源模型在综合能力上与 GPT-4o、Claude 3.5 Sonnet 等闭源旗舰仍有明显差距。7-8B 模型适合简单问答和辅助写作，32B 模型可以胜任大部分日常任务，70B+ 模型在推理和复杂任务上接近 GPT-3.5 水平。选择本地部署更多是出于隐私、成本和可控性的考量，而非追求极致的模型能力。</div>
+
+      <h2 id="总结与推荐配置">总结与推荐配置</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>使用场景</th>
+            <th>推荐硬件</th>
+            <th>推荐模型</th>
+            <th>预期体验</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>入门体验 / 学习</td>
+            <td>RTX 3060 12GB / Mac M2 16GB</td>
+            <td>Qwen2.5-7B Q4</td>
+            <td>流畅对话，简单问答，速度 30+ tok/s</td>
+          </tr>
+          <tr>
+            <td>日常助手 / 代码辅助</td>
+            <td>RTX 4070 Ti Super 16GB / Mac M3 Pro 36GB</td>
+            <td>Qwen2.5-14B Q4</td>
+            <td>质量明显提升，代码生成可用，速度 20+ tok/s</td>
+          </tr>
+          <tr>
+            <td>专业应用 / 文档处理</td>
+            <td>RTX 4090 24GB / Mac M3 Max 64GB</td>
+            <td>Qwen2.5-32B Q4</td>
+            <td>接近 GPT-3.5 水平，复杂推理可用，速度 15+ tok/s</td>
+          </tr>
+          <tr>
+            <td>极致体验 / 研究</td>
+            <td>双 RTX 3090 48GB / Mac M2 Ultra 192GB</td>
+            <td>LLaMA 3.1-70B Q4 / Qwen2.5-72B Q4</td>
+            <td>接近 GPT-4 早期水平，速度 5-15 tok/s</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>本地部署开源大模型的技术栈在 2026 年已经非常成熟。Ollama 让模型运行变得像安装一个应用一样简单，Open WebUI 提供了媲美商业产品的交互体验。对于注重隐私、追求可控性或需要高频使用的用户来说，本地部署是值得投入的方向。</p>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="文章目录">
+      <p class="toc-title mono">目录 · CONTENTS</p>
+      <ul id="toc-list"><li class="toc-loading">生成中…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>

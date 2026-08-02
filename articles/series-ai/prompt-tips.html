@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Engineering 实用技巧整理 · AI系列 · 修仙藏书阁</title>
+  <meta name="description" content="整理提示词工程的核心技巧：角色设定、Few-shot示例、思维链(CoT)、输出格式控制等，附带大量实际案例与效果对比。">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">AI · AI系列</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">Prompt Engineering 实用技巧整理</h1>
+      <p class="page-hero-lead"><span class="chip">Prompt</span> <span class="chip">技巧</span> <span class="chip">实战</span> <span class="hero-sub mono">更新于 2026-07-20 · 宗主</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">提示</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box"><b>概要：</b>本文系统整理提示词工程（Prompt Engineering）的核心技巧，涵盖角色设定、Few-shot 示例、思维链（CoT）、输出格式控制、上下文管理等实用方法。每个技巧均附带实际案例与效果对比，帮助读者快速掌握与大模型高效沟通的方法论。文中案例基于 GPT-4o、Claude 3.5、Qwen2.5 等主流模型的实际测试，效果可能因模型而异。</div>
+
+      <h2 id="什么是提示词工程">什么是提示词工程</h2>
+      <p><span class="hl-jade">提示词工程（Prompt Engineering）</span>是通过精心设计和优化输入给大语言模型的文本指令，来引导模型产生更准确、更有用、更符合预期输出的技术。它不涉及修改模型参数或训练数据，而是通过改变「提问方式」来释放模型的全部潜力。</p>
+
+      <p>提示词工程的核心价值在于：<span class="hl-seal">同一个模型，好的提示词和差的提示词之间，输出质量可能有天壤之别。</span>根据 Anthropic 和 OpenAI 的官方文档，以及多个独立评测（如 Chatbot Arena 的提示词优化实验），经过优化的提示词可以将模型在特定任务上的准确率提升 20-50%。</p>
+
+      <p>本文整理的技巧按照从基础到进阶的顺序排列，每个技巧都可以独立使用，也可以组合叠加以获得更好的效果。</p>
+
+      <h2 id="技巧一-角色设定">技巧一：角色设定（Role Prompting）</h2>
+      <p><span class="hl-jade">角色设定</span>是让模型扮演特定角色或专家身份，从而引导其以该角色的知识体系、表达风格和专业视角来回答问题。</p>
+
+      <h3 id="原理">原理</h3>
+      <p>大语言模型在训练时吸收了海量的多领域文本数据。当指定角色后，模型会激活与该角色相关的知识子集，过滤掉不相关的信息。这类似于人类在「以专家身份思考」时会调用更专业的知识框架。</p>
+
+      <h3 id="效果对比">效果对比</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>提示词</th>
+            <th>输出特点</th>
+            <th>适用场景</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>无角色</strong>："解释什么是 API"</td>
+            <td>通用百科式回答，覆盖广但深度不足，语言平淡</td>
+            <td>快速了解概念</td>
+          </tr>
+          <tr>
+            <td><strong>教师角色</strong>："你是一位有10年经验的计算机科学教授，用通俗易懂的方式向大一新生解释什么是 API"</td>
+            <td>使用类比（如餐厅菜单）、分步骤讲解、语气亲切，适合初学者</td>
+            <td>教学、科普</td>
+          </tr>
+          <tr>
+            <td><strong>工程师角色</strong>："你是一位资深后端工程师，向同事解释 RESTful API 的设计要点"</td>
+            <td>直接切入技术细节，涉及 HTTP 方法、状态码、版本控制等专业概念</td>
+            <td>技术讨论、代码审查</td>
+          </tr>
+          <tr>
+            <td><strong>产品经理角色</strong>："你是一位产品经理，向非技术团队解释 API 的商业价值"</td>
+            <td>聚焦业务场景、生态系统、合作伙伴集成等商业视角</td>
+            <td>商业演示、跨部门沟通</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 id="角色设定模板">角色设定模板</h3>
+      <pre><code>你是一位 [角色/职位]，拥有 [X年] 的 [领域] 经验。
+你的专长包括 [技能1]、[技能2]、[技能3]。
+你的沟通风格是 [简洁/详细/幽默/正式]。
+请用你的专业知识回答以下问题：
+[具体问题]</code></pre>
+
+      <div class="tip-box"><b>注意事项：</b>角色设定不是万能的。对于需要严格事实准确性的任务（如法律、医疗建议），角色设定可能导致模型「过度自信」地给出不准确信息。此时应在提示词中明确要求「如果不确定，请说明」或「请标注信息来源」。</div>
+
+      <h2 id="技巧二-few-shot-示例">技巧二：Few-shot 示例</h2>
+      <p><span class="hl-jade">Few-shot（少样本）</span>是在提示词中提供 1-5 个输入-输出示例，让模型通过类比学习来理解任务格式和期望的输出风格。</p>
+
+      <h3 id="为什么-few-shot-有效">为什么 Few-shot 有效</h3>
+      <p>大语言模型具有强大的上下文学习能力（In-context Learning）。当看到几个示例后，模型会自动推断出任务的模式、格式要求和风格偏好，而无需额外的指令说明。这在以下场景特别有效：</p>
+
+      <ul class="plain-list">
+        <li>输出格式有特定要求（如 JSON、特定模板）</li>
+        <li>需要模型遵循特定的分类标准</li>
+        <li>输出风格需要与示例保持一致</li>
+        <li>任务定义模糊，用示例比用文字描述更清晰</li>
+      </ul>
+
+      <h3 id="效果对比-情感分类">效果对比：情感分类</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>方式</th>
+            <th>提示词</th>
+            <th>结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Zero-shot</strong>（无示例）</td>
+            <td>"判断以下评论的情感：'这个手机电池续航太差了，一天要充三次电'"</td>
+            <td>可能回答"负面"，也可能回答一段分析文字，格式不统一</td>
+          </tr>
+          <tr>
+            <td><strong>Few-shot</strong>（3个示例）</td>
+            <td>见下方示例</td>
+            <td>稳定输出"负面"，格式统一</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code># Few-shot 示例提示词
+请判断以下用户评论的情感倾向，只回答"正面"、"负面"或"中性"。
+
+示例：
+评论："物流很快，包装完好，满意！" → 正面
+评论："一般般吧，没什么特别的" → 中性
+评论："用了两天就坏了，客服还不理人" → 负面
+
+现在请判断：
+评论："这个手机电池续航太差了，一天要充三次电" →</code></pre>
+
+      <h3 id="few-shot-的最佳实践">Few-shot 的最佳实践</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>实践</th>
+            <th>说明</th>
+            <th>原因</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>示例数量 2-5 个</td>
+            <td>太少学不到模式，太多浪费 token 且可能引入噪声</td>
+            <td>研究表明 3 个示例通常是性价比最优的</td>
+          </tr>
+          <tr>
+            <td>覆盖不同类别</td>
+            <td>示例应涵盖所有可能的输出类别</td>
+            <td>避免模型偏向某一类别</td>
+          </tr>
+          <tr>
+            <td>格式严格一致</td>
+            <td>示例的输入输出格式要与实际任务完全一致</td>
+            <td>模型会严格模仿示例的格式</td>
+          </tr>
+          <tr>
+            <td>示例质量优先</td>
+            <td>选择清晰、无歧义的示例</td>
+            <td>模糊示例会导致模型输出模糊</td>
+          </tr>
+          <tr>
+            <td>排列顺序</td>
+            <td>将最接近当前任务的示例放在最后</td>
+            <td>模型对最近的示例关注度更高（近因效应）</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="技巧三-思维链-cot">技巧三：思维链（Chain-of-Thought, CoT）</h2>
+      <p><span class="hl-jade">思维链（Chain-of-Thought）</span>是提示词工程中最具影响力的技巧之一，由 Google Research 在 2022 年提出。其核心思想是引导模型在给出最终答案之前，先展示推理过程。</p>
+
+      <h3 id="cot-的两种形式">CoT 的两种形式</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>形式</th>
+            <th>方法</th>
+            <th>示例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Zero-shot CoT</strong></td>
+            <td>在问题末尾添加"让我们一步步思考"</td>
+            <td>"这道数学题的答案是什么？让我们一步步思考"</td>
+          </tr>
+          <tr>
+            <td><strong>Few-shot CoT</strong></td>
+            <td>在示例中包含完整的推理步骤</td>
+            <td>见下方示例</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 id="效果对比-数学推理">效果对比：数学推理</h3>
+
+      <pre><code># 问题：一个商店有 25 个苹果，卖出了 8 个，又进货了 15 个，现在有多少个苹果？
+
+# ❌ 直接回答（Zero-shot，无 CoT）
+# 模型可能直接回答 "32" 或 "17"，准确率约 60-70%
+
+# ✅ Zero-shot CoT
+# 提示词："一个商店有 25 个苹果，卖出了 8 个，又进货了 15 个，现在有多少个苹果？让我们一步步思考"
+# 模型输出：
+# "首先，商店原有 25 个苹果。
+#  卖出 8 个后，剩余 25 - 8 = 17 个。
+#  又进货 15 个，现在有 17 + 15 = 32 个。
+#  答案是 32 个苹果。"
+# 准确率提升至 85-90%
+
+# ✅ Few-shot CoT（效果最佳）
+# 提示词：
+# "问题：小明有 10 颗糖，给了小红 3 颗，又买了 5 颗，现在有几颗？
+#  思考：原有 10 颗，给出 3 颗后剩 10-3=7 颗，又买 5 颗，7+5=12 颗。答案：12 颗。
+#
+#  问题：一个商店有 25 个苹果，卖出了 8 个，又进货了 15 个，现在有多少个苹果？
+#  思考："</code></pre>
+
+      <h3 id="cot-的适用场景">CoT 的适用场景</h3>
+
+      <ul class="plain-list">
+        <li><strong>数学和逻辑推理</strong>——效果提升最显著，准确率可提升 20-40%。CoT 让模型将复杂问题分解为简单步骤，避免「跳跃式」错误</li>
+        <li><strong>代码调试</strong>——引导模型逐步分析代码逻辑，定位 bug 原因。比直接问「这段代码有什么问题」效果好得多</li>
+        <li><strong>复杂决策分析</strong>——如方案对比、利弊分析。CoT 让模型展示权衡过程，输出更有说服力</li>
+        <li><strong>阅读理解</strong>——特别是需要从长文本中提取信息并推理的问题</li>
+      </ul>
+
+      <div class="tip-box"><b>重要发现：</b>根据 Wei et al. (2022) 的原始论文以及后续多项研究，CoT 的效果与模型规模密切相关。<span class="hl-seal">CoT 在 100B+ 参数的模型上效果显著，但在小模型（&lt;10B）上可能无效甚至有害。</span>对于 Qwen2.5-7B 这样的小模型，CoT 的提升幅度有限（约 5-10%），而对于 GPT-4 或 Qwen2.5-72B，提升可达 20-40%。如果你的模型较小，优先尝试 Few-shot 而非 CoT。</div>
+
+      <h3 id="进阶-cot-变体">进阶：CoT 变体</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>变体</th>
+            <th>方法</th>
+            <th>适用场景</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Self-Consistency</strong></td>
+            <td>让模型用 CoT 推理多次，取出现频率最高的答案</td>
+            <td>数学题、有唯一正确答案的问题</td>
+          </tr>
+          <tr>
+            <td><strong>Tree of Thoughts (ToT)</strong></td>
+            <td>让模型探索多条推理路径，评估每条路径的可行性后选择最优</td>
+            <td>创意写作、策略规划、多解问题</td>
+          </tr>
+          <tr>
+            <td><strong>ReAct</strong></td>
+            <td>推理（Reasoning）+ 行动（Acting）交替，模型可以调用外部工具</td>
+            <td>需要实时信息检索的任务（如搜索、计算）</td>
+          </tr>
+          <tr>
+            <td><strong>Plan-and-Solve</strong></td>
+            <td>先让模型制定解题计划，再按计划逐步执行</td>
+            <td>多步骤复杂任务（如项目规划、数据分析）</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="技巧四-输出格式控制">技巧四：输出格式控制</h2>
+      <p><span class="hl-jade">输出格式控制</span>是确保模型输出符合程序处理需求的关键技巧。在将模型输出接入自动化工作流时，格式的一致性至关重要。</p>
+
+      <h3 id="json-格式输出">JSON 格式输出</h3>
+      <pre><code># 提示词示例
+请分析以下用户反馈，并以 JSON 格式输出结果。
+要求：
+- 包含字段：sentiment（情感）、category（类别）、summary（摘要）、urgency（紧急程度 1-5）
+- 只输出 JSON，不要其他文字
+
+用户反馈："我上周下的订单到现在还没收到，客服说已经发货了但物流信息一直没更新，太失望了"
+
+期望输出：
+{
+  "sentiment": "负面",
+  "category": "物流问题",
+  "summary": "订单发货后物流信息未更新，客户等待超过一周",
+  "urgency": 4
+}</code></pre>
+
+      <h3 id="结构化列表输出">结构化列表输出</h3>
+      <pre><code># 提示词示例
+请列出 Python 中列表推导式的 5 个常见用法。
+格式要求：
+1. 每个用法用 ### 标题
+2. 标题下方给出代码示例（用 ```python 包裹）
+3. 代码下方用一句话说明适用场景
+
+期望输出格式：
+### 1. 过滤元素
+```python
+evens = [x for x in range(10) if x % 2 == 0]
+```
+适用于从序列中筛选满足条件的元素。</code></pre>
+
+      <h3 id="格式控制的关键指令">格式控制的关键指令</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>指令</th>
+            <th>作用</th>
+            <th>示例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>"只输出 JSON"</td>
+            <td>禁止模型添加解释文字</td>
+            <td>确保输出可直接被 json.loads() 解析</td>
+          </tr>
+          <tr>
+            <td>"用 Markdown 表格"</td>
+            <td>指定表格格式</td>
+            <td>适合对比类内容</td>
+          </tr>
+          <tr>
+            <td>"每个要点不超过 20 字"</td>
+            <td>控制输出长度</td>
+            <td>适合摘要、标签生成</td>
+          </tr>
+          <tr>
+            <td>"用编号列表"</td>
+            <td>指定列表类型</td>
+            <td>适合步骤说明、排名</td>
+          </tr>
+          <tr>
+            <td>"不要使用专业术语"</td>
+            <td>控制语言难度</td>
+            <td>适合面向普通用户的场景</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box"><b>实用技巧：</b>对于需要程序化解析的输出，建议在提示词中提供<strong>完整的输出模板</strong>，而不仅仅是描述格式。例如，与其说"输出 JSON 格式"，不如给出一个带占位符的 JSON 模板：<code>{"name": "&lt;姓名&gt;", "age": &lt;年龄&gt;}</code>。这样模型的输出格式会更稳定。</div>
+
+      <h2 id="技巧五-上下文管理">技巧五：上下文管理</h2>
+      <p><span class="hl-jade">上下文管理</span>是指在多轮对话或长文本处理中，有效地组织和管理输入给模型的信息，确保模型关注到最关键的内容。</p>
+
+      <h3 id="上下文窗口限制">上下文窗口限制</h3>
+      <p>每个模型都有最大上下文窗口（Context Window），即一次能处理的 token 总数。常见模型的上下文窗口：</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>模型</th>
+            <th>上下文窗口</th>
+            <th>约合汉字数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GPT-4o</td>
+            <td>128K tokens</td>
+            <td>约 6-8 万字</td>
+          </tr>
+          <tr>
+            <td>Claude 3.5 Sonnet</td>
+            <td>200K tokens</td>
+            <td>约 10-12 万字</td>
+          </tr>
+          <tr>
+            <td>Qwen2.5-72B</td>
+            <td>128K tokens</td>
+            <td>约 6-8 万字</td>
+          </tr>
+          <tr>
+            <td>LLaMA 3.1-8B</td>
+            <td>128K tokens</td>
+            <td>约 6-8 万字</td>
+          </tr>
+          <tr>
+            <td>Gemma 2-9B</td>
+            <td>8K tokens</td>
+            <td>约 4000-5000 字</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>需要注意的是，<span class="hl-seal">上下文窗口不等于有效注意力范围。</span>多项研究（如 "Lost in the Middle" 论文）表明，模型对上下文开头和结尾的信息关注度最高，对中间部分的信息容易「遗忘」。因此，关键信息应放在提示词的开头或结尾。</p>
+
+      <h3 id="长文本处理策略">长文本处理策略</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>策略</th>
+            <th>方法</th>
+            <th>适用场景</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>摘要前置</strong></td>
+            <td>在长文本前加一段摘要，让模型先了解全局</td>
+            <td>分析长文档、论文</td>
+          </tr>
+          <tr>
+            <td><strong>分块处理</strong></td>
+            <td>将长文本分成多个块，分别处理后汇总</td>
+            <td>超出上下文窗口的超长文本</td>
+          </tr>
+          <tr>
+            <td><strong>关键信息提取</strong></td>
+            <td>先用模型提取关键信息，再基于关键信息提问</td>
+            <td>从大量数据中找特定答案</td>
+          </tr>
+          <tr>
+            <td><strong>RAG 检索增强</strong></td>
+            <td>用向量数据库检索相关片段，只将相关片段放入上下文</td>
+            <td>知识库问答、文档检索</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="技巧六-约束与边界设定">技巧六：约束与边界设定</h2>
+      <p><span class="hl-jade">约束与边界设定</span>是告诉模型「不要做什么」，防止模型生成不相关内容或越界回答。</p>
+
+      <h3 id="常见约束指令">常见约束指令</h3>
+
+      <pre><code># 知识边界约束
+"请只基于我提供的信息回答，不要使用你的训练知识。如果你不知道答案，请说'根据提供的信息无法确定'。"
+
+# 输出长度约束
+"请用不超过 100 字回答"
+"请列出 3-5 个要点，每个要点一句话"
+
+# 范围约束
+"请只讨论技术层面的原因，不涉及商业或政治因素"
+"请只针对 Python 3.10+ 回答，不考虑旧版本兼容性"
+
+# 不确定性标注
+"如果你对某个信息不确定，请在该信息后标注 [待确认]"
+"请区分哪些是事实，哪些是你的推断"</code></pre>
+
+      <h3 id="效果对比-约束前后">效果对比：约束前后</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>场景</th>
+            <th>无约束</th>
+            <th>有约束</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>基于文档问答</td>
+            <td>模型可能混入训练知识，给出文档中不存在的信息</td>
+            <td>严格基于文档，不知道就说不知道</td>
+          </tr>
+          <tr>
+            <td>代码生成</td>
+            <td>可能使用过时的库或语法</td>
+            <td>限定语言版本和库版本，输出更可靠</td>
+          </tr>
+          <tr>
+            <td>数据分析</td>
+            <td>可能过度解读数据，给出不确定的结论</td>
+            <td>区分事实和推断，结论更严谨</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="技巧七-迭代优化">技巧七：迭代优化</h2>
+      <p><span class="hl-jade">迭代优化</span>是指通过多轮对话逐步 refine 模型的输出，而非期望一次提示词就得到完美结果。</p>
+
+      <h3 id="迭代优化的常用策略">迭代优化的常用策略</h3>
+
+      <ul class="plain-list">
+        <li><strong>追问细化</strong>——"这个方案不错，但请考虑成本因素，给出更经济的替代方案"</li>
+        <li><strong>指出问题</strong>——"第二段的技术描述有误，Redis 不是关系型数据库，请修正"</li>
+        <li><strong>要求对比</strong>——"请同时给出方案 A 和方案 B 的优缺点对比"</li>
+        <li><strong>指定视角</strong>——"请从安全审计的角度重新审视这段代码"</li>
+        <li><strong>要求自检</strong>——"请检查你刚才的回答，有没有事实错误或逻辑漏洞"</li>
+      </ul>
+
+      <h3 id="自检提示词模板">自检提示词模板</h3>
+      <pre><code>请对你上面的回答进行自检：
+1. 有没有事实性错误？
+2. 逻辑是否自洽？
+3. 有没有遗漏重要信息？
+4. 结论是否有充分依据？
+
+如有问题，请指出并给出修正后的版本。</code></pre>
+
+      <div class="tip-box"><b>实用建议：</b>自检（Self-Reflection）是提升模型输出质量的有效手段。根据多项研究，让模型对自己的输出进行审查和修正，可以将准确率提升 10-20%。但需要注意，模型自检并非万能——它可能无法发现自身知识盲区中的错误。对于关键信息，仍建议人工核实。</div>
+
+      <h2 id="技巧组合实战案例">技巧组合实战案例</h2>
+      <p>实际应用中，多个技巧往往组合使用。以下是一个综合案例：</p>
+
+      <h3 id="案例-技术方案评审">案例：技术方案评审</h3>
+      <pre><code># 组合了：角色设定 + Few-shot + CoT + 格式控制 + 约束
+
+你是一位有 15 年经验的技术架构师，擅长分布式系统设计。
+请评审以下技术方案，重点关注高可用性、性能瓶颈和安全风险。
+
+评审标准示例：
+方案："使用单 MySQL 实例存储用户数据"
+评审：
+- 高可用性：❌ 单点故障风险，建议主从复制或多活架构
+- 性能瓶颈：⚠️ 单机读写有限，用户量超 10 万后可能成为瓶颈
+- 安全风险：⚠️ 需确认是否启用 SSL 连接和字段级加密
+- 综合评分：4/10
+- 改进建议：...
+
+待评审方案：
+[粘贴你的技术方案]
+
+请按上述格式输出评审结果。如果方案信息不足，请标注 [信息缺失] 并说明需要补充哪些信息。</code></pre>
+
+      <h2 id="提示词设计的原则总结">提示词设计的原则总结</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>原则</th>
+            <th>说明</th>
+            <th>优先级</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>明确具体</strong></td>
+            <td>避免模糊表述，用具体的数字、格式、范围来限定</td>
+            <td>★★★★★</td>
+          </tr>
+          <tr>
+            <td><strong>提供示例</strong></td>
+            <td>一个清晰的示例胜过千言万语的描述</td>
+            <td>★★★★★</td>
+          </tr>
+          <tr>
+            <td><strong>分解任务</strong></td>
+            <td>复杂任务拆分为多个简单步骤，逐步引导</td>
+            <td>★★★★☆</td>
+          </tr>
+          <tr>
+            <td><strong>设定边界</strong></td>
+            <td>明确告诉模型什么该做、什么不该做</td>
+            <td>★★★★☆</td>
+          </tr>
+          <tr>
+            <td><strong>迭代优化</strong></td>
+            <td>不要期望一次完美，通过多轮对话逐步改进</td>
+            <td>★★★☆☆</td>
+          </tr>
+          <tr>
+            <td><strong>适配模型</strong></td>
+            <td>不同模型对提示词的敏感度不同，需要针对性调整</td>
+            <td>★★★☆☆</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>提示词工程既是一门技术也是一门艺术。以上技巧提供了系统的方法论框架，但最好的提示词往往来自于对具体任务的深入理解和反复试验。建议在实践中建立自己的提示词库，记录哪些技巧对哪些任务最有效，逐步形成个人的提示词工程方法论。</p>
+
+      <div class="tip-box"><b>免责声明：</b>本文中的效果对比数据基于 2026 年 7 月的模型版本（GPT-4o-2026-07、Claude 3.5 Sonnet、Qwen2.5 系列），不同版本或不同模型的表現可能有差异。提示词工程的效果受模型版本、温度参数、上下文长度等多种因素影响，文中数据仅供参考。建议在具体使用前针对目标模型进行小规模测试。</div>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="文章目录">
+      <p class="toc-title mono">目录 · CONTENTS</p>
+      <ul id="toc-list"><li class="toc-loading">生成中…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../assets/js/components.js"></script>
+  <script src="../../assets/js/theme-toggle.js"></script>
+  <script src="../../assets/js/article-page.js"></script>
+</body>
+</html>
