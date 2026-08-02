@@ -71,7 +71,7 @@
         var html = '<li><a href="/articles/index.html">全部文章<span class="sub-count">' +
           (list ? list.length : 0) + '</span></a></li>';
         Object.keys(counts).forEach(function (s) {
-          html += '<li><a href="/articles/index.html?series=' +
+          html += '<li><a href="/articles/index.html?name=' +
             encodeURIComponent(s) + '">' + s + '<span class="sub-count">' +
             counts[s] + '</span></a></li>';
         });
