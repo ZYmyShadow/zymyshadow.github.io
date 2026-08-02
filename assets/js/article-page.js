@@ -65,7 +65,7 @@
           io.unobserve(en.target);
         }
       });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.01 });
     document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { io.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
