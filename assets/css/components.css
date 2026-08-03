@@ -1163,20 +1163,44 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   margin: 34px 0;
 }
 
-/* 正文代码块 */
-.prose pre {
+/* 正文代码块（顶栏：语言标签 + 复制按钮） */
+.prose .code-block {
   position: relative;
   margin: 0 0 20px;
-  padding: 16px 18px;
-  background: var(--surface-2);
+  background: var(--code-bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  overflow-x: auto;
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: border-color .25s;
 }
-.prose pre:hover {
+.prose .code-block:hover {
   border-color: var(--jade);
+}
+.code-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 8px 5px 14px;
+  background: var(--code-head-bg);
+  border-bottom: 1px solid var(--line);
+}
+.code-lang {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .16em;
+  color: var(--ink-3);
+  user-select: none;
+}
+.prose .code-block pre {
+  margin: 0;
+  padding: 14px 18px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow-x: auto;
 }
 .prose pre code {
   display: block;
@@ -1205,15 +1229,12 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   background: var(--jade-soft);
   filter: brightness(1.08);
 }
-/* 代码块复制按钮 */
+/* 代码块复制按钮（顶栏右侧，悬停显示） */
 .code-copy {
-  position: absolute;
-  top: 8px;
-  right: 8px;
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 4px 10px;
+  padding: 3px 10px;
   border: 1px solid var(--line);
   border-radius: 6px;
   background: var(--surface);
@@ -1225,7 +1246,7 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   opacity: 0;
   transition: opacity .2s, color .2s, border-color .2s;
 }
-.prose pre:hover .code-copy {
+.prose .code-block:hover .code-copy {
   opacity: 1;
 }
 .code-copy:hover {
@@ -2912,7 +2933,7 @@ p.motto {
   padding: 0 20px 70px;
 }
 .comments-section .giscus-box {
-  max-width: 720px;
+  max-width: 100%;
 }
 .comments-section .giscus-box iframe {
   max-width: 100%;

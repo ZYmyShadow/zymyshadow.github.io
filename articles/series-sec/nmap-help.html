@@ -49,7 +49,7 @@
     <article class="prose reveal" id="article-body">
 
       <h2 id="nmap官方帮助说明">NMAP官方帮助说明</h2>
-      <pre><code>Usage: nmap [Scan Type(s)] [Options] {target specification}
+      <pre><code class="language-text">Usage: nmap [Scan Type(s)] [Options] {target specification}
 TARGET SPECIFICATION:
   Can pass hostnames, IP addresses, networks, etc.
   Ex: scanme.nmap.org, microsoft.com/24, 192.168.0.1; 10.0-255.0-255.1-254
@@ -94,7 +94,7 @@ MISC:
       </ul>
 
       <h2 id="扫描存活主机">扫描存活主机</h2>
-      <pre><code>nmap -sn 10.1.1.1-100</code></pre>
+      <pre><code class="language-bash">nmap -sn 10.1.1.1-100</code></pre>
 
       <h2 id="端口扫描技术">端口扫描技术</h2>
       <p>Nmap支持大约十几种扫描技术。一般一次只用一种方法，除了UDP扫描(<code>-sU</code>)可能和任何一种TCP扫描类型结合使用。</p>
@@ -129,7 +129,7 @@ MISC:
       </ul>
 
       <h2 id="实例">实例</h2>
-      <pre><code>nmap -v scanme.nmap.org
+      <pre><code class="language-bash">nmap -v scanme.nmap.org
 # 这个选项扫描主机scanme.nmap.org中所有的保留TCP端口。选项-v启用细节模式。
 
 nmap -sS -O scanme.nmap.org/24

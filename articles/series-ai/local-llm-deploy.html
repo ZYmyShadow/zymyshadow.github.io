@@ -173,7 +173,7 @@
       <p><span class="hl-jade">Ollama</span> 是目前最流行的本地大模型运行工具，它封装了 llama.cpp 底层引擎，提供了简洁的命令行接口和 REST API，支持一键下载和运行模型。</p>
 
       <h3 id="windows-安装">Windows 安装</h3>
-      <pre><code># 1. 访问官网下载安装包
+      <pre><code class="language-bash"># 1. 访问官网下载安装包
 # 下载地址：https://ollama.com/download/windows
 # 下载 OllamaSetup.exe，双击安装
 
@@ -185,7 +185,7 @@ ollama --version
 ollama serve</code></pre>
 
       <h3 id="macos-安装">macOS 安装</h3>
-      <pre><code># 方式一：官网下载（推荐）
+      <pre><code class="language-bash"># 方式一：官网下载（推荐）
 # 下载地址：https://ollama.com/download/mac
 # 下载 .dmg 文件，拖入 Applications
 
@@ -196,7 +196,7 @@ brew install ollama
 ollama --version</code></pre>
 
       <h3 id="linux-安装">Linux 安装</h3>
-      <pre><code># 官方一键安装脚本
+      <pre><code class="language-bash"># 官方一键安装脚本
 curl -fsSL https://ollama.com/install.sh | sh
 
 # 验证安装
@@ -211,7 +211,7 @@ nvidia-smi  # 检查 GPU 和 CUDA 驱动</code></pre>
       <h3 id="验证-gpu-加速">验证 GPU 加速</h3>
       <p>安装完成后，运行任意模型并观察日志，确认 GPU 加速已启用：</p>
 
-      <pre><code># 运行一个小模型测试
+      <pre><code class="language-bash"># 运行一个小模型测试
 ollama run qwen2.5:3b "你好"
 
 # 在另一个终端查看 Ollama 日志
@@ -286,7 +286,7 @@ ollama run qwen2.5:3b "你好"
       <div class="tip-box"><b>选择建议：</b>对于中文用户，<span class="hl-jade">Qwen2.5 系列是首选</span>。它在中文理解、生成、代码、数学等方面均表现出色，且提供从 0.5B 到 72B 的完整尺寸梯度，可以根据硬件灵活选择。如果主要使用英文，LLaMA 3.1 8B 是综合表现最好的 8B 级模型。</div>
 
       <h3 id="下载与运行模型">下载与运行模型</h3>
-      <pre><code># 下载并运行模型（首次运行会自动下载）
+      <pre><code class="language-bash"># 下载并运行模型（首次运行会自动下载）
 ollama run qwen2.5:7b
 
 # 指定量化版本
@@ -312,7 +312,7 @@ ollama rm qwen2.5:3b</code></pre>
       <p><span class="hl-jade">Open WebUI</span>（原 Ollama WebUI）是一个功能丰富的 Web 界面，为 Ollama 提供了类似 ChatGPT 的对话体验，支持多模型切换、对话历史、文件上传、RAG 检索增强等功能。</p>
 
       <h3 id="docker-部署推荐">Docker 部署（推荐）</h3>
-      <pre><code># 确保已安装 Docker Desktop（Windows/Mac）或 Docker Engine（Linux）
+      <pre><code class="language-bash"># 确保已安装 Docker Desktop（Windows/Mac）或 Docker Engine（Linux）
 # Docker 安装：https://docs.docker.com/get-docker/
 
 # 一键启动 Open WebUI
@@ -329,7 +329,7 @@ docker run -d -p 3000:8080 \
       <div class="tip-box"><b>参数说明：</b><code>-p 3000:8080</code> 将容器的 8080 端口映射到宿主机的 3000 端口；<code>--add-host=host.docker.internal:host-gateway</code> 允许容器访问宿主机上的 Ollama 服务（默认地址 <code>http://host.docker.internal:11434</code>）；<code>-v open-webui:/app/backend/data</code> 持久化数据卷，确保对话历史和设置不丢失；<code>--restart always</code> 容器异常退出后自动重启。</div>
 
       <h3 id="pip-直接安装">pip 直接安装（无 Docker）</h3>
-      <pre><code># 需要 Python 3.11+ 和 pip
+      <pre><code class="language-bash"># 需要 Python 3.11+ 和 pip
 pip install open-webui
 
 # 启动服务
@@ -354,7 +354,7 @@ open-webui serve --port 3000</code></pre>
       <p>Ollama 提供与 OpenAI API 兼容的 REST 接口，可以方便地集成到各种应用中。</p>
 
       <h3 id="命令行交互">命令行交互</h3>
-      <pre><code># 基础对话
+      <pre><code class="language-bash"># 基础对话
 ollama run qwen2.5:7b "解释什么是 Transformer 架构"
 
 # 带系统提示词的对话
@@ -366,7 +366,7 @@ ollama run qwen2.5:7b
 >>> 请用 Python 写一个快速排序</code></pre>
 
       <h3 id="curl-调用">curl 调用</h3>
-      <pre><code># 基础生成
+      <pre><code class="language-bash"># 基础生成
 curl http://localhost:11434/api/generate -d '{
   "model": "qwen2.5:7b",
   "prompt": "什么是机器学习？",
@@ -396,7 +396,7 @@ curl http://localhost:11434/api/generate -d '{
 }'</code></pre>
 
       <h3 id="python-调用">Python 调用</h3>
-      <pre><code># 方式一：使用 ollama Python 库（推荐）
+      <pre><code class="language-bash"># 方式一：使用 ollama Python 库（推荐）
 # pip install ollama
 import ollama
 
@@ -496,7 +496,7 @@ print(response.choices[0].message.content)</code></pre>
       <h2 id="自定义-modelfile">自定义 Modelfile</h2>
       <p>Ollama 支持通过 Modelfile 自定义模型行为，类似于 Dockerfile 的概念。可以设置系统提示词、调整默认参数、合并多个模型等。</p>
 
-      <pre><code># 创建 Modelfile（文件名：Modelfile）
+      <pre><code class="language-modelfile"># 创建 Modelfile（文件名：Modelfile）
 FROM qwen2.5:7b
 
 # 设置系统提示词
@@ -522,7 +522,7 @@ ollama run my-python-expert "如何优化 Python 的列表推导式？"</code></
       <h2 id="常见问题排查">常见问题排查</h2>
 
       <h3 id="问题一-显存不足-oom">问题一：显存不足（OOM）</h3>
-      <pre><code># 症状：运行模型时报错 "out of memory" 或 "CUDA out of memory"
+      <pre><code class="language-text"># 症状：运行模型时报错 "out of memory" 或 "CUDA out of memory"
 
 # 解决方案：
 # 1. 使用更小的量化版本
@@ -549,7 +549,7 @@ ollama run qwen2.5:3b                   # 从 7B 降到 3B
       </ul>
 
       <h3 id="问题三-模型下载失败">问题三：模型下载失败</h3>
-      <pre><code># 症状：ollama pull 时报网络错误或超时
+      <pre><code class="language-text"># 症状：ollama pull 时报网络错误或超时
 
 # 解决方案：
 # 1. 检查网络连接
@@ -573,7 +573,7 @@ ollama pull qwen2.5:7b
 # ollama create mymodel -f Modelfile</code></pre>
 
       <h3 id="问题四-open-webui-无法连接-ollama">问题四：Open WebUI 无法连接 Ollama</h3>
-      <pre><code># 症状：Open WebUI 显示 "Ollama is not running" 或模型列表为空
+      <pre><code class="language-text"># 症状：Open WebUI 显示 "Ollama is not running" 或模型列表为空
 
 # 排查步骤：
 # 1. 确认 Ollama 服务正在运行

@@ -71,8 +71,27 @@
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---- 代码块复制按钮 ---- */
+  /* ---- 代码块增强：顶部栏（语言标签 + 复制按钮） ---- */
   body.querySelectorAll('pre').forEach(function (pre) {
+    if (pre.parentNode && pre.parentNode.classList.contains('code-block')) return;
+
+    /* 语言标签：读取 code 的 language-* 类名 */
+    var code = pre.querySelector('code');
+    var lang = '';
+    if (code) {
+      var m = (code.className || '').match(/language-([\w#+.-]+)/);
+      if (m) lang = m[1];
+    }
+
+    var wrap = document.createElement('div');
+    wrap.className = 'code-block';
+    var head = document.createElement('div');
+    head.className = 'code-head';
+    var label = document.createElement('span');
+    label.className = 'code-lang';
+    label.textContent = lang ? lang.toUpperCase() : 'CODE';
+    head.appendChild(label);
+
     var btn = document.createElement('button');
     btn.className = 'code-copy';
     btn.type = 'button';
@@ -101,7 +120,11 @@
         }, 1600);
       }
     });
-    pre.appendChild(btn);
+    head.appendChild(btn);
+
+    pre.parentNode.insertBefore(wrap, pre);
+    wrap.appendChild(head);
+    wrap.appendChild(pre);
   });
 
   /* ---- Giscus 评论区（GitHub Discussions 驱动） ----

@@ -51,7 +51,7 @@
       <div class="tip-box">本文档为基于Butterfly的外挂标签引入完整使用文档，涵盖20余种标签的语法、参数与样式预览。</div>
 
       <h2 id="行内文本样式text">行内文本样式 text</h2>
-      <pre><code>{% u 文本内容 %}        带下划线的文本
+      <pre><code class="language-template">{% u 文本内容 %}        带下划线的文本
 {% emp 文本内容 %}       带着重号的文本
 {% wavy 文本内容 %}      带波浪线的文本
 {% del 文本内容 %}       带删除线的文本
@@ -59,7 +59,7 @@
 {% psw 文本内容 %}       密码样式的文本</code></pre>
 
       <h2 id="行内文本span">行内文本 span</h2>
-      <pre><code>{% span 样式参数(参数以空格划分), 文本内容 %}
+      <pre><code class="language-template">{% span 样式参数(参数以空格划分), 文本内容 %}
 
 样式参数:
 - 字体: logo, code
@@ -68,7 +68,7 @@
 - 对齐方向: left, center, right</code></pre>
 
       <h2 id="引用note">引用 note</h2>
-      <pre><code>{% note [class] [no-icon] [style] %}
+      <pre><code class="language-template">{% note [class] [no-icon] [style] %}
 Any content (support inline tags too).
 {% endnote %}
 
@@ -76,13 +76,13 @@ class: default / primary / success / info / warning / danger
 style: simple / modern / flat / disabled</code></pre>
 
       <h2 id="上标标签tip">上标标签 tip</h2>
-      <pre><code>{% tip [参数，可选] %}文本内容{% endtip %}
+      <pre><code class="language-template">{% tip [参数，可选] %}文本内容{% endtip %}
 
 样式: success, error, warning, bolt, ban, home, sync, cogs, key, bell
 自定义图标: 支持fontawesome</code></pre>
 
       <h2 id="折叠框folding">折叠框 folding</h2>
-      <pre><code>{% folding 参数（可选）, 标题 %}
+      <pre><code class="language-template">{% folding 参数（可选）, 标题 %}
 内容
 {% endfolding %}
 
@@ -90,20 +90,20 @@ style: simple / modern / flat / disabled</code></pre>
 状态: open 代表默认打开</code></pre>
 
       <h2 id="复选列表checkbox">复选列表 checkbox</h2>
-      <pre><code>{% checkbox 样式参数（可选）, 文本（支持简单md） %}
+      <pre><code class="language-template">{% checkbox 样式参数（可选）, 文本（支持简单md） %}
 
 样式: plus, minus, times
 颜色: red, yellow, green, cyan, blue, gray
 选中状态: checked</code></pre>
 
       <h2 id="单选列表radio">单选列表 radio</h2>
-      <pre><code>{% radio 样式参数（可选）, 文本（支持简单md） %}
+      <pre><code class="language-template">{% radio 样式参数（可选）, 文本（支持简单md） %}
 
 颜色: red, yellow, green, cyan, blue, gray
 选中状态: checked</code></pre>
 
       <h2 id="时间轴timeline">时间轴 timeline</h2>
-      <pre><code>{% timeline 时间线标题（可选）[,color] %}
+      <pre><code class="language-template">{% timeline 时间线标题（可选）[,color] %}
 <!-- timeline 时间节点（标题） -->
 正文内容
 <!-- endtimeline -->
@@ -112,10 +112,10 @@ style: simple / modern / flat / disabled</code></pre>
 color: default / blue / pink / red / purple / orange / green</code></pre>
 
       <h2 id="链接卡片link">链接卡片 link</h2>
-      <pre><code>{% link 标题, 链接, 图片链接（可选） %}</code></pre>
+      <pre><code class="language-template">{% link 标题, 链接, 图片链接（可选） %}</code></pre>
 
       <h2 id="按钮btns">按钮 btns</h2>
-      <pre><code>{% btns 样式参数 %}
+      <pre><code class="language-template">{% btns 样式参数 %}
 {% cell 标题, 链接, 图片或者图标 %}
 {% endbtns %}
 
@@ -123,7 +123,7 @@ color: default / blue / pink / red / purple / orange / green</code></pre>
 布局方式: wide, fill, center, around, grid2, grid3, grid4, grid5</code></pre>
 
       <h2 id="github卡片ghcard">github卡片 ghcard</h2>
-      <pre><code>{% ghcard 用户名, 其它参数（可选） %}
+      <pre><code class="language-template">{% ghcard 用户名, 其它参数（可选） %}
 {% ghcard 用户名/仓库, 其它参数（可选） %}
 
 常用参数:
@@ -133,14 +133,14 @@ color: default / blue / pink / red / purple / orange / green</code></pre>
 - theme: 请查阅Available Themes</code></pre>
 
       <h2 id="进度条progress">进度条 progress</h2>
-      <pre><code>{% progress [width] [color] [text] %}
+      <pre><code class="language-template">{% progress [width] [color] [text] %}
 
 width: 0到100的阿拉伯数字
 color: red, yellow, green, cyan, blue, gray
 text: 进度条上的文字内容</code></pre>
 
       <h2 id="分栏tab">分栏 tab</h2>
-      <pre><code>{% tabs Unique name, [index] %}
+      <pre><code class="language-template">{% tabs Unique name, [index] %}
 <!-- tab [Tab caption] [@icon] -->
 Any content (support inline tags too).
 <!-- endtab -->
@@ -152,12 +152,12 @@ Unique name: 选项卡块标签的唯一名称
 [@icon]: FontAwesome图标名称</code></pre>
 
       <h2 id="诗词标签poem">诗词标签 poem</h2>
-      <pre><code>{% poem [title],[author] %}
+      <pre><code class="language-template">{% poem [title],[author] %}
 诗词内容
 {% endpoem %}</code></pre>
 
       <h2 id="特效标签wow">特效标签 wow</h2>
-      <pre><code>{% wow [animete],[duration],[delay],[offset],[iteration] %}
+      <pre><code class="language-template">{% wow [animete],[duration],[delay],[offset],[iteration] %}
 内容
 {% endwow %}
 

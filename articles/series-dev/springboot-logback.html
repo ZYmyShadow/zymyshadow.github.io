@@ -77,7 +77,7 @@
 
       <h2 id="springboot自定义配置logbackspringxml">SpringBoot自定义配置logback-spring.xml</h2>
       <p>在<code>src/main/resources</code>下创建<code>logback-spring.xml</code>文件，分开记录系统输出日志和<code>Error</code>日志：</p>
-      <pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+      <pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
 &lt;configuration&gt;
     &lt;!-- 解决%clr不能识别问题 --&gt;
     &lt;include resource="org/springframework/boot/logging/logback/defaults.xml"/&gt;
@@ -173,7 +173,7 @@
 
       <h3 id="将appender全部配置完成之后写logbackspringxml中的配置调用">将Appender全部配置完成之后写logback-spring.xml中的配置调用</h3>
       <p>使用<code>springProfile</code>节点来链接配置文件里面的<code>spring.profiles.active=debug/release</code>，以至于使用该配置文件里面具体的配置</p>
-      <pre><code>spring.profiles.active=debug
+      <pre><code class="language-properties">spring.profiles.active=debug
 
 &lt;springProfile name="debug"&gt;
   &lt;root level="INFO"&gt;

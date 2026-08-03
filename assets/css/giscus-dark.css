@@ -86,14 +86,124 @@ main {
   --color-scale-blue-8: #0c2d6b;
   --color-social-reaction-bg-hover: var(--color-scale-gray-7);
   --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
+  --xzc-code-bg: #0a0f0c;
 }
 
 /* ---- 藏书阁风格微调 ---- */
 body {
   font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
 }
-.gsc-comment-box-textarea,
-.gsc-reply-box textarea,
-input[type="text"] {
-  font-family: inherit;
+
+/* ---- 布局：表情区改为右侧栏，评论主体加宽 ---- */
+.gsc-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 20px;
+  align-items: start;
 }
+.gsc-comments {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+.gsc-reactions {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 14px 10px;
+  min-width: 64px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 10px;
+  background: var(--color-canvas-subtle);
+  position: sticky;
+  top: 12px;
+}
+.gsc-reactions h4 {
+  margin: 0;
+  font-size: .72rem;
+  white-space: nowrap;
+  color: var(--color-fg-muted);
+}
+.gsc-reactions > div {
+  flex-direction: column;
+  margin-top: 0;
+}
+@media (max-width: 700px) {
+  .gsc-main { grid-template-columns: 1fr; }
+  .gsc-comments { grid-column: 1; grid-row: 1; }
+  .gsc-reactions {
+    grid-column: 1;
+    grid-row: 2;
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .gsc-reactions > div { flex-direction: row; }
+}
+
+/* ---- 代码块：顶部语言标签栏 + 更深的夜间背景 ---- */
+.highlight {
+  position: relative;
+  margin: 16px 0;
+  border: 1px solid var(--color-border-default);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.highlight::before {
+  content: 'TEXT';
+  display: block;
+  padding: 6px 14px;
+  font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  color: var(--color-fg-muted);
+  background: var(--color-canvas-subtle);
+  border-bottom: 1px solid var(--color-border-default);
+}
+.highlight pre {
+  margin: 0;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 0;
+  background: var(--xzc-code-bg);
+  overflow: auto;
+}
+/* 无语言标注的裸 pre */
+.gsc-comment-content > pre {
+  background: var(--xzc-code-bg);
+  border: 1px solid var(--color-border-default);
+  border-radius: 8px;
+}
+/* 常见语言标签 */
+.highlight-source-python::before { content: 'PYTHON'; }
+.highlight-source-javascript::before { content: 'JAVASCRIPT'; }
+.highlight-source-jsx::before { content: 'JSX'; }
+.highlight-source-typescript::before { content: 'TYPESCRIPT'; }
+.highlight-source-tsx::before { content: 'TSX'; }
+.highlight-source-java::before { content: 'JAVA'; }
+.highlight-source-bash::before,
+.highlight-source-shell::before { content: 'SHELL'; }
+.highlight-source-json::before { content: 'JSON'; }
+.highlight-source-yaml::before { content: 'YAML'; }
+.highlight-source-css::before { content: 'CSS'; }
+.highlight-text-html::before { content: 'HTML'; }
+.highlight-text-xml::before { content: 'XML'; }
+.highlight-source-c::before { content: 'C'; }
+.highlight-source-c\+\+::before { content: 'C++'; }
+.highlight-source-c\#::before { content: 'C#'; }
+.highlight-source-go::before { content: 'GO'; }
+.highlight-source-rust::before { content: 'RUST'; }
+.highlight-source-sql::before { content: 'SQL'; }
+.highlight-source-php::before { content: 'PHP'; }
+.highlight-source-ruby::before { content: 'RUBY'; }
+.highlight-source-kotlin::before { content: 'KOTLIN'; }
+.highlight-source-swift::before { content: 'SWIFT'; }
+.highlight-source-markdown::before { content: 'MARKDOWN'; }
+.highlight-source-dockerfile::before { content: 'DOCKERFILE'; }
+.highlight-source-toml::before { content: 'TOML'; }
+.highlight-source-ini::before { content: 'INI'; }
+.highlight-source-nginx::before { content: 'NGINX'; }

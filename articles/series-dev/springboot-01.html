@@ -64,7 +64,7 @@
       <p><code>pom.xml</code>：是maven包配置文件</p>
       <p><code>application.properties</code>：是项目配置文件</p>
       <p>我们打开项目配置文件添加上基础的配置信息</p>
-      <pre><code># 项目端口配置
+      <pre><code class="language-properties"># 项目端口配置
 server.port=8088
 
 # 数据库驱动
@@ -96,7 +96,7 @@ spring.jpa.hibernate.ddl-auto=update</code></pre>
       </ul>
 
       <h3 id="bean实体类">Bean 实体类</h3>
-      <pre><code>@Entity(name = "test")
+      <pre><code class="language-java">@Entity(name = "test")
 public class TestBean {
     @Id //设置主键
     @GeneratedValue(strategy = GenerationType.IDENTITY) //mysql的主键自增模式
@@ -112,7 +112,7 @@ public class TestBean {
 }</code></pre>
 
       <h3 id="controller接口层">Controller 接口层</h3>
-      <pre><code>@RestController//接口层注释
+      <pre><code class="language-java">@RestController//接口层注释
 @RequestMapping(value = "/test")
 public class TestController {
 

@@ -97,21 +97,21 @@
 
       <h2 id="四资源控制防止快捷键重启">四、资源控制（防止快捷键重启）</h2>
       <p><strong>1. centos7</strong></p>
-      <pre><code>cat /etc/inittab
+      <pre><code class="language-bash">cat /etc/inittab
 vim /usr/lib/systemd/system/ctrl-alt-del.target
 全注释掉
 init q</code></pre>
 
       <p><strong>2. centos6</strong></p>
-      <pre><code>vim /etc/init/control-alt-delete.conf</code></pre>
+      <pre><code class="language-bash">vim /etc/init/control-alt-delete.conf</code></pre>
 
       <h2 id="五入侵防范关闭不必要的服务">五、入侵防范（关闭不必要的服务）</h2>
       <p><strong>1. centos7</strong></p>
-      <pre><code>systemctl list-unit-files | grep enable #查看开启的服务
+      <pre><code class="language-bash">systemctl list-unit-files | grep enable #查看开启的服务
 systemctl disable nginx #关闭服务</code></pre>
 
       <p><strong>2. centos6</strong></p>
-      <pre><code>chkconfig -list #查看开启的服务
+      <pre><code class="language-bash">chkconfig -list #查看开启的服务
 chkconfig --level service 35 off #关闭服务</code></pre>
 
     </article>
