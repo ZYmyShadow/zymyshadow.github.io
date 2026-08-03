@@ -1,0 +1,99 @@
+/* giscus 自定义主题 · 修仙藏书阁 浅色
+ * 基于 giscus 官方主题（GitHub Primer，MIT License）替换配色变量
+ * 用法：data-theme 指向本文件的绝对 URL
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+main {
+  --color-prettylights-syntax-comment: #6e7781;
+  --color-prettylights-syntax-constant: #0550ae;
+  --color-prettylights-syntax-entity: #8250df;
+  --color-prettylights-syntax-storage-modifier-import: #24292f;
+  --color-prettylights-syntax-entity-tag: #116329;
+  --color-prettylights-syntax-keyword: #cf222e;
+  --color-prettylights-syntax-string: #0a3069;
+  --color-prettylights-syntax-variable: #953800;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+  --color-prettylights-syntax-carriage-return-bg: #cf222e;
+  --color-prettylights-syntax-string-regexp: #116329;
+  --color-prettylights-syntax-markup-list: #3b2300;
+  --color-prettylights-syntax-markup-heading: #0550ae;
+  --color-prettylights-syntax-markup-italic: #24292f;
+  --color-prettylights-syntax-markup-bold: #24292f;
+  --color-prettylights-syntax-markup-deleted-text: #82071e;
+  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+  --color-prettylights-syntax-markup-inserted-text: #116329;
+  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+  --color-prettylights-syntax-markup-changed-text: #953800;
+  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
+  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+  --color-prettylights-syntax-meta-diff-range: #8250df;
+  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
+  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+  --color-btn-text: #16211c;
+  --color-btn-bg: #ffffff;
+  --color-btn-border: #dde5df;
+  --color-btn-shadow: 0 1px 0 rgb(31 35 40 / 4%);
+  --color-btn-inset-shadow: inset 0 1px 0 rgb(255 255 255 / 25%);
+  --color-btn-hover-bg: #edf1ed;
+  --color-btn-hover-border: #cfd9d2;
+  --color-btn-active-bg: #e4eae5;
+  --color-btn-active-border: #dde5df;
+  --color-btn-selected-bg: #edf1ed;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-bg: #0e8f6f;
+  --color-btn-primary-border: #0e8f6f;
+  --color-btn-primary-shadow: 0 1px 0 rgb(31 35 40 / 10%);
+  --color-btn-primary-inset-shadow: inset 0 1px 0 rgb(255 255 255 / 3%);
+  --color-btn-primary-hover-bg: #0a6b54;
+  --color-btn-primary-hover-border: #0a6b54;
+  --color-btn-primary-selected-bg: #0a6b54;
+  --color-btn-primary-selected-shadow: inset 0 1px 0 rgb(0 45 17 / 20%);
+  --color-btn-primary-disabled-text: rgb(255 255 255 / 80%);
+  --color-btn-primary-disabled-bg: rgba(14, 143, 111, .5);
+  --color-btn-primary-disabled-border: rgb(31 35 40 / 15%);
+  --color-action-list-item-default-hover-bg: rgba(22, 33, 28, .06);
+  --color-segmented-control-bg: #edf1ed;
+  --color-segmented-control-button-bg: #fff;
+  --color-segmented-control-button-selected-border: #8c959f;
+  --color-fg-default: #16211c;
+  --color-fg-muted: #48564f;
+  --color-fg-subtle: #7d8b83;
+  --color-canvas-default: #ffffff;
+  --color-canvas-overlay: #fff;
+  --color-canvas-inset: #edf1ed;
+  --color-canvas-subtle: #f2f5f2;
+  --color-border-default: #dde5df;
+  --color-border-muted: #e6ece7;
+  --color-neutral-muted: rgba(22, 33, 28, .08);
+  --color-accent-fg: #0a6b54;
+  --color-accent-emphasis: #0e8f6f;
+  --color-accent-muted: rgba(14, 143, 111, .4);
+  --color-accent-subtle: rgba(14, 143, 111, .08);
+  --color-success-fg: #0a6b54;
+  --color-attention-fg: #a97e2f;
+  --color-attention-muted: rgba(169, 126, 47, .4);
+  --color-attention-subtle: rgba(169, 126, 47, .1);
+  --color-danger-fg: #c2472e;
+  --color-danger-muted: rgba(194, 71, 46, .4);
+  --color-danger-subtle: rgba(194, 71, 46, .08);
+  --color-primer-shadow-inset: inset 0 1px 0 rgb(208 215 222 / 20%);
+  --color-scale-gray-1: #eaeef2;
+  --color-scale-blue-1: #b6e3ff;
+  --color-social-reaction-bg-hover: var(--color-scale-gray-1);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-1);
+}
+
+/* ---- 藏书阁风格微调 ---- */
+body {
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+}
+.gsc-comment-box-textarea,
+.gsc-reply-box textarea,
+input[type="text"] {
+  font-family: inherit;
+}

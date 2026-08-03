@@ -71,6 +71,39 @@
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ---- 代码块复制按钮 ---- */
+  body.querySelectorAll('pre').forEach(function (pre) {
+    var btn = document.createElement('button');
+    btn.className = 'code-copy';
+    btn.type = 'button';
+    btn.textContent = '复制';
+    btn.addEventListener('click', function () {
+      var text = pre.querySelector('code') ? pre.querySelector('code').textContent : pre.textContent;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+      function done() {
+        btn.textContent = '已复制';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.textContent = '复制';
+          btn.classList.remove('copied');
+        }, 1600);
+      }
+    });
+    pre.appendChild(btn);
+  });
+
   /* ---- Giscus 评论区（GitHub Discussions 驱动） ----
      配置方法：仓库安装 giscus app 后，到 https://giscus.app 填入仓库名并
      选择分类，把生成脚本里的 data-category-id（及 category 名）填到下面。
@@ -96,6 +129,10 @@
     layout.parentNode.insertBefore(sec, layout.nextSibling);
 
     var theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    /* 自定义主题：指向本站托管的配色文件，与站点明暗同步切换 */
+    var themeUrl = function (t) {
+      return 'https://zymyshadow.github.io/assets/css/giscus-' + t + '.css';
+    };
     var s = document.createElement('script');
     s.src = 'https://giscus.app/client.js';
     s.async = true;
@@ -109,7 +146,7 @@
     s.setAttribute('data-reactions-enabled', '1');
     s.setAttribute('data-emit-metadata', '0');
     s.setAttribute('data-input-position', 'bottom');
-    s.setAttribute('data-theme', theme);
+    s.setAttribute('data-theme', themeUrl(theme));
     s.setAttribute('data-lang', 'zh-CN');
     s.setAttribute('data-loading', 'lazy');
     sec.querySelector('.giscus-box').appendChild(s);
@@ -120,7 +157,7 @@
         var t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
         var frame = document.querySelector('iframe.giscus-frame');
         if (frame && frame.contentWindow) {
-          frame.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+          frame.contentWindow.postMessage({ giscus: { setConfig: { theme: themeUrl(t) } } }, 'https://giscus.app');
         }
       }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     }

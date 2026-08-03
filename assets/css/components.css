@@ -1163,6 +1163,81 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   margin: 34px 0;
 }
 
+/* 正文代码块 */
+.prose pre {
+  position: relative;
+  margin: 0 0 20px;
+  padding: 16px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+  transition: border-color .25s;
+}
+.prose pre:hover {
+  border-color: var(--jade);
+}
+.prose pre code {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .85rem;
+  line-height: 1.7;
+  color: var(--ink);
+  white-space: pre;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+/* 行内代码 */
+.prose :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: .85em;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: var(--jade-soft);
+  color: var(--jade-strong);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+  transition: background-color .2s;
+}
+.prose :not(pre) > code:hover {
+  background: var(--jade-soft);
+  filter: brightness(1.08);
+}
+/* 代码块复制按钮 */
+.code-copy {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .03em;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .2s, color .2s, border-color .2s;
+}
+.prose pre:hover .code-copy {
+  opacity: 1;
+}
+.code-copy:hover {
+  color: var(--jade-strong);
+  border-color: var(--jade);
+}
+.code-copy.copied {
+  color: var(--jade-strong);
+  border-color: var(--jade);
+  opacity: 1;
+}
+
 /* 正文列表（统一去除默认圆点，使用自定义标记） */
 .prose ul {
   list-style: none;
