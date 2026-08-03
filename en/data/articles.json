@@ -124,14 +124,5 @@
     "tags": ["Science", "Food Safety"],
     "url": "/en/articles/series-life/food-standards.html",
     "date": "2022-10-07"
-  },
-  {
-    "id": "series-life-article-04",
-    "title": "Troubleshooting a Friend's Potato PC for FFXIV",
-    "summary": "A real troubleshooting log: a friend's FFXIV ran at only 20 FPS. Task Manager showed 100% CPU usage but the clock was stuck at 1.99 GHz (base 2.5 GHz). Remote diagnosis revealed the laptop wasn't plugged in, causing thermal throttling. Three solutions were offered: reinstall the game, play in fullscreen mode, or get a new PC.",
-    "series": "Lifestyle Series",
-    "tags": ["Work Log", "FF14", "PC Repair"],
-    "url": "/en/articles/series-life/ff14-troubleshoot.html",
-    "date": "2022-09-01"
   }
 ]

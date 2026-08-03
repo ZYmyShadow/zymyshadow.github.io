@@ -126,15 +126,6 @@
     "date": "2022-10-07"
   },
   {
-    "id": "series-life-article-04",
-    "title": "帮朋友的豆芽查看电脑的问题的那些事",
-    "summary": "朋友玩FF14只有20帧的排查实录：通过任务管理器发现CPU占用100%但频率只有1.99GHz（基准2.5GHz），远程排查发现是没插电源导致降频，最终给出重装游戏/全屏游戏/换新电脑三个方案。",
-    "series": "生活系列",
-    "tags": ["工作日志", "FF14", "电脑维修"],
-    "url": "/articles/series-life/ff14-troubleshoot.html",
-    "date": "2022-09-01"
-  },
-  {
     "id": "series-ai-article-01",
     "title": "大语言模型入门指南",
     "summary": "从GPT、LLaMA到千问，系统梳理大语言模型的核心概念、技术架构与主流开源模型对比，帮助初学者建立完整的LLM知识框架。",
