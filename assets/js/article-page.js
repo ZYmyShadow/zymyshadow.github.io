@@ -70,4 +70,59 @@
   } else {
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
   }
+
+  /* ---- Giscus 评论区（GitHub Discussions 驱动） ----
+     配置方法：仓库安装 giscus app 后，到 https://giscus.app 填入仓库名并
+     选择分类，把生成脚本里的 data-category-id（及 category 名）填到下面。
+     categoryId 留空时不渲染评论区。 */
+  var GISCUS = {
+    repo: 'zymyshadow/zymyshadow.github.io',
+    repoId: 'MDEwOlJlcG9zaXRvcnkxODk3MDE1MDk=',
+    category: 'Announcements',
+    categoryId: 'DIC_kwDOC06dhc4DClM7'
+  };
+
+  (function initComments() {
+    if (!GISCUS.categoryId) return;
+    var layout = document.querySelector('.article-layout');
+    if (!layout || !layout.parentNode) return;
+
+    var sec = document.createElement('section');
+    sec.className = 'section comments-section';
+    sec.innerHTML =
+      '<div class="section-head"><h2 class="section-title">评论</h2>' +
+      '<span class="section-note mono">GISCUS · GITHUB DISCUSSIONS · 需 GitHub 账号留言</span></div>' +
+      '<div class="giscus-box"></div>';
+    layout.parentNode.insertBefore(sec, layout.nextSibling);
+
+    var theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    s.setAttribute('data-repo', GISCUS.repo);
+    s.setAttribute('data-repo-id', GISCUS.repoId);
+    s.setAttribute('data-category', GISCUS.category);
+    s.setAttribute('data-category-id', GISCUS.categoryId);
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', theme);
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    sec.querySelector('.giscus-box').appendChild(s);
+
+    /* 明暗主题切换时，通知 giscus iframe 同步换肤 */
+    if ('MutationObserver' in window) {
+      new MutationObserver(function () {
+        var t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        var frame = document.querySelector('iframe.giscus-frame');
+        if (frame && frame.contentWindow) {
+          frame.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+        }
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    }
+  })();
 })();

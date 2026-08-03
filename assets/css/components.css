@@ -2828,3 +2828,17 @@ p.motto {
   flex-wrap: wrap;
   gap: 6px;
 }
+
+/* ================= Giscus 评论区 ================= */
+
+.comments-section {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px 70px;
+}
+.comments-section .giscus-box {
+  max-width: 720px;
+}
+.comments-section .giscus-box iframe {
+  max-width: 100%;
+}
