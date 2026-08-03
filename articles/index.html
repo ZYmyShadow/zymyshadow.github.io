@@ -41,14 +41,14 @@
       <h1 class="page-hero-title">文章系列</h1>
       <p class="page-hero-lead">按系列浏览全部文章<span class="hero-sub"> —— 支持系列与标签双重筛选，点击筛选结果会同步到地址栏，可直接分享</span></p>
     </div>
-    <button class="view-toggle" id="view-toggle" type="button" aria-label="切换视图模式" title="点击切换：列表 / 系列卡片">
-      <span class="vt-text" id="vt-text">文集</span>
+    <button class="view-toggle" id="view-toggle" type="button" aria-label="切换视图模式" title="点击切换：系列卡片 / 列表">
+      <span class="vt-text" id="vt-text">系列</span>
     </button>
   </header>
 
   <main class="hub-page">
     <!-- 列表视图：系列/标签筛选 + 文章列表 -->
-    <div id="list-view">
+    <div id="list-view" style="display:none">
       <div class="filter-block reveal">
         <p class="filter-label mono">系列 · SERIES</p>
         <div class="filter-chips" id="series-chips"></div>
@@ -61,7 +61,7 @@
     </div>
 
     <!-- 系列卡片视图：大型卡片（仿游戏攻略首页） -->
-    <div id="series-view" style="display:none">
+    <div id="series-view">
       <div id="series-panels" class="game-panels">
         <div class="load-fail">正在加载系列数据…</div>
       </div>
@@ -87,7 +87,7 @@
       var allArticles = [];
       var curSeries = new URLSearchParams(location.search).get('series') || '全部';
       var curTag = '全部';
-      var isSeriesView = false;
+      var isSeriesView = true;
       var isFlipping = false;
 
       /* ---- 视图切换（带翻转动画） ---- */
@@ -123,7 +123,7 @@
         .then(function (articles) {
           allArticles = articles;
           buildChips(articles);
-          render();
+          renderSeriesView();
           RL.initReveal();
         })
         .catch(function () {
