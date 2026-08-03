@@ -97,7 +97,7 @@ body {
 /* ---- 布局：表情区改为右侧栏（评论:表情 = 3:1） ---- */
 .gsc-main {
   display: grid;
-  grid-template-columns: minmax(0, 0.75fr) auto;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
   gap: 12px 20px;
   align-items: start;
 }
