@@ -86,7 +86,7 @@
 
   /* 首页专用：只显示最近 2 天、每分类最多 3 条 */
   function renderNewsRecent(host, data) {
-    renderNews(host, data, 2, 3);
+    renderNews(host, data, 2, 5);
   }
 
   /* ---------- 文章系列（按 series 分组） ---------- */

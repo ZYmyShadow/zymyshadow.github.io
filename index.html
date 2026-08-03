@@ -174,12 +174,33 @@
         })
         .catch(function () { failTip($('#news-box'), '热点数据'); });
 
-      /* 收录文章统计 */
+      /* 文章系列 */
       loadJSON('data/articles.json')
         .then(function (list) {
+          RL.renderSeriesCards($('#series-box'), list);
           $('#stat-articles').textContent = list.length;
+          observeReveals();
         })
-        .catch(function () { /* 静默失败，不影响首页 */ });
+        .catch(function () { failTip($('#series-box'), '文章数据'); });
+
+      /* 游戏专区：游戏基础信息 + 各游戏置顶攻略 */
+      loadJSON('data/games.json')
+        .then(function (games) {
+          $('#stat-games').textContent = games.length;
+          return Promise.all(games.map(function (g) {
+            return loadJSON('games/' + g.id + '/data/guides.json')
+              .then(function (guides) {
+                return guides.filter(function (x) { return x.pinned; }).slice(0, 3);
+              })
+              .catch(function () { return []; });
+          })).then(function (pinnedArr) {
+            var pinnedByGame = {};
+            games.forEach(function (g, i) { pinnedByGame[g.id] = pinnedArr[i]; });
+            RL.renderGames($('#games-box'), games, pinnedByGame);
+            observeReveals();
+          });
+        })
+        .catch(function () { failTip($('#games-box'), '游戏数据'); });
 
       /* 导航站统计 */
       loadJSON('data/nav-links.json')
