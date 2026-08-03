@@ -1,0 +1,444 @@
+/* ============================================================
+   tool-page.css · 工具页通用样式
+   供 /tools/*.html 单工具页共用，配合 variables.css 自动适配深色模式
+   ============================================================ */
+
+.tool-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 26px 20px 80px;
+}
+
+/* 返回链接沿用 components.css 的 .back-link */
+
+.tool-workspace {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 26px 28px;
+}
+.tool-workspace + .tool-workspace { margin-top: 22px; }
+
+.tool-lead {
+  margin: 0 0 20px;
+  color: var(--ink-2);
+  font-size: .92rem;
+  line-height: 1.9;
+}
+
+/* ---- 字段 + 标签 ---- */
+.tool-field { display: flex; flex-direction: column; gap: 8px; }
+.tool-field + .tool-field { margin-top: 18px; }
+.tool-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  color: var(--ink-3);
+}
+.tool-label .lbl-extra {
+  margin-left: auto;
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+  font-size: .76rem;
+  color: var(--ink-3);
+}
+
+/* ---- 输入框 / 文本域 ---- */
+.tool-input,
+.tool-textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--ink);
+  border-radius: var(--radius);
+  transition: border-color .2s, box-shadow .2s, background-color .2s;
+  font-family: var(--font-sans);
+}
+.tool-input { padding: 11px 14px; font-size: .94rem; border-radius: var(--radius-sm); }
+.tool-textarea {
+  padding: 14px 16px;
+  min-height: 220px;
+  resize: vertical;
+  font-family: var(--font-mono);
+  font-size: .88rem;
+  line-height: 1.75;
+  tab-size: 2;
+}
+.tool-input:focus,
+.tool-textarea:focus {
+  outline: 0;
+  border-color: var(--jade);
+  box-shadow: 0 0 0 4px var(--jade-soft);
+  background: var(--surface);
+}
+.tool-input::placeholder,
+.tool-textarea::placeholder { color: var(--ink-3); }
+.tool-input.mono { font-family: var(--font-mono); }
+
+/* ---- 两栏（输入 / 输出） ---- */
+.tool-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+.tool-cols .tool-textarea { min-height: 300px; }
+
+/* ---- 工具栏按钮 ---- */
+.tool-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 18px 0;
+}
+.tool-bar.tool-bar-end { justify-content: flex-end; }
+.tool-bar.tool-bar-top { margin-top: 0; }
+.tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .15s, border-color .2s, color .2s, background-color .2s;
+}
+.tool-btn:hover {
+  border-color: var(--jade);
+  color: var(--jade-strong);
+  background: var(--jade-soft);
+}
+.tool-btn:active { transform: scale(.97); }
+.tool-btn-primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+.tool-btn-primary:hover {
+  background: var(--jade-strong);
+  border-color: var(--jade-strong);
+  color: #fff;
+}
+.tool-btn-ghost { background: transparent; }
+.tool-btn.is-copied {
+  background: var(--jade) !important;
+  border-color: var(--jade) !important;
+  color: #fff !important;
+}
+.tool-btn[disabled] { opacity: .45; cursor: not-allowed; }
+.tool-btn-sm { padding: 7px 12px; font-size: .8rem; }
+
+/* ---- 分段选项 ---- */
+.tool-seg {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface);
+}
+.tool-seg button {
+  padding: 9px 16px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  font-size: .84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.tool-seg button + button { border-left: 1px solid var(--line); }
+.tool-seg button:hover { color: var(--jade-strong); }
+.tool-seg button.active { background: var(--ink); color: var(--bg); }
+
+/* ---- 复选标志组（正则 flags） ---- */
+.tool-flags { display: flex; flex-wrap: wrap; gap: 10px; }
+.tool-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color .2s, color .2s, background-color .2s;
+}
+.tool-flag input { accent-color: var(--jade); width: 14px; height: 14px; }
+.tool-flag:hover { border-color: var(--jade); color: var(--jade-strong); }
+.tool-flag.on { background: var(--jade-soft); border-color: var(--jade); color: var(--jade-strong); }
+
+/* ---- 输出区 ---- */
+.tool-output {
+  position: relative;
+  min-height: 120px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: .88rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow: auto;
+  max-height: 480px;
+}
+.tool-output.empty { color: var(--ink-3); font-style: italic; white-space: normal; }
+.tool-output.is-err { color: var(--seal); border-color: rgba(194, 71, 46, .4); }
+
+/* ---- 结果条目（哈希 / 时间戳等） ---- */
+.tool-results { display: flex; flex-direction: column; gap: 12px; }
+.tool-result {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.tool-result-name {
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  letter-spacing: .1em;
+  color: var(--jade-strong);
+}
+.tool-result-val {
+  font-family: var(--font-mono);
+  font-size: .86rem;
+  color: var(--ink);
+  word-break: break-all;
+}
+.tool-result .tool-btn { padding: 7px 12px; font-size: .8rem; }
+
+/* ---- 状态条 ---- */
+.tool-status {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 11px 15px;
+  border-radius: var(--radius-sm);
+  font-size: .86rem;
+  line-height: 1.65;
+}
+.tool-status.show { display: flex; }
+.tool-status.ok { background: var(--jade-soft); color: var(--jade-strong); border-left: 3px solid var(--jade); }
+.tool-status.err { background: rgba(194, 71, 46, .08); color: var(--seal); border-left: 3px solid var(--seal); }
+.tool-status .mono { font-size: .8rem; }
+
+/* ---- 底部返回 ---- */
+.tool-foot {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================================
+   取色器
+   ============================================================ */
+.tool-color-stage {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.tool-color-preview {
+  width: 130px;
+  height: 130px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.tool-color-preview input[type="color"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+.tool-color-fields { display: flex; flex-direction: column; gap: 12px; }
+.tool-color-field {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+.tool-color-field label {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--ink-3);
+  letter-spacing: .08em;
+}
+.tool-color-field .tool-input { font-family: var(--font-mono); font-size: .88rem; }
+.tool-swatches { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.tool-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+.tool-swatch:hover { transform: scale(1.12); box-shadow: var(--shadow-sm); }
+
+/* ============================================================
+   正则测试
+   ============================================================ */
+.tool-regex-pattern { display: flex; gap: 12px; align-items: stretch; }
+.tool-regex-pattern .tool-input {
+  font-family: var(--font-mono);
+  flex: 1;
+}
+.tool-regex-slash {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  user-select: none;
+}
+.tool-regex-flags { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.tool-regex-text {
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: var(--font-mono);
+  font-size: .9rem;
+  line-height: 1.9;
+}
+.tool-regex-matches { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; }
+.tool-regex-match {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 10px;
+  align-items: baseline;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.tool-regex-match .rm-no { font-family: var(--font-mono); color: var(--ink-3); font-size: .76rem; }
+.tool-regex-match .rm-val { font-family: var(--font-mono); font-size: .86rem; color: var(--ink); word-break: break-all; }
+.tool-regex-match .rm-pos { font-family: var(--font-mono); color: var(--ink-3); font-size: .72rem; white-space: nowrap; }
+.tool-regex-match .rm-groups { grid-column: 2 / -1; margin-top: 4px; font-size: .8rem; color: var(--ink-2); }
+mark.rx { background: rgba(14, 143, 111, .22); color: inherit; border-radius: 3px; padding: 1px 2px; }
+mark.rx.g1 { background: rgba(169, 126, 47, .24); }
+mark.rx.g2 { background: rgba(194, 71, 46, .20); }
+.tool-cheatsheet {
+  margin-top: 22px;
+  padding: 18px 20px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+.tool-cheatsheet h4 {
+  font-family: var(--font-serif);
+  font-size: .95rem;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.tool-cheatsheet table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+.tool-cheatsheet th,
+.tool-cheatsheet td { padding: 6px 10px; border-bottom: 1px dashed var(--line); text-align: left; }
+.tool-cheatsheet th { color: var(--ink-3); font-weight: 600; }
+.tool-cheatsheet td:first-child { font-family: var(--font-mono); color: var(--jade-strong); white-space: nowrap; }
+
+/* ============================================================
+   Markdown 预览
+   ============================================================ */
+.tool-md-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+.tool-md-split .tool-textarea { min-height: 460px; }
+.tool-md-pane { display: flex; flex-direction: column; gap: 8px; }
+.tool-md-body {
+  min-height: 460px;
+  max-height: 620px;
+  overflow: auto;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+/* 关闭首字下沉，预览场景不适用 */
+.tool-md-body > p:first-of-type::first-letter {
+  float: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+.tool-md-body pre {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  overflow: auto;
+  margin: 0 0 18px;
+}
+.tool-md-body code { font-family: var(--font-mono); font-size: .86rem; }
+.tool-md-body pre code { background: none; border: 0; padding: 0; }
+.tool-md-body :not(pre) > code {
+  background: var(--jade-soft);
+  color: var(--jade-strong);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: .84rem;
+}
+.tool-md-body blockquote {
+  border-left: 3px solid var(--jade);
+  padding: 6px 16px;
+  margin: 0 0 18px;
+  color: var(--ink-2);
+  background: var(--jade-soft);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.tool-md-body ul,
+.tool-md-body ol { margin: 0 0 18px; padding-left: 26px; }
+.tool-md-body li { margin: 4px 0; color: var(--ink-2); }
+.tool-md-body img { border-radius: var(--radius-sm); margin: 10px 0; }
+.tool-md-body hr { border: 0; border-top: 1px solid var(--line); margin: 22px 0; }
+.tool-md-body table { width: 100%; border-collapse: collapse; margin: 0 0 18px; }
+.tool-md-body th,
+.tool-md-body td { border: 1px solid var(--line); padding: 7px 11px; }
+
+/* ============================================================
+   响应式
+   ============================================================ */
+@media (max-width: 760px) {
+  .tool-cols,
+  .tool-md-split { grid-template-columns: 1fr; }
+  .tool-color-stage { grid-template-columns: 1fr; }
+  .tool-color-preview { width: 100%; height: 90px; }
+  .tool-workspace { padding: 20px 18px; }
+  .tool-result { grid-template-columns: 80px 1fr; }
+  .tool-result .tool-btn { grid-column: 2; justify-self: start; }
+  .tool-regex-pattern { flex-direction: row; }
+}

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>时间戳转换 · 工具合集 · 修仙藏书阁</title>
+  <meta name="description" content="Unix 时间戳与可读日期互转工具，支持秒/毫秒、本地与 UTC、ISO 8601 与相对时间，实时显示当前时间戳。">
+  <meta property="og:title" content="时间戳转换 · 修仙藏书阁">
+  <meta property="og:description" content="Unix 时间戳与可读日期互转，支持秒/毫秒。">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/tool-page.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">TOOL · 实用工具</p>
+      <h1 class="page-hero-title">时间戳转换</h1>
+      <p class="page-hero-lead">Unix 时间戳与可读日期互转<span class="hero-sub"> —— 支持秒 / 毫秒、本地与 UTC、ISO 8601</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">TS</span>
+  </header>
+
+  <main class="tool-page">
+    <a class="back-link" href="index.html"><span class="arr">←</span> 返回工具合集</a>
+
+    <!-- 当前时间戳 -->
+    <div class="tool-workspace reveal">
+      <label class="tool-label">当前 Unix 时间戳<span class="lbl-extra">每秒自动刷新</span></label>
+      <div class="tool-results" style="margin-top:10px">
+        <div class="tool-result">
+          <span class="tool-result-name">秒（s）</span>
+          <span class="tool-result-val" id="t-now-s">—</span>
+          <button type="button" class="tool-btn tool-btn-sm" data-copy="t-now-s">复制</button>
+        </div>
+        <div class="tool-result">
+          <span class="tool-result-name">毫秒（ms）</span>
+          <span class="tool-result-val" id="t-now-ms">—</span>
+          <button type="button" class="tool-btn tool-btn-sm" data-copy="t-now-ms">复制</button>
+        </div>
+        <div class="tool-result">
+          <span class="tool-result-name">北京时间</span>
+          <span class="tool-result-val" id="t-now-date">—</span>
+          <button type="button" class="tool-btn tool-btn-sm" data-copy="t-now-date">复制</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 时间戳 → 时间 -->
+    <div class="tool-workspace reveal">
+      <label class="tool-label" for="t-in">时间戳 → 可读时间</label>
+      <div class="tool-bar tool-bar-top">
+        <input class="tool-input mono" id="t-in" type="text" inputmode="numeric" placeholder="如 1785759300" autocomplete="off">
+        <div class="tool-seg" id="t-unit" role="group" aria-label="单位">
+          <button type="button" data-unit="s" class="active">秒</button>
+          <button type="button" data-unit="ms">毫秒</button>
+        </div>
+        <button type="button" class="tool-btn" id="t-now-btn">填入当前</button>
+        <button type="button" class="tool-btn tool-btn-ghost" id="t-in-clear">清空</button>
+      </div>
+      <div class="tool-results" id="t-out" style="margin-top:6px"></div>
+      <div class="tool-status" id="t-status"></div>
+    </div>
+
+    <!-- 时间 → 时间戳 -->
+    <div class="tool-workspace reveal">
+      <label class="tool-label" for="t-date">可读时间 → 时间戳</label>
+      <div class="tool-bar tool-bar-top">
+        <input class="tool-input" id="t-date" type="datetime-local" step="1">
+        <button type="button" class="tool-btn" id="t-date-now">填入当前</button>
+      </div>
+      <div class="tool-results" id="t-date-out" style="margin-top:6px"></div>
+      <div class="tool-status" id="t-date-status"></div>
+    </div>
+
+    <div class="tool-foot">
+      <a class="tool-btn tool-btn-ghost" href="index.html">查看全部工具 →</a>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script src="../assets/js/tool-common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      function pad(n) { return n < 10 ? '0' + n : '' + n; }
+      /* 本地时间格式化：YYYY-MM-DD HH:mm:ss */
+      function fmtLocal(d) {
+        return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
+          ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+      }
+      function fmtUTC(d) {
+        return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()) +
+          ' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ':' + pad(d.getUTCSeconds());
+      }
+      function relative(d) {
+        var diff = Date.now() - d.getTime();
+        var abs = Math.abs(diff);
+        var past = diff >= 0;
+        var s = Math.round(abs / 1000);
+        if (s < 60) return (past ? s + ' 秒前' : s + ' 秒后');
+        var m = Math.round(s / 60);
+        if (m < 60) return (past ? m + ' 分钟前' : m + ' 分钟后');
+        var h = Math.round(m / 60);
+        if (h < 24) return (past ? h + ' 小时前' : h + ' 小时后');
+        var day = Math.round(h / 24);
+        if (day < 30) return (past ? day + ' 天前' : day + ' 天后');
+        var mo = Math.round(day / 30);
+        if (mo < 12) return (past ? mo + ' 个月前' : mo + ' 个月后');
+        var y = Math.round(mo / 12);
+        return (past ? y + ' 年前' : y + ' 年后');
+      }
+      function row(name, val) {
+        return '<div class="tool-result"><span class="tool-result-name">' + name + '</span>' +
+          '<span class="tool-result-val">' + TC.esc(val) + '</span>' +
+          '<button type="button" class="tool-btn tool-btn-sm" data-copy-val="' + TC.esc(val) + '">复制</button></div>';
+      }
+
+      /* ---- 当前时间戳实时刷新 ---- */
+      var nowS = document.getElementById('t-now-s');
+      var nowMs = document.getElementById('t-now-ms');
+      var nowDate = document.getElementById('t-now-date');
+      function tickNow() {
+        var ms = Date.now();
+        nowS.textContent = Math.floor(ms / 1000);
+        nowMs.textContent = ms;
+        nowDate.textContent = fmtLocal(new Date(ms));
+      }
+      tickNow();
+      setInterval(tickNow, 1000);
+
+      /* ---- 时间戳 → 时间 ---- */
+      var tIn = document.getElementById('t-in');
+      var tOut = document.getElementById('t-out');
+      var tStatus = document.getElementById('t-status');
+      var unit = 's';
+
+      function renderTsToDate() {
+        var raw = tIn.value.trim();
+        tStatus.className = 'tool-status';
+        tStatus.innerHTML = '';
+        if (!raw) { tOut.innerHTML = ''; return; }
+        if (!/^-?\d+$/.test(raw)) {
+          tOut.innerHTML = '';
+          tStatus.className = 'tool-status show err';
+          tStatus.innerHTML = '✗ 请输入纯数字时间戳（可选负号）。';
+          return;
+        }
+        var num = Number(raw);
+        var ms = unit === 's' ? num * 1000 : num;
+        var d = new Date(ms);
+        if (isNaN(d.getTime())) {
+          tOut.innerHTML = '';
+          tStatus.className = 'tool-status show err';
+          tStatus.innerHTML = '✗ 无法识别的时间戳。';
+          return;
+        }
+        tOut.innerHTML =
+          row('北京时间', fmtLocal(d)) +
+          row('UTC 时间', fmtUTC(d)) +
+          row('ISO 8601', d.toISOString()) +
+          row('星期', '星期' + '日一二三四五六'.charAt(d.getDay())) +
+          row('相对时间', relative(d));
+      }
+      tIn.addEventListener('input', renderTsToDate);
+      document.getElementById('t-unit').addEventListener('click', function (e) {
+        var btn = e.target.closest('button[data-unit]');
+        if (!btn) return;
+        this.querySelectorAll('button').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        unit = btn.dataset.unit;
+        renderTsToDate();
+      });
+      document.getElementById('t-now-btn').addEventListener('click', function () {
+        tIn.value = unit === 's' ? Math.floor(Date.now() / 1000) : Date.now();
+        renderTsToDate();
+      });
+      document.getElementById('t-in-clear').addEventListener('click', function () {
+        tIn.value = ''; renderTsToDate(); tIn.focus();
+      });
+
+      /* ---- 时间 → 时间戳 ---- */
+      var tDate = document.getElementById('t-date');
+      var tDateOut = document.getElementById('t-date-out');
+      var tDateStatus = document.getElementById('t-date-status');
+
+      function renderDateToTs() {
+        var v = tDate.value;
+        tDateStatus.className = 'tool-status';
+        tDateStatus.innerHTML = '';
+        if (!v) { tDateOut.innerHTML = ''; return; }
+        var d = new Date(v);
+        if (isNaN(d.getTime())) {
+          tDateOut.innerHTML = '';
+          tDateStatus.className = 'tool-status show err';
+          tDateStatus.innerHTML = '✗ 无法识别的日期时间。';
+          return;
+        }
+        var ms = d.getTime();
+        tDateOut.innerHTML =
+          row('秒（s）', Math.floor(ms / 1000)) +
+          row('毫秒（ms）', ms) +
+          row('ISO 8601', d.toISOString()) +
+          row('UTC 时间', fmtUTC(d));
+      }
+      tDate.addEventListener('input', renderDateToTs);
+      document.getElementById('t-date-now').addEventListener('click', function () {
+        /* datetime-local 需要 YYYY-MM-DDTHH:mm:ss 格式（本地时间） */
+        var d = new Date();
+        var v = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
+          'T' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+        tDate.value = v;
+        renderDateToTs();
+      });
+
+      /* ---- 通用复制：支持 data-copy（按 id 取值）与 data-copy-val（直接取值） ---- */
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest('button[data-copy], button[data-copy-val]');
+        if (!btn) return;
+        var val;
+        if (btn.hasAttribute('data-copy')) {
+          var el = document.getElementById(btn.getAttribute('data-copy'));
+          val = el ? el.textContent : '';
+        } else {
+          val = btn.getAttribute('data-copy-val');
+        }
+        if (val) TC.copy(val, btn);
+      });
+    })();
+  </script>
+</body>
+</html>

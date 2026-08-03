@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正则测试 · 工具合集 · 修仙藏书阁</title>
+  <meta name="description" content="在线正则表达式测试工具，支持全局、忽略大小写、多行等标志，实时高亮匹配结果并显示捕获组。">
+  <meta property="og:title" content="正则测试 · 修仙藏书阁">
+  <meta property="og:description" content="在线正则表达式编写与测试工具。">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/tool-page.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">TOOL · 实用工具</p>
+      <h1 class="page-hero-title">正则测试</h1>
+      <p class="page-hero-lead">在线编写和测试正则表达式<span class="hero-sub"> —— 实时高亮匹配、显示捕获组</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">.*</span>
+  </header>
+
+  <main class="tool-page">
+    <a class="back-link" href="index.html"><span class="arr">←</span> 返回工具合集</a>
+
+    <div class="tool-workspace reveal">
+      <div class="tool-field">
+        <label class="tool-label" for="rx-pattern">正则表达式</label>
+        <div class="tool-regex-pattern">
+          <span class="tool-regex-slash">/</span>
+          <input class="tool-input mono" id="rx-pattern" type="text" value="(\d{4})-(\d{2})-(\d{2})" spellcheck="false" autocomplete="off" placeholder="输入正则表达式">
+          <span class="tool-regex-slash">/</span>
+        </div>
+      </div>
+
+      <div class="tool-field" style="margin-top:16px">
+        <label class="tool-label">标志位 <span class="lbl-extra">Flags</span></label>
+        <div class="tool-regex-flags" id="rx-flags">
+          <label class="tool-flag"><input type="checkbox" value="g" checked>g<span style="font-family:var(--font-sans);font-size:.76rem;color:var(--ink-3)"> 全局</span></label>
+          <label class="tool-flag"><input type="checkbox" value="i">i<span style="font-family:var(--font-sans);font-size:.76rem;color:var(--ink-3)"> 忽略大小写</span></label>
+          <label class="tool-flag"><input type="checkbox" value="m">m<span style="font-family:var(--font-sans);font-size:.76rem;color:var(--ink-3)"> 多行</span></label>
+          <label class="tool-flag"><input type="checkbox" value="s">s<span style="font-family:var(--font-sans);font-size:.76rem;color:var(--ink-3)"> .匹配换行</span></label>
+          <label class="tool-flag"><input type="checkbox" value="u">u<span style="font-family:var(--font-sans);font-size:.76rem;color:var(--ink-3)"> Unicode</span></label>
+          <label class="tool-flag"><input type="checkbox" value="y">y<span style="font-family:var(--font-sans);font-size:.76rem;color:var(--ink-3)"> 粘连</span></label>
+        </div>
+      </div>
+
+      <div class="tool-field" style="margin-top:16px">
+        <label class="tool-label" for="rx-text">测试文本</label>
+        <textarea class="tool-textarea" id="rx-text" spellcheck="false" placeholder="在此输入需要匹配的文本…">今天是 2026-08-03，昨天是 2026-08-02。
+项目截止日期：2025-12-31。
+无效日期示例：26-08-03、2026-8-3。</textarea>
+      </div>
+
+      <div class="tool-status" id="rx-status"></div>
+
+      <div class="tool-field" style="margin-top:18px">
+        <label class="tool-label">高亮匹配 <span class="lbl-extra" id="rx-count">0 个匹配</span></label>
+        <div class="tool-output" id="rx-highlight"></div>
+      </div>
+
+      <div class="tool-field" style="margin-top:18px">
+        <label class="tool-label">匹配详情 <span class="lbl-extra">捕获组</span></label>
+        <ul class="tool-regex-matches" id="rx-matches"></ul>
+      </div>
+    </div>
+
+    <div class="tool-cheatsheet reveal">
+      <h4>常用正则速查</h4>
+      <table>
+        <thead><tr><th>语法</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>.</td><td>匹配除换行符外的任意字符</td></tr>
+          <tr><td>\d \w \s</td><td>数字 / 字母数字下划线 / 空白符</td></tr>
+          <tr><td>\D \W \S</td><td>上述对应取反</td></tr>
+          <tr><td>[abc]</td><td>字符集，匹配 a 或 b 或 c</td></tr>
+          <tr><td>[^abc]</td><td>否定字符集，匹配非 a/b/c</td></tr>
+          <tr><td>^ $</td><td>行首 / 行尾</td></tr>
+          <tr><td>\b \B</td><td>单词边界 / 非单词边界</td></tr>
+          <tr><td>*</td><td>前一项出现 0 次或多次</td></tr>
+          <tr><td>+</td><td>前一项出现 1 次或多次</td></tr>
+          <tr><td>?</td><td>前一项出现 0 次或 1 次</td></tr>
+          <tr><td>{n,m}</td><td>前一项出现 n 到 m 次</td></tr>
+          <tr><td>(...)</td><td>捕获组</td></tr>
+          <tr><td>(?:...)</td><td>非捕获组</td></tr>
+          <tr><td>a|b</td><td>匹配 a 或 b</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tool-foot">
+      <a class="tool-btn tool-btn-ghost" href="index.html">查看全部工具 →</a>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script src="../assets/js/tool-common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var patternIn = document.getElementById('rx-pattern');
+      var textIn = document.getElementById('rx-text');
+      var flagsBox = document.getElementById('rx-flags');
+      var highlight = document.getElementById('rx-highlight');
+      var matchesList = document.getElementById('rx-matches');
+      var countEl = document.getElementById('rx-count');
+      var status = document.getElementById('rx-status');
+
+      function getFlags() {
+        var flags = '';
+        flagsBox.querySelectorAll('input[type="checkbox"]:checked').forEach(function (cb) {
+          flags += cb.value;
+        });
+        return flags;
+      }
+
+      function ok(msg) { status.className = 'tool-status show ok'; status.innerHTML = msg; }
+      function err(msg) { status.className = 'tool-status show err'; status.innerHTML = msg; }
+      function clearStatus() { status.className = 'tool-status'; status.innerHTML = ''; }
+
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+
+      function run() {
+        var patStr = patternIn.value;
+        var text = textIn.value;
+        var flags = getFlags();
+
+        /* 空模式 */
+        if (!patStr) {
+          highlight.className = 'tool-output empty';
+          highlight.textContent = '请输入正则表达式…';
+          matchesList.innerHTML = '';
+          countEl.textContent = '0 个匹配';
+          clearStatus();
+          return;
+        }
+
+        /* 尝试编译正则 */
+        var re;
+        try {
+          re = new RegExp(patStr, flags);
+        } catch (e) {
+          highlight.className = 'tool-output empty';
+          highlight.textContent = '正则编译失败';
+          matchesList.innerHTML = '';
+          countEl.textContent = '0 个匹配';
+          err('✗ 正则语法错误：' + esc(e.message));
+          return;
+        }
+
+        /* 收集所有匹配 */
+        var matches = [];
+        if (flags.indexOf('g') !== -1) {
+          var m;
+          var lastIndex = 0;
+          var guard = 0;
+          while ((m = re.exec(text)) !== null) {
+            matches.push({
+              match: m[0],
+              index: m.index,
+              groups: m.slice(1)
+            });
+            /* 防止零宽匹配死循环 */
+            if (m.index === re.lastIndex) re.lastIndex++;
+            if (++guard > 9999) break;
+          }
+        } else {
+          var single = re.exec(text);
+          if (single) {
+            matches.push({
+              match: single[0],
+              index: single.index,
+              groups: single.slice(1)
+            });
+          }
+        }
+
+        countEl.textContent = matches.length + ' 个匹配';
+
+        /* 高亮渲染 */
+        if (matches.length === 0) {
+          highlight.className = 'tool-output empty';
+          highlight.textContent = '无匹配结果';
+        } else {
+          highlight.className = 'tool-output';
+          var html = '';
+          var cursor = 0;
+          for (var i = 0; i < matches.length; i++) {
+            var mt = matches[i];
+            /* 未匹配部分 */
+            html += esc(text.slice(cursor, mt.index));
+            /* 匹配部分 */
+            html += '<mark class="rx">' + esc(mt.match) + '</mark>';
+            cursor = mt.index + mt.match.length;
+          }
+          html += esc(text.slice(cursor));
+          highlight.innerHTML = html;
+        }
+
+        /* 匹配详情列表 */
+        if (matches.length === 0) {
+          matchesList.innerHTML = '<p style="color:var(--ink-3);font-size:.86rem;padding:8px 0">暂无匹配项。</p>';
+        } else {
+          matchesList.innerHTML = matches.map(function (mt, i) {
+            var groupsHTML = '';
+            if (mt.groups && mt.groups.length) {
+              groupsHTML = '<div class="rm-groups">捕获组：' +
+                mt.groups.map(function (g, gi) {
+                  return '<span class="mono" style="color:var(--ink-3)">$' + (gi + 1) + '=</span> ' +
+                    '<mark class="rx g' + ((gi % 2) + 1) + '">' + esc(g || '(空)') + '</mark>';
+                }).join('&nbsp;&nbsp;') +
+                '</div>';
+            }
+            return '<li class="tool-regex-match">' +
+              '<span class="rm-no">#' + (i + 1) + '</span>' +
+              '<span class="rm-val">' + esc(mt.match) + '</span>' +
+              '<span class="rm-pos">[' + mt.index + ' → ' + (mt.index + mt.match.length) + ']</span>' +
+              groupsHTML +
+              '</li>';
+          }).join('');
+        }
+
+        if (matches.length > 0) {
+          ok('✓ 匹配成功，共 <strong>' + matches.length + '</strong> 个结果。');
+        } else {
+          clearStatus();
+        }
+      }
+
+      /* 输入即测 */
+      patternIn.addEventListener('input', run);
+      textIn.addEventListener('input', run);
+      flagsBox.addEventListener('change', run);
+
+      /* 首次运行 */
+      run();
+    })();
+  </script>
+</body>
+</html>

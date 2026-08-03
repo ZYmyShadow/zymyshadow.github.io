@@ -2492,9 +2492,9 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
 
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
-  padding: 0 var(--section-px);
+  padding: 0;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -2503,19 +2503,20 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   padding: 28px 16px;
-  border-radius: 12px;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
   text-decoration: none;
-  color: var(--text);
-  transition: transform .2s, box-shadow .2s, border-color .2s;
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 .tool-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
-  border-color: var(--accent, var(--brand));
+  box-shadow: var(--shadow-md);
+  border-color: var(--jade);
 }
 
 .tool-icon {
@@ -2525,26 +2526,32 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 700;
   font-size: 16px;
   color: #fff;
-  background: var(--brand);
+  background: var(--jade);
   flex-shrink: 0;
+  transition: transform .25s ease;
+}
+.tool-card:hover .tool-icon {
+  transform: rotate(-6deg) scale(1.06);
 }
 
 .tool-name {
-  font-size: 14px;
-  font-weight: 500;
+  font-family: var(--font-serif);
+  font-size: .92rem;
+  font-weight: 700;
   text-align: center;
   line-height: 1.4;
+  color: var(--ink);
 }
 
 /* 不同颜色变体 */
-.tool-card:nth-child(4n+1) .tool-icon { background: var(--brand); }
+.tool-card:nth-child(4n+1) .tool-icon { background: var(--jade); }
 .tool-card:nth-child(4n+2) .tool-icon { background: #2563eb; }
-.tool-card:nth-child(4n+3) .tool-icon { background: #059669; }
-.tool-card:nth-child(4n+4) .tool-icon { background: #d97706; }
+.tool-card:nth-child(4n+3) .tool-icon { background: var(--gold); }
+.tool-card:nth-child(4n+4) .tool-icon { background: var(--seal); }
 
 @media (max-width: 600px) {
   .tools-grid {

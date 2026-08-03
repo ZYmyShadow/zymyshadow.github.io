@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown 预览 · 工具合集 · 修仙藏书阁</title>
+  <meta name="description" content="在线 Markdown 编辑器，实时预览渲染效果，支持标题、列表、代码块、表格、引用等常用语法，纯本地处理。">
+  <meta property="og:title" content="Markdown 预览 · 修仙藏书阁">
+  <meta property="og:description" content="实时预览 Markdown 渲染效果。">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/tool-page.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">TOOL · 实用工具</p>
+      <h1 class="page-hero-title">Markdown 预览</h1>
+      <p class="page-hero-lead">实时预览 Markdown 渲染效果<span class="hero-sub"> —— 纯本地解析，无需联网</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">MD</span>
+  </header>
+
+  <main class="tool-page">
+    <a class="back-link" href="index.html"><span class="arr">←</span> 返回工具合集</a>
+
+    <div class="tool-workspace reveal">
+      <div class="tool-bar tool-bar-top">
+        <span class="tool-label" style="margin:0">编辑器</span>
+        <span style="flex:1"></span>
+        <button type="button" class="tool-btn tool-btn-sm" id="md-clear">清空</button>
+        <button type="button" class="tool-btn tool-btn-sm" id="md-sample">示例</button>
+        <button type="button" class="tool-btn tool-btn-sm" id="md-copy-html">复制 HTML</button>
+      </div>
+
+      <div class="tool-md-split">
+        <div class="tool-md-pane">
+          <textarea class="tool-textarea" id="md-input" spellcheck="false" placeholder="在此输入 Markdown…"></textarea>
+        </div>
+        <div class="tool-md-pane">
+          <label class="tool-label">预览</label>
+          <div class="tool-md-body" id="md-output"></div>
+        </div>
+      </div>
+
+      <div class="tool-status" id="md-status"></div>
+    </div>
+
+    <div class="tool-foot">
+      <a class="tool-btn tool-btn-ghost" href="index.html">查看全部工具 →</a>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script src="../assets/js/tool-common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var input = document.getElementById('md-input');
+      var output = document.getElementById('md-output');
+      var status = document.getElementById('md-status');
+      var copyHtmlBtn = document.getElementById('md-copy-html');
+
+      /* ---- HTML 转义 ---- */
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+
+      /* ---- 内联元素解析 ---- */
+      function inline(s) {
+        s = esc(s);
+        /* 图片 ![alt](src) */
+        s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img alt="$1" src="$2">');
+        /* 链接 [text](url) */
+        s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+        /* 加粗+斜体 ***text*** */
+        s = s.replace(/\*\*\*([^\*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
+        /* 加粗 **text** 或 __text__ */
+        s = s.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>');
+        s = s.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+        /* 斜体 *text* 或 _text_ */
+        s = s.replace(/(?<!\w)\*([^\*]+)\*(?!\w)/g, '<em>$1</em>');
+        s = s.replace(/(?<!\w)_([^_]+)_(?!\w)/g, '<em>$1</em>');
+        /* 删除线 ~~text~~ */
+        s = s.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+        /* 行内代码 `code` */
+        s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+        return s;
+      }
+
+      /* ---- 块级解析 ---- */
+      function parse(md) {
+        var lines = md.split('\n');
+        var html = [];
+        var i = 0;
+
+        while (i < lines.length) {
+          var line = lines[i];
+
+          /* 空行 */
+          if (/^\s*$/.test(line)) { i++; continue; }
+
+          /* 代码块 ``` */
+          if (/^```/.test(line.trim())) {
+            var lang = line.trim().replace(/^```/, '').trim();
+            var code = [];
+            i++;
+            while (i < lines.length && !/^```/.test(lines[i].trim())) {
+              code.push(lines[i]);
+              i++;
+            }
+            i++; /* 跳过结束 ``` */
+            html.push('<pre><code>' + esc(code.join('\n')) + '</code></pre>');
+            continue;
+          }
+
+          /* 标题 # ~ ###### */
+          var hMatch = line.match(/^(#{1,6})\s+(.*)/);
+          if (hMatch) {
+            var level = hMatch[1].length;
+            var text = hMatch[2].replace(/#+\s*$/, '');
+            html.push('<h' + level + '>' + inline(text) + '</h' + level + '>');
+            i++;
+            continue;
+          }
+
+          /* 水平分割线 --- *** ___ */
+          if (/^\s*([-*_])\1{2,}\s*$/.test(line)) {
+            html.push('<hr>');
+            i++;
+            continue;
+          }
+
+          /* 引用 > */
+          if (/^\s*>\s?/.test(line)) {
+            var quote = [];
+            while (i < lines.length && /^\s*>\s?/.test(lines[i])) {
+              quote.push(lines[i].replace(/^\s*>\s?/, ''));
+              i++;
+            }
+            html.push('<blockquote>' + inline(quote.join(' ')) + '</blockquote>');
+            continue;
+          }
+
+          /* 表格 | a | b | */
+          if (/^\s*\|/.test(line) && i + 1 < lines.length && /^\s*\|[\s:|-]+\|/.test(lines[i + 1])) {
+            var headers = line.split('|').filter(function (c, idx, arr) {
+              return idx > 0 && idx < arr.length - 1 || (idx === arr.length - 1 && c.trim() !== '');
+            }).map(function (c) { return c.trim(); });
+            /* 修正：去掉首尾空管道 */
+            headers = line.replace(/^\s*\|/, '').replace(/\|\s*$/, '').split('|').map(function (c) { return c.trim(); });
+            i += 2; /* 跳过分隔行 */
+            var rows = [];
+            while (i < lines.length && /^\s*\|/.test(lines[i])) {
+              var cells = lines[i].replace(/^\s*\|/, '').replace(/\|\s*$/, '').split('|').map(function (c) { return c.trim(); });
+              rows.push(cells);
+              i++;
+            }
+            var tableHTML = '<table><thead><tr>' +
+              headers.map(function (h) { return '<th>' + inline(h) + '</th>'; }).join('') +
+              '</tr></thead><tbody>' +
+              rows.map(function (row) {
+                return '<tr>' + row.map(function (c) { return '<td>' + inline(c) + '</td>'; }).join('') + '</tr>';
+              }).join('') +
+              '</tbody></table>';
+            html.push(tableHTML);
+            continue;
+          }
+
+          /* 无序列表 - * + */
+          if (/^\s*[-*+]\s+/.test(line)) {
+            var items = [];
+            while (i < lines.length && /^\s*[-*+]\s+/.test(lines[i])) {
+              items.push(lines[i].replace(/^\s*[-*+]\s+/, ''));
+              i++;
+            }
+            html.push('<ul>' + items.map(function (it) { return '<li>' + inline(it) + '</li>'; }).join('') + '</ul>');
+            continue;
+          }
+
+          /* 有序列表 1. 2. */
+          if (/^\s*\d+\.\s+/.test(line)) {
+            var olItems = [];
+            while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) {
+              olItems.push(lines[i].replace(/^\s*\d+\.\s+/, ''));
+              i++;
+            }
+            html.push('<ol>' + olItems.map(function (it) { return '<li>' + inline(it) + '</li>'; }).join('') + '</ol>');
+            continue;
+          }
+
+          /* 普通段落（连续非空非特殊行合并） */
+          var para = [];
+          while (i < lines.length && !/^\s*$/.test(lines[i]) &&
+                 !/^#{1,6}\s/.test(lines[i]) && !/^```/.test(lines[i].trim()) &&
+                 !/^\s*>\s?/.test(lines[i]) && !/^\s*[-*+]\s+/.test(lines[i]) &&
+                 !/^\s*\d+\.\s+/.test(lines[i]) && !/^\s*\|/.test(lines[i]) &&
+                 !/^\s*([-*_])\1{2,}\s*$/.test(lines[i])) {
+            para.push(lines[i]);
+            i++;
+          }
+          if (para.length) {
+            html.push('<p>' + inline(para.join('<br>')) + '</p>');
+          }
+        }
+
+        return html.join('\n');
+      }
+
+      /* ---- 渲染 ---- */
+      function render() {
+        var md = input.value;
+        if (!md.trim()) {
+          output.innerHTML = '<p style="color:var(--ink-3);font-style:italic">在左侧输入 Markdown，右侧实时预览渲染效果…</p>';
+          return;
+        }
+        try {
+          output.innerHTML = parse(md);
+        } catch (e) {
+          output.innerHTML = '<p style="color:var(--seal)">解析出错：' + esc(e.message) + '</p>';
+        }
+      }
+
+      /* ---- 事件 ---- */
+      input.addEventListener('input', render);
+
+      document.getElementById('md-clear').addEventListener('click', function () {
+        input.value = '';
+        render();
+        input.focus();
+      });
+
+      var SAMPLE = '# Markdown 示例\n\n## 标题语法\n\n这是一段普通文本，可以包含 **加粗**、*斜体*、~~删除线~~ 和 `行内代码`。\n\n### 列表\n\n无序列表：\n- 第一项\n- 第二项\n- 第三项\n\n有序列表：\n1. 步骤一\n2. 步骤二\n3. 步骤三\n\n### 引用\n\n> 这是一段引用文本。\n> 可以有多行。\n\n### 代码块\n\n```javascript\nfunction hello() {\n  console.log("Hello, Markdown!");\n}\n```\n\n### 表格\n\n| 工具 | 说明 |\n|------|------|\n| JSON | 格式化 |\n| Base64 | 编解码 |\n\n### 链接与图片\n\n[修仙藏书阁](https://zymyshadow.github.io) 是一个知识库网站。\n\n---\n\n水平分割线如上。';
+
+      document.getElementById('md-sample').addEventListener('click', function () {
+        input.value = SAMPLE;
+        render();
+      });
+
+      copyHtmlBtn.addEventListener('click', function () {
+        var html = output.innerHTML;
+        if (!html || output.querySelector('p[style]')) {
+          status.className = 'tool-status show err';
+          status.textContent = '✗ 暂无可复制的 HTML 内容。';
+          return;
+        }
+        TC.copy(html, copyHtmlBtn);
+        status.className = 'tool-status show ok';
+        status.textContent = '✓ HTML 已复制到剪贴板。';
+        setTimeout(function () { status.className = 'tool-status'; }, 2000);
+      });
+
+      /* ---- 初始化 ---- */
+      input.value = SAMPLE;
+      render();
+    })();
+  </script>
+</body>
+</html>

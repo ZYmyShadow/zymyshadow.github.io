@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL 编解码 · 工具合集 · 修仙藏书阁</title>
+  <meta name="description" content="在线 URL 编码与解码工具，支持 encodeURIComponent / encodeURI 双模式，纯本地处理。">
+  <meta property="og:title" content="URL 编解码 · 修仙藏书阁">
+  <meta property="og:description" content="URL 编码与解码转换工具，支持组件与完整 URL 两种模式。">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/tool-page.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">TOOL · 实用工具</p>
+      <h1 class="page-hero-title">URL 编解码</h1>
+      <p class="page-hero-lead">URL 编码与解码转换<span class="hero-sub"> —— 支持组件编码与完整 URL 两种模式</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">%</span>
+  </header>
+
+  <main class="tool-page">
+    <a class="back-link" href="index.html"><span class="arr">←</span> 返回工具合集</a>
+
+    <div class="tool-workspace reveal">
+      <div class="tool-cols">
+        <div class="tool-field">
+          <label class="tool-label" for="u-src">输入内容<span class="lbl-extra">明文或已编码字符串均可</span></label>
+          <textarea class="tool-textarea" id="u-src" placeholder="输入要编码 / 解码的 URL 或文本…" spellcheck="false"></textarea>
+        </div>
+        <div class="tool-field">
+          <label class="tool-label" for="u-out">输出结果<span class="lbl-extra" id="u-meta"></span></label>
+          <pre class="tool-output empty" id="u-out">编码 / 解码结果将显示在这里…</pre>
+        </div>
+      </div>
+
+      <div class="tool-bar tool-bar-top">
+        <button type="button" class="tool-btn tool-btn-primary" id="u-enc-comp">编码（组件）</button>
+        <button type="button" class="tool-btn" id="u-dec-comp">解码（组件）</button>
+        <button type="button" class="tool-btn" id="u-enc-uri">编码（完整 URL）</button>
+        <button type="button" class="tool-btn" id="u-dec-uri">解码（完整 URL）</button>
+        <button type="button" class="tool-btn" id="u-copy">复制结果</button>
+        <button type="button" class="tool-btn tool-btn-ghost" id="u-clear">清空</button>
+      </div>
+
+      <div class="tool-status" id="u-status"></div>
+
+      <p class="tool-lead" style="margin-top:18px;margin-bottom:0">
+        <strong style="color:var(--ink)">组件编码（encodeURIComponent）</strong>会编码所有特殊字符，适合查询参数值；
+        <strong style="color:var(--ink)">完整 URL 编码（encodeURI）</strong>保留 <span class="mono">: / ? # & =</span> 等分隔符，适合整条地址。
+      </p>
+    </div>
+
+    <div class="tool-foot">
+      <a class="tool-btn tool-btn-ghost" href="index.html">查看全部工具 →</a>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script src="../assets/js/tool-common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var src = document.getElementById('u-src');
+      var out = document.getElementById('u-out');
+      var meta = document.getElementById('u-meta');
+      var status = document.getElementById('u-status');
+      var lastResult = '';
+
+      function setStatus(type, msg) {
+        status.className = 'tool-status show ' + type;
+        status.innerHTML = msg;
+      }
+      function clearStatus() { status.className = 'tool-status'; status.innerHTML = ''; }
+
+      function render(text, note) {
+        lastResult = text;
+        out.className = 'tool-output';
+        out.textContent = text;
+        meta.textContent = note + ' · ' + text.length + ' 字符';
+      }
+
+      function run(fn, note) {
+        clearStatus();
+        var text = src.value;
+        if (!text) { setStatus('err', '✗ 输入为空，请先输入内容。'); return; }
+        try {
+          render(fn(text), note);
+          setStatus('ok', '✓ ' + note + '。');
+        } catch (e) {
+          out.className = 'tool-output is-err';
+          out.textContent = '操作失败：' + e.message;
+          lastResult = '';
+          meta.textContent = '';
+          setStatus('err', '✗ ' + note + '失败：<span class="mono">' + TC.esc(e.message) + '</span>');
+        }
+      }
+
+      document.getElementById('u-enc-comp').addEventListener('click', function () { run(encodeURIComponent, '已编码（组件）'); });
+      document.getElementById('u-dec-comp').addEventListener('click', function () { run(decodeURIComponent, '已解码（组件）'); });
+      document.getElementById('u-enc-uri').addEventListener('click', function () { run(encodeURI, '已编码（完整 URL）'); });
+      document.getElementById('u-dec-uri').addEventListener('click', function () { run(decodeURI, '已解码（完整 URL）'); });
+      document.getElementById('u-copy').addEventListener('click', function () {
+        if (!lastResult) { setStatus('err', '✗ 暂无结果可复制。'); return; }
+        TC.copy(lastResult, this);
+      });
+      document.getElementById('u-clear').addEventListener('click', function () {
+        src.value = '';
+        out.className = 'tool-output empty';
+        out.textContent = '编码 / 解码结果将显示在这里…';
+        meta.textContent = '';
+        lastResult = '';
+        clearStatus();
+        src.focus();
+      });
+    })();
+  </script>
+</body>
+</html>

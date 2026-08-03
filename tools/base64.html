@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 编解码 · 工具合集 · 修仙藏书阁</title>
+  <meta name="description" content="在线 Base64 编码与解码工具，完整支持中文 UTF-8，纯本地处理。">
+  <meta property="og:title" content="Base64 编解码 · 修仙藏书阁">
+  <meta property="og:description" content="文本与 Base64 互相转换，完整支持中文。">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/tool-page.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">TOOL · 实用工具</p>
+      <h1 class="page-hero-title">Base64 编解码</h1>
+      <p class="page-hero-lead">文本与 Base64 互相转换<span class="hero-sub"> —— 完整支持中文 UTF-8，纯本地处理</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">B64</span>
+  </header>
+
+  <main class="tool-page">
+    <a class="back-link" href="index.html"><span class="arr">←</span> 返回工具合集</a>
+
+    <div class="tool-workspace reveal">
+      <div class="tool-cols">
+        <div class="tool-field">
+          <label class="tool-label" for="b-src">输入文本<span class="lbl-extra">明文或 Base64 均可</span></label>
+          <textarea class="tool-textarea" id="b-src" placeholder="输入要编码 / 解码的文本…" spellcheck="false"></textarea>
+        </div>
+        <div class="tool-field">
+          <label class="tool-label" for="b-out">输出结果<span class="lbl-extra" id="b-meta"></span></label>
+          <pre class="tool-output empty" id="b-out">编码 / 解码结果将显示在这里…</pre>
+        </div>
+      </div>
+
+      <div class="tool-bar tool-bar-top">
+        <button type="button" class="tool-btn tool-btn-primary" id="b-encode">编码 → Base64</button>
+        <button type="button" class="tool-btn" id="b-decode">解码 → 文本</button>
+        <button type="button" class="tool-btn" id="b-swap">互换 ⇅</button>
+        <button type="button" class="tool-btn" id="b-copy">复制结果</button>
+        <button type="button" class="tool-btn tool-btn-ghost" id="b-clear">清空</button>
+      </div>
+
+      <div class="tool-status" id="b-status"></div>
+    </div>
+
+    <div class="tool-foot">
+      <a class="tool-btn tool-btn-ghost" href="index.html">查看全部工具 →</a>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/theme-toggle.js"></script>
+  <script src="../assets/js/tool-common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      var src = document.getElementById('b-src');
+      var out = document.getElementById('b-out');
+      var meta = document.getElementById('b-meta');
+      var status = document.getElementById('b-status');
+      var lastResult = '';
+
+      function setStatus(type, msg) {
+        status.className = 'tool-status show ' + type;
+        status.innerHTML = msg;
+      }
+      function clearStatus() { status.className = 'tool-status'; status.innerHTML = ''; }
+
+      function render(text, note) {
+        lastResult = text;
+        out.className = 'tool-output';
+        out.textContent = text;
+        meta.textContent = note + ' · ' + text.length + ' 字符';
+      }
+
+      /* UTF-8 安全的 Base64 编解码 */
+      function encodeB64(str) {
+        return btoa(unescape(encodeURIComponent(str)));
+      }
+      function decodeB64(b64) {
+        return decodeURIComponent(escape(atob(b64)));
+      }
+
+      document.getElementById('b-encode').addEventListener('click', function () {
+        clearStatus();
+        var text = src.value;
+        if (!text) { setStatus('err', '✗ 输入为空，请先输入要编码的文本。'); return; }
+        try {
+          render(encodeB64(text), '已编码');
+          setStatus('ok', '✓ 编码成功。');
+        } catch (e) {
+          setStatus('err', '✗ 编码失败：<span class="mono">' + TC.esc(e.message) + '</span>');
+        }
+      });
+
+      document.getElementById('b-decode').addEventListener('click', function () {
+        clearStatus();
+        var text = src.value.trim();
+        if (!text) { setStatus('err', '✗ 输入为空，请先输入要解码的 Base64。'); return; }
+        try {
+          render(decodeB64(text), '已解码');
+          setStatus('ok', '✓ 解码成功。');
+        } catch (e) {
+          out.className = 'tool-output is-err';
+          out.textContent = '解码失败：输入不是合法的 Base64 字符串。';
+          lastResult = '';
+          meta.textContent = '';
+          setStatus('err', '✗ 解码失败：请确认输入为合法 Base64（仅含 A-Z a-z 0-9 + / =）。');
+        }
+      });
+
+      document.getElementById('b-swap').addEventListener('click', function () {
+        if (!lastResult) { setStatus('err', '✗ 暂无结果可互换，请先编码或解码。'); return; }
+        src.value = lastResult;
+        out.className = 'tool-output empty';
+        out.textContent = '编码 / 解码结果将显示在这里…';
+        meta.textContent = '';
+        lastResult = '';
+        clearStatus();
+        src.focus();
+      });
+
+      document.getElementById('b-copy').addEventListener('click', function () {
+        if (!lastResult) { setStatus('err', '✗ 暂无结果可复制。'); return; }
+        TC.copy(lastResult, this);
+      });
+
+      document.getElementById('b-clear').addEventListener('click', function () {
+        src.value = '';
+        out.className = 'tool-output empty';
+        out.textContent = '编码 / 解码结果将显示在这里…';
+        meta.textContent = '';
+        lastResult = '';
+        clearStatus();
+        src.focus();
+      });
+    })();
+  </script>
+</body>
+</html>
