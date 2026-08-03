@@ -1,88 +1,88 @@
 {
-  "updated_at": "2026-08-02",
+  "updated_at": "2026-08-03",
   "categories": [
     {
       "name": "Tech",
       "items": [
         {
-          "title": "Unitree IPO and Google Gemini Robotics 2 Launch on the Same Day — Robotics Race Heats Up",
-          "summary": "Unitree's IPO was priced at a roughly 42 billion yuan valuation, on the same day Google launched its Gemini Robotics 2 model. The robotics race between hardware manufacturing and AI brains is intensifying, accelerating industry differentiation.",
-          "source": "Huxiu",
-          "url": "#",
-          "tag": "Robotics",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "CXMT Surges 465% on STAR Market Debut, Topping A-Share Semiconductor Boards",
-          "summary": "CXMT (ChangXin Memory Technologies) soared 465.82% on its first day on the STAR Market, topping the A-share semiconductor sector by market cap. Meanwhile, ByteDance reorganized its enterprise teams, and Moonshot raised over $3.5 billion and open-sourced Kimi K3.",
-          "source": "TMTPost",
-          "url": "#",
-          "tag": "Semiconductors",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "OpenAI Discloses Next-Gen Model Astra, Solving 10 Math Problems",
-          "summary": "OpenAI revealed its next-generation Astra model, which solved 10 mathematical and theoretical computer science problems, accompanied by a 249-page paper at an estimated token cost of $2,000. A Fields Medal winner warned about potential damage to mathematical culture.",
-          "source": "Zhidx",
-          "url": "#",
-          "tag": "AI",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Munich Court Rules Suno Infringed Copyright — AI Music Rules Established",
-          "summary": "A Munich court ruled that AI music company Suno violated copyright in model training and music generation, rejecting its 'fair use' defense. This sets a legal precedent for other AI content generation fields including video and images.",
+          "title": "ByteDance Reorganizes ToB Business: Feishu, Doubao, and Volc Engine Integrated",
+          "summary": "ByteDance merged its Feishu product team with the Doubao team to form a new Doubao product team, aiming to transform the AI assistant into an enterprise workflow entry point — a full ToB strategy consolidation.",
           "source": "TMTPost",
           "url": "#",
           "tag": "AI",
-          "date": "2026-08-02"
+          "date": "2026-08-03"
         },
         {
-          "title": "NVIDIA Partners with Kawasaki Heavy Industries for AI Shipbuilding Robots",
-          "summary": "NVIDIA is teaming up with Japan's Kawasaki Heavy Industries to develop AI robots for shipbuilding and to construct a digital shipyard, extending GPU-powered AI technology into traditional heavy industry manufacturing.",
-          "source": "Yahoo Finance",
-          "url": "#",
-          "tag": "Robotics",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "UMC Delivers First 12-Inch Silicon Photonics Wafers — AI Layout Emerges",
-          "summary": "UMC delivered its first batch of 12-inch silicon photonics production wafers to a Singapore client, marking its formal entry into AI-related photonics technology. Silicon photonics is seen as a key direction for breaking data transmission bottlenecks.",
-          "source": "TechNews",
-          "url": "#",
-          "tag": "Semiconductors",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "US Restricts Access to Two Anthropic Models on National Security Grounds",
-          "summary": "Anthropic suspended foreign user access to its Claude Fable 5 and Claude Mythos 5 models following US national security directives, marking a shift in AI export controls from hardware to the model level.",
-          "source": "Huxiu",
-          "url": "#",
-          "tag": "AI",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "AI Acceleration Fund Draws Down 67% in a Month — Founder Admits Leverage Lesson to LPs",
-          "summary": "An AI acceleration fund led by manager Leopold suffered a 67% drawdown in July due to leveraged bets on AI stocks, losing an estimated $16 billion. The founder admitted the leverage strategy mistake in a letter to LPs.",
-          "source": "Huxiu",
-          "url": "#",
-          "tag": "Investment",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Top Five Tech Giants' 2027 CapEx Projected to Exceed $1 Trillion",
-          "summary": "The projected 2027 capital expenditure for the top five US tech giants exceeds $1 trillion, doubling their 2025 spending and pushing their overall free cash flow into negative territory — an unprecedented level of AI infrastructure investment.",
+          "title": "Alibaba Releases Qwen 3.8-MAX Model with 2.4 Trillion Parameters",
+          "summary": "Alibaba released the Qwen 3.8-MAX model with 2.4 trillion parameters, claiming performance comparable to Anthropic's Fable model. Domestic large model parameter scale reaches a new high.",
           "source": "Wall Street CN",
           "url": "#",
-          "tag": "Investment",
-          "date": "2026-08-02"
+          "tag": "AI",
+          "date": "2026-08-03"
         },
         {
-          "title": "Jensen Huang Twice Cites Data Center Power as AI's Bottleneck",
-          "summary": "NVIDIA CEO Jensen Huang stated on two occasions that the biggest bottleneck for AI growth is data center power supply, not the chips themselves — energy infrastructure has become the key factor limiting AI expansion.",
-          "source": "Yahoo Finance",
+          "title": "OpenAI Slashes Mid-Tier Model Prices, Anthropic Follows",
+          "summary": "OpenAI cut GPT-5.6 Luna model prices by 80%, with Anthropic following suit — marking a shift in AI commercialization competition from pure intelligence to selling efficiency.",
+          "source": "TMTPost",
+          "url": "#",
+          "tag": "AI",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "SK Hynix to Mass-Produce LPDDR6 in H2 2026, Xiaomi May Be First Customer",
+          "summary": "SK Hynix plans to mass-produce LPDDR6 memory chips in the second half of 2026, with Xiaomi potentially being the first customer. Chinese rivals are challenging Korean pricing power in memory.",
+          "source": "Wall Street CN",
+          "url": "#",
+          "tag": "Semiconductors",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "TSMC and Kinsus Jointly Develop EMIB-like Packaging, Entering Intel's Domain",
+          "summary": "TSMC and Kinsus are jointly developing quasi-EMIB packaging technology to counter CoWoS bottlenecks and compete head-on with Intel's silicon bridge solutions.",
+          "source": "Huxiu",
+          "url": "#",
+          "tag": "Semiconductors",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Amazon CEO Says 2028 Compute Demand Will Be Astonishing, AI Demand Shows Dumbbell Structure",
+          "summary": "Amazon CEO Andy Jassy said that even with $220 billion in capex, demand remains unmet. Enterprise AI workloads are set to explode, and AWS could become a trillion-dollar business.",
+          "source": "Wall Street CN",
+          "url": "#",
+          "tag": "Infrastructure",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "China Approves Eight New Nuclear Power Units, Total Investment Over 170 Billion Yuan",
+          "summary": "China approved eight new nuclear power units with a total investment exceeding 170 billion yuan, meeting rising electricity demand from AI data centers and manufacturing.",
+          "source": "POWER Magazine",
           "url": "#",
           "tag": "Energy",
-          "date": "2026-08-02"
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Bezos Invests $260M in AI Materials Startup CuspAI, Partnering with NVIDIA and Meta",
+          "summary": "AI materials startup CuspAI, backed by Jeff Bezos, raised $450 million to use AI for discovering new chip materials, partnering with NVIDIA and Meta.",
+          "source": "Yahoo Finance",
+          "url": "#",
+          "tag": "Investment",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Google Releases Nano Banana 2 Lite: 1K Image in 4 Seconds at ~$0.03 Per Image",
+          "summary": "Google released the Nano Banana 2 Lite image generation model, producing 1K resolution images in 4 seconds at approximately 0.25 yuan per image — focused on high efficiency and low cost.",
+          "source": "Leiphone",
+          "url": "#",
+          "tag": "AI",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Altman Calls on Industry to Slow Down AI Development",
+          "summary": "OpenAI CEO Altman publicly urged the industry to slow AI development, saying more time is needed to assess safety impacts. Multiple industry leaders also jointly called for controlling frontier automated AI R&D.",
+          "source": "TechCrunch",
+          "url": "#",
+          "tag": "AI",
+          "date": "2026-08-03"
         }
       ]
     },
@@ -90,84 +90,84 @@
       "name": "Douyin Trending",
       "items": [
         {
-          "title": "Gansu Weiyuan Flash Floods Kill 25, Injure 23",
-          "summary": "Douyin trending rank #7. Flash floods in Weiyuan County, Gansu have left 25 dead and 23 injured. The disaster drew nationwide attention as rescue operations are underway.",
+          "title": "Central Political and Legal Affairs Commission: Crack Down on Criminal Organizations",
+          "summary": "Douyin trending rank #1. The Central Political and Legal Affairs Commission deployed requirements to crack down on organized crime, deepening the national anti-gang campaign.",
           "source": "Douyin Hot",
           "url": "#",
-          "tag": "Society",
-          "date": "2026-08-02"
+          "tag": "Current Affairs",
+          "date": "2026-08-03"
         },
         {
-          "title": "Typhoon Dolphin Latest Track",
-          "summary": "Douyin trending rank #29. The latest track for Typhoon Dolphin has been released, with meteorological departments continuously monitoring its movement and intensity. Coastal residents are closely watching wind warnings.",
-          "source": "Douyin Hot",
-          "url": "#",
-          "tag": "Society",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Trump Agrees to Cancel Strikes on Iran",
-          "summary": "Douyin trending rank #12. US President Trump agreed to cancel planned large-scale military strikes against Iran, sparking widespread discussion about international diplomacy and geopolitics.",
-          "source": "Douyin Hot",
-          "url": "#",
-          "tag": "International",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "CSRC Fines Seven Securities Firms",
-          "summary": "Douyin trending rank #28. The China Securities Regulatory Commission issued penalties to seven brokerages, with compliance issues exposed across the industry. Financial regulation continues to tighten, drawing market attention.",
-          "source": "Douyin Hot",
-          "url": "#",
-          "tag": "Finance",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Genius Girlfriend Premieres",
-          "summary": "Douyin trending rank #14. New drama 'Genius Girlfriend' officially premiered, adapted from a popular IP. The launch immediately sparked a viewing frenzy and social media buzz.",
-          "source": "Douyin Hot",
-          "url": "#",
-          "tag": "Entertainment",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Genshin Impact Snezhnaya Version Preview",
-          "summary": "Douyin trending rank #28. Genshin Impact's Snezhnaya version preview has been released, with new maps and characters generating excitement among players and dominating social platforms.",
-          "source": "Douyin Hot",
-          "url": "#",
-          "tag": "Gaming",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Y-20B Transport Plane Carries New Cadets for the First Time",
-          "summary": "Douyin trending rank #29. The Y-20B transport aircraft carried out its first mission transporting new flight cadets, showcasing the Chinese Air Force's strategic airlift capability. Military enthusiasts shared the news widely.",
-          "source": "Douyin Hot",
-          "url": "#",
-          "tag": "Military",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Recreating the Marquis Yi of Zeng Chime Bells with 10,000 Jin of Bronze",
-          "summary": "Douyin trending rank #6. A creator used 10,000 jin (5,000 kg) of bronze to recreate the national treasure Marquis Yi of Zeng chime bells. The stunning craftsmanship process drew collective awe from traditional culture enthusiasts.",
-          "source": "Douyin Hot",
-          "url": "#",
-          "tag": "Culture",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "This Generation of AI Has Evolved to Play Mind Games",
-          "summary": "Douyin trending rank #9. AI exhibiting strategic behavior has sparked discussion, with netizens debating whether AI has developed 'mind games' — AI ethics topics are heating up again.",
-          "source": "Douyin Hot",
-          "url": "#",
-          "tag": "Tech",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Roundup of China's Most Poetic Subway Station Names",
-          "summary": "Douyin trending rank #8. Netizens rounded up the most poetic subway station names across Chinese cities, where urban culture meets linguistic aesthetics, sparking sharing and resonance.",
+          "title": "Who Doesn't Want a Spontaneous Trip in Their Youth",
+          "summary": "Douyin trending rank #2. An emotional topic about young people longing for spontaneous travel resonated widely. Summer travel season drove travel content onto the trending list.",
           "source": "Douyin Hot",
           "url": "#",
           "tag": "Lifestyle",
-          "date": "2026-08-02"
+          "date": "2026-08-03"
+        },
+        {
+          "title": "10G Optical Networks Are Accelerating",
+          "summary": "Douyin trending rank #3. 10-gigabit fiber optic network technology is accelerating its rollout. Next-generation broadband infrastructure upgrades are drawing attention from tech enthusiasts.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Tech",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Domestic Large Model API Calls Lead Globally",
+          "summary": "Douyin trending rank #3. Chinese domestic AI large model API calls are leading internationally, with the domestic AI application ecosystem maturing rapidly.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Tech",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "4.8 Magnitude Earthquake in Gao County, Yibin, Sichuan",
+          "summary": "Douyin trending rank #5. A 4.8 magnitude earthquake struck Gao County, Yibin, Sichuan. Tremors were widely felt, with no major casualties reported. The earthquake early warning system triggered promptly.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Society",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "UEFA Demands Infantino's Resignation",
+          "summary": "Douyin trending rank #6. UEFA demanded the resignation of FIFA president Gianni Infantino, escalating international football politics and sparking fan debate.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "International",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Changsha High-Rise Residential Fire Kills 4, Injures 2",
+          "summary": "Douyin trending rank #8. A fire in a Changsha high-rise residential building left 4 dead and 2 injured, raising concerns about high-rise building fire safety.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Society",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Mao Ning Shares Yunnan 'Air School Bus' with the World",
+          "summary": "Douyin trending rank #8. Foreign Ministry spokesperson Mao Ning introduced the Yunnan 'Air School Bus' project to the world, showcasing innovative mountain-region education transport.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Current Affairs",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Star Record Rumored to Be Rebooted",
+          "summary": "Douyin trending rank #8. Chinese animation 'Star Record' is rumored to have a reboot plan, triggering collective nostalgia among fans who await the new series.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Entertainment",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Sun Yingsha Withdraws from WTT Sweden Event Due to Injury",
+          "summary": "Douyin trending rank #30. Table tennis world champion Sun Yingsha withdrew from the WTT Sweden event due to injury, drawing fan concern about the national team's health.",
+          "source": "Douyin Hot",
+          "url": "#",
+          "tag": "Sports",
+          "date": "2026-08-03"
         }
       ]
     },
@@ -175,84 +175,84 @@
       "name": "Bilibili Trending",
       "items": [
         {
-          "title": "Memory Administration Bureau Premieres Today",
-          "summary": "Bilibili hot rank #1. Original animation 'Memory Administration Bureau' officially premieres today. Bilibili continues to mine quality original animation IPs, with the launch triggering a danmaku frenzy and binge-watching rush.",
+          "title": "Tribute to Workers in Extreme Heat",
+          "summary": "Bilibili hot rank #2. As heatwaves persist nationwide, creators document outdoor workers holding their posts — tribute content climbed the hot list.",
           "source": "Bilibili Hot",
           "url": "#",
-          "tag": "Animation",
-          "date": "2026-08-02"
+          "tag": "Society",
+          "date": "2026-08-03"
         },
         {
-          "title": "Durant Reportedly Wants to Play in LA Olympics",
-          "summary": "Bilibili hot rank #6. Sources say NBA star Kevin Durant is interested in competing in the 2028 Los Angeles Olympics, sparking heated discussion among basketball fans and sports enthusiasts.",
+          "title": "Police Crack Down on Underage Late-Night Street Racing",
+          "summary": "Bilibili hot rank #3. Multiple city police forces intensified crackdowns on underage late-night street racing. Law enforcement footage sparked social discussion and safety education.",
           "source": "Bilibili Hot",
           "url": "#",
-          "tag": "Sports",
-          "date": "2026-08-02"
+          "tag": "Society",
+          "date": "2026-08-03"
         },
         {
-          "title": "How Significant Are OpenAI's 10 Math Breakthroughs?",
-          "summary": "Bilibili hot rank #8. A creator provides an in-depth analysis of the academic significance of OpenAI's Astra model solving 10 math problems, exploring AI's impact on fundamental research.",
+          "title": "When You Receive Your Admission Letter",
+          "summary": "Bilibili hot rank #5. As college admission season arrives, creators share real reactions and unboxing experiences of receiving admission letters. Youthful resonance flooded the danmaku.",
           "source": "Bilibili Hot",
           "url": "#",
-          "tag": "Science",
-          "date": "2026-08-02"
+          "tag": "Lifestyle",
+          "date": "2026-08-03"
         },
         {
-          "title": "Teardown of a 2nm Chip",
-          "summary": "Bilibili hot rank #22. A tech creator does a hardcore teardown of a 2nm process chip, comprehensively explaining everything from transistor structure to manufacturing processes. Hardcore tech content remains popular.",
-          "source": "Bilibili Hot",
-          "url": "#",
-          "tag": "Tech",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "What's It Like to Fly on the C919?",
-          "summary": "Bilibili hot rank #21. A creator shares their experience flying on China's domestically-built C919 aircraft, reviewing everything from cabin comfort to flight smoothness. The domestic airliner topic continues to gain traction.",
-          "source": "Bilibili Hot",
-          "url": "#",
-          "tag": "Tech",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Chinese Military Smart System Live-Fire Test Revealed for the First Time",
-          "summary": "Bilibili hot rank #17. Footage of the Chinese military's smart combat system live-fire validation was publicly revealed for the first time, showcasing new progress in AI-enabled military equipment. Military tech content triggered danmaku discussion.",
-          "source": "Bilibili Hot",
-          "url": "#",
-          "tag": "Military",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Exploring the World's Largest Underground Nuclear Facility",
-          "summary": "Bilibili hot rank #20. A science creator explores the world's largest underground nuclear facility, combining historical archives with on-site footage. Cold War nuclear industry heritage drew viewer amazement.",
-          "source": "Bilibili Hot",
-          "url": "#",
-          "tag": "Science",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "US Delegation Walks Out of UN Meeting in Protest",
-          "summary": "Bilibili hot rank #24. The US delegation walked out of a UN meeting in protest, with the diplomatic standoff prompting concentrated analysis from current affairs creators and danmaku discussion.",
-          "source": "Bilibili Hot",
-          "url": "#",
-          "tag": "International",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Guo Fan Discusses The Wandering Earth 3 Production",
-          "summary": "Bilibili hot rank #29. Director Guo Fan shared production updates on 'The Wandering Earth 3,' revealing the sci-fi blockbuster's latest concepts and plans. Sci-fi fans' expectations are maxed out.",
+          "title": "Cheng Ye Xiao He Premieres — Sweet and Hot",
+          "summary": "Bilibili hot rank #6. Web drama 'Cheng Ye Xiao He' officially premiered. Its sweet-and-hot style triggered a binge-watching rush, as Bilibili's film and TV content continues to gain momentum.",
           "source": "Bilibili Hot",
           "url": "#",
           "tag": "Film & TV",
-          "date": "2026-08-02"
+          "date": "2026-08-03"
         },
         {
-          "title": "Three Major Telecom Operators Halt Third-Party SIM Card Sales",
-          "summary": "Bilibili hot rank #29. China's three major telecom operators announced they will stop third-party channels from issuing SIM cards. The channel management shakeup drew attention from consumers and industry insiders alike.",
+          "title": "Return of Humid Weather in Northeast China",
+          "summary": "Bilibili hot rank #7. A rare 'return south' humid weather phenomenon hit Northeast China, prompting creators to collectively complain and produce creative content about the dampness.",
           "source": "Bilibili Hot",
           "url": "#",
-          "tag": "Tech",
-          "date": "2026-08-02"
+          "tag": "Lifestyle",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Why Are Henan Watermelons Going Unsold?",
+          "summary": "Bilibili hot rank #8. Large-scale unsold watermelons in Henan prompted in-depth investigation by rural creators, exploring agricultural distribution bottlenecks and farmer struggles.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Society",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Are Global Conflicts Connected?",
+          "summary": "Bilibili hot rank #8. Against a backdrop of tense international situations, a creator maps whether multiple global conflicts are interconnected — geopolitical science content sparked danmaku discussion.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "International",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "How to Complete Missile Launch in Extreme Conditions",
+          "summary": "Bilibili hot rank #9. A military science creator explains missile launch procedures under extreme conditions. Hardcore military knowledge sparked enthusiastic discussion among military enthusiasts.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Science",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Creator Takes You Inside High-Speed Rail Manufacturing",
+          "summary": "Bilibili hot rank #9. A hardcore creator provides an immersive experience of the high-speed rail manufacturing process — from components to complete trains. The industrial documentary-style content showcases Chinese manufacturing strength.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "Science",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Why Japan's Paper Crane Aid Tradition Sparks Controversy",
+          "summary": "Bilibili hot rank #14. Japan's tradition of sending paper cranes after disasters again drew international controversy. A creator provides in-depth analysis of cultural differences and humanitarian aid effectiveness.",
+          "source": "Bilibili Hot",
+          "url": "#",
+          "tag": "International",
+          "date": "2026-08-03"
         }
       ]
     },
@@ -260,89 +260,434 @@
       "name": "Xiaohongshu Trending",
       "items": [
         {
-          "title": "This Might Be Jiangxi's Most Underrated Mountain",
-          "summary": "Trending score 7.77M. A travel blogger recommends an underrated mountain in Jiangxi province, combining magnificent scenery with serene surroundings — hailed as a hidden gem destination.",
+          "title": "Universal Travel Photo Poses for Picture-Perfect Shots",
+          "summary": "Trending score 9.19M. Universal travel photo pose tutorials continue to go viral, noting camera positions, focal lengths, and applicable scenarios. Practical tips help travelers capture magazine-worthy shots.",
           "source": "Xiaohongshu Hot",
           "url": "#",
           "tag": "Travel",
-          "date": "2026-08-02"
+          "date": "2026-08-03"
         },
         {
-          "title": "A Gentle Date at the Seaside Sunset",
-          "summary": "Trending score 7.67M. Seaside sunset photography and lifestyle content went viral, with romantic atmosphere photos and date guides prompting users to save and imitate.",
+          "title": "Spending Three Years Photographing the China in Classical Poetry",
+          "summary": "Trending score 9.07M. A photographer spent three years pursuing the Chinese landscapes described in classical poetry, with three-column graphics of poems, real scenes, and locations — sparking cultural resonance.",
           "source": "Xiaohongshu Hot",
           "url": "#",
-          "tag": "Lifestyle",
-          "date": "2026-08-02"
+          "tag": "Photography",
+          "date": "2026-08-03"
         },
         {
-          "title": "Perler Beads Can Also Be Used as Wax Seals",
-          "summary": "Trending score 7.54M. A creative crafter turned Perler beads into wax seals, with the cross-craft玩法 drawing attention and imitation from the handmade community.",
+          "title": "I Captured a Rain of Seagulls",
+          "summary": "Trending score 8.88M. A photographer captured the stunning sight of a flock of seagulls swirling and dancing, with slow-motion breakdown and live sound — nature photography goes viral.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Photography",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Easy Everyday Cooking Tutorials — Come Get Them",
+          "summary": "Trending score 8.68M. A 15-minute home-cooked dish tutorial went viral, with detailed ingredient weights, heat control, and substitute ingredients — practical food content remains popular.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Food",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "Freezing This Moment of Golden Mountain Sunrise",
+          "summary": "Trending score 9.19M. Universal travel photo pose tutorials continue to go viral, noting camera positions, focal lengths, and applicable scenarios. Practical tips help travelers capture magazine-worthy shots.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Travel",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "You Can Always Trust the Beauty of Sayram Lake",
+          "summary": "Trending score 8.46M. Stunning photos of Sayram Lake went viral, with a one-day route card including transport details and reservation links — hailed as a must-visit Xinjiang destination.",
+          "source": "Xiaohongshu Hot",
+          "url": "#",
+          "tag": "Travel",
+          "date": "2026-08-03"
+        },
+        {
+          "title": "You Can Paint on Perler Beads Too",
+          "summary": "Trending score 8.33M. A Perler bead artisan created exquisite paintings using tiny beads, with an intro chart listing materials, color schemes, and finished dimensions — drawing imitation from crafters.",
           "source": "Xiaohongshu Hot",
           "url": "#",
           "tag": "Handcraft",
-          "date": "2026-08-02"
+          "date": "2026-08-03"
         },
         {
-          "title": "I Invented a New Way to Walk My Dog",
-          "summary": "Trending score 7.36M. A blogger invented a creative dog-walking method, with the fun pet daily content going viral and inspiring pawrents to share their own walking tricks.",
+          "title": "My Family Trip Is More Like Running a Dungeon",
+          "summary": "Trending score 8.12M. A humorous post about family travel resonated widely, with the itinerary split into task cards documenting allocation and budget — the dungeon raid metaphor continues to trend.",
           "source": "Xiaohongshu Hot",
           "url": "#",
           "tag": "Lifestyle",
-          "date": "2026-08-02"
+          "date": "2026-08-03"
         },
         {
-          "title": "Capturing the Four Seasons Through the Lens",
-          "summary": "Trending score 7.26M. A photographer documented the beauty of seasonal changes through the lens — a four-season landscape collection from spring blossoms to autumn leaves sparked aesthetic resonance.",
-          "source": "Xiaohongshu Hot",
-          "url": "#",
-          "tag": "Photography",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Recreating Textbook Poetry with Brush and Ink",
-          "summary": "Trending score 7.11M. A calligraphy enthusiast used brush and ink to recreate the poetic imagery from school textbooks, blending traditional culture with calligraphy art to spark cultural resonance.",
+          "title": "Turns Out the Henan in Classical Poetry Really Exists",
+          "summary": "Trending score 8.02M. A traveler verified the real landscapes described in Henan's classical poetry by visiting them, with each stop paired with a verse and real view — a cultural travel map goes viral.",
           "source": "Xiaohongshu Hot",
           "url": "#",
           "tag": "Culture",
-          "date": "2026-08-02"
+          "date": "2026-08-03"
         },
         {
-          "title": "Captured the Tyndall Effect at Erhai Lake",
-          "summary": "Trending score 6.98M. A photographer captured the spectacular Tyndall effect at Erhai Lake, with beams of light piercing through clouds onto the water surface creating a dreamlike scene.",
+          "title": "Steamed Milk-Popcorn Flavored Mantou",
+          "summary": "Trending score 7.88M. A creative steamed mantou recipe went viral, with fermentation stages and steaming pitfalls detailed. The milk-popcorn flavor is novel, and food creators rush to replicate it.",
           "source": "Xiaohongshu Hot",
           "url": "#",
-          "tag": "Photography",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Pearl-Round Makeup Is the Ultimate Choice for Soft Features",
-          "summary": "Trending score 6.63M. A beauty blogger shared a 'pearl-round makeup' tutorial — a smooth, luminous base with subtle colors, becoming the go-to look for soft-featured face types.",
-          "source": "Xiaohongshu Hot",
-          "url": "#",
-          "tag": "Beauty",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Crushed Diamond Nail Art with Starlight on Fingertips",
-          "summary": "Trending score 6.48M. Crushed diamond nail art designs went viral, with sparkling details on fingertips triggering a save and booking frenzy among nail art enthusiasts.",
-          "source": "Xiaohongshu Hot",
-          "url": "#",
-          "tag": "Fashion",
-          "date": "2026-08-02"
-        },
-        {
-          "title": "Being a Color Hunter While Traveling",
-          "summary": "Trending score 6.38M. A travel photography theme went viral — a blogger chases vivid colors on the road and freezes stunning moments, inspiring imitation with color-aesthetic travel content.",
-          "source": "Xiaohongshu Hot",
-          "url": "#",
-          "tag": "Travel",
-          "date": "2026-08-02"
+          "tag": "Food",
+          "date": "2026-08-03"
         }
       ]
     }
   ],
   "history": [
+    {
+      "date": "2026-08-02",
+      "categories": [
+        {
+          "name": "Tech",
+          "items": [
+            {
+              "title": "Unitree IPO and Google Gemini Robotics 2 Launch on the Same Day — Robotics Race Heats Up",
+              "summary": "Unitree's IPO was priced at a roughly 42 billion yuan valuation, on the same day Google launched its Gemini Robotics 2 model. The robotics race between hardware manufacturing and AI brains is intensifying, accelerating industry differentiation.",
+              "source": "Huxiu",
+              "url": "#",
+              "tag": "Robotics",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "CXMT Surges 465% on STAR Market Debut, Topping A-Share Semiconductor Boards",
+              "summary": "CXMT (ChangXin Memory Technologies) soared 465.82% on its first day on the STAR Market, topping the A-share semiconductor sector by market cap. Meanwhile, ByteDance reorganized its enterprise teams, and Moonshot raised over $3.5 billion and open-sourced Kimi K3.",
+              "source": "TMTPost",
+              "url": "#",
+              "tag": "Semiconductors",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "OpenAI Discloses Next-Gen Model Astra, Solving 10 Math Problems",
+              "summary": "OpenAI revealed its next-generation Astra model, which solved 10 mathematical and theoretical computer science problems, accompanied by a 249-page paper at an estimated token cost of $2,000. A Fields Medal winner warned about potential damage to mathematical culture.",
+              "source": "Zhidx",
+              "url": "#",
+              "tag": "AI",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Munich Court Rules Suno Infringed Copyright — AI Music Rules Established",
+              "summary": "A Munich court ruled that AI music company Suno violated copyright in model training and music generation, rejecting its 'fair use' defense. This sets a legal precedent for other AI content generation fields including video and images.",
+              "source": "TMTPost",
+              "url": "#",
+              "tag": "AI",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "NVIDIA Partners with Kawasaki Heavy Industries for AI Shipbuilding Robots",
+              "summary": "NVIDIA is teaming up with Japan's Kawasaki Heavy Industries to develop AI robots for shipbuilding and to construct a digital shipyard, extending GPU-powered AI technology into traditional heavy industry manufacturing.",
+              "source": "Yahoo Finance",
+              "url": "#",
+              "tag": "Robotics",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "UMC Delivers First 12-Inch Silicon Photonics Wafers — AI Layout Emerges",
+              "summary": "UMC delivered its first batch of 12-inch silicon photonics production wafers to a Singapore client, marking its formal entry into AI-related photonics technology. Silicon photonics is seen as a key direction for breaking data transmission bottlenecks.",
+              "source": "TechNews",
+              "url": "#",
+              "tag": "Semiconductors",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "US Restricts Access to Two Anthropic Models on National Security Grounds",
+              "summary": "Anthropic suspended foreign user access to its Claude Fable 5 and Claude Mythos 5 models following US national security directives, marking a shift in AI export controls from hardware to the model level.",
+              "source": "Huxiu",
+              "url": "#",
+              "tag": "AI",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "AI Acceleration Fund Draws Down 67% in a Month — Founder Admits Leverage Lesson to LPs",
+              "summary": "An AI acceleration fund led by manager Leopold suffered a 67% drawdown in July due to leveraged bets on AI stocks, losing an estimated $16 billion. The founder admitted the leverage strategy mistake in a letter to LPs.",
+              "source": "Huxiu",
+              "url": "#",
+              "tag": "Investment",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Top Five Tech Giants' 2027 CapEx Projected to Exceed $1 Trillion",
+              "summary": "The projected 2027 capital expenditure for the top five US tech giants exceeds $1 trillion, doubling their 2025 spending and pushing their overall free cash flow into negative territory — an unprecedented level of AI infrastructure investment.",
+              "source": "Wall Street CN",
+              "url": "#",
+              "tag": "Investment",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Jensen Huang Twice Cites Data Center Power as AI's Bottleneck",
+              "summary": "NVIDIA CEO Jensen Huang stated on two occasions that the biggest bottleneck for AI growth is data center power supply, not the chips themselves — energy infrastructure has become the key factor limiting AI expansion.",
+              "source": "Yahoo Finance",
+              "url": "#",
+              "tag": "Energy",
+              "date": "2026-08-02"
+            }
+          ]
+        },
+        {
+          "name": "Douyin Trending",
+          "items": [
+            {
+              "title": "Gansu Weiyuan Flash Floods Kill 25, Injure 23",
+              "summary": "Douyin trending rank #7. Flash floods in Weiyuan County, Gansu have left 25 dead and 23 injured. The disaster drew nationwide attention as rescue operations are underway.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Society",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Typhoon Dolphin Latest Track",
+              "summary": "Douyin trending rank #29. The latest track for Typhoon Dolphin has been released, with meteorological departments continuously monitoring its movement and intensity. Coastal residents are closely watching wind warnings.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Society",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Trump Agrees to Cancel Strikes on Iran",
+              "summary": "Douyin trending rank #12. US President Trump agreed to cancel planned large-scale military strikes against Iran, sparking widespread discussion about international diplomacy and geopolitics.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "International",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "CSRC Fines Seven Securities Firms",
+              "summary": "Douyin trending rank #28. The China Securities Regulatory Commission issued penalties to seven brokerages, with compliance issues exposed across the industry. Financial regulation continues to tighten, drawing market attention.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Finance",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Genius Girlfriend Premieres",
+              "summary": "Douyin trending rank #14. New drama 'Genius Girlfriend' officially premiered, adapted from a popular IP. The launch immediately sparked a viewing frenzy and social media buzz.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Entertainment",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Genshin Impact Snezhnaya Version Preview",
+              "summary": "Douyin trending rank #28. Genshin Impact's Snezhnaya version preview has been released, with new maps and characters generating excitement among players and dominating social platforms.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Gaming",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Y-20B Transport Plane Carries New Cadets for the First Time",
+              "summary": "Douyin trending rank #29. The Y-20B transport aircraft carried out its first mission transporting new flight cadets, showcasing the Chinese Air Force's strategic airlift capability. Military enthusiasts shared the news widely.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Military",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Recreating the Marquis Yi of Zeng Chime Bells with 10,000 Jin of Bronze",
+              "summary": "Douyin trending rank #6. A creator used 10,000 jin (5,000 kg) of bronze to recreate the national treasure Marquis Yi of Zeng chime bells. The stunning craftsmanship process drew collective awe from traditional culture enthusiasts.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Culture",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "This Generation of AI Has Evolved to Play Mind Games",
+              "summary": "Douyin trending rank #9. AI exhibiting strategic behavior has sparked discussion, with netizens debating whether AI has developed 'mind games' — AI ethics topics are heating up again.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Tech",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Roundup of China's Most Poetic Subway Station Names",
+              "summary": "Douyin trending rank #8. Netizens rounded up the most poetic subway station names across Chinese cities, where urban culture meets linguistic aesthetics, sparking sharing and resonance.",
+              "source": "Douyin Hot",
+              "url": "#",
+              "tag": "Lifestyle",
+              "date": "2026-08-02"
+            }
+          ]
+        },
+        {
+          "name": "Bilibili Trending",
+          "items": [
+            {
+              "title": "Memory Administration Bureau Premieres Today",
+              "summary": "Bilibili hot rank #1. Original animation 'Memory Administration Bureau' officially premieres today. Bilibili continues to mine quality original animation IPs, with the launch triggering a danmaku frenzy and binge-watching rush.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Animation",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Durant Reportedly Wants to Play in LA Olympics",
+              "summary": "Bilibili hot rank #6. Sources say NBA star Kevin Durant is interested in competing in the 2028 Los Angeles Olympics, sparking heated discussion among basketball fans and sports enthusiasts.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Sports",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "How Significant Are OpenAI's 10 Math Breakthroughs?",
+              "summary": "Bilibili hot rank #8. A creator provides an in-depth analysis of the academic significance of OpenAI's Astra model solving 10 math problems, exploring AI's impact on fundamental research.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Science",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Teardown of a 2nm Chip",
+              "summary": "Bilibili hot rank #22. A tech creator does a hardcore teardown of a 2nm process chip, comprehensively explaining everything from transistor structure to manufacturing processes. Hardcore tech content remains popular.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Tech",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "What's It Like to Fly on the C919?",
+              "summary": "Bilibili hot rank #21. A creator shares their experience flying on China's domestically-built C919 aircraft, reviewing everything from cabin comfort to flight smoothness. The domestic airliner topic continues to gain traction.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Tech",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Chinese Military Smart System Live-Fire Test Revealed for the First Time",
+              "summary": "Bilibili hot rank #17. Footage of the Chinese military's smart combat system live-fire validation was publicly revealed for the first time, showcasing new progress in AI-enabled military equipment. Military tech content triggered danmaku discussion.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Military",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Exploring the World's Largest Underground Nuclear Facility",
+              "summary": "Bilibili hot rank #20. A science creator explores the world's largest underground nuclear facility, combining historical archives with on-site footage. Cold War nuclear industry heritage drew viewer amazement.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Science",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "US Delegation Walks Out of UN Meeting in Protest",
+              "summary": "Bilibili hot rank #24. The US delegation walked out of a UN meeting in protest, with the diplomatic standoff prompting concentrated analysis from current affairs creators and danmaku discussion.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "International",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Guo Fan Discusses The Wandering Earth 3 Production",
+              "summary": "Bilibili hot rank #29. Director Guo Fan shared production updates on 'The Wandering Earth 3,' revealing the sci-fi blockbuster's latest concepts and plans. Sci-fi fans' expectations are maxed out.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Film & TV",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Three Major Telecom Operators Halt Third-Party SIM Card Sales",
+              "summary": "Bilibili hot rank #29. China's three major telecom operators announced they will stop third-party channels from issuing SIM cards. The channel management shakeup drew attention from consumers and industry insiders alike.",
+              "source": "Bilibili Hot",
+              "url": "#",
+              "tag": "Tech",
+              "date": "2026-08-02"
+            }
+          ]
+        },
+        {
+          "name": "Xiaohongshu Trending",
+          "items": [
+            {
+              "title": "This Might Be Jiangxi's Most Underrated Mountain",
+              "summary": "Trending score 7.77M. A travel blogger recommends an underrated mountain in Jiangxi province, combining magnificent scenery with serene surroundings — hailed as a hidden gem destination.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Travel",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "A Gentle Date at the Seaside Sunset",
+              "summary": "Trending score 7.67M. Seaside sunset photography and lifestyle content went viral, with romantic atmosphere photos and date guides prompting users to save and imitate.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Lifestyle",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Perler Beads Can Also Be Used as Wax Seals",
+              "summary": "Trending score 7.54M. A creative crafter turned Perler beads into wax seals, with the cross-craft玩法 drawing attention and imitation from the handmade community.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Handcraft",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "I Invented a New Way to Walk My Dog",
+              "summary": "Trending score 7.36M. A blogger invented a creative dog-walking method, with the fun pet daily content going viral and inspiring pawrents to share their own walking tricks.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Lifestyle",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Capturing the Four Seasons Through the Lens",
+              "summary": "Trending score 7.26M. A photographer documented the beauty of seasonal changes through the lens — a four-season landscape collection from spring blossoms to autumn leaves sparked aesthetic resonance.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Photography",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Recreating Textbook Poetry with Brush and Ink",
+              "summary": "Trending score 7.11M. A calligraphy enthusiast used brush and ink to recreate the poetic imagery from school textbooks, blending traditional culture with calligraphy art to spark cultural resonance.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Culture",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Captured the Tyndall Effect at Erhai Lake",
+              "summary": "Trending score 6.98M. A photographer captured the spectacular Tyndall effect at Erhai Lake, with beams of light piercing through clouds onto the water surface creating a dreamlike scene.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Photography",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Pearl-Round Makeup Is the Ultimate Choice for Soft Features",
+              "summary": "Trending score 6.63M. A beauty blogger shared a 'pearl-round makeup' tutorial — a smooth, luminous base with subtle colors, becoming the go-to look for soft-featured face types.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Beauty",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Crushed Diamond Nail Art with Starlight on Fingertips",
+              "summary": "Trending score 6.48M. Crushed diamond nail art designs went viral, with sparkling details on fingertips triggering a save and booking frenzy among nail art enthusiasts.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Fashion",
+              "date": "2026-08-02"
+            },
+            {
+              "title": "Being a Color Hunter While Traveling",
+              "summary": "Trending score 6.38M. A travel photography theme went viral — a blogger chases vivid colors on the road and freezes stunning moments, inspiring imitation with color-aesthetic travel content.",
+              "source": "Xiaohongshu Hot",
+              "url": "#",
+              "tag": "Travel",
+              "date": "2026-08-02"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-08-01",
       "categories": [
