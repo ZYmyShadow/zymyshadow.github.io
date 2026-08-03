@@ -167,13 +167,12 @@
     if (!host || !Array.isArray(articles)) return;
 
     var META = {
-      '网安系列': { code: '壹', accent: 'jade', desc: '网络安全加固、渗透测试、工具集与合规备忘录，涵盖 Linux 安全、等保流程与逆向工具。' },
-      '开发系列': { code: '贰', accent: 'gold', desc: 'Springboot 框架整合、日志配置、IDE 工具整理与博客标签插件语法。' },
-      '生活系列': { code: '叁', accent: 'seal', desc: '外设购买指南、食品安全科普、显示器选购与电脑维修日志。' },
-      'AI系列': { code: '肆', accent: 'gold', desc: '大语言模型入门、Prompt Engineering、AI 绘图工具对比与本地部署实战。' }
+      '里世界': { code: '壹', accent: 'seal', desc: '个人观点、视频底稿与深度思考，记录自媒体创作背后的想法与素材。' },
+      'AI系列': { code: '贰', accent: 'gold', desc: '大语言模型入门、Prompt Engineering、AI 绘图工具对比与本地部署实战。' },
+      '个人知识库': { code: '叁', accent: 'jade', desc: '网络安全加固、渗透测试、开发框架整合、生活购买指南等学习笔记与备忘录。' }
     };
     var CODES = ['壹', '贰', '叁', '肆', '伍'];
-    var ACCENTS = ['jade', 'gold', 'seal', 'jade', 'gold'];
+    var ACCENTS = ['seal', 'gold', 'jade', 'gold', 'seal'];
 
     var groups = [];
     var map = {};
@@ -215,10 +214,9 @@
     if (!host || !Array.isArray(articles)) return;
 
     var META = {
-      '网安系列': { code: '壹', accent: 'jade', desc: '网络安全加固、渗透测试、工具集与合规备忘录，涵盖 Linux 安全、等保流程与逆向工具。' },
-      '开发系列': { code: '贰', accent: 'gold', desc: 'Springboot 框架整合、日志配置、IDE 工具整理与博客标签插件语法。' },
-      '生活系列': { code: '叁', accent: 'seal', desc: '外设购买指南、食品安全科普、显示器选购与电脑维修日志。' },
-      'AI系列': { code: '肆', accent: 'gold', desc: '大语言模型入门、Prompt Engineering、AI 绘图工具对比与本地部署实战。' }
+      '里世界': { code: '壹', accent: 'seal', desc: '个人观点、视频底稿与深度思考，记录自媒体创作背后的想法与素材。' },
+      'AI系列': { code: '贰', accent: 'gold', desc: '大语言模型入门、Prompt Engineering、AI 绘图工具对比与本地部署实战。' },
+      '个人知识库': { code: '叁', accent: 'jade', desc: '网络安全加固、渗透测试、开发框架整合、生活购买指南等学习笔记与备忘录。' }
     };
     var CODES = ['壹', '贰', '叁', '肆', '伍'];
     var ACCENTS = ['jade', 'gold', 'seal', 'jade', 'gold'];

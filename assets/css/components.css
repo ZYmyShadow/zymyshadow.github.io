@@ -1267,6 +1267,45 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   transform: rotate(45deg);
 }
 
+/* 信息表格（关于页） */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 18px;
+  font-size: .92rem;
+}
+.info-table th {
+  text-align: left;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  border-bottom: 2px solid var(--line);
+}
+.info-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+.info-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+.info-table td a { color: var(--jade-strong); text-decoration: none; }
+.info-table td a:hover { text-decoration: underline; }
+
+/* 座右铭 */
+p.motto {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--line);
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  letter-spacing: .18em;
+  color: var(--ink-3);
+  text-align: center;
+}
+
 /* 右侧粘性目录 */
 .toc {
   position: sticky;
