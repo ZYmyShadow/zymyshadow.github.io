@@ -275,7 +275,7 @@ ollama run qwen2.5:3b "你好"
           </tr>
           <tr>
             <td>DeepSeek-V2.5 / R1</td>
-            <td>16B / 671B（MoE）</td>
+            <td>236B / 671B（MoE）</td>
             <td>代码、数学、推理</td>
             <td>强（国产）</td>
             <td>代码生成、数学推理</td>
@@ -466,9 +466,9 @@ print(response.choices[0].message.content)</code></pre>
           </tr>
           <tr>
             <td>num_predict</td>
-            <td>128</td>
-            <td>1 - 32768</td>
-            <td>最大生成 token 数。设 -1 表示不限制（受上下文窗口约束）</td>
+            <td>-1（无限）</td>
+            <td>-1 - 32768</td>
+            <td>最大生成 token 数。-1 表示不限制（模型自行停止或受上下文窗口约束）</td>
           </tr>
           <tr>
             <td>num_ctx</td>
