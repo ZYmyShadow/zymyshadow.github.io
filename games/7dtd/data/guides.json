@@ -6,5 +6,34 @@
     "url": "/games/7dtd/guides/beginner-02.html",
     "date": "2026-08-04",
     "pinned": true
+  },
+  {
+    "id": "beginner-03",
+    "title": "前期武器选择：长矛、电击棒与弓潜流",
+    "category": "新手指南",
+    "url": "/games/7dtd/guides/beginner-03.html",
+    "date": "2026-08-05",
+    "pinned": true
+  },
+  {
+    "id": "beginner-04",
+    "title": "第一桶金：搜刮、变卖与赚钱路线",
+    "category": "新手指南",
+    "url": "/games/7dtd/guides/beginner-04.html",
+    "date": "2026-08-05"
+  },
+  {
+    "id": "beginner-05",
+    "title": "拆解流攻略：零件、金属板与研究点",
+    "category": "新手指南",
+    "url": "/games/7dtd/guides/beginner-05.html",
+    "date": "2026-08-05"
+  },
+  {
+    "id": "beginner-06",
+    "title": "商人任务与交易技巧",
+    "category": "新手指南",
+    "url": "/games/7dtd/guides/beginner-06.html",
+    "date": "2026-08-05"
   }
 ]
