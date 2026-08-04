@@ -9,9 +9,9 @@
   },
   {
     "id": "beginner-02",
-    "title": "食物与水：开局饥渴问题的解法",
+    "title": "开荒加点：新手4点技能点怎么分配",
     "category": "新手指南",
-    "url": "#",
+    "url": "/games/7dtd/guides/beginner-02.html",
     "date": "2026-08-04"
   },
   {
@@ -50,13 +50,6 @@
     "url": "/games/7dtd/guides/mod-01.html",
     "date": "2026-08-04",
     "pinned": true
-  },
-  {
-    "id": "mod-02",
-    "title": "职业与加点：主流流派思路",
-    "category": "模组特性",
-    "url": "#",
-    "date": "2026-08-04"
   },
   {
     "id": "item-01",
