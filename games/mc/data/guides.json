@@ -1,33 +1,42 @@
 [
   {
-    "id": "beginner-01",
-    "title": "新手生存指南：第一天该做什么",
-    "category": "新手指南",
-    "url": "#",
-    "date": "2026-07-29",
+    "id": "mod-create-intro",
+    "title": "模组说明：机械动力 (Create)",
+    "category": "机械动力",
+    "url": "/games/mc/guides/mod-create-intro.html",
+    "date": "2026-08-04",
     "pinned": true
   },
   {
-    "id": "redstone-01",
-    "title": "红石入门：自动农场设计",
-    "category": "红石科技",
-    "url": "#",
-    "date": "2026-07-29",
+    "id": "mod-slashblade-intro",
+    "title": "模组说明：拔刀剑 (SlashBlade)",
+    "category": "拔刀剑",
+    "url": "/games/mc/guides/mod-slashblade-intro.html",
+    "date": "2026-08-04",
+    "pinned": true
+  },
+  {
+    "id": "mod-tinkers-intro",
+    "title": "模组说明：匠魂 (Tinkers' Construct)",
+    "category": "匠魂",
+    "url": "/games/mc/guides/mod-tinkers-intro.html",
+    "date": "2026-08-04",
+    "pinned": true
+  },
+  {
+    "id": "mod-utopia-intro",
+    "title": "整合包说明：乌托邦探险之旅",
+    "category": "乌托邦MOD",
+    "url": "/games/mc/guides/mod-utopia-intro.html",
+    "date": "2026-08-04",
     "pinned": true
   },
   {
     "id": "build-01",
     "title": "建筑教程：现代风格别墅",
-    "category": "建筑教程",
+    "category": "建筑",
     "url": "#",
     "date": "2026-07-29",
     "pinned": true
-  },
-  {
-    "id": "mod-01",
-    "title": "模组推荐：工业时代2",
-    "category": "模组推荐",
-    "url": "#",
-    "date": "2026-07-29"
   }
 ]

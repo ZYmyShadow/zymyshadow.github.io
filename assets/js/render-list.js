@@ -291,6 +291,10 @@
       if (g.category && cats.indexOf(g.category) === -1) cats.push(g.category);
     });
 
+    var pageSize = 10;
+    var currentPage = 1;
+    var currentCat = '全部';
+
     /* ---- 分类面板网格（灰机wiki风格） ---- */
     var panels = '<div class="guide-panels">' + cats.map(function (c) {
       var items = sorted.filter(function (g) { return g.category === c; });
@@ -313,7 +317,7 @@
       '</section>';
     }).join('') + '</div>';
 
-    /* ---- 全部攻略列表（按时间排序 + 筛选） ---- */
+    /* ---- 全部攻略列表（按时间排序 + 筛选 + 分页） ---- */
     var listHead =
       '<div class="section-head reveal" style="margin-top:40px">' +
         '<span class="section-index mono">LIST</span>' +
@@ -328,27 +332,75 @@
         return '<button type="button" class="f-chip" data-cat="' + esc(c) + '">' + esc(c) + ' <span>' + n + '</span></button>';
       }).join('') + '</div>';
 
-    var rows = sorted.map(function (g) {
-      var pending = !g.url || g.url === '#';
-      var inner = '<span class="gp-cat">' + esc(g.category || '攻略') + '</span>' +
-        '<span class="guide-title">' + esc(g.title) + '</span>' +
-        '<time class="mono">' + esc(g.date || '') + '</time>' +
-        (pending ? '<span class="gp-tag">待更新</span>' : '<span class="arr">→</span>');
-      return '<li class="guide-row' + (pending ? ' is-pending' : '') + '" data-cat="' + esc(g.category || '') + '">' +
-        (pending ? '<div>' + inner + '</div>' : '<a href="' + esc(g.url) + '">' + inner + '</a>') +
-      '</li>';
-    }).join('');
+    host.innerHTML = panels + listHead + chips +
+      '<ul class="guide-list"></ul>' +
+      '<div class="pagination guide-pagination"></div>';
 
-    host.innerHTML = panels + listHead + chips + '<ul class="guide-list">' + rows + '</ul>';
+    function getFiltered() {
+      return currentCat === '全部'
+        ? sorted
+        : sorted.filter(function (g) { return g.category === currentCat; });
+    }
+
+    function renderGuideList() {
+      var filtered = getFiltered();
+      var totalPages = Math.ceil(filtered.length / pageSize);
+      if (totalPages === 0) totalPages = 1;
+      if (currentPage > totalPages) currentPage = 1;
+      var start = (currentPage - 1) * pageSize;
+      var pageItems = filtered.slice(start, start + pageSize);
+
+      var rows = pageItems.map(function (g) {
+        var pending = !g.url || g.url === '#';
+        var inner = '<span class="gp-cat">' + esc(g.category || '攻略') + '</span>' +
+          '<span class="guide-title">' + esc(g.title) + '</span>' +
+          '<time class="mono">' + esc(g.date || '') + '</time>' +
+          (pending ? '<span class="gp-tag">待更新</span>' : '<span class="arr">→</span>');
+        return '<li class="guide-row' + (pending ? ' is-pending' : '') + '">' +
+          (pending ? '<div>' + inner + '</div>' : '<a href="' + esc(g.url) + '">' + inner + '</a>') +
+        '</li>';
+      }).join('');
+
+      var listHost = host.querySelector('.guide-list');
+      if (listHost) listHost.innerHTML = rows || '<li class="guide-empty">该分类暂无攻略，等待阁主更新…</li>';
+
+      renderPagination(filtered.length, totalPages);
+    }
+
+    function renderPagination(total, totalPages) {
+      var pagHost = host.querySelector('.guide-pagination');
+      if (!pagHost) return;
+      if (totalPages <= 1) {
+        pagHost.innerHTML = '';
+        return;
+      }
+      var html = '<div class="pagination-inner">';
+      html += '<button type="button" class="page-btn' + (currentPage === 1 ? ' disabled' : '') + '" data-page="prev">← 上一页</button>';
+      html += '<span class="page-info">第 ' + currentPage + ' / ' + totalPages + ' 页</span>';
+      html += '<button type="button" class="page-btn' + (currentPage === totalPages ? ' disabled' : '') + '" data-page="next">下一页 →</button>';
+      html += '</div>';
+      pagHost.innerHTML = html;
+      pagHost.querySelectorAll('.page-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (btn.classList.contains('disabled')) return;
+          if (btn.dataset.page === 'prev') currentPage--;
+          else if (btn.dataset.page === 'next') currentPage++;
+          renderGuideList();
+          var listHeadEl = host.querySelector('.section-head');
+          if (listHeadEl) listHeadEl.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    }
+
+    renderGuideList();
 
     host.querySelectorAll('.f-chip').forEach(function (btn) {
       btn.addEventListener('click', function () {
         host.querySelectorAll('.f-chip').forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        var cat = btn.dataset.cat;
-        host.querySelectorAll('.guide-row').forEach(function (row) {
-          row.classList.toggle('row-hidden', cat !== '全部' && row.dataset.cat !== cat);
-        });
+        currentCat = btn.dataset.cat;
+        currentPage = 1;
+        renderGuideList();
       });
     });
   }

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模组说明：匠魂 (Tinkers' Construct) · MC攻略 · 修仙藏书阁</title>
+  <meta name="description" content="匠魂 (Tinkers' Construct) 模组官方介绍：以多种方式组装和修改工具的 Minecraft 模组，由 SlimeKnights 团队开发。">
+  <meta property="og:image" content="https://zymyshadow.github.io/assets/images/og-cover.jpg">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c2472e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3E%E8%97%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../../assets/css/base.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('xzc-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <span class="read-progress" id="read-progress"></span>
+
+  <div id="navbar"></div>
+
+  <header class="page-hero reveal">
+    <div>
+      <p class="page-hero-kicker mono">MC · 匠魂</p>
+      <h1 class="page-hero-title" style="font-size: clamp(2.2rem, 5.5vw, 3.4rem);">模组说明：匠魂 (Tinkers' Construct)</h1>
+      <p class="page-hero-lead"><span class="chip">模组说明</span> <span class="chip">匠魂</span> <span class="chip">置顶</span> <span class="hero-sub mono">更新于 2026-08-04 · 宗主</span></p>
+    </div>
+    <span class="seal seal-hero" aria-hidden="true">匠</span>
+  </header>
+
+  <div class="article-layout">
+    <article class="prose reveal" id="article-body">
+
+      <div class="tip-box"><b>概要：</b>本文介绍 Minecraft 模组「匠魂 (Tinkers' Construct)」的官方信息，包括模组简介、开发者、核心特性、依赖模组、支持版本与官方链接。所有内容均来源于 CurseForge 官方页面及 GitHub 仓库。</div>
+
+      <h2 id="模组简介">模组简介</h2>
+      <p><span class="hl-jade">匠魂 (Tinkers' Construct)</span> 是一款以多种方式组装工具、然后不断修改工具直到其转变为其他物品为核心的 Minecraft 模组。以下是来自 CurseForge 官方页面的模组描述原文：</p>
+
+      <blockquote>Tinkers' Construct is a mod about putting tools together in a wide variety of ways, then modifying them until they turn into something else. The tools never disappear and can be named and changed to your heart's desire. Once you make them, they're yours forever. Many different materials can be used to make your tools.</blockquote>
+
+      <p>匠魂的核心特色是：<span class="hl-seal">工具不会消失，可以随意命名和修改</span>。一旦制作完成，工具将永远属于你。模组支持使用多种不同材料来制作工具。</p>
+
+      <h2 id="开发者信息">开发者信息</h2>
+      <p>匠魂模组的原始作者为 <strong>mDiyo</strong>，当前由 <strong>SlimeKnights</strong> 团队维护开发。团队成员包括：首席开发 KnightMiner、开发者 alexbegt、前开发者 boni，原作者 mDiyo 提供游戏设计。模组源代码托管在 GitHub 上，由 SlimeKnights 组织维护。</p>
+
+      <h2 id="核心特性">核心特性</h2>
+      <ul class="plain-list">
+        <li><strong>工具组装与修改</strong>——通过部件制作台（Part Builder）、匠魂站（Tinker Station）和修改工作台构建和修改工具，工具不会消失且可反复修改</li>
+        <li><strong>金属冶炼系统</strong>——包含熔炉（Melter）、合金炉（Alloyer）、冶炼厂（Smeltery）和铸造厂（Foundry），用于处理熔融金属</li>
+        <li><strong>史莱姆岛屿</strong>——在主世界、下界和末地生成史莱姆岛屿，提供 4 种不同颜色的史莱姆</li>
+        <li><strong>黏液晶洞</strong>——在深层地下生成黏液晶洞结构</li>
+        <li><strong>下界钴矿</strong>——添加下界钴矿（Cobalt Ore）作为工具材料</li>
+        <li><strong>多材料系统</strong>——支持使用多种不同材料制作工具，不同材料赋予工具不同属性</li>
+      </ul>
+
+      <h2 id="依赖模组">依赖模组</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>模组</th>
+            <th>是否必需</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mantle</td>
+            <td>必需</td>
+            <td>SlimeKnights 团队的库模组，匠魂依赖其运行</td>
+          </tr>
+          <tr>
+            <td>JEI (Just Enough Items)</td>
+            <td>推荐</td>
+            <td>物品配方查看工具，方便查看匠魂的合成配方</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="支持版本与加载器">支持版本与加载器</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>信息</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>支持的 Minecraft 版本</td>
+            <td>1.20.1、1.19.2、1.18.2、1.18.1、1.16.5 等（共 13+ 个版本）</td>
+          </tr>
+          <tr>
+            <td>模组加载器</td>
+            <td>Forge、NeoForge</td>
+          </tr>
+          <tr>
+            <td>CurseForge 下载量</td>
+            <td>约 1.92 亿次</td>
+          </tr>
+          <tr>
+            <td>开源许可证</td>
+            <td>MIT License</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="官方链接">官方链接</h2>
+      <ul class="plain-list">
+        <li><strong>CurseForge</strong>——模组下载主页面：<a href="https://www.curseforge.com/minecraft/mc-mods/tinkers-construct" target="_blank" rel="noopener">https://www.curseforge.com/minecraft/mc-mods/tinkers-construct</a></li>
+        <li><strong>GitHub</strong>——源代码仓库：<a href="https://github.com/SlimeKnights/TinkersConstruct" target="_blank" rel="noopener">https://github.com/SlimeKnights/TinkersConstruct</a></li>
+        <li><strong>官方文档</strong>——模组文档与教程：<a href="https://slimeknights.github.io/docs/" target="_blank" rel="noopener">https://slimeknights.github.io/docs/</a></li>
+        <li><strong>TC3 概览</strong>——匠魂 3 版本概览：<a href="https://slimeknights.github.io/docs/gameplay/tinkers-construct-3/" target="_blank" rel="noopener">https://slimeknights.github.io/docs/gameplay/tinkers-construct-3/</a></li>
+      </ul>
+
+      <div class="tip-box"><b>说明：</b>本文内容均来自上述官方来源，未经任何虚构或演绎。如需了解模组的最新动态与详细教程，请访问官方文档或 GitHub 仓库。</div>
+
+    </article>
+
+    <aside class="toc" id="toc" aria-label="文章目录">
+      <p class="toc-title mono">目录 · CONTENTS</p>
+      <ul id="toc-list"><li class="toc-loading">生成中…</li></ul>
+    </aside>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="../../../assets/js/components.js"></script>
+  <script src="../../../assets/js/theme-toggle.js"></script>
+  <script src="../../../assets/js/article-page.js"></script>
+</body>
+</html>
