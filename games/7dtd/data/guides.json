@@ -1,0 +1,68 @@
+[
+  {
+    "id": "beginner-01",
+    "title": "前三天生存节奏：开局优先级清单",
+    "category": "新手指南",
+    "url": "/games/7dtd/guides/beginner-01.html",
+    "date": "2026-08-04",
+    "pinned": true
+  },
+  {
+    "id": "beginner-02",
+    "title": "食物与水：开局饥渴问题的解法",
+    "category": "新手指南",
+    "url": "#",
+    "date": "2026-08-04"
+  },
+  {
+    "id": "bloodmoon-01",
+    "title": "血月防守：第七天前的准备清单与守点思路",
+    "category": "血月生存",
+    "url": "/games/7dtd/guides/bloodmoon-01.html",
+    "date": "2026-08-04",
+    "pinned": true
+  },
+  {
+    "id": "bloodmoon-02",
+    "title": "尸潮放风筝：血月野外的处理办法",
+    "category": "血月生存",
+    "url": "#",
+    "date": "2026-08-04"
+  },
+  {
+    "id": "build-01",
+    "title": "基地选址：常见点位的优劣分析",
+    "category": "建筑基地",
+    "url": "#",
+    "date": "2026-08-04"
+  },
+  {
+    "id": "build-02",
+    "title": "防御工事：舱口守点与杀戮区设计",
+    "category": "建筑基地",
+    "url": "#",
+    "date": "2026-08-04"
+  },
+  {
+    "id": "mod-01",
+    "title": "亡灵遗产模组总览：新内容与开荒建议",
+    "category": "模组特性",
+    "url": "/games/7dtd/guides/mod-01.html",
+    "date": "2026-08-04",
+    "pinned": true
+  },
+  {
+    "id": "mod-02",
+    "title": "职业与加点：主流流派思路",
+    "category": "模组特性",
+    "url": "#",
+    "date": "2026-08-04"
+  },
+  {
+    "id": "item-01",
+    "title": "常用武器与物品速查表",
+    "category": "物品数据",
+    "url": "#",
+    "date": "2026-08-04"
+  }
+]

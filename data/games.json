@@ -7,5 +7,14 @@
     "desc": "Minecraft 攻略专区：新手生存、红石科技、建筑教程、模组推荐，持续更新中。",
     "url": "/games/mc/index.html",
     "accent": "jade"
+  },
+  {
+    "id": "7dtd",
+    "code": "贰",
+    "name": "七日杀 · 亡灵遗产",
+    "status": "建设中",
+    "desc": "七日杀「亡灵遗产」大型整合 Mod 攻略专区：新手生存、血月防守、基地建造、Mod 玩法，持续更新中。",
+    "url": "/games/7dtd/index.html",
+    "accent": "seal"
   }
 ]
