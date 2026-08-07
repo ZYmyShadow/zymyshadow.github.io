@@ -54,5 +54,12 @@
     "icon": "#",
     "desc": "生成文本的 MD5 / SHA-1 / SHA-256 哈希值",
     "url": "/tools/hash-gen.html"
+  },
+  {
+    "id": "password-gen",
+    "name": "密码生成器",
+    "icon": "锁",
+    "desc": "生成高强度随机密码，支持长度与字符集自定义",
+    "url": "/tools/password-gen.html"
   }
 ]
