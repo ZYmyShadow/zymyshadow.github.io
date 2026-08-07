@@ -13,6 +13,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://zymyshadow.github.io/articles/series-ai/ai-coding-tools.html</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://zymyshadow.github.io/articles/series-ai/ai-drawing-tools.html</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -32,6 +38,12 @@
   </url>
   <url>
     <loc>https://zymyshadow.github.io/articles/series-ai/prompt-tips.html</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zymyshadow.github.io/articles/series-li/ai-content-labeling.html</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

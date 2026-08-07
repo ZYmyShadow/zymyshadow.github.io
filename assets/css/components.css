@@ -2959,3 +2959,44 @@ p.motto {
 .comments-section .giscus-box iframe {
   max-width: 100%;
 }
+
+/* ================= 文章 Callout 变体 ================= */
+/* 基于 tip-box 扩展，复用站点 jade / seal / gold / ink 配色，保持主题统一 */
+.tip-box.is-note {
+  background: var(--surface-2);
+  border-left-color: var(--ink-3);
+}
+.tip-box.is-note b { color: var(--ink); }
+
+.tip-box.is-example {
+  background: rgba(169, 126, 47, .08);
+  border-left-color: var(--gold);
+}
+.tip-box.is-example b { color: var(--gold); }
+
+.tip-box.is-warning {
+  background: rgba(194, 71, 46, .07);
+  border-left-color: var(--seal);
+}
+.tip-box.is-warning b { color: var(--seal); }
+
+.tip-box.is-quote {
+  background: var(--surface-2);
+  border-left-color: var(--gold);
+  font-style: italic;
+}
+.tip-box.is-quote b {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.tip-label {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  opacity: .85;
+}
+[data-theme='dark'] .tip-box.is-example { background: rgba(216, 169, 78, .10); }
+[data-theme='dark'] .tip-box.is-warning { background: rgba(255, 122, 89, .10); }

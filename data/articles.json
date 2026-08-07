@@ -160,5 +160,23 @@
     "tags": ["部署", "Ollama", "实战"],
     "url": "/articles/series-ai/local-llm-deploy.html",
     "date": "2026-07-28"
+  },
+  {
+    "id": "series-li-article-01",
+    "title": "AI内容必须标注：欧盟AI法案对创作者意味着什么",
+    "summary": "2026年8月2日欧盟AI法案透明度条款正式生效，AI生成内容必须标注。从自媒体创作者视角深度思考：这对用AI辅助写作的普通人意味着什么？该焦虑还是拥抱？",
+    "series": "里世界",
+    "tags": ["AI法案", "内容创作", "AI标注", "深度思考"],
+    "url": "/articles/series-li/ai-content-labeling.html",
+    "date": "2026-08-07"
+  },
+  {
+    "id": "series-ai-article-05",
+    "title": "2026年AI编程工具怎么选：Cursor、Claude Code、Trae深度对比",
+    "summary": "从真实开发场景出发，对比Cursor、Claude Code、Trae三款主流AI编程工具的定位、能力、价格与适用人群，帮你找到最适合自己的那一款。",
+    "series": "AI系列",
+    "tags": ["AI编程", "Cursor", "Claude Code", "Trae"],
+    "url": "/articles/series-ai/ai-coding-tools.html",
+    "date": "2026-08-07"
   }
 ]
