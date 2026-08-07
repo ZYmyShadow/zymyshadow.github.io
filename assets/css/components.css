@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    components.css · 组件样式
    导航栏 / 门楣 / 搜索 / 章节头 / 热点情报 / 文章系列 /
    游戏专区 / 广告位 / 页脚
@@ -897,6 +897,28 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
 .footer-bottom .mono {
   letter-spacing: .14em;
   font-size: .68rem;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 10px;
+  font-size: .76rem;
+}
+.footer-legal a {
+  color: var(--footer-ink);
+  text-decoration: none;
+  opacity: .7;
+  transition: opacity .2s, color .2s;
+}
+.footer-legal a:hover {
+  opacity: 1;
+  color: var(--footer-title);
+}
+.footer-legal .mono {
+  opacity: .4;
 }
 
 /* ================= 响应式 ================= */
