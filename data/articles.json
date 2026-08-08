@@ -178,5 +178,41 @@
     "tags": ["AI编程", "Cursor", "Claude Code", "Trae"],
     "url": "/articles/series-ai/ai-coding-tools.html",
     "date": "2026-08-07"
+  },
+  {
+    "id": "series-li-article-02",
+    "title": "科学界给AI意识判了死刑：这个结论为什么反而让人不安",
+    "summary": "2026年8月，科学界给出明确结论：现阶段AI不存在主观意识。但这个判词反而暴露了更深层的问题——当AI能完美模拟意识行为时，有没有意识这个区分对普通人还有多少意义？",
+    "series": "里世界",
+    "tags": ["AI意识", "人工智能", "概率引擎", "深度思考"],
+    "url": "/articles/series-li/ai-consciousness.html",
+    "date": "2026-08-08"
+  },
+  {
+    "id": "series-li-article-03",
+    "title": "72亿票房遇上大额存单热销：2026年消费分化的真相",
+    "summary": "一边暑期档票房突破75亿连续23天破亿，一边大额存单被疯抢。看似矛盾的消费行为同时爆发，背后是2026年消费心理的深度分化：情绪消费崛起，安全感储蓄回归。",
+    "series": "里世界",
+    "tags": ["消费分化", "暑期档票房", "大额存单", "消费心理"],
+    "url": "/articles/series-li/consumer-divergence.html",
+    "date": "2026-08-08"
+  },
+  {
+    "id": "series-ai-article-06",
+    "title": "从零到一搭建 Hermes Agent：一个IT人的真实踩坑记录",
+    "summary": "Hermes Agent 是 Nous Research 开源的自进化 AI 智能体框架。本文记录从环境准备、安装配置到模型接入的完整搭建过程和踩过的坑，末尾附桌面版快速体验方案。",
+    "series": "AI系列",
+    "tags": ["Hermes Agent", "AI Agent", "部署教程", "踩坑记录"],
+    "url": "/articles/series-ai/hermes-agent-setup.html",
+    "date": "2026-08-08"
+  },
+  {
+    "id": "series-ai-article-07",
+    "title": "自动驾驶L3/L4国标2027年实施：对你的车和钱包意味着什么",
+    "summary": "2026年8月，工信部发布首部L3/L4自动驾驶强制国标GB 44721-2026，2027年7月起实施。车企不能再喊L2.999，普通人买车用车将迎来哪些实质变化？这篇用大白话拆解清楚。",
+    "series": "AI系列",
+    "tags": ["自动驾驶", "L3", "L4", "智能网联汽车", "国标"],
+    "url": "/articles/series-ai/autonomous-driving-standard.html",
+    "date": "2026-08-08"
   }
 ]
