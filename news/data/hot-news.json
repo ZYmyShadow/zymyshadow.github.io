@@ -1,88 +1,88 @@
 {
-  "updated_at": "2026-08-08",
+  "updated_at": "2026-08-09",
   "categories": [
     {
       "name": "科技",
       "items": [
         {
-          "title": "研究发现广岛原子弹爆炸产生了一种未知合金",
-          "summary": "研究人员在广岛原子弹爆炸遗迹中发现了一种此前未知的合金，为核爆物理效应研究提供了新样本。",
+          "title": "微信再更新：「你撤回了一条消息」灰色小字可删除了",
+          "summary": "微信已支持删除撤回消息后留下的「你撤回了一条消息」灰色小字，撤回的撤回成为现实。",
           "source": "IT之家",
-          "url": "https://www.ithome.com/0/986/939.htm",
-          "tag": "科普",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "OpenAI将ChatGPT免费用户默认模型升级为GPT-5.6 Luna",
-          "summary": "OpenAI宣布ChatGPT免费用户默认模型升级为GPT-5.6 Luna，Plus与Pro用户同步更新聊天界面GPT-5.6 Sol。",
-          "source": "IT之家",
-          "url": "https://www.ithome.com/0/986/776.htm",
-          "tag": "AI",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "ChatGPT正式接入Photoshop与Lightroom，可调用修图设计",
-          "summary": "即日起ChatGPT可以调用Adobe Photoshop、Lightroom进行修图与设计，AI创作工具链进一步打通。",
-          "source": "IT之家",
-          "url": "https://www.ithome.com/0/986/769.htm",
-          "tag": "AI",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "吉利回应速成车乱象：旗下新车平均开发周期3到5年",
-          "summary": "吉利针对速成车乱象表态，称旗下新车平均开发周期达3到5年，强调研发流程完整。",
-          "source": "IT之家",
-          "url": "https://www.ithome.com/0/986/838.htm",
-          "tag": "汽车",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "REDMI K100 Pro Max影像规格公布：2亿主摄、5X潜望长焦",
-          "summary": "小米公布REDMI K100 Pro Max影像规格，搭载2亿像素主摄与5X潜望长焦，影像旗舰定位明确。",
-          "source": "IT之家",
-          "url": "https://www.ithome.com/0/986/805.htm",
-          "tag": "手机",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "消息称雪佛兰退出中国市场：还会生产但不卖了",
-          "summary": "消息称雪佛兰将退出中国市场，工厂仍会生产但不再销售，合资品牌格局再生变数。",
-          "source": "IT之家",
-          "url": "https://www.ithome.com/0/987/145.htm",
-          "tag": "汽车",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "运营商低价竞争时代终结：联通杭州渠道佣金骤减40%",
-          "summary": "中国联通杭州渠道佣金骤减40%，融合宽带月租从28元涨至79元，运营商低价竞争时代走向终结。",
-          "source": "IT之家",
-          "url": "https://www.ithome.com/0/987/172.htm",
-          "tag": "消费",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "AI艺人「方桃子」带货美瞳广告遭下架",
-          "summary": "AI艺人「方桃子」带货美瞳广告因声称「戴了一天都很舒服」遭下架，AI代言合规问题引关注。",
-          "source": "IT之家",
-          "url": "https://www.ithome.com/0/987/103.htm",
-          "tag": "AI",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "小米智能摄像机4 Max AI变焦版开售，券后739元",
-          "summary": "小米「迄今最清晰、最聪明」智能摄像机4 Max AI变焦版开售，券后739元。",
-          "source": "IT之家",
-          "url": "https://www.ithome.com/0/986/847.htm",
+          "url": "https://www.ithome.com/0/987/203.htm",
           "tag": "消费电子",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
         },
         {
-          "title": "徐洁云回应「孩go」言论：有小米用户的宠物叫孩go",
-          "summary": "小米徐洁云就「孩go」言论作出回应，称有小米用户养的宠物名字就叫「孩go」。",
+          "title": "华为Mate 80系列迎HarmonyOS 7花粉Beta补丁更新",
+          "summary": "华为Mate 80系列等机型迎来HarmonyOS 7花粉Beta版补丁更新，更多机型支持直连供电功能。",
           "source": "IT之家",
-          "url": "https://www.ithome.com/0/986/508.htm",
-          "tag": "消费",
-          "date": "2026-08-08"
+          "url": "https://www.ithome.com/0/987/201.htm",
+          "tag": "手机",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "鸿蒙SDK游戏新特性公开：AI超分、硬件光追",
+          "summary": "华为鸿蒙HarmonyOS SDK游戏新特性公开，包含AI超分、控显分离、硬件光追等能力。",
+          "source": "IT之家",
+          "url": "https://www.ithome.com/0/987/205.htm",
+          "tag": "系统",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "发布326天，iOS 26迎来首次越狱",
+          "summary": "苹果iOS 26在发布326天后迎来首次越狱，支持iPhone 11、iPad 9等机型。",
+          "source": "IT之家",
+          "url": "https://www.ithome.com/0/987/260.htm",
+          "tag": "手机",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "2027款比亚迪海豹06官宣8月11日上市",
+          "summary": "2027款比亚迪海豹06官宣8月11日上市，定位「B级满配家轿」，全新车色官图同步发布。",
+          "source": "IT之家",
+          "url": "https://www.ithome.com/0/987/268.htm",
+          "tag": "汽车",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "李斌透露蔚来新车将搭载120度三元电池",
+          "summary": "李斌透露蔚来新车将搭载120度三元电池，且所有车型都能使用。",
+          "source": "IT之家",
+          "url": "https://www.ithome.com/0/987/182.htm",
+          "tag": "新能源",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "消息称三星中国收缩手机布局：不达标门店将清退",
+          "summary": "消息称三星中国开始收缩手机布局，月销售额不足30万元的门店将被逐步清退。",
+          "source": "IT之家",
+          "url": "https://www.ithome.com/0/985/181.htm",
+          "tag": "手机",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "米家品牌官宣落地印度",
+          "summary": "米家（Mijia）品牌官宣落地印度，与小米、REDMI、POCO并列，生态出海再进一步。",
+          "source": "IT之家",
+          "url": "https://www.ithome.com/0/987/157.htm",
+          "tag": "消费电子",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "华为FreeClip 2耳夹耳机配饰上新，联名法国珠宝品牌",
+          "summary": "华为何刚官宣FreeClip 2耳夹耳机配饰上新，与法国珠宝品牌Les Néréides达成合作。",
+          "source": "IT之家",
+          "url": "https://www.ithome.com/0/987/173.htm",
+          "tag": "消费电子",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "网易前主管窃取171个闲置梦幻西游账号牟利获刑",
+          "summary": "网易前主管利用后台权限窃取《梦幻西游》171个闲置账号，牟利173万元，被判三年缓刑。",
+          "source": "IT之家",
+          "url": "https://www.ithome.com/0/987/162.htm",
+          "tag": "游戏",
+          "date": "2026-08-09"
         }
       ]
     },
@@ -90,84 +90,84 @@
       "name": "抖音热点",
       "items": [
         {
-          "title": "EDG 1:2 TEC，电竞焦点战结果引热议",
-          "summary": "EDG以1:2不敌TEC，焦点战结果引爆电竞圈讨论。",
+          "title": "台风「白海豚」逼近：浙江上海等地迎强风雨",
+          "summary": "台风「白海豚」持续逼近，浙江、上海等地迎来强风雨天气，多地启动防御措施。",
           "source": "抖音热榜",
-          "url": "https://www.douyin.com/hot/2600882",
-          "tag": "电竞",
-          "date": "2026-08-08"
+          "url": "https://www.douyin.com/hot/2603041",
+          "tag": "天气",
+          "date": "2026-08-09"
         },
         {
-          "title": "河南三支一扶笔试存在组织作弊",
-          "summary": "河南三支一扶笔试被曝存在组织作弊，相关部门介入调查，考试公平话题引关注。",
+          "title": "全民健身计划带来哪些实惠",
+          "summary": "全民健身计划落地见效，场地、赛事与指导服务带来的实惠成为热议话题。",
           "source": "抖音热榜",
-          "url": "https://www.douyin.com/hot/2601020",
+          "url": "https://www.douyin.com/hot/2602915",
           "tag": "社会",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
         },
         {
-          "title": "福建泉州市委书记张毅恭被查",
-          "summary": "福建泉州市委书记张毅恭涉嫌严重违纪违法被查，反腐动态受到关注。",
+          "title": "大连英博1:0辽宁铁人",
+          "summary": "中甲焦点战大连英博1:0战胜辽宁铁人，东北德比引爆球迷讨论。",
           "source": "抖音热榜",
-          "url": "https://www.douyin.com/hot/2601236",
-          "tag": "时政",
-          "date": "2026-08-08"
+          "url": "https://www.douyin.com/hot/2602441",
+          "tag": "体育",
+          "date": "2026-08-09"
         },
         {
-          "title": "王者荣耀万象棋定档9月",
-          "summary": "王者荣耀衍生新作万象棋定档9月，玩家期待值拉满。",
+          "title": "用慢充旅行治愈自己",
+          "summary": "「慢充旅行」概念走红，放慢节奏的深度游成为年轻人的治愈新选择。",
           "source": "抖音热榜",
-          "url": "https://www.douyin.com/hot/2601294",
-          "tag": "游戏",
-          "date": "2026-08-08"
+          "url": "https://www.douyin.com/hot/2601301",
+          "tag": "旅行",
+          "date": "2026-08-09"
         },
         {
-          "title": "邓紫棋南昌演唱会",
-          "summary": "邓紫棋南昌演唱会开唱，现场舞台与歌迷互动刷屏社交平台。",
+          "title": "贵州菜申请加入暑期美食展",
+          "summary": "贵州菜申请加入暑期美食展，酸辣风味出战名单引网友围观。",
           "source": "抖音热榜",
-          "url": "https://www.douyin.com/hot/2601354",
-          "tag": "娱乐",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "鸣潮3.6版本前瞻直播",
-          "summary": "鸣潮3.6版本前瞻直播公布新内容，版本更新信息引玩家讨论。",
-          "source": "抖音热榜",
-          "url": "https://www.douyin.com/hot/2601399",
-          "tag": "游戏",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "四川宜宾4.9级地震致1人死亡",
-          "summary": "四川宜宾发生4.9级地震致1人死亡，救援与震情排查正在进行。",
-          "source": "抖音热榜",
-          "url": "https://www.douyin.com/hot/2601297",
-          "tag": "社会",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "歌手歌王之战舞台刷屏",
-          "summary": "《歌手》总决赛歌王之战舞台刷屏，现场演绎引发全网讨论。",
-          "source": "抖音热榜",
-          "url": "https://www.douyin.com/hot/2600986",
-          "tag": "娱乐",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "夏天要结束了对吧",
-          "summary": "「夏天要结束了对吧」话题走红，网友集体感慨季节更替，告别盛夏。",
-          "source": "抖音热榜",
-          "url": "https://www.douyin.com/hot/2600686",
-          "tag": "生活",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "当你被一些麻辣烫选中",
-          "summary": "「当你被一些麻辣烫选中」走红，美食与段子结合戳中网友笑点。",
-          "source": "抖音热榜",
-          "url": "https://www.douyin.com/hot/2600456",
+          "url": "https://www.douyin.com/hot/2603000",
           "tag": "美食",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
+        },
+        {
+          "title": "早秋韩系奶油风穿搭走红",
+          "summary": "早秋韩系奶油风穿搭走红，柔和色系与层次感搭配成为换季模板。",
+          "source": "抖音热榜",
+          "url": "https://www.douyin.com/hot/2602210",
+          "tag": "时尚",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "火把节抹黑祝福仪式走红",
+          "summary": "火把节「抹黑祝福」习俗走红，越抹越黑的仪式感让网友直呼想体验。",
+          "source": "抖音热榜",
+          "url": "https://www.douyin.com/hot/2601555",
+          "tag": "文化",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "谢霆锋沈阳演唱会",
+          "summary": "谢霆锋沈阳演唱会开唱，舞台现场与歌迷大合唱刷屏社交平台。",
+          "source": "抖音热榜",
+          "url": "https://www.douyin.com/hot/2602255",
+          "tag": "娱乐",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "河南重大刑案嫌犯夏某钢落网",
+          "summary": "河南重大刑案嫌犯夏某钢落网，案件后续进展受到关注。",
+          "source": "抖音热榜",
+          "url": "https://www.douyin.com/hot/2602348",
+          "tag": "社会",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "开学三件套全线暴涨",
+          "summary": "开学季临近，「开学三件套」价格全线暴涨，家长与学生热议消费行情。",
+          "source": "抖音热榜",
+          "url": "https://www.douyin.com/hot/2602827",
+          "tag": "消费",
+          "date": "2026-08-09"
         }
       ]
     },
@@ -175,169 +175,169 @@
       "name": "B站热点",
       "items": [
         {
-          "title": "本想简单吃个见手青小炒，却被云南厨师火焰魔法吓晕了",
-          "summary": "UP主记录吃见手青小炒的经历，云南厨师的「火焰魔法」现场让人大开眼界。",
+          "title": "在东方明珠玩100人躲猫猫，奖金10万元",
+          "summary": "UP主组织100人在东方明珠玩躲猫猫，10万元奖金的猫鼠游戏全程高能。",
           "source": "哔哩哔哩热门榜",
-          "url": "https://b23.tv/BV1e8Mk6wEWZ",
-          "tag": "美食",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "《死》：死亡是什么",
-          "summary": "一支探讨「死亡是什么」的视频走红，从科学与人文视角直面生命议题。",
-          "source": "哔哩哔哩热门榜",
-          "url": "https://b23.tv/BV115un6dE9a",
-          "tag": "科普",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "厕 所 大 师",
-          "summary": "整活系列《厕所大师》更新，密集笑点与抽象剧情冲上热门。",
-          "source": "哔哩哔哩热门榜",
-          "url": "https://b23.tv/BV11duF6TEfz",
-          "tag": "搞笑",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "聪明猫在一起久了也会有一些共同点",
-          "summary": "猫咪行为观察视频走红，网友发现聪明猫相处久了竟会越来越像。",
-          "source": "哔哩哔哩热门榜",
-          "url": "https://b23.tv/BV1Guu46sEkA",
+          "url": "https://b23.tv/BV1ocu46fE1z",
           "tag": "生活",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
         },
         {
-          "title": "美利坚糖门黄油大胃袋VS国产板面长老",
-          "summary": "黄油大胃袋与国产板面长老的跨界对决视频走红，反差感拉满。",
+          "title": "家里的旧光盘，为什么播不出来了？",
+          "summary": "科普视频解析旧光盘无法播放的原因，从氧化到读取原理一次讲清。",
           "source": "哔哩哔哩热门榜",
-          "url": "https://b23.tv/BV1JmMf69EZY",
-          "tag": "美食",
-          "date": "2026-08-08"
+          "url": "https://b23.tv/BV1ymux6BEFU",
+          "tag": "科普",
+          "date": "2026-08-09"
         },
         {
-          "title": "你可能不认识我，但你绝对听过他的歌",
-          "summary": "「网络奇人」系列首期走红，盘点歌红人不红的宝藏歌手。",
+          "title": "怪兽中出了一个奥特曼的卧底",
+          "summary": "整活视频「怪兽中出了一个奥特曼的卧底」走红，反转设定笑翻观众。",
           "source": "哔哩哔哩热门榜",
-          "url": "https://b23.tv/BV1JtuF64ENj",
+          "url": "https://b23.tv/BV1gnub6REqy",
+          "tag": "搞笑",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "青春没有售价！面包车直达拉萨",
+          "summary": "「青春没有售价」系列走红，年轻人乘面包车直达拉萨的旅途记录点燃向往。",
+          "source": "哔哩哔哩热门榜",
+          "url": "https://b23.tv/BV1CLuE67Ep9",
+          "tag": "旅行",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "住宅低频噪音现场溯源实录",
+          "summary": "UP主实地溯源山东4家住宅的低频噪音来源，排查过程硬核又实用。",
+          "source": "哔哩哔哩热门榜",
+          "url": "https://b23.tv/BV19juJ6vEqh",
+          "tag": "社会",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "「那些只打高端局的神级串烧」",
+          "summary": "神级歌曲串烧剪辑走红，被网友称作「只打高端局」，听觉体验拉满。",
+          "source": "哔哩哔哩热门榜",
+          "url": "https://b23.tv/BV1J4un6mEV1",
           "tag": "音乐",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
         },
         {
-          "title": "5个天才高中生做的高中生活游戏",
-          "summary": "5名高中生自制高中生活题材游戏的幕后走红，创意与执行力获赞。",
+          "title": "改画哪有不疯的！（第26期）",
+          "summary": "「改画」系列第26期更新，魔性改画过程与吐槽持续上头。",
           "source": "哔哩哔哩热门榜",
-          "url": "https://b23.tv/BV19eMy6TEmz",
-          "tag": "游戏",
-          "date": "2026-08-08"
+          "url": "https://b23.tv/BV1oxut6hEMH",
+          "tag": "搞笑",
+          "date": "2026-08-09"
         },
         {
-          "title": "非遗文化燃起来了：博大精深刷屏",
-          "summary": "非遗文化相关创作刷屏，传统技艺与潮流表达结合点燃全网热情。",
+          "title": "小明修仙传AI重制纯享版走红",
+          "summary": "「小明修仙传」25分钟AI优化纯享版走红，AI全民制作人玩法再出爆款。",
           "source": "哔哩哔哩热门榜",
-          "url": "https://b23.tv/BV1cxuF6ZEq3",
+          "url": "https://b23.tv/BV1U8MS65Efm",
+          "tag": "AI",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "老赖借钱不还怎么办？法律科普走红",
+          "summary": "法律科普视频讲透「老赖借钱不还」的应对路径，实用干货获大量收藏。",
+          "source": "哔哩哔哩热门榜",
+          "url": "https://b23.tv/BV1pFuJ67EPK",
+          "tag": "社会",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "禁止出境的国家宝藏：曾侯乙编钟",
+          "summary": "科普视频讲述禁止出境的国家宝藏曾侯乙编钟，历史与工艺细节引人入胜。",
+          "source": "哔哩哔哩热门榜",
+          "url": "https://b23.tv/BV1k1MS6PEzA",
           "tag": "文化",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "「啊？还能这样转场？！」动漫转场剪辑走红",
-          "summary": "动漫转场剪辑走红，丝滑的镜头衔接与创意编排收获大量三连。",
-          "source": "哔哩哔哩热门榜",
-          "url": "https://b23.tv/BV1SjMC6fETR",
-          "tag": "动漫",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "当瞳孔可以像细胞一样分裂",
-          "summary": "Live2D创作视频走红，「瞳孔像细胞一样分裂」的视觉表现惊艳观众。",
-          "source": "哔哩哔哩热门榜",
-          "url": "https://b23.tv/BV1GnMB6QEBH",
-          "tag": "动漫",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
         }
       ]
     },
     {
-      "name": "小红书热点",
+      "name": "头条热榜",
       "items": [
         {
-          "title": "旅行拍照不用滤镜，缺的是一套万能姿势",
-          "summary": "万能旅行拍照姿势再度走红，不看滤镜也能出片，被网友大量收藏。",
-          "source": "小红书热搜",
-          "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%94%A8%E4%B8%87%E8%83%BD%E6%97%85%E8%A1%8C%E6%8B%8D%E7%85%A7%E5%A7%BF%E5%8A%BF%E7%BE%8E%E7%BE%8E%E5%87%BA%E7%89%87",
+          "title": "以军士兵把枪口对准中国记者",
+          "summary": "以军士兵把枪口对准中国记者的画面引发强烈关注，事件性质与后续进展受到讨论。",
+          "source": "头条热榜",
+          "url": "https://www.toutiao.com/trending/7670816047708667940/",
+          "tag": "时政",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "中央气象台升级发布台风红色预警",
+          "summary": "中央气象台升级发布台风红色预警，「白海豚」登陆临近，多地启动最高级别防御。",
+          "source": "头条热榜",
+          "url": "https://www.toutiao.com/trending/7671856440352443945/",
+          "tag": "天气",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "王艺迪无缘横滨赛决赛",
+          "summary": "WTT横滨冠军赛王艺迪无缘决赛，国乒女单争冠形势成为球迷热议焦点。",
+          "source": "头条热榜",
+          "url": "https://www.toutiao.com/trending/7671873311361470003/",
+          "tag": "体育",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "工人上班发病抢救后离世 法院判了",
+          "summary": "工人上班发病抢救后离世，法院判决结果公布，工伤认定边界引发关注。",
+          "source": "头条热榜",
+          "url": "https://www.toutiao.com/trending/7671602141882597403/",
+          "tag": "社会",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "滚筒洗衣机自爆 满筒碎玻璃渣",
+          "summary": "一台滚筒洗衣机自爆，筒内满是碎玻璃渣，家电安全话题引发警惕与讨论。",
+          "source": "头条热榜",
+          "url": "https://www.toutiao.com/trending/7671828905889710099/",
+          "tag": "社会",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "89岁钟南山每周健身3次",
+          "summary": "89岁钟南山坚持每周健身3次的状态曝光，自律精神获网友点赞。",
+          "source": "头条热榜",
+          "url": "https://www.toutiao.com/trending/7671804196668100146/",
+          "tag": "健康",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "博主：俄罗斯主战派声音越来越大",
+          "summary": "有博主观察称俄罗斯主战派声音越来越大，俄乌局势相关讨论持续。",
+          "source": "头条热榜",
+          "url": "https://www.toutiao.com/trending/7671826635414310442/",
+          "tag": "国际",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "梁文锋与王兴兴谁更需要谁",
+          "summary": "DeepSeek梁文锋与宇树王兴兴「谁更需要谁」的产业讨论走红，AI与机器人协同成焦点。",
+          "source": "头条热榜",
+          "url": "https://www.toutiao.com/trending/7671853126911004196/",
+          "tag": "科技",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "央视主播迎来两个新面孔",
+          "summary": "央视主播阵容迎来两个新面孔，新主持人亮相引发观众关注。",
+          "source": "头条热榜",
+          "url": "https://www.toutiao.com/trending/7671394717946527785/",
+          "tag": "娱乐",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "新疆优化调整景区内自驾服务费",
+          "summary": "新疆优化调整景区内自驾服务费，出游成本与服务规范引发游客讨论。",
+          "source": "头条热榜",
+          "url": "https://www.toutiao.com/trending/7671581385966764073/",
           "tag": "旅行",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "当古诗词遇上镜头，三年拍摄给出答案",
-          "summary": "摄影师用三年时间把古诗词里的中国拍成风景大片，诗意表达持续圈粉。",
-          "source": "小红书热搜",
-          "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%80%97%E6%97%B6%E4%B8%89%E5%B9%B4%E6%8B%8D%E4%B8%8B%E5%8F%A4%E8%AF%97%E8%AF%8D%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD",
-          "tag": "摄影",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "海鸥列队如雨飞舞的壮观，被幸运的人拍到了",
-          "summary": "海鸥雨奇观再被记录，群鸥飞舞的震撼画面引发围观。",
-          "source": "小红书热搜",
-          "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%88%91%E6%8B%8D%E5%88%B0%E4%BA%86%E6%B5%B7%E9%B8%A5%E9%9B%A8",
-          "tag": "摄影",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "这份日常家常菜教程火了，厨房新手也能秒上手",
-          "summary": "零门槛日常美食教程走红，步骤简单味道在线，厨房新手纷纷交作业。",
-          "source": "小红书热搜",
-          "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%B6%85%E6%97%A5%E5%B8%B8%E7%BE%8E%E9%A3%9F%E6%95%99%E7%A8%8B%E9%80%9F%E6%9D%A5get",
-          "tag": "美食",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "等一年才有一次的日照金山瞬间",
-          "summary": "日照金山被称作值得等待一年的风景，幸运目击者分享的瞬间刷屏。",
-          "source": "小红书热搜",
-          "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%AE%9A%E6%A0%BC%E8%BF%99%E4%B8%80%E5%88%BB%E7%9A%84%E6%97%A5%E7%85%A7%E9%87%91%E5%B1%B1",
-          "tag": "旅行",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "赛里木湖旅游攻略走红，存下这篇就出发",
-          "summary": "赛里木湖攻略帖走红，从路线到机位一次讲清，被网友当作出行模板。",
-          "source": "小红书热搜",
-          "url": "https://www.xiaohongshu.com/search_result?keyword=%E4%BD%A0%E5%8F%AF%E4%BB%A5%E6%B0%B8%E8%BF%9C%E7%9B%B8%E4%BF%A1%E8%B5%9B%E9%87%8C%E6%9C%A8%E6%B9%96%E7%9A%84%E7%BE%8E%E6%99%AF",
-          "tag": "旅行",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "拼豆作画再翻红，网友：这是手工天花板",
-          "summary": "拼豆作画作品再度刷屏，精细程度被赞手工天花板。",
-          "source": "小红书热搜",
-          "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%8B%BC%E8%B1%86%E4%B8%8A%E4%B9%9F%E5%8F%AF%E4%BB%A5%E4%BD%9C%E7%94%BB%E4%BA%86",
-          "tag": "手作",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "家庭旅行副本模式再启动，爸妈们集体共鸣",
-          "summary": "家庭旅行「打副本」式体验帖再引共鸣，爸妈们纷纷晒出同款经历。",
-          "source": "小红书热搜",
-          "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%88%91%E7%9A%84%E5%AE%B6%E5%BA%AD%E6%97%85%E8%A1%8C%E6%9B%B4%E5%83%8F%E6%98%AF%E6%89%93%E5%89%AF%E6%9C%AC",
-          "tag": "生活",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "河南风景从古诗词里走出来，网友争相打卡",
-          "summary": "古诗词里的河南实景再度刷屏，跟着诗词打卡成为出游新风尚。",
-          "source": "小红书热搜",
-          "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%8E%9F%E6%9D%A5%E5%8F%A4%E8%AF%97%E8%AF%8D%E9%87%8C%E7%9A%84%E6%B2%B3%E5%8D%97%E7%9C%9F%E7%9A%84%E5%AD%98%E5%9C%A8",
-          "tag": "文化",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "奶香爆米花馒头持续走红，松软奶香是秘诀",
-          "summary": "奶香爆米花馒头热度不减，松软口感与浓郁奶香的配方要点被反复讨论。",
-          "source": "小红书热搜",
-          "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%92%B8%E5%87%BA%E4%BA%86%E5%A5%B6%E9%A6%99%E7%88%86%E7%B1%B3%E8%8A%B1%E9%A6%92%E5%A4%B4",
-          "tag": "美食",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
         }
       ]
     },
@@ -345,89 +345,519 @@
       "name": "微博热点",
       "items": [
         {
-          "title": "胡彦斌斩获「歌手」歌王，总决赛排名出炉",
-          "summary": "《歌手》总决赛落幕，胡彦斌斩获歌王，完整排名公布引发全网讨论。",
+          "title": "披荆斩棘阵容官宣",
+          "summary": "《披荆斩棘》官宣全新阵容，嘉宾名单引发网友热议与期待。",
           "source": "微博热搜",
-          "url": "https://s.weibo.com/weibo?q=%E8%83%A1%E5%BD%A6%E6%96%8C%E6%AD%8C%E7%8E%8B&t=31&band_rank=1&Refer=top",
+          "url": "https://s.weibo.com/weibo?q=%23%E6%8A%AB%E8%8D%86%E6%96%A9%E6%A3%98%E9%98%B5%E5%AE%B9%E5%AE%98%E5%AE%A3%23&t=31&band_rank=1&Refer=top",
           "tag": "娱乐",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
         },
         {
-          "title": "暑期档票房超80亿",
-          "summary": "2026年暑期档票房突破80亿，多部影片表现亮眼，市场热度延续。",
+          "title": "我国日均词元调用量超千倍增长",
+          "summary": "数据显示我国日均词元调用量实现超千倍增长，AI应用落地速度引发关注。",
           "source": "微博热搜",
-          "url": "https://s.weibo.com/weibo?q=%23%E6%9A%91%E6%9C%9F%E6%A1%A3%E7%A5%A8%E6%88%BF%E8%B6%8580%E4%BA%BF%23&t=31&band_rank=1&Refer=top",
-          "tag": "影视",
-          "date": "2026-08-08"
+          "url": "https://s.weibo.com/weibo?q=%23%E6%88%91%E5%9B%BD%E6%97%A5%E5%9D%87%E8%AF%8D%E5%85%83%E8%B0%83%E7%94%A8%E9%87%8F%E8%B6%85%E5%8D%83%E5%80%8D%E5%A2%9E%E9%95%BF%23&t=31&band_rank=1&Refer=top",
+          "tag": "AI",
+          "date": "2026-08-09"
         },
         {
-          "title": "女明星在用的蚕丝卫生巾引关注",
-          "summary": "「女明星在用的蚕丝卫生巾」话题走红，相关产品选择与讨论升温。",
+          "title": "「酥就是油多，脆就是糖多」走红",
+          "summary": "「酥就是油多，脆就是糖多」的直白科普走红，网友热议美味背后的真相。",
           "source": "微博热搜",
-          "url": "https://s.weibo.com/weibo?q=%23%E5%A5%B3%E6%98%8E%E6%98%9F%E5%9C%A8%E7%94%A8%E7%9A%84%E8%9A%95%E4%B8%9D%E5%8D%AB%E7%94%9F%E5%B7%BE&t=31&band_rank=1&Refer=top",
-          "tag": "消费",
-          "date": "2026-08-08"
+          "url": "https://s.weibo.com/weibo?q=%E9%85%A5%E5%B0%B1%E6%98%AF%E6%B2%B9%E5%A4%9A%20%E8%84%86%E5%B0%B1%E6%98%AF%E7%B3%96%E5%A4%9A&t=31&band_rank=1&Refer=top",
+          "tag": "健康",
+          "date": "2026-08-09"
         },
         {
-          "title": "一个没有空调外挂机的城市走红",
-          "summary": "一座没有空调外挂机的城市引关注，网友讨论城市立面与降温设计。",
+          "title": "上半年国内手机销量TOP30出炉",
+          "summary": "上半年国内手机销量TOP30榜单出炉，机型排名与市场份额成为讨论焦点。",
           "source": "微博热搜",
-          "url": "https://s.weibo.com/weibo?q=%E4%B8%80%E4%B8%AA%E6%B2%A1%E6%9C%89%E7%A9%BA%E8%B0%83%E5%A4%96%E6%8C%82%E6%9C%BA%E7%9A%84%E5%9F%8E%E5%B8%82&t=31&band_rank=1&Refer=top",
+          "url": "https://s.weibo.com/weibo?q=%23%E4%B8%8A%E5%8D%8A%E5%B9%B4%E5%9B%BD%E5%86%85%E6%89%8B%E6%9C%BA%E9%94%80%E9%87%8FTOP30%E5%87%BA%E7%82%89%23&t=31&band_rank=1&Refer=top",
+          "tag": "手机",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "iPhone 18 Pro涨价话题引关注",
+          "summary": "iPhone 18 Pro涨价话题登上热搜，网友讨论新机定价与换机计划。",
+          "source": "微博热搜",
+          "url": "https://s.weibo.com/weibo?q=iPhone18Pro%20%E6%B6%A8%E4%BB%B7&t=31&band_rank=1&Refer=top",
+          "tag": "手机",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "长崎将把南京大屠杀改为「南京事件」引批评",
+          "summary": "日本长崎拟将南京大屠杀表述改为「南京事件」，引发批评与严正关注。",
+          "source": "微博热搜",
+          "url": "https://s.weibo.com/weibo?q=%23%E9%95%BF%E5%B4%8E%E5%B0%86%E6%8A%8A%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%B1%A0%E6%9D%80%E6%94%B9%E4%B8%BA%E5%8D%97%E4%BA%AC%E4%BA%8B%E4%BB%B6%23&t=31&band_rank=1&Refer=top",
+          "tag": "时政",
+          "date": "2026-08-09"
+        },
+        {
+          "title": "父亲节俭供养留学女儿反遭辱骂",
+          "summary": "父亲节俭供养留学女儿反遭辱骂的话题引发热议，亲子关系与感恩话题被讨论。",
+          "source": "微博热搜",
+          "url": "https://s.weibo.com/weibo?q=%E7%88%B6%E4%BA%B2%E8%8A%82%E4%BF%AD%E4%BE%9B%E5%85%BB%E7%95%99%E5%AD%A6%E5%A5%B3%E5%84%BF%E5%8F%8D%E9%81%AD%E8%BE%B1%E9%AA%82&t=31&band_rank=1&Refer=top",
           "tag": "社会",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
         },
         {
-          "title": "中山大学23岁直博生确诊胃癌晚期",
-          "summary": "中山大学一名23岁直博生确诊胃癌晚期，年轻人健康话题再度引发关注。",
+          "title": "荷兰弟婚礼瞒着全世界办了三天",
+          "summary": "「荷兰弟」汤姆·霍兰德婚礼被曝瞒着全世界办了三天，粉丝送上祝福。",
           "source": "微博热搜",
-          "url": "https://s.weibo.com/weibo?q=%23%E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A623%E5%B2%81%E7%9B%B4%E5%8D%9A%E7%94%9F%E7%A1%AE%E8%AF%8A%E8%83%83%E7%99%8C%E6%99%9A%E6%9C%9F%23&t=31&band_rank=1&Refer=top",
-          "tag": "社会",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "外国网友也认了中式天庭",
-          "summary": "中式天庭设定在海外走红，外国网友直呼认了，文化输出话题升温。",
-          "source": "微博热搜",
-          "url": "https://s.weibo.com/weibo?q=%E5%A4%96%E5%9B%BD%E7%BD%91%E5%8F%8B%E4%B9%9F%E8%AE%A4%E4%BA%86%E4%B8%AD%E5%BC%8F%E5%A4%A9%E5%BA%AD&t=31&band_rank=1&Refer=top",
-          "tag": "文化",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "金智秀发文道歉",
-          "summary": "金智秀发文道歉，相关争议与后续动态引发关注。",
-          "source": "微博热搜",
-          "url": "https://s.weibo.com/weibo?q=%23%E9%87%91%E6%99%BA%E7%A7%80%E5%8F%91%E6%96%87%E9%81%93%E6%AD%89%23&t=31&band_rank=1&Refer=top",
+          "url": "https://s.weibo.com/weibo?q=%E8%8D%B7%E5%85%B0%E5%BC%9F%E5%A9%9A%E7%A4%BC%20%E7%9E%92%E7%9D%80%E5%85%A8%E4%B8%96%E7%95%8C%E5%8A%9E%E4%BA%86%E4%B8%89%E5%A4%A9&t=31&band_rank=1&Refer=top",
           "tag": "娱乐",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
         },
         {
-          "title": "陈情令外鹅版VS内鹅版对比热议",
-          "summary": "《陈情令》海外版与国内版差异对比走红，细节讨论刷屏。",
+          "title": "费大厨小炒肉比赛没人试吃",
+          "summary": "费大厨小炒肉比赛「没人试吃」的反差场面走红，网友笑称太真实。",
           "source": "微博热搜",
-          "url": "https://s.weibo.com/weibo?q=%E9%99%88%E6%83%85%E4%BB%A4%E5%A4%96%E9%B9%85%E7%89%88VS%E5%86%85%E9%B9%85%E7%89%88&t=31&band_rank=1&Refer=top",
-          "tag": "影视",
-          "date": "2026-08-08"
+          "url": "https://s.weibo.com/weibo?q=%E8%B4%B9%E5%A4%A7%E5%8E%A8%E5%B0%8F%E7%82%92%E8%82%89%E6%AF%94%E8%B5%9B%20%E6%B2%A1%E4%BA%BA%E8%AF%95%E5%90%83&t=31&band_rank=1&Refer=top",
+          "tag": "美食",
+          "date": "2026-08-09"
         },
         {
-          "title": "国乒男单梯队建设热议",
-          "summary": "国乒男单梯队建设成为热议话题，球迷关注新老交替与后备力量。",
+          "title": "J人的备注方式引热议",
+          "summary": "MBTI「J人」的备注方式走红，条理控的日常细节引大量对号入座。",
           "source": "微博热搜",
-          "url": "https://s.weibo.com/weibo?q=%E5%9B%BD%E4%B9%92%E7%94%B7%E5%8D%95%20%E6%A2%AF%E9%98%9F%E5%BB%BA%E8%AE%BE&t=31&band_rank=1&Refer=top",
-          "tag": "体育",
-          "date": "2026-08-08"
-        },
-        {
-          "title": "原来戴泳帽真的会影响颜值",
-          "summary": "「戴泳帽影响颜值」话题走红，网友晒出对比图互相调侃。",
-          "source": "微博热搜",
-          "url": "https://s.weibo.com/weibo?q=%E5%8E%9F%E6%9D%A5%E6%88%B4%E6%B3%B3%E5%B8%BD%E7%9C%9F%E7%9A%84%E4%BC%9A%E5%BD%B1%E5%93%8D%E9%A2%9C%E5%80%BC&t=31&band_rank=1&Refer=top",
+          "url": "https://s.weibo.com/weibo?q=J%E4%BA%BA%E6%98%AF%E8%BF%99%E6%A0%B7%E5%A4%87%E6%B3%A8%E7%9A%84&t=31&band_rank=1&Refer=top",
           "tag": "生活",
-          "date": "2026-08-08"
+          "date": "2026-08-09"
         }
       ]
     }
   ],
   "history": [
+    {
+      "date": "2026-08-08",
+      "categories": [
+        {
+          "name": "科技",
+          "items": [
+            {
+              "title": "研究发现广岛原子弹爆炸产生了一种未知合金",
+              "summary": "研究人员在广岛原子弹爆炸遗迹中发现了一种此前未知的合金，为核爆物理效应研究提供了新样本。",
+              "source": "IT之家",
+              "url": "https://www.ithome.com/0/986/939.htm",
+              "tag": "科普",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "OpenAI将ChatGPT免费用户默认模型升级为GPT-5.6 Luna",
+              "summary": "OpenAI宣布ChatGPT免费用户默认模型升级为GPT-5.6 Luna，Plus与Pro用户同步更新聊天界面GPT-5.6 Sol。",
+              "source": "IT之家",
+              "url": "https://www.ithome.com/0/986/776.htm",
+              "tag": "AI",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "ChatGPT正式接入Photoshop与Lightroom，可调用修图设计",
+              "summary": "即日起ChatGPT可以调用Adobe Photoshop、Lightroom进行修图与设计，AI创作工具链进一步打通。",
+              "source": "IT之家",
+              "url": "https://www.ithome.com/0/986/769.htm",
+              "tag": "AI",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "吉利回应速成车乱象：旗下新车平均开发周期3到5年",
+              "summary": "吉利针对速成车乱象表态，称旗下新车平均开发周期达3到5年，强调研发流程完整。",
+              "source": "IT之家",
+              "url": "https://www.ithome.com/0/986/838.htm",
+              "tag": "汽车",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "REDMI K100 Pro Max影像规格公布：2亿主摄、5X潜望长焦",
+              "summary": "小米公布REDMI K100 Pro Max影像规格，搭载2亿像素主摄与5X潜望长焦，影像旗舰定位明确。",
+              "source": "IT之家",
+              "url": "https://www.ithome.com/0/986/805.htm",
+              "tag": "手机",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "消息称雪佛兰退出中国市场：还会生产但不卖了",
+              "summary": "消息称雪佛兰将退出中国市场，工厂仍会生产但不再销售，合资品牌格局再生变数。",
+              "source": "IT之家",
+              "url": "https://www.ithome.com/0/987/145.htm",
+              "tag": "汽车",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "运营商低价竞争时代终结：联通杭州渠道佣金骤减40%",
+              "summary": "中国联通杭州渠道佣金骤减40%，融合宽带月租从28元涨至79元，运营商低价竞争时代走向终结。",
+              "source": "IT之家",
+              "url": "https://www.ithome.com/0/987/172.htm",
+              "tag": "消费",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "AI艺人「方桃子」带货美瞳广告遭下架",
+              "summary": "AI艺人「方桃子」带货美瞳广告因声称「戴了一天都很舒服」遭下架，AI代言合规问题引关注。",
+              "source": "IT之家",
+              "url": "https://www.ithome.com/0/987/103.htm",
+              "tag": "AI",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "小米智能摄像机4 Max AI变焦版开售，券后739元",
+              "summary": "小米「迄今最清晰、最聪明」智能摄像机4 Max AI变焦版开售，券后739元。",
+              "source": "IT之家",
+              "url": "https://www.ithome.com/0/986/847.htm",
+              "tag": "消费电子",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "徐洁云回应「孩go」言论：有小米用户的宠物叫孩go",
+              "summary": "小米徐洁云就「孩go」言论作出回应，称有小米用户养的宠物名字就叫「孩go」。",
+              "source": "IT之家",
+              "url": "https://www.ithome.com/0/986/508.htm",
+              "tag": "消费",
+              "date": "2026-08-08"
+            }
+          ]
+        },
+        {
+          "name": "抖音热点",
+          "items": [
+            {
+              "title": "EDG 1:2 TEC，电竞焦点战结果引热议",
+              "summary": "EDG以1:2不敌TEC，焦点战结果引爆电竞圈讨论。",
+              "source": "抖音热榜",
+              "url": "https://www.douyin.com/hot/2600882",
+              "tag": "电竞",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "河南三支一扶笔试存在组织作弊",
+              "summary": "河南三支一扶笔试被曝存在组织作弊，相关部门介入调查，考试公平话题引关注。",
+              "source": "抖音热榜",
+              "url": "https://www.douyin.com/hot/2601020",
+              "tag": "社会",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "福建泉州市委书记张毅恭被查",
+              "summary": "福建泉州市委书记张毅恭涉嫌严重违纪违法被查，反腐动态受到关注。",
+              "source": "抖音热榜",
+              "url": "https://www.douyin.com/hot/2601236",
+              "tag": "时政",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "王者荣耀万象棋定档9月",
+              "summary": "王者荣耀衍生新作万象棋定档9月，玩家期待值拉满。",
+              "source": "抖音热榜",
+              "url": "https://www.douyin.com/hot/2601294",
+              "tag": "游戏",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "邓紫棋南昌演唱会",
+              "summary": "邓紫棋南昌演唱会开唱，现场舞台与歌迷互动刷屏社交平台。",
+              "source": "抖音热榜",
+              "url": "https://www.douyin.com/hot/2601354",
+              "tag": "娱乐",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "鸣潮3.6版本前瞻直播",
+              "summary": "鸣潮3.6版本前瞻直播公布新内容，版本更新信息引玩家讨论。",
+              "source": "抖音热榜",
+              "url": "https://www.douyin.com/hot/2601399",
+              "tag": "游戏",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "四川宜宾4.9级地震致1人死亡",
+              "summary": "四川宜宾发生4.9级地震致1人死亡，救援与震情排查正在进行。",
+              "source": "抖音热榜",
+              "url": "https://www.douyin.com/hot/2601297",
+              "tag": "社会",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "歌手歌王之战舞台刷屏",
+              "summary": "《歌手》总决赛歌王之战舞台刷屏，现场演绎引发全网讨论。",
+              "source": "抖音热榜",
+              "url": "https://www.douyin.com/hot/2600986",
+              "tag": "娱乐",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "夏天要结束了对吧",
+              "summary": "「夏天要结束了对吧」话题走红，网友集体感慨季节更替，告别盛夏。",
+              "source": "抖音热榜",
+              "url": "https://www.douyin.com/hot/2600686",
+              "tag": "生活",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "当你被一些麻辣烫选中",
+              "summary": "「当你被一些麻辣烫选中」走红，美食与段子结合戳中网友笑点。",
+              "source": "抖音热榜",
+              "url": "https://www.douyin.com/hot/2600456",
+              "tag": "美食",
+              "date": "2026-08-08"
+            }
+          ]
+        },
+        {
+          "name": "B站热点",
+          "items": [
+            {
+              "title": "本想简单吃个见手青小炒，却被云南厨师火焰魔法吓晕了",
+              "summary": "UP主记录吃见手青小炒的经历，云南厨师的「火焰魔法」现场让人大开眼界。",
+              "source": "哔哩哔哩热门榜",
+              "url": "https://b23.tv/BV1e8Mk6wEWZ",
+              "tag": "美食",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "《死》：死亡是什么",
+              "summary": "一支探讨「死亡是什么」的视频走红，从科学与人文视角直面生命议题。",
+              "source": "哔哩哔哩热门榜",
+              "url": "https://b23.tv/BV115un6dE9a",
+              "tag": "科普",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "厕 所 大 师",
+              "summary": "整活系列《厕所大师》更新，密集笑点与抽象剧情冲上热门。",
+              "source": "哔哩哔哩热门榜",
+              "url": "https://b23.tv/BV11duF6TEfz",
+              "tag": "搞笑",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "聪明猫在一起久了也会有一些共同点",
+              "summary": "猫咪行为观察视频走红，网友发现聪明猫相处久了竟会越来越像。",
+              "source": "哔哩哔哩热门榜",
+              "url": "https://b23.tv/BV1Guu46sEkA",
+              "tag": "生活",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "美利坚糖门黄油大胃袋VS国产板面长老",
+              "summary": "黄油大胃袋与国产板面长老的跨界对决视频走红，反差感拉满。",
+              "source": "哔哩哔哩热门榜",
+              "url": "https://b23.tv/BV1JmMf69EZY",
+              "tag": "美食",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "你可能不认识我，但你绝对听过他的歌",
+              "summary": "「网络奇人」系列首期走红，盘点歌红人不红的宝藏歌手。",
+              "source": "哔哩哔哩热门榜",
+              "url": "https://b23.tv/BV1JtuF64ENj",
+              "tag": "音乐",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "5个天才高中生做的高中生活游戏",
+              "summary": "5名高中生自制高中生活题材游戏的幕后走红，创意与执行力获赞。",
+              "source": "哔哩哔哩热门榜",
+              "url": "https://b23.tv/BV19eMy6TEmz",
+              "tag": "游戏",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "非遗文化燃起来了：博大精深刷屏",
+              "summary": "非遗文化相关创作刷屏，传统技艺与潮流表达结合点燃全网热情。",
+              "source": "哔哩哔哩热门榜",
+              "url": "https://b23.tv/BV1cxuF6ZEq3",
+              "tag": "文化",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "「啊？还能这样转场？！」动漫转场剪辑走红",
+              "summary": "动漫转场剪辑走红，丝滑的镜头衔接与创意编排收获大量三连。",
+              "source": "哔哩哔哩热门榜",
+              "url": "https://b23.tv/BV1SjMC6fETR",
+              "tag": "动漫",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "当瞳孔可以像细胞一样分裂",
+              "summary": "Live2D创作视频走红，「瞳孔像细胞一样分裂」的视觉表现惊艳观众。",
+              "source": "哔哩哔哩热门榜",
+              "url": "https://b23.tv/BV1GnMB6QEBH",
+              "tag": "动漫",
+              "date": "2026-08-08"
+            }
+          ]
+        },
+        {
+          "name": "小红书热点",
+          "items": [
+            {
+              "title": "旅行拍照不用滤镜，缺的是一套万能姿势",
+              "summary": "万能旅行拍照姿势再度走红，不看滤镜也能出片，被网友大量收藏。",
+              "source": "小红书热搜",
+              "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%94%A8%E4%B8%87%E8%83%BD%E6%97%85%E8%A1%8C%E6%8B%8D%E7%85%A7%E5%A7%BF%E5%8A%BF%E7%BE%8E%E7%BE%8E%E5%87%BA%E7%89%87",
+              "tag": "旅行",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "当古诗词遇上镜头，三年拍摄给出答案",
+              "summary": "摄影师用三年时间把古诗词里的中国拍成风景大片，诗意表达持续圈粉。",
+              "source": "小红书热搜",
+              "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%80%97%E6%97%B6%E4%B8%89%E5%B9%B4%E6%8B%8D%E4%B8%8B%E5%8F%A4%E8%AF%97%E8%AF%8D%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD",
+              "tag": "摄影",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "海鸥列队如雨飞舞的壮观，被幸运的人拍到了",
+              "summary": "海鸥雨奇观再被记录，群鸥飞舞的震撼画面引发围观。",
+              "source": "小红书热搜",
+              "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%88%91%E6%8B%8D%E5%88%B0%E4%BA%86%E6%B5%B7%E9%B8%A5%E9%9B%A8",
+              "tag": "摄影",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "这份日常家常菜教程火了，厨房新手也能秒上手",
+              "summary": "零门槛日常美食教程走红，步骤简单味道在线，厨房新手纷纷交作业。",
+              "source": "小红书热搜",
+              "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%B6%85%E6%97%A5%E5%B8%B8%E7%BE%8E%E9%A3%9F%E6%95%99%E7%A8%8B%E9%80%9F%E6%9D%A5get",
+              "tag": "美食",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "等一年才有一次的日照金山瞬间",
+              "summary": "日照金山被称作值得等待一年的风景，幸运目击者分享的瞬间刷屏。",
+              "source": "小红书热搜",
+              "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%AE%9A%E6%A0%BC%E8%BF%99%E4%B8%80%E5%88%BB%E7%9A%84%E6%97%A5%E7%85%A7%E9%87%91%E5%B1%B1",
+              "tag": "旅行",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "赛里木湖旅游攻略走红，存下这篇就出发",
+              "summary": "赛里木湖攻略帖走红，从路线到机位一次讲清，被网友当作出行模板。",
+              "source": "小红书热搜",
+              "url": "https://www.xiaohongshu.com/search_result?keyword=%E4%BD%A0%E5%8F%AF%E4%BB%A5%E6%B0%B8%E8%BF%9C%E7%9B%B8%E4%BF%A1%E8%B5%9B%E9%87%8C%E6%9C%A8%E6%B9%96%E7%9A%84%E7%BE%8E%E6%99%AF",
+              "tag": "旅行",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "拼豆作画再翻红，网友：这是手工天花板",
+              "summary": "拼豆作画作品再度刷屏，精细程度被赞手工天花板。",
+              "source": "小红书热搜",
+              "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%8B%BC%E8%B1%86%E4%B8%8A%E4%B9%9F%E5%8F%AF%E4%BB%A5%E4%BD%9C%E7%94%BB%E4%BA%86",
+              "tag": "手作",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "家庭旅行副本模式再启动，爸妈们集体共鸣",
+              "summary": "家庭旅行「打副本」式体验帖再引共鸣，爸妈们纷纷晒出同款经历。",
+              "source": "小红书热搜",
+              "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%88%91%E7%9A%84%E5%AE%B6%E5%BA%AD%E6%97%85%E8%A1%8C%E6%9B%B4%E5%83%8F%E6%98%AF%E6%89%93%E5%89%AF%E6%9C%AC",
+              "tag": "生活",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "河南风景从古诗词里走出来，网友争相打卡",
+              "summary": "古诗词里的河南实景再度刷屏，跟着诗词打卡成为出游新风尚。",
+              "source": "小红书热搜",
+              "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%8E%9F%E6%9D%A5%E5%8F%A4%E8%AF%97%E8%AF%8D%E9%87%8C%E7%9A%84%E6%B2%B3%E5%8D%97%E7%9C%9F%E7%9A%84%E5%AD%98%E5%9C%A8",
+              "tag": "文化",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "奶香爆米花馒头持续走红，松软奶香是秘诀",
+              "summary": "奶香爆米花馒头热度不减，松软口感与浓郁奶香的配方要点被反复讨论。",
+              "source": "小红书热搜",
+              "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%92%B8%E5%87%BA%E4%BA%86%E5%A5%B6%E9%A6%99%E7%88%86%E7%B1%B3%E8%8A%B1%E9%A6%92%E5%A4%B4",
+              "tag": "美食",
+              "date": "2026-08-08"
+            }
+          ]
+        },
+        {
+          "name": "微博热点",
+          "items": [
+            {
+              "title": "胡彦斌斩获「歌手」歌王，总决赛排名出炉",
+              "summary": "《歌手》总决赛落幕，胡彦斌斩获歌王，完整排名公布引发全网讨论。",
+              "source": "微博热搜",
+              "url": "https://s.weibo.com/weibo?q=%E8%83%A1%E5%BD%A6%E6%96%8C%E6%AD%8C%E7%8E%8B&t=31&band_rank=1&Refer=top",
+              "tag": "娱乐",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "暑期档票房超80亿",
+              "summary": "2026年暑期档票房突破80亿，多部影片表现亮眼，市场热度延续。",
+              "source": "微博热搜",
+              "url": "https://s.weibo.com/weibo?q=%23%E6%9A%91%E6%9C%9F%E6%A1%A3%E7%A5%A8%E6%88%BF%E8%B6%8580%E4%BA%BF%23&t=31&band_rank=1&Refer=top",
+              "tag": "影视",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "女明星在用的蚕丝卫生巾引关注",
+              "summary": "「女明星在用的蚕丝卫生巾」话题走红，相关产品选择与讨论升温。",
+              "source": "微博热搜",
+              "url": "https://s.weibo.com/weibo?q=%23%E5%A5%B3%E6%98%8E%E6%98%9F%E5%9C%A8%E7%94%A8%E7%9A%84%E8%9A%95%E4%B8%9D%E5%8D%AB%E7%94%9F%E5%B7%BE&t=31&band_rank=1&Refer=top",
+              "tag": "消费",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "一个没有空调外挂机的城市走红",
+              "summary": "一座没有空调外挂机的城市引关注，网友讨论城市立面与降温设计。",
+              "source": "微博热搜",
+              "url": "https://s.weibo.com/weibo?q=%E4%B8%80%E4%B8%AA%E6%B2%A1%E6%9C%89%E7%A9%BA%E8%B0%83%E5%A4%96%E6%8C%82%E6%9C%BA%E7%9A%84%E5%9F%8E%E5%B8%82&t=31&band_rank=1&Refer=top",
+              "tag": "社会",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "中山大学23岁直博生确诊胃癌晚期",
+              "summary": "中山大学一名23岁直博生确诊胃癌晚期，年轻人健康话题再度引发关注。",
+              "source": "微博热搜",
+              "url": "https://s.weibo.com/weibo?q=%23%E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A623%E5%B2%81%E7%9B%B4%E5%8D%9A%E7%94%9F%E7%A1%AE%E8%AF%8A%E8%83%83%E7%99%8C%E6%99%9A%E6%9C%9F%23&t=31&band_rank=1&Refer=top",
+              "tag": "社会",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "外国网友也认了中式天庭",
+              "summary": "中式天庭设定在海外走红，外国网友直呼认了，文化输出话题升温。",
+              "source": "微博热搜",
+              "url": "https://s.weibo.com/weibo?q=%E5%A4%96%E5%9B%BD%E7%BD%91%E5%8F%8B%E4%B9%9F%E8%AE%A4%E4%BA%86%E4%B8%AD%E5%BC%8F%E5%A4%A9%E5%BA%AD&t=31&band_rank=1&Refer=top",
+              "tag": "文化",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "金智秀发文道歉",
+              "summary": "金智秀发文道歉，相关争议与后续动态引发关注。",
+              "source": "微博热搜",
+              "url": "https://s.weibo.com/weibo?q=%23%E9%87%91%E6%99%BA%E7%A7%80%E5%8F%91%E6%96%87%E9%81%93%E6%AD%89%23&t=31&band_rank=1&Refer=top",
+              "tag": "娱乐",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "陈情令外鹅版VS内鹅版对比热议",
+              "summary": "《陈情令》海外版与国内版差异对比走红，细节讨论刷屏。",
+              "source": "微博热搜",
+              "url": "https://s.weibo.com/weibo?q=%E9%99%88%E6%83%85%E4%BB%A4%E5%A4%96%E9%B9%85%E7%89%88VS%E5%86%85%E9%B9%85%E7%89%88&t=31&band_rank=1&Refer=top",
+              "tag": "影视",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "国乒男单梯队建设热议",
+              "summary": "国乒男单梯队建设成为热议话题，球迷关注新老交替与后备力量。",
+              "source": "微博热搜",
+              "url": "https://s.weibo.com/weibo?q=%E5%9B%BD%E4%B9%92%E7%94%B7%E5%8D%95%20%E6%A2%AF%E9%98%9F%E5%BB%BA%E8%AE%BE&t=31&band_rank=1&Refer=top",
+              "tag": "体育",
+              "date": "2026-08-08"
+            },
+            {
+              "title": "原来戴泳帽真的会影响颜值",
+              "summary": "「戴泳帽影响颜值」话题走红，网友晒出对比图互相调侃。",
+              "source": "微博热搜",
+              "url": "https://s.weibo.com/weibo?q=%E5%8E%9F%E6%9D%A5%E6%88%B4%E6%B3%B3%E5%B8%BD%E7%9C%9F%E7%9A%84%E4%BC%9A%E5%BD%B1%E5%93%8D%E9%A2%9C%E5%80%BC&t=31&band_rank=1&Refer=top",
+              "tag": "生活",
+              "date": "2026-08-08"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-08-07",
       "categories": [
@@ -1283,436 +1713,6 @@
               "url": "https://s.weibo.com/weibo?q=%E8%BF%88%E9%98%BF%E5%AF%86%E5%9B%BD%E9%99%854%E6%AF%942%E5%9C%A3%E8%B7%AF%E6%98%93%E6%96%AF&t=31&band_rank=1&Refer=top",
               "tag": "体育",
               "date": "2026-08-06"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-08-05",
-      "categories": [
-        {
-          "name": "科技",
-          "items": [
-            {
-              "title": "月之暗面开源Kimi K3模型，2.8万亿参数砸向全球",
-              "summary": "月之暗面正式开源Kimi K3模型，参数规模达2.8万亿，性能对标全球顶尖大模型，硅谷巨头高度关注。",
-              "source": "36氪",
-              "url": "#",
-              "tag": "AI",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "英伟达CUDA 20年护城河崩塌，Claude独自跑通AMD新GPU",
-              "summary": "Anthropic的Claude自主完成AMD新GPU的CUDA替代适配，英伟达长达20年的生态护城河出现裂痕。",
-              "source": "36氪",
-              "url": "#",
-              "tag": "AI",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "苹果iOS/iPadOS 26.6正式版发布，修复87个漏洞",
-              "summary": "苹果发布iOS/iPadOS 26.6正式版，优化聚焦索引功能，修复87个安全漏洞。",
-              "source": "IT之家",
-              "url": "#",
-              "tag": "系统",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "苹果市值达4.95万亿美元重回全球榜首",
-              "summary": "苹果市值达到4.95万亿美元，超越英伟达重回全球第一，距5万亿大关仅一步之遥。",
-              "source": "IT之家",
-              "url": "#",
-              "tag": "财经",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "华为Nova16 SE曝光：麒麟8020芯片+红枫影像",
-              "summary": "华为Nova16 SE手机信息曝光，搭载麒麟8020芯片与红枫影像系统，有望下月发布。",
-              "source": "IT之家",
-              "url": "#",
-              "tag": "手机",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "华为鸿蒙HarmonyOS 7花粉Beta版开启报名",
-              "summary": "华为鸿蒙HarmonyOS 7花粉Beta版开启报名，适配Mate 80、Pura 90、畅享90等多款机型。",
-              "source": "IT之家",
-              "url": "#",
-              "tag": "系统",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "小米汽车澎程系列搭载昆仑增程器，92号汽油也能加",
-              "summary": "小米汽车宣布澎程系列搭载全新昆仑增程器，支持92/95/98号汽油，降低用车成本。",
-              "source": "IT之家",
-              "url": "#",
-              "tag": "汽车",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "长鑫科技登顶A股，阿里押注76亿搏出近1700亿",
-              "summary": "长鑫科技上市后登顶A股，阿里押注76亿搏出近1700亿市值，小米雷军打新浮盈约7亿。",
-              "source": "IT之家",
-              "url": "#",
-              "tag": "芯片",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "小米MiMo-V2.5升至全球大模型调用量第一",
-              "summary": "小米MiMo-V2.5大模型调用量升至全球第一，反映国产大模型在推理效率与应用落地上的快速突破。",
-              "source": "知乎热榜",
-              "url": "#",
-              "tag": "AI",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "报告称韩国上半年销售电车近20万辆，超三分之一为中国制造",
-              "summary": "报告显示韩国2026年上半年销售电车近20万辆，其中超三分之一为中国制造，中国新能源汽车出海加速。",
-              "source": "IT之家",
-              "url": "https://www.ithome.com/0/985/583.htm",
-              "tag": "新能源",
-              "date": "2026-08-05"
-            }
-          ]
-        },
-        {
-          "name": "抖音热点",
-          "items": [
-            {
-              "title": "日本熊本县发生7.1级地震，山崩瞬间曝光",
-              "summary": "热度780万。日本熊本县发生7.1级地震，多处建筑受损、山崩画面曝光，长三角网友称有震感。",
-              "source": "抖音热榜",
-              "url": "#",
-              "tag": "国际",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "退货千万不要提前给取件码",
-              "summary": "热度142万。网友分享退货经验，提醒不要提前给取件码以免快递纠纷，实用避坑提醒冲上热榜。",
-              "source": "抖音热榜",
-              "url": "#",
-              "tag": "消费",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "台风「白海豚」再次加强为超强台风",
-              "summary": "台风「白海豚」再次加强为超强台风，多地发布预警，沿海出行防护引关注。",
-              "source": "抖音热榜",
-              "url": "https://www.douyin.com/hot/2596437",
-              "tag": "天气",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "花小龙带张伟丽自律的一天",
-              "summary": "花小龙与UFC冠军张伟丽合拍「自律的一天」日常视频走红，运动员训练日常引发关注。",
-              "source": "抖音热榜",
-              "url": "https://www.douyin.com/hot/2597342",
-              "tag": "体育",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "哈啰助力车骑行中突然锁死致博士生十级伤残",
-              "summary": "哈啰助力车骑行中突然断电锁死，在读博士生摔成十级伤残，维权一年获赔21.5万元。",
-              "source": "抖音热榜",
-              "url": "#",
-              "tag": "社会",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "感冒灵正式纳入禁驾清单",
-              "summary": "感冒灵正式纳入禁驾清单，说明书统一警示「服药期间不得驾驶机、车、船」，用药安全引关注。",
-              "source": "抖音热榜",
-              "url": "#",
-              "tag": "健康",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "上海雪花膏破产，老牌国货退场",
-              "summary": "老牌国货上海雪花膏所属公司美兰破产，引发网友对国货品牌兴衰的热议与集体回忆。",
-              "source": "抖音热榜",
-              "url": "#",
-              "tag": "消费",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "过度刷短视频可能诱发「脑腐」",
-              "summary": "研究指出过度刷短视频可能诱发「脑腐」，注意力下降与认知损伤风险引发广泛讨论。",
-              "source": "抖音热榜",
-              "url": "#",
-              "tag": "健康",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "樊振东的奥运金牌含金量有多高",
-              "summary": "樊振东奥运夺冠表现回顾，网友热议其金牌含金量，乒乓球话题再度升温。",
-              "source": "抖音热榜",
-              "url": "#",
-              "tag": "体育",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "山西菜申请出战暑期美食展",
-              "summary": "热度1168.7万。山西菜申请出战暑期美食展，地方菜系借美食话题出圈，登顶抖音热榜。",
-              "source": "抖音热榜",
-              "url": "https://www.douyin.com/hot/2597316",
-              "tag": "美食",
-              "date": "2026-08-05"
-            }
-          ]
-        },
-        {
-          "name": "B站热点",
-          "items": [
-            {
-              "title": "荣耀焕新品牌片「敢想，敢不同」",
-              "summary": "热度936万。荣耀发布焕新品牌片「敢想，敢不同」，品牌升级视觉引发B站用户热议。",
-              "source": "哔哩哔哩热门榜",
-              "url": "#",
-              "tag": "科技",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "陈翔六点半：有人在这里被爱过",
-              "summary": "热度907万。陈翔六点半短剧更新，温情叙事打动观众，「有人在这里被爱过」登上B站热门。",
-              "source": "哔哩哔哩热门榜",
-              "url": "#",
-              "tag": "剧情",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "自己吓自己",
-              "summary": "热度642万。恐怖悬疑类创意短视频走红B站，弹幕互动氛围拉满。",
-              "source": "哔哩哔哩热门榜",
-              "url": "#",
-              "tag": "搞笑",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "我是律师，请用当事人的语气让我破防",
-              "summary": "热度486万。律师UP主挑战用当事人语气对话，职业吐槽与破防瞬间笑翻观众。",
-              "source": "哔哩哔哩热门榜",
-              "url": "#",
-              "tag": "搞笑",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "「顶级智斗，胜负已分」",
-              "summary": "热度415万。游戏智斗混剪视频配乐燃爆，「天堂的彼端-变速」BGM被广泛二创。",
-              "source": "哔哩哔哩热门榜",
-              "url": "#",
-              "tag": "游戏",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "申论素材加一",
-              "summary": "热度411万。考公UP主整理申论写作素材，干货内容被备考网友疯狂收藏。",
-              "source": "哔哩哔哩热门榜",
-              "url": "#",
-              "tag": "学习",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "和解剖了4000具尸体的法医一起看影片",
-              "summary": "热度394万。UP主邀请从业多年的法医一起观看影视作品中的尸体场景，专业科普与反差感引发热议。",
-              "source": "哔哩哔哩热门榜",
-              "url": "#",
-              "tag": "科普",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "丧尸下乡",
-              "summary": "热度370万。创意短视频以农村为背景演绎丧尸题材，反差喜剧效果拉满。",
-              "source": "哔哩哔哩热门榜",
-              "url": "#",
-              "tag": "搞笑",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "奇怪的玩具工厂 第五章Part1",
-              "summary": "热度355万。热门恐怖游戏「奇怪的玩具工厂」第五章实机演示上线，剧情推进引玩家关注。",
-              "source": "哔哩哔哩热门榜",
-              "url": "#",
-              "tag": "游戏",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "极客湾手机续航大横评：电池锁容？谁在浑水摸鱼？",
-              "summary": "热度287万。极客湾发布手机续航大横评，揭露部分厂商电池锁容与电量缩水问题。",
-              "source": "哔哩哔哩热门榜",
-              "url": "#",
-              "tag": "科技",
-              "date": "2026-08-05"
-            }
-          ]
-        },
-        {
-          "name": "小红书热点",
-          "items": [
-            {
-              "title": "李现同款广州越秀公园打卡攻略火爆",
-              "summary": "话题阅读量破4.2亿。演员李现同款广州越秀公园打卡攻略刷屏小红书，相关笔记超12万篇。",
-              "source": "小红书热搜",
-              "url": "#",
-              "tag": "旅行",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "小红书旅游帖诈骗引热议",
-              "summary": "#小红书旅游帖诈骗#冲上热搜，网友曝光攻略与实地严重不符，平台内容真实性引发讨论。",
-              "source": "小红书热搜",
-              "url": "#",
-              "tag": "社会",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "改善脖子前倾最简单的动作",
-              "summary": "改善脖子前倾的简单体态矫正教程刷屏小红书，办公室人群争相跟练。",
-              "source": "小红书热搜",
-              "url": "#",
-              "tag": "健康",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "国庆请3休13拼假攻略出炉",
-              "summary": "国庆「请3休13」超长拼假攻略走红小红书，旅行规划达人提前布局黄金周行程。",
-              "source": "小红书热搜",
-              "url": "#",
-              "tag": "旅行",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "家庭防汛防灾应急包清单",
-              "summary": "家庭防汛防灾应急包准备清单走红，实用防灾指南帮助家庭应对极端天气。",
-              "source": "小红书热搜",
-              "url": "#",
-              "tag": "生活",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "168元一盒的巧克力该不该给孩子买",
-              "summary": "家长分享168元巧克力购买纠结经历，消费观念与亲子教育话题引发共鸣。",
-              "source": "小红书热搜",
-              "url": "#",
-              "tag": "亲子",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "全款买房的人在变多",
-              "summary": "越来越多人选择全款买房，楼市消费趋势变化引发小红书用户热议与经验分享。",
-              "source": "小红书热搜",
-              "url": "#",
-              "tag": "生活",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "熬夜时最恐怖的事",
-              "summary": "网友分享熬夜危害亲身经历，「熬夜时最恐怖的事」话题引发健康警醒与作息调整讨论。",
-              "source": "小红书热搜",
-              "url": "#",
-              "tag": "健康",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "建议大家买行李箱不要太大众",
-              "summary": "网友分享行李箱选购避坑经验，建议不要买太大众款式以防混淆，实用旅行tips走红。",
-              "source": "小红书热搜",
-              "url": "#",
-              "tag": "旅行",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "买大路灯护眼孩子视力一年涨200度",
-              "summary": "家长吐槽花高价买大路灯护眼，孩子视力一年仍涨200度，护眼灯产品效果引发质疑。",
-              "source": "小红书热搜",
-              "url": "#",
-              "tag": "亲子",
-              "date": "2026-08-05"
-            }
-          ]
-        },
-        {
-          "name": "微博热点",
-          "items": [
-            {
-              "title": "卫生巾虫卵",
-              "summary": "热度搜索第一。卫生巾被曝含虫卵问题引发消费者恐慌，多个品牌紧急回应，话题冲上微博热搜榜首。",
-              "source": "微博热搜",
-              "url": "https://s.weibo.com/weibo?q=%E5%8D%AB%E7%94%9F%E5%B7%BE+%E8%99%AB%E5%8D%B5",
-              "tag": "消费",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "谁来管管AI漫剧女主的穿搭",
-              "summary": "AI漫画女主角穿搭风格引发网友吐槽，「谁来管管AI漫剧女主的穿搭」话题冲上热搜。",
-              "source": "微博热搜",
-              "url": "https://s.weibo.com/weibo?q=%23%E8%B0%81%E6%9D%A5%E7%AE%A1%E7%AE%A1AI%E6%BC%AB%E5%89%A7%E5%A5%B3%E4%B8%BB%E7%9A%84%E7%A9%BF%E6%90%AD%23",
-              "tag": "娱乐",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "央视纪录片红楼梦第一集被惊艳到了",
-              "summary": "央视纪录片《红楼梦》首集播出，精美服化道与叙事质感获观众一致好评。",
-              "source": "微博热搜",
-              "url": "https://s.weibo.com/weibo?q=%E5%A4%AE%E8%A7%86%E7%BA%AA%E5%BD%95%E7%89%87%E7%BA%A2%E6%A5%BC%E6%A2%A6%E7%AC%AC%E4%B8%80%E9%9B%86%E8%A2%AB%E6%83%8A%E8%89%B3%E5%88%B0%E4%BA%86",
-              "tag": "文化",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "疑似梁文峰早期微博被扒",
-              "summary": "疑似DeepSeek创始人梁文峰早期微博内容被网友扒出，早年观点与创业心路引发科技圈关注。",
-              "source": "微博热搜",
-              "url": "https://s.weibo.com/weibo?q=%E7%96%91%E4%BC%BC%E6%A2%81%E6%96%87%E5%B3%B0%E6%97%A9%E6%9C%9F%E5%BE%AE%E5%8D%9A%E8%A2%AB%E6%89%92",
-              "tag": "科技",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "张若昀回应写给唐艺昕备忘录爆火",
-              "summary": "张若昀回应写给唐艺昕的备忘录内容走红网络，甜蜜细节引发网友热议。",
-              "source": "微博热搜",
-              "url": "https://s.weibo.com/weibo?q=%23%E5%BC%A0%E8%8B%A5%E6%98%80%E5%9B%9E%E5%BA%94%E5%86%99%E7%BB%99%E5%94%90%E8%89%BA%E6%98%95%E5%A4%87%E5%BF%98%E5%BD%95%E7%88%86%E7%81%AB%23",
-              "tag": "娱乐",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "TheShy蝉联周最佳上单",
-              "summary": "LPL选手TheShy蝉联周最佳上单，电竞圈粉丝热议其状态回升与赛场表现。",
-              "source": "微博热搜",
-              "url": "https://s.weibo.com/weibo?q=%23TheShy%E8%9D%89%E8%81%94%E5%91%A8%E6%9C%80%E4%BD%B3%E4%B8%8A%E5%8D%95%23",
-              "tag": "电竞",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "大冰直播假牙掉了",
-              "summary": "作家大冰直播过程中假牙突然掉落，真实反应逗乐观众，相关片段迅速传播。",
-              "source": "微博热搜",
-              "url": "https://s.weibo.com/weibo?q=%E5%A4%A7%E5%86%B0%E7%9B%B4%E6%92%AD%E5%81%87%E7%89%99%E6%8E%89%E4%BA%86",
-              "tag": "娱乐",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "上海雪花膏破产",
-              "summary": "老牌国货上海雪花膏所属公司美兰破产清算，一代国民品牌的退场引发集体怀旧。",
-              "source": "微博热搜",
-              "url": "https://s.weibo.com/weibo?q=%23%E4%B8%8A%E6%B5%B7%E9%9B%AA%E8%8A%B1%E8%86%8F%E7%A0%B4%E4%BA%A7%23",
-              "tag": "消费",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "禁止将本书用于人工智能训练",
-              "summary": "越来越多书籍标注「禁止用于AI训练」声明，AI训练数据版权争议持续升温。",
-              "source": "微博热搜",
-              "url": "https://s.weibo.com/weibo?q=%E7%A6%81%E6%AD%A2%E5%B0%86%E6%9C%AC%E4%B9%A6%E7%94%A8%E4%BA%8E%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%AE%AD%E7%BB%83",
-              "tag": "AI",
-              "date": "2026-08-05"
-            },
-            {
-              "title": "清风抽检不合格",
-              "summary": "清风品牌纸巾产品抽检不合格消息引发关注，日用品质量安全话题再成焦点。",
-              "source": "微博热搜",
-              "url": "https://s.weibo.com/weibo?q=%E6%B8%85%E9%A3%8E+%E6%8A%BD%E6%A3%80%E4%B8%8D%E5%90%88%E6%A0%BC",
-              "tag": "消费",
-              "date": "2026-08-05"
             }
           ]
         }

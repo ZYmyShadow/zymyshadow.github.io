@@ -214,5 +214,41 @@
     "tags": ["自动驾驶", "L3", "L4", "智能网联汽车", "国标"],
     "url": "/articles/series-ai/autonomous-driving-standard.html",
     "date": "2026-08-08"
+  },
+  {
+    "id": "series-life-article-04",
+    "title": "立秋后紫外线科学：秋老虎期间UV指数与防晒备忘",
+    "summary": "立秋不等于紫外线消失。本文整理UV指数分级标准、UVA与UVB的波长差异及秋季变化规律，拆解四个常见防晒误区，给出可操作的秋季防晒备忘清单。",
+    "series": "个人知识库",
+    "tags": ["紫外线", "立秋防晒", "UV指数", "皮肤健康", "科学防晒"],
+    "url": "/articles/series-life/uv-autumn-protection.html",
+    "date": "2026-08-09"
+  },
+  {
+    "id": "series-game-article-01",
+    "title": "GTA 6 三次跳票背后的期待经济：一款游戏如何让全球玩家心甘情愿苦等十三年",
+    "summary": "一款游戏延期两次、预告片播放量破2.5亿，玩家却越等越投入。从GTA 6三次跳票的真实时间线切入，结合GTA5累计2亿份销量与Take-Two财报数据，拆解期待经济如何把等待本身变成可货币化的资产。",
+    "series": "游戏资讯",
+    "tags": ["GTA6", "游戏文化", "期待经济", "饥饿营销", "注意力经济"],
+    "url": "/articles/series-game/gta6-anticipation-economy.html",
+    "date": "2026-08-09"
+  },
+  {
+    "id": "series-ai-article-08",
+    "title": "Agentic AI技术转向：2026年AI从对话走向自主执行的拐点与落地真相",
+    "summary": "2026年Agentic AI正从概念走向落地，但真实生产部署率仅17%。本文从定义、巨头基建博弈、框架选型到落地卡点，拆解这场从回答问题到自主执行的技术转向，给出一套可操作的跟进路径。",
+    "series": "AI系列",
+    "tags": ["Agentic AI", "AI Agent", "智能体", "技术趋势", "MCP协议", "AI治理"],
+    "url": "/articles/series-ai/agentic-ai-shift.html",
+    "date": "2026-08-09"
+  },
+  {
+    "id": "series-li-article-04",
+    "title": "台风白海豚正面登陆浙江：当强台风撞上城市韧性这道必答题",
+    "summary": "2026年第13号台风白海豚以强台风级正面扑向浙江。这不是一场孤立的灾害，而是极端天气高频化对城市旧有设防标准的一次集中体检。从IT视角拆解城市韧性的三层防线。",
+    "series": "里世界",
+    "tags": ["台风白海豚", "城市韧性", "极端天气", "海绵城市", "深度思考"],
+    "url": "/articles/series-li/typhoon-dolphin-urban-resilience.html",
+    "date": "2026-08-09"
   }
 ]
