@@ -250,5 +250,32 @@
     "tags": ["台风白海豚", "城市韧性", "极端天气", "海绵城市", "深度思考"],
     "url": "/articles/series-li/typhoon-dolphin-urban-resilience.html",
     "date": "2026-08-09"
+  },
+  {
+    "id": "series-li-article-05",
+    "title": "610亿市值的人形机器人第一股：宇树打新，捡漏还是接盘？",
+    "summary": "宇树科技以610亿发行市值登陆科创板，成为A股人形机器人第一股。2025年扣非净利润5.91亿元、出货5511台、全球市占率32.4%。但610亿对应103倍扣非PE，远超传统制造业估值逻辑。本文从技术脑视角拆解事实与泡沫，给普通投资者一套判断框架。",
+    "series": "里世界",
+    "tags": ["宇树科技打新", "人形机器人", "科创板IPO", "估值分析"],
+    "url": "/articles/series-li/unitree-robot-ipo.html",
+    "date": "2026-08-10"
+  },
+  {
+    "id": "series-game-article-02",
+    "title": "8月游戏圈热点观察：93分黑马、两周年悬案与没有3A的暑期档",
+    "summary": "2026年8月游戏圈没有3A大作压阵，却格外热闹。《Big Walk》以Metacritic 93分登顶年度评分榜，证明创意比预算重要；《黑神话：悟空》迎来发售两周年DLC依然难产。用技术脑拆解这三件事背后的产业信号。",
+    "series": "游戏资讯",
+    "tags": ["Big Walk", "黑神话悟空", "独立游戏", "游戏产业分析", "Metacritic评分"],
+    "url": "/articles/series-game/august-gaming-hotspot.html",
+    "date": "2026-08-10"
+  },
+  {
+    "id": "series-life-article-05",
+    "title": "成品油调价机制与加油省钱攻略：搞懂规则再加油",
+    "summary": "2026年第16轮成品油调价窗口锁定8月14日24时，下调预期明确。本文系统梳理国内成品油定价机制底层逻辑（10个工作日周期、50元门槛、40至130美元上下限），拆解2026年至今10涨4跌1搁浅走势规律，给出一套普通人能直接执行的加油省钱攻略。",
+    "series": "个人知识库",
+    "tags": ["成品油调价", "加油省钱", "定价机制", "油价预测"],
+    "url": "/articles/series-life/oil-pricing-guide.html",
+    "date": "2026-08-10"
   }
 ]
