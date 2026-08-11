@@ -115,6 +115,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://zymyshadow.github.io/articles/series-game/steam-indie-game-rules.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zymyshadow.github.io/articles/series-game/coop-indie-game-boom.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zymyshadow.github.io/articles/series-game/nomanssky-10years.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://zymyshadow.github.io/articles/series-dev/ide-editors.html</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>

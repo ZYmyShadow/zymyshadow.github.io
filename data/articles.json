@@ -277,5 +277,32 @@
     "tags": ["成品油调价", "加油省钱", "定价机制", "油价预测"],
     "url": "/articles/series-life/oil-pricing-guide.html",
     "date": "2026-08-10"
+  },
+  {
+    "id": "series-game-article-03",
+    "title": "2人团队16天千万销量：Steam独立游戏正在改写行业规则",
+    "summary": "从《超级变色龙》2人团队16天千万销量的极端案例切入，拆解独立游戏的成本结构、病毒传播机制与定价逻辑，并以《明末渊虚之羽》IP易主案为对照，分析Steam独立游戏如何重塑行业权力格局及其背后的冷思考。",
+    "series": "游戏资讯",
+    "tags": ["独立游戏", "Steam", "游戏产业分析", "派对游戏", "定价策略"],
+    "url": "/articles/series-game/steam-indie-game-rules.html",
+    "date": "2026-08-11"
+  },
+  {
+    "id": "series-game-article-04",
+    "title": "从Big Walk到Peak：2026年合作独立游戏为什么集体爆发",
+    "summary": "2026年8月，Big Walk与Peak两款合作独立游戏同时占据话题中心。本文从社交需求沉淀、物理引擎玩法创新、小团队品类卡位三个维度，分析合作游戏品类为什么在2026年集体爆发。",
+    "series": "游戏资讯",
+    "tags": ["合作游戏", "独立游戏", "Big Walk", "Peak", "游戏趋势分析"],
+    "url": "/articles/series-game/coop-indie-game-boom.html",
+    "date": "2026-08-11"
+  },
+  {
+    "id": "series-game-article-05",
+    "title": "《无人深空》十年40次免费更新：独立游戏史上最极致的口碑逆袭",
+    "summary": "2016年发售即翻车，2026年玩家在线创十年新高。《无人深空》用40次免费更新完成游戏史上最极致的口碑逆袭，这背后的沉默式长期主义值得每一个产品人和内容创作者深思。",
+    "series": "游戏资讯",
+    "tags": ["无人深空", "NoMansSky", "独立游戏", "口碑逆袭", "长期主义"],
+    "url": "/articles/series-game/nomanssky-10years.html",
+    "date": "2026-08-11"
   }
 ]
