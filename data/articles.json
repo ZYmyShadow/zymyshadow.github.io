@@ -304,5 +304,23 @@
     "tags": ["无人深空", "NoMansSky", "独立游戏", "口碑逆袭", "长期主义"],
     "url": "/articles/series-game/nomanssky-10years.html",
     "date": "2026-08-11"
+  },
+  {
+    "id": "series-ai-article-09",
+    "title": "Gemini月活破10亿：Google的AI助手如何成为史上增长最快的产品",
+    "summary": "2026年8月11日，Google CEO皮查伊宣布Gemini月活突破10亿，成为谷歌史上增速最快的产品。本文从增长拆解、用户行为洞察、竞争格局与隐忧三个维度，审视10亿月活背后的真实增长质量，并修正了Q2财报月活数据的常见误传。",
+    "series": "AI系列",
+    "tags": ["Gemini", "Google AI", "AI月活分析", "AI竞争格局", "多模态AI助手"],
+    "url": "/articles/series-ai/gemini-1b-mau.html",
+    "date": "2026-08-12"
+  },
+  {
+    "id": "series-game-article-06",
+    "title": "8月中旬Steam独立游戏发售日历：哪些值得放入愿望单",
+    "summary": "从8月12日至14日Steam独立游戏扎堆发售的现象切入，按发售日期梳理值得关注的独立游戏，重点深扒Grave Seasons、Low-Budget Repairs、Capy Castaway三款作品，并按四类玩家给出愿望单推荐清单。",
+    "series": "游戏资讯",
+    "tags": ["Steam独立游戏", "发售日历", "愿望单推荐", "8月新游"],
+    "url": "/articles/series-game/august-mid-indie-calendar.html",
+    "date": "2026-08-12"
   }
 ]
