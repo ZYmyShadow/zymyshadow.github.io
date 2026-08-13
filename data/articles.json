@@ -322,5 +322,23 @@
     "tags": ["Steam独立游戏", "发售日历", "愿望单推荐", "8月新游"],
     "url": "/articles/series-game/august-mid-indie-calendar.html",
     "date": "2026-08-12"
+  },
+  {
+    "id": "series-game-article-07",
+    "title": "Warhammer 40K战争黎明4定档12月：经典RTS系列能否打破策略游戏品类困局",
+    "summary": "2026年8月12日，开发商KING Art Games宣布《战锤40K：战争黎明4》从9月17日延期至12月3日发售。本文从战争黎明系列二十二年演进史、RTS品类的结构性萎缩、以及9月到12月的档期博弈三个维度，拆解这款经典RTS复活之作面临的机遇与困局。",
+    "series": "游戏资讯",
+    "tags": ["Warhammer40K", "战争黎明4", "RTS游戏", "游戏延期", "游戏产业观察"],
+    "url": "/articles/series-game/dawn-of-war-4-rts.html",
+    "date": "2026-08-13"
+  },
+  {
+    "id": "series-ai-article-10",
+    "title": "DeepSeek V4 Pro正式版上线：0.1分差距背后的Agent能力突围",
+    "summary": "2026年8月13日凌晨，DeepSeek V4 Pro正式版上线，Terminal-Bench 2.1跑出87.9分，仅落后全球第一的Anthropic Fable 5共0.1分，并在CyberGym和AutomationBench两项Agent评测中实现反超。本文从定价结构、Agent能力突破、竞争格局三个维度，拆解这场0.1分追赶背后的产业信号。",
+    "series": "AI系列",
+    "tags": ["DeepSeek", "AI Agent", "大模型定价", "Terminal-Bench评测", "国产开源大模型"],
+    "url": "/articles/series-ai/deepseek-v4-pro-agent.html",
+    "date": "2026-08-13"
   }
 ]

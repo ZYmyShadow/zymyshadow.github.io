@@ -145,6 +145,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://zymyshadow.github.io/articles/series-game/dawn-of-war-4-rts.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zymyshadow.github.io/articles/series-ai/deepseek-v4-pro-agent.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://zymyshadow.github.io/articles/series-dev/ide-editors.html</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
