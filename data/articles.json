@@ -340,5 +340,14 @@
     "tags": ["DeepSeek", "AI Agent", "大模型定价", "Terminal-Bench评测", "国产开源大模型"],
     "url": "/articles/series-ai/deepseek-v4-pro-agent.html",
     "date": "2026-08-13"
+  },
+  {
+    "id": "series-game-article-08",
+    "title": "Mortal Shell II定档8月20日：独立类魂游戏的生存突围",
+    "summary": "2026年8月20日，Cold Symmetry开发的独立类魂游戏《Mortal Shell II》将在PC、PS5、Xbox Series同步发售，标准版定价49.99美元。本文从Mortal Shell系列六年的产品跃迁、独立类魂游戏在3A化魂系时代的生存夹缝、以及移除体力条这一激进改动的风险与机遇三个维度，拆解这款独立续作面临的突围困境。",
+    "series": "游戏资讯",
+    "tags": ["MortalShell2", "类魂游戏", "独立游戏产业", "ColdSymmetry", "游戏定价策略"],
+    "url": "/articles/series-game/mortal-shell-2-soulslike.html",
+    "date": "2026-08-14"
   }
 ]

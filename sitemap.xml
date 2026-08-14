@@ -157,6 +157,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://zymyshadow.github.io/articles/series-game/mortal-shell-2-soulslike.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://zymyshadow.github.io/articles/series-dev/ide-editors.html</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
