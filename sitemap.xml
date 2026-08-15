@@ -163,6 +163,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://zymyshadow.github.io/articles/series-game/escape-from-duckov.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zymyshadow.github.io/articles/series-ai/deepseek-harness-open-source.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://zymyshadow.github.io/articles/series-dev/ide-editors.html</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>

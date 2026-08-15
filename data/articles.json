@@ -349,5 +349,23 @@
     "tags": ["MortalShell2", "类魂游戏", "独立游戏产业", "ColdSymmetry", "游戏定价策略"],
     "url": "/articles/series-game/mortal-shell-2-soulslike.html",
     "date": "2026-08-14"
+  },
+  {
+    "id": "series-game-article-09",
+    "title": "《逃离鸭科夫》380万套销量：又一匹独立游戏黑马的爆发逻辑",
+    "summary": "从5人团队做出380万套销量的《逃离鸭科夫》切入，拆解这款撤离射击黑马的产品降门槛策略、梗文化传播机制与团队方法论，分析独立游戏用聚焦和创意替代堆料的爆发逻辑。",
+    "series": "游戏资讯",
+    "tags": ["独立游戏", "撤离射击", "游戏产业分析", "病毒传播", "小团队开发"],
+    "url": "/articles/series-game/escape-from-duckov.html",
+    "date": "2026-08-15"
+  },
+  {
+    "id": "series-ai-article-11",
+    "title": "MIT权重开放与Harness框架开源：DeepSeek如何补齐国产AI Agent工具链",
+    "summary": "2026年8月13日，DeepSeek V4 Pro正式版以MIT许可证开放1.6万亿参数MoE权重下载，同步开源基于Cordis的Agent框架Harness（dsh）。本文从MIT权重的战略意义、Harness的一切皆插件设计、API涨价推力三个维度，拆解DeepSeek从开放API服务到开放模型权重加补齐工具链的定位转变。",
+    "series": "AI系列",
+    "tags": ["DeepSeek V4 Pro", "MIT开源权重", "Harness框架", "AI Agent工具链", "私有化部署"],
+    "url": "/articles/series-ai/deepseek-harness-open-source.html",
+    "date": "2026-08-15"
   }
 ]
