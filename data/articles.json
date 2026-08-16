@@ -367,5 +367,14 @@
     "tags": ["DeepSeek V4 Pro", "MIT开源权重", "Harness框架", "AI Agent工具链", "私有化部署"],
     "url": "/articles/series-ai/deepseek-harness-open-source.html",
     "date": "2026-08-15"
+  },
+  {
+    "id": "series-game-article-10",
+    "title": "《影之刃零》2小时登顶Steam全球热销榜：国产动作独立游戏的破圈时刻",
+    "summary": "从《影之刃零》预售2小时登顶Steam全球热销榜切入，拆解162万愿望单、26万预购、索尼专场State of Play背后的全球关注度，分析灵游坊从手游到3A单机的产品力跃迁，并与《逃离鸭科夫》薄利多销路径对比，探讨国产独立游戏高溢价内容驱动的第二条突围路径。",
+    "series": "游戏资讯",
+    "tags": ["独立游戏", "影之刃零", "游戏产业分析", "国产单机", "Steam热销榜"],
+    "url": "/articles/series-game/phantom-blade-zero-steam.html",
+    "date": "2026-08-16"
   }
 ]
