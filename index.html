@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>修仙藏书阁 · 知识库 / 热点情报 / 游戏攻略 / 网址导航</title>
-  <meta name="description" content="修仙藏书阁：收录知识库文章、热点情报、游戏攻略与网址导航的个人小站。人工甄选、AI 归纳、持续更新，纯静态驱动。">
-  <meta property="og:title" content="修仙藏书阁 · 知识库 / 热点情报 / 游戏攻略 / 导航">
-  <meta property="og:description" content="人工甄选、AI 归纳、持续更新的数字藏书阁。">
+  <title>修仙藏书阁 · 游戏资讯 / 游戏攻略 / 独立游戏开发</title>
+  <meta name="description" content="修仙藏书阁：一个独立游戏开发者的游戏藏书阁——游戏资讯、攻略与开发笔记，人工甄选，持续更新。">
+  <meta property="og:title" content="修仙藏书阁 · 游戏资讯 / 游戏攻略 / 独立游戏开发">
+  <meta property="og:description" content="一个独立游戏开发者的游戏藏书阁——游戏资讯、攻略与开发笔记。">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://zymyshadow.github.io/assets/images/og-cover.jpg">
 
@@ -51,29 +51,27 @@
       <div class="masthead-top mono">
         <span id="mast-date">---------- · --</span>
         <span class="mast-open">开阁第 <b id="open-day">1</b> 天</span>
-        <span class="mast-sync"><i class="pulse"></i>热点情报已同步</span>
+        <span class="mast-sync"><i class="pulse"></i>游戏资讯已同步</span>
       </div>
 
       <div class="masthead-grid">
         <div class="masthead-main">
-          <p class="mast-kicker mono">KNOWLEDGE · INTEL · GUIDES · NAV — EST. 2026</p>
+          <p class="mast-kicker mono">GAME NEWS · GUIDES · DEV — EST. 2026</p>
           <h1 class="mast-title">修仙藏书阁</h1>
           <p class="mast-sub">
-            一座收录<b>知识库文章</b>、<b>热点情报</b>、<b>游戏攻略</b>与<b>网址导航</b>的数字藏书阁——人工甄选，AI 归纳，每次 push 即上线。
+            一个独立游戏开发者的游戏藏书阁——<b>游戏资讯</b>、<b>攻略心得</b>与<b>开发笔记</b>，人工甄选，每次 push 即上线。
           </p>
 
           <form class="search-bar" action="search.html" method="get" role="search">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-            <input id="site-search-input" type="search" name="q" placeholder="检索文章、攻略、导航…" autocomplete="off" required>
+            <input id="site-search-input" type="search" name="q" placeholder="检索资讯、攻略…" autocomplete="off" required>
             <kbd>/</kbd>
             <button type="submit">搜索</button>
           </form>
 
           <ul class="mast-stats mono">
             <li>收录文章 <b id="stat-articles">–</b> 篇</li>
-            <li>热点情报 <b id="stat-news">–</b> 条</li>
             <li>游戏专区 <b id="stat-games">–</b> 款</li>
-            <li>导航站 <b id="stat-nav">–</b> 站</li>
           </ul>
         </div>
 
@@ -84,31 +82,20 @@
       </div>
     </header>
 
-    <!-- ============ 01 热点情报 ============ -->
-    <section class="section" id="news">
-      <div class="section-head reveal">
-        <span class="section-index mono">01</span>
-        <h2 class="section-title">热点情报</h2>
-        <span class="section-note mono">最后更新 <b id="news-updated">----------</b></span>
-        <a class="section-more" href="news/index.html">全部热点 →</a>
-      </div>
-      <div id="news-box" class="reveal"></div>
-    </section>
-
-    <!-- ============ 02 文章系列 ============ -->
+    <!-- ============ 01 游戏资讯 ============ -->
     <section class="section" id="articles">
       <div class="section-head reveal">
-        <span class="section-index mono">02</span>
-        <h2 class="section-title">文章系列</h2>
-        <a class="section-more" href="articles/index.html">进入知识库 →</a>
+        <span class="section-index mono">01</span>
+        <h2 class="section-title">游戏资讯</h2>
+        <a class="section-more" href="articles/index.html">全部资讯 →</a>
       </div>
       <div id="series-box" class="games-grid reveal"></div>
     </section>
 
-    <!-- ============ 03 游戏专区 ============ -->
+    <!-- ============ 02 游戏专区 ============ -->
     <section class="section" id="games">
       <div class="section-head reveal">
-        <span class="section-index mono">03</span>
+        <span class="section-index mono">02</span>
         <h2 class="section-title">游戏专区</h2>
         <a class="section-more" href="games/index.html">攻略总入口 →</a>
       </div>
@@ -164,16 +151,6 @@
           '<span class="mono">若为本地双击打开（file://），浏览器会拦截 JSON 请求——请改用本地静态服务器预览，例如：python -m http.server</span></div>';
       }
 
-      /* 热点情报（首页只显示最近 2 天） */
-      loadJSON('news/data/hot-news.json')
-        .then(function (data) {
-          RL.renderNewsRecent($('#news-box'), data);
-          var total = data.categories.reduce(function (n, c) { return n + (c.items || []).length; }, 0);
-          $('#stat-news').textContent = total;
-          observeReveals();
-        })
-        .catch(function () { failTip($('#news-box'), '热点数据'); });
-
       /* 文章系列 */
       loadJSON('data/articles.json')
         .then(function (list) {
@@ -201,14 +178,6 @@
           });
         })
         .catch(function () { failTip($('#games-box'), '游戏数据'); });
-
-      /* 导航站统计 */
-      loadJSON('data/nav-links.json')
-        .then(function (data) {
-          var n = data.categories.reduce(function (sum, c) { return sum + (c.items || []).length; }, 0);
-          $('#stat-nav').textContent = n;
-        })
-        .catch(function () { /* 静默失败，不影响首页 */ });
 
       /* ---- 滚动浮现动画 ---- */
       var io = null;

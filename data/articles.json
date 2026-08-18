@@ -1,230 +1,5 @@
 [
   {
-    "id": "series-sec-article-01",
-    "title": "Linux安全加固",
-    "summary": "从身份鉴别、访问控制、安全审计、资源控制、入侵防范五个方面系统整理Linux服务器加固要点，涵盖/etc/login.defs、sshd_config、rsyslog.conf等关键配置文件。",
-    "series": "个人知识库",
-    "tags": ["Linux", "加固", "备忘录"],
-    "url": "/articles/series-sec/linux-sec.html",
-    "date": "2022-09-23"
-  },
-  {
-    "id": "series-sec-article-02",
-    "title": "中华人民共和国网络安全法",
-    "summary": "全文收录《中华人民共和国网络安全法》七章七十九条，涵盖网络运行安全、关键信息基础设施保护、网络信息安全、监测预警与应急处置及法律责任。",
-    "series": "个人知识库",
-    "tags": ["法律", "合规"],
-    "url": "/articles/series-sec/cybersecurity-law.html",
-    "date": "2022-09-13"
-  },
-  {
-    "id": "series-sec-article-03",
-    "title": "网络安全工具",
-    "summary": "整理Nessus、Wireshark、Metasploit、Nmap、Burp Suite等数十款经典网络安全工具的功能定位与使用场景，覆盖漏洞扫描、嗅探、渗透、密码破解等领域。",
-    "series": "个人知识库",
-    "tags": ["工具集", "渗透测试"],
-    "url": "/articles/series-sec/cyber-tools.html",
-    "date": "2022-09-15"
-  },
-  {
-    "id": "series-sec-article-04",
-    "title": "信息收集流程",
-    "summary": "企业级渗透测试信息收集全流程：从扫描器探测、DNS域传送漏洞、子域名爆破、备案查询、SSL状态查询到APP反编译和Google/百度搜索收集。",
-    "series": "个人知识库",
-    "tags": ["渗透测试", "信息收集"],
-    "url": "/articles/series-sec/info-collection.html",
-    "date": "2022-09-23"
-  },
-  {
-    "id": "series-sec-article-05",
-    "title": "等保流程",
-    "summary": "网络安全等级保护测评全流程梳理：明确目标→信息收集→漏洞探测→漏洞验证→信息分析→获取需求→信息整理→形成报告，附每阶段操作要点。",
-    "series": "个人知识库",
-    "tags": ["等保", "合规"],
-    "url": "/articles/series-sec/level-protect.html",
-    "date": "2022-09-23"
-  },
-  {
-    "id": "series-sec-article-06",
-    "title": "NMAP帮助文档",
-    "summary": "Nmap官方帮助文档中文说明及常用选项解析，覆盖主机发现、端口扫描技术（SYN/ACK/UDP/FIN/Xmas等）、服务版本探测、操作系统探测、防火墙躲避与输出格式。",
-    "series": "个人知识库",
-    "tags": ["Nmap", "工具集", "端口扫描"],
-    "url": "/articles/series-sec/nmap-help.html",
-    "date": "2022-09-06"
-  },
-  {
-    "id": "series-sec-article-07",
-    "title": "逆向工具",
-    "summary": "整理IDA、OllyDbg、x64dbg、JAD、dotPeek、dnSpy、radare2等主流逆向工程与反编译工具，覆盖Java/.NET/Android/二进制多平台。",
-    "series": "个人知识库",
-    "tags": ["逆向工程", "工具集"],
-    "url": "/articles/series-sec/reverse-tools.html",
-    "date": "2022-09-16"
-  },
-  {
-    "id": "series-dev-article-01",
-    "title": "Springboot初始化框架整合（一）",
-    "summary": "Springboot + spring-data-jpa + MySQL 初始化框架整合教程，涵盖项目创建、pom.xml配置、application.properties数据库配置、Bean/Controller/Repository/Service四层代码样例。",
-    "series": "个人知识库",
-    "tags": ["Springboot", "Java", "框架整合"],
-    "url": "/articles/series-dev/springboot-01.html",
-    "date": "2022-11-18"
-  },
-  {
-    "id": "series-dev-article-02",
-    "title": "Springboot初始化框架整合（二）",
-    "summary": "在上一份框架基础上新增logback-spring日志处理框架配置，讲解SpringBoot默认日志行为、logback-spring.xml自定义配置（控制台/文件/Error日志分离）、debug/release环境切换。",
-    "series": "个人知识库",
-    "tags": ["Springboot", "Logback", "日志"],
-    "url": "/articles/series-dev/springboot-logback.html",
-    "date": "2022-11-19"
-  },
-  {
-    "id": "series-dev-article-03",
-    "title": "IDE和编辑器整理",
-    "summary": "按语言分类整理主流IDE和编辑器：JetBrains全家桶、VS Code、Eclipse、IntelliJ IDEA、PyCharm、CLion、WebStorm等，另附逆向工具（IDA/ILSpy/dotPeek）专项整理。",
-    "series": "个人知识库",
-    "tags": ["工具集", "IDE"],
-    "url": "/articles/series-dev/ide-editors.html",
-    "date": "2022-09-17"
-  },
-  {
-    "id": "series-dev-article-04",
-    "title": "Tag Plugins Plus & Kmark语法",
-    "summary": "基于Butterfly主题的外挂标签插件完整使用文档，涵盖tip/note/folding/timeline/checkbox/radio/link/ghcard/btns/sites/gallery/progress等20余种标签的语法、参数与样式预览。",
-    "series": "个人知识库",
-    "tags": ["Hexo", "Butterfly", "博客"],
-    "url": "/articles/series-dev/tag-plugins.html",
-    "date": "2022-08-30"
-  },
-  {
-    "id": "series-life-article-01",
-    "title": "用干电池的无线键鼠-购买指南",
-    "summary": "从罗技G304/G603、雷蛇小巴蛇/炼狱蝰蛇V2X、赛睿rival3无线版等热门干电池无线鼠标，到IKBC/GANSS/洛斐/HHKB等键盘，逐一列出型号、连接方式、电池规格与使用体验。",
-    "series": "个人知识库",
-    "tags": ["购买指南", "外设"],
-    "url": "/articles/series-life/wireless-peripherals.html",
-    "date": "2022-09-23"
-  },
-  {
-    "id": "series-life-article-02",
-    "title": "显示器推荐-购买指南",
-    "summary": "从程序员实际体验出发详解显示器十大参数：尺寸与观看距离的关系、分辨率配比、刷新率选择、响应时间、色域/色深/色准、接口（HDMI/DP/Type-C）、面板（IPS/VA/TN）、同步技术。",
-    "series": "个人知识库",
-    "tags": ["购买指南", "显示器"],
-    "url": "/articles/series-life/display-guide.html",
-    "date": "2022-10-23"
-  },
-  {
-    "id": "series-life-article-03",
-    "title": "食品国家执行标准",
-    "summary": "整理食用油、食用盐、食用醋、大米、酱油、茶叶（红/乌龙/绿/黑/白/黄）、冷冻饮品、酒类等常见食品的国家执行标准编号（GB/GB/T），方便查询比对。",
-    "series": "个人知识库",
-    "tags": ["科普", "食品安全"],
-    "url": "/articles/series-life/food-standards.html",
-    "date": "2022-10-07"
-  },
-  {
-    "id": "series-ai-article-01",
-    "title": "大语言模型入门指南",
-    "summary": "从GPT、LLaMA到千问，系统梳理大语言模型的核心概念、技术架构与主流开源模型对比，帮助初学者建立完整的LLM知识框架。",
-    "series": "AI系列",
-    "tags": ["LLM", "科普", "入门"],
-    "url": "/articles/series-ai/llm-intro.html",
-    "date": "2026-07-15"
-  },
-  {
-    "id": "series-ai-article-02",
-    "title": "Prompt Engineering 实用技巧整理",
-    "summary": "整理提示词工程的核心技巧：角色设定、Few-shot示例、思维链(CoT)、输出格式控制等，附带大量实际案例与效果对比。",
-    "series": "AI系列",
-    "tags": ["Prompt", "技巧", "实战"],
-    "url": "/articles/series-ai/prompt-tips.html",
-    "date": "2026-07-20"
-  },
-  {
-    "id": "series-ai-article-03",
-    "title": "AI绘图工具横向对比",
-    "summary": "对比Stable Diffusion、Midjourney、DALL-E 3、ComfyUI等主流AI绘图工具，从画质、可控性、部署方式、价格等维度给出选型建议。",
-    "series": "AI系列",
-    "tags": ["AI绘图", "工具集", "对比"],
-    "url": "/articles/series-ai/ai-drawing-tools.html",
-    "date": "2026-07-25"
-  },
-  {
-    "id": "series-ai-article-04",
-    "title": "本地部署开源大模型实战",
-    "summary": "使用Ollama + Open WebUI在本地部署LLaMA、Qwen等开源大模型的完整教程，涵盖硬件需求、模型下载、API调用与常见问题排查。",
-    "series": "AI系列",
-    "tags": ["部署", "Ollama", "实战"],
-    "url": "/articles/series-ai/local-llm-deploy.html",
-    "date": "2026-07-28"
-  },
-  {
-    "id": "series-li-article-01",
-    "title": "AI内容必须标注：欧盟AI法案对创作者意味着什么",
-    "summary": "2026年8月2日欧盟AI法案透明度条款正式生效，AI生成内容必须标注。从自媒体创作者视角深度思考：这对用AI辅助写作的普通人意味着什么？该焦虑还是拥抱？",
-    "series": "里世界",
-    "tags": ["AI法案", "内容创作", "AI标注", "深度思考"],
-    "url": "/articles/series-li/ai-content-labeling.html",
-    "date": "2026-08-07"
-  },
-  {
-    "id": "series-ai-article-05",
-    "title": "2026年AI编程工具怎么选：Cursor、Claude Code、Trae深度对比",
-    "summary": "从真实开发场景出发，对比Cursor、Claude Code、Trae三款主流AI编程工具的定位、能力、价格与适用人群，帮你找到最适合自己的那一款。",
-    "series": "AI系列",
-    "tags": ["AI编程", "Cursor", "Claude Code", "Trae"],
-    "url": "/articles/series-ai/ai-coding-tools.html",
-    "date": "2026-08-07"
-  },
-  {
-    "id": "series-li-article-02",
-    "title": "科学界给AI意识判了死刑：这个结论为什么反而让人不安",
-    "summary": "2026年8月，科学界给出明确结论：现阶段AI不存在主观意识。但这个判词反而暴露了更深层的问题——当AI能完美模拟意识行为时，有没有意识这个区分对普通人还有多少意义？",
-    "series": "里世界",
-    "tags": ["AI意识", "人工智能", "概率引擎", "深度思考"],
-    "url": "/articles/series-li/ai-consciousness.html",
-    "date": "2026-08-08"
-  },
-  {
-    "id": "series-li-article-03",
-    "title": "72亿票房遇上大额存单热销：2026年消费分化的真相",
-    "summary": "一边暑期档票房突破75亿连续23天破亿，一边大额存单被疯抢。看似矛盾的消费行为同时爆发，背后是2026年消费心理的深度分化：情绪消费崛起，安全感储蓄回归。",
-    "series": "里世界",
-    "tags": ["消费分化", "暑期档票房", "大额存单", "消费心理"],
-    "url": "/articles/series-li/consumer-divergence.html",
-    "date": "2026-08-08"
-  },
-  {
-    "id": "series-ai-article-06",
-    "title": "从零到一搭建 Hermes Agent：一个IT人的真实踩坑记录",
-    "summary": "Hermes Agent 是 Nous Research 开源的自进化 AI 智能体框架。本文记录从环境准备、安装配置到模型接入的完整搭建过程和踩过的坑，末尾附桌面版快速体验方案。",
-    "series": "AI系列",
-    "tags": ["Hermes Agent", "AI Agent", "部署教程", "踩坑记录"],
-    "url": "/articles/series-ai/hermes-agent-setup.html",
-    "date": "2026-08-08"
-  },
-  {
-    "id": "series-ai-article-07",
-    "title": "自动驾驶L3/L4国标2027年实施：对你的车和钱包意味着什么",
-    "summary": "2026年8月，工信部发布首部L3/L4自动驾驶强制国标GB 44721-2026，2027年7月起实施。车企不能再喊L2.999，普通人买车用车将迎来哪些实质变化？这篇用大白话拆解清楚。",
-    "series": "AI系列",
-    "tags": ["自动驾驶", "L3", "L4", "智能网联汽车", "国标"],
-    "url": "/articles/series-ai/autonomous-driving-standard.html",
-    "date": "2026-08-08"
-  },
-  {
-    "id": "series-life-article-04",
-    "title": "立秋后紫外线科学：秋老虎期间UV指数与防晒备忘",
-    "summary": "立秋不等于紫外线消失。本文整理UV指数分级标准、UVA与UVB的波长差异及秋季变化规律，拆解四个常见防晒误区，给出可操作的秋季防晒备忘清单。",
-    "series": "个人知识库",
-    "tags": ["紫外线", "立秋防晒", "UV指数", "皮肤健康", "科学防晒"],
-    "url": "/articles/series-life/uv-autumn-protection.html",
-    "date": "2026-08-09"
-  },
-  {
     "id": "series-game-article-01",
     "title": "GTA 6 三次跳票背后的期待经济：一款游戏如何让全球玩家心甘情愿苦等十三年",
     "summary": "一款游戏延期两次、预告片播放量破2.5亿，玩家却越等越投入。从GTA 6三次跳票的真实时间线切入，结合GTA5累计2亿份销量与Take-Two财报数据，拆解期待经济如何把等待本身变成可货币化的资产。",
@@ -234,48 +9,12 @@
     "date": "2026-08-09"
   },
   {
-    "id": "series-ai-article-08",
-    "title": "Agentic AI技术转向：2026年AI从对话走向自主执行的拐点与落地真相",
-    "summary": "2026年Agentic AI正从概念走向落地，但真实生产部署率仅17%。本文从定义、巨头基建博弈、框架选型到落地卡点，拆解这场从回答问题到自主执行的技术转向，给出一套可操作的跟进路径。",
-    "series": "AI系列",
-    "tags": ["Agentic AI", "AI Agent", "智能体", "技术趋势", "MCP协议", "AI治理"],
-    "url": "/articles/series-ai/agentic-ai-shift.html",
-    "date": "2026-08-09"
-  },
-  {
-    "id": "series-li-article-04",
-    "title": "台风白海豚正面登陆浙江：当强台风撞上城市韧性这道必答题",
-    "summary": "2026年第13号台风白海豚以强台风级正面扑向浙江。这不是一场孤立的灾害，而是极端天气高频化对城市旧有设防标准的一次集中体检。从IT视角拆解城市韧性的三层防线。",
-    "series": "里世界",
-    "tags": ["台风白海豚", "城市韧性", "极端天气", "海绵城市", "深度思考"],
-    "url": "/articles/series-li/typhoon-dolphin-urban-resilience.html",
-    "date": "2026-08-09"
-  },
-  {
-    "id": "series-li-article-05",
-    "title": "610亿市值的人形机器人第一股：宇树打新，捡漏还是接盘？",
-    "summary": "宇树科技以610亿发行市值登陆科创板，成为A股人形机器人第一股。2025年扣非净利润5.91亿元、出货5511台、全球市占率32.4%。但610亿对应103倍扣非PE，远超传统制造业估值逻辑。本文从技术脑视角拆解事实与泡沫，给普通投资者一套判断框架。",
-    "series": "里世界",
-    "tags": ["宇树科技打新", "人形机器人", "科创板IPO", "估值分析"],
-    "url": "/articles/series-li/unitree-robot-ipo.html",
-    "date": "2026-08-10"
-  },
-  {
     "id": "series-game-article-02",
     "title": "8月游戏圈热点观察：93分黑马、两周年悬案与没有3A的暑期档",
     "summary": "2026年8月游戏圈没有3A大作压阵，却格外热闹。《Big Walk》以Metacritic 93分登顶年度评分榜，证明创意比预算重要；《黑神话：悟空》迎来发售两周年DLC依然难产。用技术脑拆解这三件事背后的产业信号。",
     "series": "游戏资讯",
     "tags": ["Big Walk", "黑神话悟空", "独立游戏", "游戏产业分析", "Metacritic评分"],
     "url": "/articles/series-game/august-gaming-hotspot.html",
-    "date": "2026-08-10"
-  },
-  {
-    "id": "series-life-article-05",
-    "title": "成品油调价机制与加油省钱攻略：搞懂规则再加油",
-    "summary": "2026年第16轮成品油调价窗口锁定8月14日24时，下调预期明确。本文系统梳理国内成品油定价机制底层逻辑（10个工作日周期、50元门槛、40至130美元上下限），拆解2026年至今10涨4跌1搁浅走势规律，给出一套普通人能直接执行的加油省钱攻略。",
-    "series": "个人知识库",
-    "tags": ["成品油调价", "加油省钱", "定价机制", "油价预测"],
-    "url": "/articles/series-life/oil-pricing-guide.html",
     "date": "2026-08-10"
   },
   {
@@ -306,15 +45,6 @@
     "date": "2026-08-11"
   },
   {
-    "id": "series-ai-article-09",
-    "title": "Gemini月活破10亿：Google的AI助手如何成为史上增长最快的产品",
-    "summary": "2026年8月11日，Google CEO皮查伊宣布Gemini月活突破10亿，成为谷歌史上增速最快的产品。本文从增长拆解、用户行为洞察、竞争格局与隐忧三个维度，审视10亿月活背后的真实增长质量，并修正了Q2财报月活数据的常见误传。",
-    "series": "AI系列",
-    "tags": ["Gemini", "Google AI", "AI月活分析", "AI竞争格局", "多模态AI助手"],
-    "url": "/articles/series-ai/gemini-1b-mau.html",
-    "date": "2026-08-12"
-  },
-  {
     "id": "series-game-article-06",
     "title": "8月中旬Steam独立游戏发售日历：哪些值得放入愿望单",
     "summary": "从8月12日至14日Steam独立游戏扎堆发售的现象切入，按发售日期梳理值得关注的独立游戏，重点深扒Grave Seasons、Low-Budget Repairs、Capy Castaway三款作品，并按四类玩家给出愿望单推荐清单。",
@@ -333,15 +63,6 @@
     "date": "2026-08-13"
   },
   {
-    "id": "series-ai-article-10",
-    "title": "DeepSeek V4 Pro正式版上线：0.1分差距背后的Agent能力突围",
-    "summary": "2026年8月13日凌晨，DeepSeek V4 Pro正式版上线，Terminal-Bench 2.1跑出87.9分，仅落后全球第一的Anthropic Fable 5共0.1分，并在CyberGym和AutomationBench两项Agent评测中实现反超。本文从定价结构、Agent能力突破、竞争格局三个维度，拆解这场0.1分追赶背后的产业信号。",
-    "series": "AI系列",
-    "tags": ["DeepSeek", "AI Agent", "大模型定价", "Terminal-Bench评测", "国产开源大模型"],
-    "url": "/articles/series-ai/deepseek-v4-pro-agent.html",
-    "date": "2026-08-13"
-  },
-  {
     "id": "series-game-article-08",
     "title": "Mortal Shell II定档8月20日：独立类魂游戏的生存突围",
     "summary": "2026年8月20日，Cold Symmetry开发的独立类魂游戏《Mortal Shell II》将在PC、PS5、Xbox Series同步发售，标准版定价49.99美元。本文从Mortal Shell系列六年的产品跃迁、独立类魂游戏在3A化魂系时代的生存夹缝、以及移除体力条这一激进改动的风险与机遇三个维度，拆解这款独立续作面临的突围困境。",
@@ -357,15 +78,6 @@
     "series": "游戏资讯",
     "tags": ["独立游戏", "撤离射击", "游戏产业分析", "病毒传播", "小团队开发"],
     "url": "/articles/series-game/escape-from-duckov.html",
-    "date": "2026-08-15"
-  },
-  {
-    "id": "series-ai-article-11",
-    "title": "MIT权重开放与Harness框架开源：DeepSeek如何补齐国产AI Agent工具链",
-    "summary": "2026年8月13日，DeepSeek V4 Pro正式版以MIT许可证开放1.6万亿参数MoE权重下载，同步开源基于Cordis的Agent框架Harness（dsh）。本文从MIT权重的战略意义、Harness的一切皆插件设计、API涨价推力三个维度，拆解DeepSeek从开放API服务到开放模型权重加补齐工具链的定位转变。",
-    "series": "AI系列",
-    "tags": ["DeepSeek V4 Pro", "MIT开源权重", "Harness框架", "AI Agent工具链", "私有化部署"],
-    "url": "/articles/series-ai/deepseek-harness-open-source.html",
     "date": "2026-08-15"
   },
   {

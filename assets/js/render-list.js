@@ -167,10 +167,7 @@
     if (!host || !Array.isArray(articles)) return;
 
     var META = {
-      '里世界': { code: '壹', accent: 'seal', desc: '个人观点、视频底稿与深度思考，记录自媒体创作背后的想法与素材。' },
-      'AI系列': { code: '贰', accent: 'gold', desc: '大语言模型入门、Prompt Engineering、AI 绘图工具对比与本地部署实战。' },
-      '个人知识库': { code: '叁', accent: 'jade', desc: '网络安全加固、渗透测试、开发框架整合、生活购买指南等学习笔记与备忘录。' },
-      '游戏资讯': { code: '肆', accent: 'seal', desc: '游戏行业观察、游戏文化分析与玩家心理解读，用技术脑看懂游戏产业。' }
+      '游戏资讯': { code: '壹', accent: 'seal', desc: '游戏行业观察、游戏文化分析与玩家心理解读，用技术脑看懂游戏产业。' }
     };
     var CODES = ['壹', '贰', '叁', '肆', '伍'];
     var ACCENTS = ['seal', 'gold', 'jade', 'gold', 'seal'];
@@ -215,9 +212,7 @@
     if (!host || !Array.isArray(articles)) return;
 
     var META = {
-      '里世界': { code: '壹', accent: 'seal', desc: '个人观点、视频底稿与深度思考，记录自媒体创作背后的想法与素材。' },
-      'AI系列': { code: '贰', accent: 'gold', desc: '大语言模型入门、Prompt Engineering、AI 绘图工具对比与本地部署实战。' },
-      '个人知识库': { code: '叁', accent: 'jade', desc: '网络安全加固、渗透测试、开发框架整合、生活购买指南等学习笔记与备忘录。' }
+      '游戏资讯': { code: '壹', accent: 'seal', desc: '游戏行业观察、游戏文化分析与玩家心理解读，用技术脑看懂游戏产业。' }
     };
     var CODES = ['壹', '贰', '叁', '肆', '伍'];
     var ACCENTS = ['jade', 'gold', 'seal', 'jade', 'gold'];

@@ -2,139 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zymyshadow.github.io/about.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/articles/index.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/ai-coding-tools.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/ai-drawing-tools.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/llm-intro.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/local-llm-deploy.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/prompt-tips.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-li/ai-content-labeling.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/autonomous-driving-standard.html</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/hermes-agent-setup.html</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-li/ai-consciousness.html</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-li/consumer-divergence.html</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/agentic-ai-shift.html</loc>
-    <lastmod>2026-08-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-game/gta6-anticipation-economy.html</loc>
-    <lastmod>2026-08-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-life/uv-autumn-protection.html</loc>
-    <lastmod>2026-08-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-li/typhoon-dolphin-urban-resilience.html</loc>
-    <lastmod>2026-08-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://zymyshadow.github.io/articles/series-game/august-gaming-hotspot.html</loc>
     <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-life/oil-pricing-guide.html</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-li/unitree-robot-ipo.html</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-game/steam-indie-game-rules.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-game/coop-indie-game-boom.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-game/nomanssky-10years.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/gemini-1b-mau.html</loc>
-    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -145,20 +25,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://zymyshadow.github.io/articles/series-game/coop-indie-game-boom.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://zymyshadow.github.io/articles/series-game/dawn-of-war-4-rts.html</loc>
     <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/deepseek-v4-pro-agent.html</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-game/mortal-shell-2-soulslike.html</loc>
-    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -169,8 +43,20 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zymyshadow.github.io/articles/series-ai/deepseek-harness-open-source.html</loc>
-    <lastmod>2026-08-15</lastmod>
+    <loc>https://zymyshadow.github.io/articles/series-game/gta6-anticipation-economy.html</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zymyshadow.github.io/articles/series-game/mortal-shell-2-soulslike.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zymyshadow.github.io/articles/series-game/nomanssky-10years.html</loc>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -181,182 +67,104 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zymyshadow.github.io/articles/series-dev/ide-editors.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-dev/springboot-01.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-dev/springboot-logback.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-dev/tag-plugins.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-life/display-guide.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-life/food-standards.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-life/wireless-peripherals.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-sec/cyber-tools.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-sec/cybersecurity-law.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-sec/info-collection.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-sec/level-protect.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-sec/linux-sec.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-sec/nmap-help.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zymyshadow.github.io/articles/series-sec/reverse-tools.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <loc>https://zymyshadow.github.io/articles/series-game/steam-indie-game-rules.html</loc>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/articles/series.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/7dtd/guides/beginner-02.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/7dtd/guides/beginner-03.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/7dtd/guides/beginner-04.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/7dtd/guides/beginner-05.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/7dtd/guides/beginner-06.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/7dtd/index.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/index.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/mc/guides/mod-create-intro.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/mc/guides/mod-slashblade-intro.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/mc/guides/mod-tinkers-intro.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/mc/guides/mod-utopia-intro.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/games/mc/index.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/nav.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/news/index.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -368,43 +176,43 @@
   </url>
   <url>
     <loc>https://zymyshadow.github.io/search.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/tools/base64.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/tools/color-picker.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/tools/hash-gen.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/tools/index.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/tools/json-formatter.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/tools/markdown-preview.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -416,19 +224,19 @@
   </url>
   <url>
     <loc>https://zymyshadow.github.io/tools/regex-tester.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/tools/timestamp.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zymyshadow.github.io/tools/url-codec.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
